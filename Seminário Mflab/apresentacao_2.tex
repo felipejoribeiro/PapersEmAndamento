@@ -21,6 +21,7 @@
 \usepackage{makecell}
 \usepackage{caption}
 \usetheme{Madrid} 
+\usepackage{amsmath}
 
 \lstset{ %
 %	backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
@@ -191,7 +192,7 @@
 		\begin{frame}
 		\frametitle{Temperatura em um escoamento turbulento de Poiseuille}
 			\begin{minipage}[h!]{0.49\textwidth}
-			$\bullet$ O estudo do comportamento térmico de fluidos é de suma importância ao desenvolvimento científico atual. A medida que o maquinário industrial evolui, também cresce o consumo energético no mundo. Montante parte deste custo surge da transformação de energias. Assim surge uma grande necessidade de sistemas de gerenciamento térmico. Como a difusão é um processo muito lento, o meio mais utilizado para se resfriar maquinários industriais é o advectivo, onde uma interface fluido-estrutura carrega energia térmica para fora do sistema. Estudar estes fenômenos é essencial para que hajam cada vez máquinas maiores e mais potentes, de forma sustentável. 
+			$\bullet$ O estudo do comportamento térmico de escoamentos é de suma importância ao desenvolvimento científico atual. A medida que o maquinário industrial é aperfeiçoado, também cresce o consumo energético no mundo. Grande parte deste custo surge das transformações energéticas dentro do sistema, em sua maioria, resultando em manifestações térmicas. Assim surge uma grande necessidade de mecanismos de gerenciamento térmico. Como a difusão é um processo muito lento, o meio mais utilizado para se resfriar maquinários industriais é o advectivo, onde uma interface fluido-estrutura carrega energia térmica para fora do sistema. Estudar estes fenômenos é essencial para que hajam cada vez máquinas mais eficientes, assim assegurando um desenvolvimento sustentável. 
 		\end{minipage}
 		\begin{minipage}[h!]{0.49\textwidth}
 			\begin{figure}[h!]
@@ -215,9 +216,9 @@
 		\begin{frame}
 			\frametitle{Escoamento de Poiseuille plano}
 			$\bullet$ O problema foi definido como um escoamento de canal, com somente uma dimensão finita no eixo $y$. \\
-			$\bullet$ A condição de contorno foi determinada como duas placas infinitas em um regime de fluxo térmico constante.\\
+			$\bullet$ As condições de contorno foram determinadas como duas placas infinitas em um regime de fluxo térmico constante.\\
 			$\bullet$ Um gradiente de pressão constante foi imposto no eixo $x$.\\
-			$\bullet$ No eixo $z$ foi proposto uma auto similaridade dinâmica e térmica, resultando em uma análise bidimensional (Fig.\ref{figure.1}). \\
+			$\bullet$ Foi proposta uma auto similaridade dinâmica e térmica no eixo $z$, resultando em uma análise dinâmica unidimensional e térmica bidimensional (Fig.\ref{figure.1}). \\
 			$\bullet$ O escoamento foi definido como newtoniano e incompressível em regime turbulento.\\
 			\begin{minipage}[h!]{0.3\textwidth}
 				\begin{equation*}
@@ -225,6 +226,9 @@
 				\end{equation*}
 				\begin{equation*}
 				\frac{\partial u }{\partial z} = 0
+				\end{equation*}
+				\begin{equation*}
+				\frac{\partial u }{\partial x} = 0
 				\end{equation*}
 			\end{minipage}
 			\begin{minipage}[h!]{0.5\textwidth}
@@ -251,12 +255,12 @@
 		\frametitle{Equações do movimento}
 		$\bullet$ Para modelar diferencialmente a velocidade do fluido, foram utilizadas a equação da continuidade e a equação de Navier-Stokes para a velocidade no eixo de interesse.
 		\begin{equation}
-		\frac{\partial u}{\partial t} + \frac{\partial u^2}{\partial x} + \frac{\partial uv}{\partial y} + \frac{\partial uw}{\partial z} = - \frac{1}{\rho} . \frac{\partial {p}}{\partial x} + \nu . \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}   \right)
+		\frac{\partial u}{\partial t} + \frac{\partial u^2}{\partial x} + \frac{\partial uv}{\partial y} + \frac{\partial uw}{\partial z} = - \frac{1}{\rho} \frac{\partial {p}}{\partial x} + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}   \right)
 		\end{equation}
 		\begin{equation}
-		\frac{\partial \rho}{\partial t} +  \frac{\partial (\rho .u)}{\partial x} + \frac{\partial (\rho .v)}{\partial y} + \frac{\partial (\rho .w)}{\partial z} = 0
+		\frac{\partial \rho}{\partial t} +  \frac{\partial (\rho u)}{\partial x} + \frac{\partial (\rho v)}{\partial y} + \frac{\partial (\rho w)}{\partial z} = 0
 		\end{equation}
-		Para o desenvolvimento da equação da energia em uma instancia advectiva foi necessário o desenvolvimento do perfil cinético do sistema.
+		Para o desenvolvimento da equação da energia em uma instancia convectiva foi necessário o desenvolvimento do perfil cinético do sistema.
 		\end{frame}
 
 
@@ -265,9 +269,9 @@
 
 		\begin{frame}
 		\frametitle{Equação da energia}
-		$\bullet$ Para a análise térmica, foram utilizadas a equação do balanço de energia e a equação da energia convectiva.
+		$\bullet$ Para a análise térmica, foram utilizadas a equação da energia térmica e uma equação de balanço da energia térmica convectiva.
 		\begin{equation}
-		\frac{\partial T}{\partial t} + {\frac{\partial{}}{\partial{x}} (u.T)} + {\frac{\partial{}}{\partial{y}} (v.T)} + {\frac{\partial{}}{\partial{z}} (w.T)}
+		\frac{\partial T}{\partial t} + {\frac{\partial{}}{\partial{x}} (uT)} + {\frac{\partial{}}{\partial{y}} (vT)} + {\frac{\partial{}}{\partial{z}} (wT)}
 		=
 		{\frac{\partial{}}{\partial{x}}} \left(\alpha {\frac{\partial{T}}{\partial{x}}} \right) +
 		{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{T}}{\partial{y}}} \right) +
@@ -289,7 +293,7 @@
 		
 		\begin{frame}
 			\frametitle{Princípio dos valores médios}
-			$\bullet$ Para se prosseguir com as simplificações do sistema advectivo foi necessário se utilizar deste conceito de valores médios. Tal consideração determina essa como uma metodologia RANS. (Reynolds Averaged Navier Stokes)
+			$\bullet$ Para se prosseguir com as simplificações das equações diferenciais foi necessário se utilizar os conceitos de valores médios. Tal consideração implica no uso do modelo RANS. (Reynolds Averaged Navier Stokes)
 			\\
 			\begin{minipage}[h!]{0.45\textwidth}
 				\begin{equation*}
@@ -302,7 +306,7 @@
 				\overline{\overline{f({x})}} = \overline{f({x})}  & \quad   \\
 				\overline{f^\prime ({x} ,t)\overline{f({x})}} = 0  & \quad   \\
 				\overline{f^\prime ({x} ,t)g^\prime ({x} ,t)} \neq 0  & \quad   \\
-				\overline{  \overline{g({x})}. \overline{f({x})}  } = {\overline{g({x})}} . {\overline{f({x})}}  & \quad   \\
+				\overline{  \overline{g({x})} \ \overline{f({x})}  } = {\overline{g({x})}} \ {\overline{f({x})}}  & \quad   \\
 				\end{cases}
 				\end{equation*}
 			\end{minipage}\hfill
@@ -325,20 +329,20 @@
 				\begin{frame}
 		\frametitle{Simplificando a velocidade para valores médios}
 		\begin{equation}
-		\frac{\partial \overline{u}}{\partial t} + \frac{\partial \overline{u^2}}{\partial x} + \frac{\partial \overline{uv}}{\partial y} + \frac{\partial \overline{uw}}{\partial z} = - \frac{1}{\rho} . \frac{\partial \overline{p}}{\partial x} + \nu . \left( \frac{\partial^2 \overline{u}}{\partial {x^2}} + \frac{\partial^2 \overline{u}}{\partial y^2} + \frac{\partial^2 \overline{u}}{\partial z^2}   \right)
+		\frac{\partial \overline{u}}{\partial t} + \frac{\partial \overline{u^2}}{\partial x} + \frac{\partial \overline{uv}}{\partial y} + \frac{\partial \overline{uw}}{\partial z} = - \frac{1}{\rho}  \frac{\partial \overline{p}}{\partial x} + \nu  \left( \frac{\partial^2 \overline{u}}{\partial {x^2}} + \frac{\partial^2 \overline{u}}{\partial y^2} + \frac{\partial^2 \overline{u}}{\partial z^2}   \right)
 		\end{equation}
 		\\
 		\begin{equation}
 		\begin{split}
-		\frac{\partial \overline{(\overline{u} + u^\prime)}}{\partial t} + \frac{\partial \overline{(\overline{u}^2 + 2 . \overline{u} . u^\prime + {u^\prime}^2)}}{\partial x} + \frac{\partial \overline{(\overline{u}.\overline{v} + u^\prime . \overline{v} + \overline{u} . v^\prime + u^\prime . v ^\prime )}}{\partial y} + \\
-		\frac{\partial \overline{(\overline{u}.\overline{w} + u^\prime . \overline{w} + \overline{u} . w^\prime + u^\prime . w ^\prime )}}{\partial z} = - \frac{1}{\rho} . \frac{\partial \overline{(\overline{p} + p ^\prime)}}{\partial x} + \nu . \left( \frac{\partial^2 \overline{(\overline{u} + u^\prime)}}{\partial {x^2}} + \frac{\partial^2 \overline{(\overline{u} + u^\prime)}}{\partial y^2} + \frac{\partial^2 \overline{(\overline{u} + u^\prime)}}{\partial z^2}   \right)
+		\frac{\partial \overline{(\overline{u} + u^\prime)}}{\partial t} + \frac{\partial \overline{(\overline{u}^2 + 2  \overline{u}  u^\prime + {u^\prime}^2)}}{\partial x} + \frac{\partial \overline{(\overline{u}\ \overline{v} + u^\prime  \  \overline{v} + \overline{u}  v^\prime + u^\prime  v ^\prime )}}{\partial y} + \\
+		\frac{\partial \overline{(\overline{u} \ \overline{w} + u^\prime  \overline{w} + \overline{u}  w^\prime + u^\prime  w ^\prime )}}{\partial z} = - \frac{1}{\rho}  \frac{\partial \overline{(\overline{p} + p ^\prime)}}{\partial x} + \nu  \left( \frac{\partial^2 \overline{(\overline{u} + u^\prime)}}{\partial {x^2}} + \frac{\partial^2 \overline{(\overline{u} + u^\prime)}}{\partial y^2} + \frac{\partial^2 \overline{(\overline{u} + u^\prime)}}{\partial z^2}   \right)
 		\end{split}
 		\end{equation}
 		\\
 		\begin{equation}
 		\begin{split}
-		\frac{\partial \overline{u}}{\partial t} + \frac{\partial \overline{u^2}}{\partial x} + \frac{\partial \overline{u}.\overline{v}}{\partial y} + \frac{\partial \overline{u}.\overline{w}}{\partial z} =  - \frac{1}{\rho} . \frac{\partial \overline{{p}}}{\partial x} + \frac{\partial}{\partial x} \left( \nu.\frac{\partial \overline{u}}{\partial x} - \overline{{u^\prime}^2}\right) + \frac{\partial}{\partial y} \left( \nu.\frac{\partial \overline{u}}{\partial y} - \overline{{u^\prime . v^\prime}}\right) \\
-		+ \frac{\partial}{\partial z} \left( \nu . \frac{\partial \overline{u}}{\partial z} - \overline{ u ^\prime . w ^\prime} \right)
+		\frac{\partial \overline{u}}{\partial t} + \frac{\partial \overline{u^2}}{\partial x} + \frac{\partial \overline{u} \ \overline{v}}{\partial y} + \frac{\partial \overline{u} \ \overline{w}}{\partial z} =  - \frac{1}{\rho}  \frac{\partial \overline{{p}}}{\partial x} + \frac{\partial}{\partial x} \left( \nu \frac{\partial \overline{u}}{\partial x} - \overline{{u^\prime}^2}\right) + \frac{\partial}{\partial y} \left( \nu \frac{\partial \overline{u}}{\partial y} - \overline{{u^\prime v^\prime}}\right) \\
+		+ \frac{\partial}{\partial z} \left( \nu  \frac{\partial \overline{u}}{\partial z} - \overline{ u ^\prime w ^\prime} \right)
 		\end{split}
 		\end{equation}
 		\end{frame}
@@ -351,7 +355,7 @@
 			\frametitle{Modelando a equação da continuidade para valores médios}
 			$\bullet$ Desenvolvendo a equação da Continuidade, é possível se chegar a uma conclusão muito importante, para os valores médios.
 			\begin{equation*}
-			\color{red}\frac{\partial \rho}{\partial t} \color{black}+  \frac{\partial (\color{red}\rho \color{black}.u)}{\partial x} + \frac{\partial (\color{red} \rho \color{black}.v)}{\partial y} + \frac{\partial (\color{red}\rho \color{black}.w)}{\partial z} = 0
+			\color{red}\frac{\partial \rho}{\partial t} \color{black}+  \frac{\partial (\color{red}\rho \color{black}u)}{\partial x} + \frac{\partial (\color{red} \rho \color{black}v)}{\partial y} + \frac{\partial (\color{red}\rho \color{black}w)}{\partial z} = 0
 			\end{equation*}
 			\begin{equation}
 			\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0
@@ -365,7 +369,7 @@
 			\begin{equation}
 			\frac{\partial {\overline{u}}}{\partial x} +\frac{\partial {\overline{v}}}{\partial y} +\frac{\partial {\overline{w}}}{\partial z} = 0
 			\end{equation}
-			Assim, como $ \frac{\partial {\overline{v}}}{\partial y} $ e $ \frac{\partial {\overline{w}}}{\partial z}$ são iguais a zero, por definição de um sistema laminar para valores médios, necessariamente $\frac{\partial {\overline{u}}}{\partial x}$ deve ser igual a zero também, o que demonstra como o sistema resultante é unidimensional.
+			Assim, como $ \frac{\partial {\overline{v}}}{\partial y} $ e $ \frac{\partial {\overline{w}}}{\partial z}$ são iguais a zero, por definição do comportamento médio dos escoamentos, necessariamente $\frac{\partial {\overline{u}}}{\partial x}$ deve ser igual a zero também, o que demonstra como o sistema resultante é unidimensional.
 		\end{frame}
 		
 		
@@ -374,31 +378,31 @@
 		\begin{frame}
 		\frametitle{Simplificando a temperatura para valores médios}
 		\begin{equation}
-		\frac{\partial \overline{T}}{\partial t} + {\frac{\partial{}}{\partial{x}} \overline{(u . T)}} + 
-		{\frac{\partial{}}{\partial{y}} \overline{(v . T)}} 
+		\frac{\partial \overline{T}}{\partial t} + {\frac{\partial{}}{\partial{x}} \overline{(u T)}} + 
+		{\frac{\partial{}}{\partial{y}} \overline{(v T)}} 
 		=
 		{\frac{\partial{}}{\partial{x}}} \left(\alpha {\frac{\partial{\overline{T}}}{\partial{x}}} \right) +
 		{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{T}}}{\partial{y}}} \right) 
 		\end{equation}
 		\begin{equation}
 		\begin{split}
-		\frac{\partial \overline{(\overline{T} + T^\prime)}}{\partial t} +{\frac{\partial{}}{\partial{x}} \overline{\left((\overline{u} + u^\prime) . (\overline{T} + T^\prime) \right)}} + 
-		{\frac{\partial{}}{\partial{y}} \overline{(\left(\overline{v} + v^\prime) . (\overline{T} + T^\prime) \right)}} 
+		\frac{\partial \overline{(\overline{T} + T^\prime)}}{\partial t} +{\frac{\partial{}}{\partial{x}} \overline{\left((\overline{u} + u^\prime)  (\overline{T} + T^\prime) \right)}} + 
+		{\frac{\partial{}}{\partial{y}} \overline{(\left(\overline{v} + v^\prime)  (\overline{T} + T^\prime) \right)}} 
 		= \\
 		{\frac{\partial{}}{\partial{x}}} \left(\alpha {\frac{\partial{\overline{(\overline{T} + T^\prime)}}}{\partial{x}}} \right) +
 		{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{(\overline{T} + T^\prime)}}}{\partial{y}}} \right) 
 		\end{split}
 		\end{equation}
 		\begin{equation}
-		\frac{\partial \overline{T}}{\partial t} +\frac{\partial{}}{\partial{x}} \left(\overline{\left({T^\prime . u^\prime}\right)} + \overline{u}.\overline{T}\right)     + 
-		\frac{\partial{}}{\partial{y}} \left(\overline{\left({T^\prime . v^\prime}\right)} + \overline{v}.\overline{T}\right) 
+		\frac{\partial \overline{T}}{\partial t} +\frac{\partial{}}{\partial{x}} \left(\overline{\left({T^\prime u^\prime}\right)} + \overline{u} \ \overline{T}\right)     + 
+		\frac{\partial{}}{\partial{y}} \left(\overline{\left({T^\prime v^\prime}\right)} + \overline{v} \ \overline{T}\right) 
 		=
 		{\frac{\partial{}}{\partial{x}}} \left(\alpha {\frac{\partial{\overline{T}}}{\partial{x}}} \right) +
 		{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{T}}}{\partial{y}}} \right) 
 		\end{equation}
 		\begin{equation}\label{equation_preparede}
-		\frac{\partial \overline{T}}{\partial t} +\frac{\partial{}}{\partial{x}} \left(\overline{T^\prime .  u^\prime}\right) + \frac{\partial{}}{\partial{x}}\left(\overline{u}.\overline{T}\right)     + 
-		\frac{\partial{}}{\partial{y}} \left(\overline{T^\prime . v^\prime}\right) + \frac{\partial{}}{\partial{x}}\left(\overline{v}.\overline{T}\right) 
+		\frac{\partial \overline{T}}{\partial t} +\frac{\partial{}}{\partial{x}} \left(\overline{T^\prime  u^\prime}\right) + \frac{\partial{}}{\partial{x}}\left(\overline{u} \ \overline{T}\right)     + 
+		\frac{\partial{}}{\partial{y}} \left(\overline{T^\prime v^\prime}\right) + \frac{\partial{}}{\partial{x}}\left(\overline{v} \ \overline{T}\right) 
 		=
 		{\frac{\partial{}}{\partial{x}}} \left(\alpha {\frac{\partial{\overline{T}}}{\partial{x}}} \right) +
 		{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{T}}}{\partial{y}}} \right) 
@@ -411,7 +415,7 @@
 
 		\begin{frame}
 			\frametitle{Diferença de temperatura}
-			$\bullet$ Apesar de já em valores médios, o domínio da temperatura ainda assim não se reduz a um problema unidimensional. Para isso, as condições de contorno devem ser controladas. No caso deste trabalho, estabeleceu-se um regime de fluxo térmico constante, o que converteu-se em um gradiente linear de temperatura nas paredes no sentido do eixo $x$.  \\
+			$\bullet$ Apesar de já estar em valores médios, a temperatura no domínio não se reduz a um problema unidimensional. Para isso, as condições de contorno devem ser controladas. No caso deste trabalho, estabeleceu-se um regime de fluxo térmico constante, o que implicou em um gradiente linear de temperatura nas paredes no sentido do eixo $x$.  \\
 			\begin{minipage}[h!]{0.36\textwidth}
 				Tal gradiente linear se estende para todo o domínio, resultando em:
 				\begin{equation}
@@ -419,13 +423,16 @@
 				\end{equation}
 				Dessa forma, para se ter um sistema unidimensional representativo, se parametrizou a variável em função de variáveis de parede, ou seja:
 				\begin{equation}
+				\overline{T}^\ast(x , y) = \overline{T}(x,y)  - \overline{T}_w(x , y) 
+				\end{equation}
+				\begin{equation}
 				\overline{T}(x,y) = \overline{T}^\ast(x , y) + \overline{T}_w(x , y)
 				\end{equation}
 			\end{minipage}\hfill
 			\begin{minipage}[h!]{0.60\textwidth}
 			\begin{figure}
 				\centering
-				\includegraphics[angle=0, scale=0.16]{imagemtermico}
+				\includegraphics[angle=0, scale=0.14]{imagemtermico}
 				\caption{Representação gráfica do domínio térmico do sistema.}
 				\label{temperatura}
 			\end{figure}
@@ -441,22 +448,22 @@
 		\frametitle{Desenvolvendo a diferença de temperatura na equação}
 		\begin{equation}
 		\begin{split}
-		\frac{\partial ( \overline{T^\ast + t_w}  ) }{\partial t} +
-		\frac{\partial{}}{\partial{x}} \left(\overline{(T^\ast + T_w)^\prime . u^\prime}\right) + \frac{\partial{}}{\partial{x}}\left(\overline{(T^\ast + T_w)}. \overline{u}\right)+  \\
-		\frac{\partial{}}{\partial{y}} \left(\overline{(T^\ast + T_w)^\prime . v^\prime}\right) + \frac{\partial{}}{\partial{y}}\left(\overline{(T^\ast + T_w)} . \overline{v}\right) = \\
+		\frac{\partial ( \overline{T^\ast + T_w}  ) }{\partial t} +
+		\frac{\partial{}}{\partial{x}} \left(\overline{(T^\ast + T_w)^\prime u^\prime}\right) + \frac{\partial{}}{\partial{x}}\left(\overline{(T^\ast + T_w)} \ \overline{u}\right)+  \\
+		\frac{\partial{}}{\partial{y}} \left(\overline{(T^\ast + T_w)^\prime v^\prime}\right) + \frac{\partial{}}{\partial{y}}\left(\overline{(T^\ast + T_w)} \ \overline{v}\right) = \\
 		{\frac{\partial{}}{\partial{x}}} \left(\alpha {\frac{\partial{\overline{(T^\ast + T_w)}}}{\partial{x}}} \right) +
 		{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{(T^\ast + T_w)}}}{\partial{y}}} \right) 
 		\end{split}
 		\end{equation}
 		\begin{center}\begin{equation}\begin{split}
-		\frac{\partial ( \overline{ T^\ast + t_w } ) }{\partial t} +
-		\frac{\partial{}}{\partial{x}} \left(\overline{T_w^{\prime} . u^{\prime}}\right) +\frac{\partial{}}{\partial{x}} \left(\overline{{T^{\ast}}^{\prime} . u^{\prime}}\right)
-		+\frac{\partial{}}{\partial{x}}\left(\overline{u}. \overline{T^{\ast}}\right)+ 
-		\frac{\partial{}}{\partial{x}}\left(\overline{u}. \overline{T_w}\right)+ 
+		\frac{\partial ( \overline{ T^\ast + T_w } ) }{\partial t} +
+		\frac{\partial{}}{\partial{x}} \left(\overline{T_w^{\prime} u^{\prime}}\right) +\frac{\partial{}}{\partial{x}} \left(\overline{{T^{\ast}}^{\prime} u^{\prime}}\right)
+		+\frac{\partial{}}{\partial{x}}\left(\overline{u} \ \overline{T^{\ast}}\right)+ 
+		\frac{\partial{}}{\partial{x}}\left(\overline{u} \ \overline{T_w}\right)+ 
 		\\
-		\frac{\partial{}}{\partial{y}} \left(\overline{{T^{\ast}}^{\prime} .v^{\prime}}\right)+
-		\frac{\partial{}}{\partial{y}} \left(\overline{T_w^\prime . v^\prime}\right) + \frac{\partial{}}{\partial{y}}\left(\overline{v}. \overline{T^\ast}\right) +
-		\frac{\partial{}}{\partial{y}}\left(\overline{v}. \overline{T_w}\right) 
+		\frac{\partial{}}{\partial{y}} \left(\overline{{T^{\ast}}^{\prime} v^{\prime}}\right)+
+		\frac{\partial{}}{\partial{y}} \left(\overline{T_w^\prime v^\prime}\right) + \frac{\partial{}}{\partial{y}}\left(\overline{v} \ \overline{T^\ast}\right) +
+		\frac{\partial{}}{\partial{y}}\left(\overline{v} \ \overline{T_w}\right) 
 		= 
 		\\
 		{\frac{\partial{}}{\partial{x}}} \left(\alpha {\frac{\partial{\overline{(T^\ast + T_w)}}}{\partial{x}}} \right) +
@@ -474,12 +481,12 @@
 			Assim, na equação da velocidade, teremos as seguintes simplificações:
 			\begin{equation}
 			\begin{split}
-			\color{red}\frac{\partial \overline{u}}{\partial t} \color{black}+\color{red} \frac{\partial \overline{u^2}}{\partial x} \color{black}+\color{red} \frac{\partial \overline{u}.\color{blue}\overline{v}\color{red}}{\partial y}\color{black} + \color{red} \frac{\partial \overline{u}.\color{blue}\overline{w}\color{red}}{\partial z} \color{black} =  - \frac{1}{\rho} . \frac{\partial \overline{{p}}}{\partial x} + \frac{\partial}{\partial x} \left( \nu. \color{red}\frac{\partial \overline{u}}{\partial x} \color{black} - \overline{{u^\prime}^2}\right) + \frac{\partial}{\partial y} \left( \nu.\frac{\partial \overline{u}}{\partial y} - \overline{{u^\prime . v^\prime}}\right) \\
-			+ \color{red}\frac{\partial}{\partial z} \left( \nu . \frac{\partial \overline{u}}{\partial z} - \overline{ u ^\prime . w ^\prime} \right) \color{black}
+			\color{red}\frac{\partial \overline{u}}{\partial t} \color{black}+\color{red} \frac{\partial \overline{u^2}}{\partial x} \color{black}+\color{red} \frac{\partial \overline{u} \ \color{blue}\overline{v}\color{red}}{\partial y}\color{black} + \color{red} \frac{\partial \overline{u} \ \color{blue}\overline{w}\color{red}}{\partial z} \color{black} =  - \frac{1}{\rho} \frac{\partial \overline{{p}}}{\partial x} + \frac{\partial}{\partial x} \left( \nu \color{red}\frac{\partial \overline{u}}{\partial x} \color{black} - \overline{{u^\prime}^2}\right) + \frac{\partial}{\partial y} \left( \nu \frac{\partial \overline{u}}{\partial y} - \overline{{u^\prime  v^\prime}}\right) \\
+			+ \color{red}\frac{\partial}{\partial z} \left( \nu  \frac{\partial \overline{u}}{\partial z} - \overline{ u ^\prime w ^\prime} \right) \color{black}
 			\end{split}
 			\end{equation}
 			\begin{equation}
-			\frac{1}{\rho}. \frac{\partial \overline{p}}{\partial x} = \frac{\partial}{\partial y} \left( \nu . \frac{\partial \overline{u}}{\partial y} - \overline{u^\prime . v^\prime}\right)  
+			\frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} = \frac{\partial}{\partial y} \left( \nu \frac{\partial \overline{u}}{\partial y} - \overline{u^\prime v^\prime}\right)  
 			\end{equation}
 		\end{frame}
 		
@@ -493,15 +500,15 @@
 	 	\begin{center}
 	 	\begin{equation*}
 	 		\begin{split}
-	 		\color{red}\frac{\partial ( \overline{ T^\ast + t_w } ) }{\partial t} \color{black} +
-	 		\frac{\partial{}}{\partial{x}} \left(\overline{ \color{red}T_w^{\prime} \color{black}. u^{\prime}}\right) +
-	 		\color{red}\frac{\partial{}}{\partial{x}} \left(\overline{{T^{\ast}}^{\prime} . u^{\prime}}\right)+ \color{black}
-	 		\color{red} \frac{\partial{}}{\partial{x}}\left(\overline{u}. \overline{T^{\ast}}\right) \color{black}+ 
-	 		\frac{\partial{}}{\partial{x}}\left(\overline{u}. \overline{T_w}\right)+ 
+	 		\color{red}\frac{\partial ( \overline{ T^\ast + T_w } ) }{\partial t} \color{black} +
+	 		\frac{\partial{}}{\partial{x}} \left(\overline{ \color{red}T_w^{\prime} \color{black} u^{\prime}}\right) +
+	 		\color{red}\frac{\partial{}}{\partial{x}} \left(\overline{{T^{\ast}}^{\prime} u^{\prime}}\right)+ \color{black}
+	 		\color{red} \frac{\partial{}}{\partial{x}}\left(\overline{u} \ \overline{T^{\ast}}\right) \color{black}+ 
+	 		\frac{\partial{}}{\partial{x}}\left(\overline{u} \ \overline{T_w}\right)+ 
 	 		\\
-	 		\frac{\partial{}}{\partial{y}} \left(\overline{{T^{\ast}}^{\prime} .v^{\prime}}\right)+
-	 		\frac{\partial{}}{\partial{y}} \left(\overline{\color{red}T_w^\prime \color{black}. v^\prime}\right) + \frac{\partial{}}{\partial{y}}\left(\color{red}\overline{v} \color{black}. \overline{T^\ast}\right) +
-	 		\frac{\partial{}}{\partial{y}}\left(\color{red}\overline{v}\color{black}. \overline{T_w}\right) 
+	 		\frac{\partial{}}{\partial{y}} \left(\overline{{T^{\ast}}^{\prime} v^{\prime}}\right)+
+	 		\frac{\partial{}}{\partial{y}} \left(\overline{\color{red}T_w^\prime \color{black} v^\prime}\right) + \frac{\partial{}}{\partial{y}}\left(\color{red}\overline{v} \color{black} \ \overline{T^\ast}\right) +
+	 		\frac{\partial{}}{\partial{y}}\left(\color{red}\overline{v}\color{black} \ \overline{T_w}\right) 
 	 		= 
 	 		\\
 	 		\color{red}{\frac{\partial{}}{\partial{x}}} \left(\alpha {\frac{\partial{\overline{(T^\ast + T_w)}}}{\partial{x}}} \right) \color{black}+
@@ -524,12 +531,12 @@
 		
 		\begin{frame}
 			\frametitle{Hipótese de Boussinesq}
-			$\bullet$ Dessa forma, na modelagem da temperatura havia o fluxo térmico para se modelar, enquanto na equação da velocidade havia um tensor das tensões turbulentas de Reynolds. Os termos $\overline{T^{\ast\prime} . v^\prime}$ e $ \overline{u^\prime . v^\prime} $ podem ser modelados segundo a hipótese de Boussinesq, que postula:
+			$\bullet$ Dessa forma, na modelagem da temperatura havia o fluxo turbulento para se modelar, enquanto na equação da velocidade havia um tensor das tensões turbulentas de Reynolds. Os termos $\overline{T^{\ast\prime}  v^\prime}$ e $ \overline{u^\prime  v^\prime} $ podem ser modelados segundo a hipótese de Boussinesq, que postula:
 			\begin{equation}\label{bou}
-			-\left(\overline{ u^\prime . v^\prime}\right) = 
+			-\left(\overline{ u^\prime  v^\prime}\right) = 
 			\nu_\tau \frac{\partial{\overline{u}}}{\partial{y}}
 			\implies
-			-\left(\overline{ T^{\ast\prime} . v^\prime}\right) = 
+			-\left(\overline{ T^{\ast\prime}  v^\prime}\right) = 
 			\alpha_\tau \frac{\partial{\overline{T^\ast}}}{\partial{y}}
 			\end{equation}
 			Assim, desenvolvendo em ambas as equações: 
@@ -537,14 +544,14 @@
 			\begin{minipage}[h!]{0.45\textwidth}
 				\begin{equation}\label{equation_var}
 				{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{T^\ast}}}{\partial{y}}}   
-				+ \alpha_\tau . \frac{\partial \overline{T^\ast}}{\partial y} \right)
+				+ \alpha_\tau  \frac{\partial \overline{T^\ast}}{\partial y} \right)
 				= 
 				\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  
 				\end{equation}
 			\end{minipage}\hfill
 			\begin{minipage}[h!]{0.45\textwidth}
 				\begin{equation}
-				\frac{1}{\rho}. \frac{\partial \overline{p}}{\partial x} = \frac{\partial}{\partial y} \left( \nu . \frac{\partial \overline{u}}{\partial y} + \nu_\tau . \frac{\partial \overline{u}}{\partial y}\right)  
+				\frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} = \frac{\partial}{\partial y} \left( \nu  \frac{\partial \overline{u}}{\partial y} + \nu_\tau  \frac{\partial \overline{u}}{\partial y}\right)  
 				\end{equation}
 			\end{minipage}
 		\end{frame}
@@ -559,10 +566,10 @@
 			\begin{equation}
 				Pr_\tau = \frac{\nu_\tau}{\alpha_\tau}
 			\end{equation} 
-			Assim, temos nas duas equações o valor do número de Prandtl turbulento que precisa ser modelado. Enquanto o valor do número de Prandtl turbulento foi definido como $ Pr_\tau = 0.71$, segundo a literatura.
+			Assim, temos nas duas equações o valor do número de Prandtl turbulento que precisa ser modelado. O valor do número de Prandtl turbulento foi definido como $ Pr_\tau = 0.71$, segundo a literatura.
 			O modelo do comprimento de mistura de Prandtl postula que:
 			\begin{equation}
-			\nu_\tau = {l_m}^2 . \left| \frac{\partial \overline{u}}{\partial y} \right|
+			\nu_\tau = {l_m}^2 \left| \frac{\partial \overline{u}}{\partial y} \right|
 			\end{equation}
 		\end{frame}
 	
