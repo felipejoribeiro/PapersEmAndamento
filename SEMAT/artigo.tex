@@ -124,25 +124,105 @@ Somando as equações \ref{Spacial_discretization1} e \ref{Spacial_discretizatio
 Truncando-se a equação \ref{Spacial_discretization3} no termo de segunda ordem ($\mathcal{O}(\Delta x^2)$), obtém-se o método de diferenças centradas.
 Substituindo-se as relações truncadas na equação \ref{difusao_pura} tem-se a equação \ref{difusao_discretizada} .
 \begin{equation} \label{difusao_discretizada}
-\frac{\Phi \left(t+\Delta t, x\right)-\Phi \left(t, x\right)}{\Delta t}= \alpha \frac{\Phi \left(t, x+\Delta x\right)-2 \Phi \left(t, x\right) + \Phi \left(t, x-\Delta x\right)}{\Delta x^2}% + g\left(x,t\right)
+\frac{\Phi \left(t+\Delta t, x\right)-\Phi \left(t, x\right)}{\Delta t}\approx \alpha \frac{\Phi \left(t, x+\Delta x\right)-2 \Phi \left(t, x\right) + \Phi \left(t, x-\Delta x\right)}{\Delta x^2}% + g\left(x,t\right)
 \end{equation}
-Para a análise do erro dessa discretização, substituem-se as equações \ref{Time_discretization} e \ref{Spacial_discretization3} na equação \ref{difusao_discretizada}:
+Para o desenvolvimento numérico, a discretização temporal e espacial é necessária. Para isso, um domínio contínuo e infinito deve ser traduzido para um conjunto finito e discreto onde se aplica a metodologia numérica. Assim, o domínio é discretizado uniformemente:\\
+\\
+\begin{minipage}[!h]{0.40\textwidth} 
+	\begin{equation}
+		t^N = N \Delta t
+	\end{equation}
+\end{minipage}
+\begin{minipage}[!h]{0.40\textwidth}
+	\begin{equation}
+		x_I = I \Delta x
+	\end{equation}
+\end{minipage}\\
+\\
+As variáveis $N$ e $I$ são números inteiros. Dessa forma, defini-se a função numérica com os termos truncados \ref{difusao_discretizada}, como a seguir, no domínio discreto:
+\begin{equation}\label{ola}
+\frac{\phi ^{N + 1} _ I - \phi ^{N} _ I}{\Delta t} 
+=
+\alpha \frac{\phi ^{N} _ {I + 1} - 2 \phi ^{N} _ I + \phi ^{N} _ {I-1}}{\Delta x ^ 2} 
+\end{equation}
+Para se estudar o erro, porém, cria-se uma equação modificada $\Psi (t , x) $. Ela denotaria a relação a cima, ou seja, uma função no contínuo que tem todos os resultados numéricos para o domínio de $\phi ^{N} _ {I}$, para isso, a relação exposta ne equação \ref{ola} precisa ser uma verdade. Assim, expande-se a função $ \Psi (t , x)$ em nos pontos citados na relação em \ref{ola} e desenvolve-se a equação:
+
 \begin{equation} \label{difusao_discretizada_modificada}
-\frac{\partial \Phi \left( x,t \right)}{\partial t} + \sum\limits_{n=2}^{\infty} \frac{\Delta t^{n-1}}{n!} \frac{\partial^{n} \Phi\left(t, x\right)}{\partial t^{n}} = \alpha \left(\frac{\partial^{2} \Phi \left(t, x\right)}{\partial x^{2}}+ \\
-2 \sum\limits_{n=2}^{\infty} \frac{ \Delta x^{\left(2\left(n-1\right)\right)}}{\left(2n\right)!} \frac{\partial^{\left(2n\right)} \Phi \left(t, x\right)}{\partial x^{\left(2n\right)}}\right)% + g\left(x,t\right)
+\begin{split}
+\frac{\Psi (t , x) + \sum\limits_{n=1}^{\infty} \frac{\Delta t^{n}}{n!} \frac{\partial^{n} \Psi (t , x)}{\partial t^{n}} - \Psi (t , x)}{\Delta t} 
+=
+\alpha \frac{
+	\Psi \left(t, x\right)
+	+\sum\limits_{n=1}^{\infty} \frac{\Delta x^{\left(2n-1\right)}}{\left(2n-1\right)!} \frac{\partial^{\left(2n-1\right)} \Psi \left(t, x\right)}{\partial x^{\left(2n-1\right)}}
+	+\sum\limits_{n=1}^{\infty} \frac{\Delta x^{\left(2n\right)}}{\left(2n\right)!} \frac{\partial^{\left(2n\right)} \Psi \left(t, x\right)}{\partial x^{\left(2n\right)}}
+			}{\Delta x ^ 2} \\
+-2 \frac{
+	\Psi (t , x)
+		}{\Delta x ^ 2} + 
+\frac{
+	\Psi \left(t, x\right) 
+	-\sum\limits_{n=1}^{\infty} \frac{\Delta x^{\left(2n-1\right)}}{\left(2n-1\right)!} \frac{\partial^{\left(2n-1\right)} \Psi \left(t, x\right)}{\partial x^{\left(2n-1\right)}}
+	+\sum\limits_{n=1}^{\infty} \frac{\Delta x^{\left(2n\right)}}{\left(2n\right)!} \frac{\partial^{\left(2n\right)} \Psi \left(t, x\right)}{\partial x^{\left(2n\right)}}
+		}{\Delta x ^ 2}
+\end{split}
 \end{equation}
+\begin{equation}
+\begin{split}
+\frac{ \sum\limits_{n=1}^{\infty} \frac{\Delta t^{n}}{n!} \frac{\partial^{n} \Psi (t , x)}{\partial t^{n}}}{\Delta t} 
+=
+2 \alpha \frac{
+	\sum\limits_{n=1}^{\infty} \frac{\Delta x^{\left(2n\right)}}{\left(2n\right)!} \frac{\partial^{\left(2n\right)} \Psi \left(t, x\right)}{\partial x^{\left(2n\right)}}
+}{\Delta x ^ 2}
+\end{split}
+\end{equation}
+Assim, expandindo-se no primeiro termo obtem-se a equação modificada:
+\begin{equation}
+\begin{split}
+ \frac{\partial \Psi \left(t, x\right) }{\partial t}   + \sum\limits_{n=2}^{\infty} \frac{\Delta t^{n - 1}}{n!} \frac{\partial^{n} \Psi (t , x)}{\partial t^{n}}
+= 
+\alpha \frac{\partial^2 \Psi \left(t, x\right) }{\partial x^2} +
+2 \alpha \sum\limits_{n=2}^{\infty} \frac{\Delta x^{\left(2n - 2\right)}}{\left(2n\right)!} \frac{\partial^{\left(2n\right)} \Psi \left(t, x\right)}{\partial x^{\left(2n\right)}}	
+\end{split}
+\end{equation}
+\begin{equation}\label{olalaaa}
+\begin{split}
+\frac{\partial \Psi \left(t, x\right) }{\partial t} -
+\alpha \frac{\partial^2 \Psi \left(t, x\right) }{\partial x^2} 
+= 
+2 \alpha \sum\limits_{n=2}^{\infty} \frac{\Delta x^{\left(2n - 2\right)}}{\left(2n\right)!} \frac{\partial^{\left(2n\right)} \Psi \left(t, x\right)}{\partial x^{\left(2n\right)}}
+- \sum\limits_{n=2}^{\infty} \frac{\Delta t^{n - 1}}{n!} \frac{\partial^{n} \Psi (t , x)}{\partial t^{n}}	
+\end{split}
+\end{equation}
+Pode-se escrever o passo de tempo em função do passo espacial a partir da definição do CFL (Courant Friedrichs Lewy), da seguinte forma:
+\begin{equation} \label{CFL}
+\Delta t^n= CFL^n \frac{\Delta x^{2n}}{\alpha^{n}}
+\end{equation}
+Assim, substituindo esta relação na equação \ref{olalaaa} e truncando-se os termos de ordem superior à quarta:
+\begin{equation}\label{final mod}
+\begin{split}
+\frac{\partial \Psi \left(t, x\right) }{\partial t} -
+\alpha \frac{\partial^2 \Psi \left(t, x\right) }{\partial x^2} 
+= 
+2 \alpha \sum\limits_{n=2}^{\infty} \frac{\Delta x^{\left(2n - 2\right)}}{\left(2n\right)!} \frac{\partial^{\left(2n\right)} \Psi \left(t, x\right)}{\partial x^{\left(2n\right)}}
+- \sum\limits_{n=2}^{\infty} \frac{\Delta t^{n - 1}}{n!} \frac{\partial^{n} \Psi (t , x)}{\partial t^{n}}	
+\end{split}
+\end{equation}
+\\
+. \\ 
+. \\
+. \\
 Utilizando-se o teorema de Clairaut-Schwarz, as derivadas temporais podem ser escritas em função das derivadas espaciais, conforme equação \ref{temp_func_epac}.
 \begin{equation} \label{temp_func_epac}
 \frac{\partial^{n} \Phi \left( x,t \right)}{\partial t^{n}} =  \alpha^{n} \frac{\partial^{\left(2n\right)} \Phi \left( x,t \right)}{\partial x^{\left(2n\right)}}
 \end{equation}
-Portanto, substituindo-se a equação \ref{temp_func_epac} na equação \ref{difusao_discretizada_modificada}, obtém-se a equação modificada \ref{equacao_modificada}.
+Portanto, substituindo-se a equação \ref{temp_func_epac} na equação \ref{olalaaa}, obtém-se a equação \ref{equacao_modificada}.
 \begin{equation} \label{equacao_modificada}
-\frac{\partial \Phi \left( x,t \right)}{\partial t} = \alpha \frac{\partial^{2} \Phi \left(t, x\right)}{\partial x^{2}}+ \\
+\frac{\partial \Psi \left( x,t \right)}{\partial t} - \alpha \frac{\partial^{2} \Psi \left(t, x\right)}{\partial x^{2}}= 
  \sum\limits_{n=2}^{\infty}\left( \left(\frac{ 2 \alpha \Delta x^{\left(2\left(n-1\right)\right)}}{\left(2n\right)!} -\frac{\Delta t^{n-1} \alpha^{n}}{n!}\right) \frac{\partial^{\left(2n\right)} \Phi \left(t, x\right)}{\partial x^{\left(2n\right)}}\right)
 \end{equation}
 Pode-se escrever o passo de tempo em função do passo espacial da seguinte forma:
-\begin{equation} \label{CFL}
-\Delta t^n= CFL^n \frac{\Delta x^{\left(2n\right)}}{\alpha^{n}}
+\begin{equation} 
+\Delta t^n= CFL^n \frac{\Delta x^{2n}}{\alpha^{n}}
 \end{equation}
 Na qual $CFL$ é uma constante. Substituindo-se a equação \ref{CFL} na equação \ref{equacao_modificada}, tem-se:
 \begin{equation} \label{equacao_modificadaCFL}

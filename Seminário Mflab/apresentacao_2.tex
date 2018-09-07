@@ -129,7 +129,7 @@
 %insere o logotipo da ufu em todos os slides
 % \logo{\includegraphics[height=0.8cm]{figuras/layout_slide/petrobras.png}}
 
-\title{Análise térmica em canal de Poiseuille turbulento: Um ajuste do número de Prandtl turbulento e valor de Cebeci para uma metodologia semi-exata}
+\title{Análise teórica de escoamento de Poiseuille plano com efeitos térmicos: ajuste do número de Prandtl turbulento e do número de Cebeci}
 
 \author{ Felipe J. O. Ribeiro \\ \and \\ Orientador: Prof. Dr. Aristeu da Silveira Neto}
 
@@ -181,34 +181,56 @@
 		}
 
 
-
-
-
-	\section{Determinação teórica}
+	\section{Introdução}
+	
 	
 	
 	
 	
 	
 		\begin{frame}
-			\frametitle{O canal do Poiseuille}
-			$\bullet$ O problema foi definido como um fluxo de canal plano, com somente uma dimensão finita no eixo $y$. 
-			$\bullet$ A condição de contorno foi determinada como duas placas infinitas em um regime de calor constante.
-			$\bullet$ Um gradiente constante de pressão foi imposto somente no eixo $x$.\\
-			$\bullet$ No eixo $z$ foi proposto uma auto similaridade no domínio da velocidade e da temperatura, resultando em uma análise bidimensional (Fig.\ref{figure.1}). \\
-			$\bullet$ O fluido foi definido como Newtoniano e incompressível em regime turbulento.\\
-			\begin{minipage}[h!]{0.2\textwidth}
+		\frametitle{Temperatura em um escoamento turbulento de Poiseuille}
+			\begin{minipage}[h!]{0.49\textwidth}
+			$\bullet$ O estudo do comportamento térmico de fluidos é de suma importância ao desenvolvimento científico atual. A medida que o maquinário industrial evolui, também cresce o consumo energético no mundo. Montante parte deste custo surge da transformação de energias. Assim surge uma grande necessidade de sistemas de gerenciamento térmico. Como a difusão é um processo muito lento, o meio mais utilizado para se resfriar maquinários industriais é o advectivo, onde uma interface fluido-estrutura carrega energia térmica para fora do sistema. Estudar estes fenômenos é essencial para que hajam cada vez máquinas maiores e mais potentes, de forma sustentável. 
+		\end{minipage}
+		\begin{minipage}[h!]{0.49\textwidth}
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[trim = {1.7cm 2cm 0 1cm}, clip , angle=0, scale=0.60]{turbulence}
+				\caption{Temperatura e turbulência.}
+			\end{figure}
+		\end{minipage}
+		\end{frame}
+
+
+
+
+
+	\section{Modelo físico}
+	
+	
+	
+	
+	
+		\begin{frame}
+			\frametitle{Escoamento de Poiseuille plano}
+			$\bullet$ O problema foi definido como um escoamento de canal, com somente uma dimensão finita no eixo $y$. \\
+			$\bullet$ A condição de contorno foi determinada como duas placas infinitas em um regime de fluxo térmico constante.\\
+			$\bullet$ Um gradiente de pressão constante foi imposto no eixo $x$.\\
+			$\bullet$ No eixo $z$ foi proposto uma auto similaridade dinâmica e térmica, resultando em uma análise bidimensional (Fig.\ref{figure.1}). \\
+			$\bullet$ O escoamento foi definido como newtoniano e incompressível em regime turbulento.\\
+			\begin{minipage}[h!]{0.3\textwidth}
 				\begin{equation*}
 				 \frac{\partial T }{\partial z} = 0
 				\end{equation*}
 				\begin{equation*}
 				\frac{\partial u }{\partial z} = 0
 				\end{equation*}
-			\end{minipage}\hfill
-			\begin{minipage}[h!]{0.75\textwidth}
+			\end{minipage}
+			\begin{minipage}[h!]{0.5\textwidth}
 			\begin{figure}[h!]
 				\centering
-				\includegraphics[angle=0, scale=0.40]{figure1}
+				\includegraphics[angle=0, scale=0.30]{figure1}
 				\caption{Definições geométricas e condições de contorno do sistema.}
 				\label{figure.1}
 			\end{figure}
@@ -217,24 +239,32 @@
 		\end{frame}
 	
 	
+
+	
+	\section{Modelo matemático diferencial}
 	
 	
 	
+	
+		
 		\begin{frame}
-			\frametitle{Equações do movimento}
+		\frametitle{Equações do movimento}
 		$\bullet$ Para modelar diferencialmente a velocidade do fluido, foram utilizadas a equação da continuidade e a equação de Navier-Stokes para a velocidade no eixo de interesse.
 		\begin{equation}
 		\frac{\partial u}{\partial t} + \frac{\partial u^2}{\partial x} + \frac{\partial uv}{\partial y} + \frac{\partial uw}{\partial z} = - \frac{1}{\rho} . \frac{\partial {p}}{\partial x} + \nu . \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}   \right)
 		\end{equation}
 		\begin{equation}
-		\frac{D \rho}{D t} +  \frac{\partial (\rho .u)}{\partial x} + \frac{\partial (\rho .v)}{\partial y} + \frac{\partial (\rho .w)}{\partial z} = 0
+		\frac{\partial \rho}{\partial t} +  \frac{\partial (\rho .u)}{\partial x} + \frac{\partial (\rho .v)}{\partial y} + \frac{\partial (\rho .w)}{\partial z} = 0
 		\end{equation}
 		Para o desenvolvimento da equação da energia em uma instancia advectiva foi necessário o desenvolvimento do perfil cinético do sistema.
 		\end{frame}
-	
-	
+
+
+
+
+
 		\begin{frame}
-			\frametitle{Equação da energia}
+		\frametitle{Equação da energia}
 		$\bullet$ Para a análise térmica, foram utilizadas a equação do balanço de energia e a equação da energia convectiva.
 		\begin{equation}
 		\frac{\partial T}{\partial t} + {\frac{\partial{}}{\partial{x}} (u.T)} + {\frac{\partial{}}{\partial{y}} (v.T)} + {\frac{\partial{}}{\partial{z}} (w.T)}
@@ -251,15 +281,10 @@
 		$ $
 		Com estas construções matemáticas foi possível se iniciar o desenvolvimento diferencial.
 		\end{frame}
-	
-	
-	
-	
-	
-	\section{Desenvolvimento diferencial}
-		
-		
-		
+
+
+
+
 		
 		
 		\begin{frame}
@@ -326,7 +351,7 @@
 			\frametitle{Modelando a equação da continuidade para valores médios}
 			$\bullet$ Desenvolvendo a equação da Continuidade, é possível se chegar a uma conclusão muito importante, para os valores médios.
 			\begin{equation*}
-			\color{red}\frac{D \rho}{D t} \color{black}+  \frac{\partial (\color{red}\rho \color{black}.u)}{\partial x} + \frac{\partial (\color{red} \rho \color{black}.v)}{\partial y} + \frac{\partial (\color{red}\rho \color{black}.w)}{\partial z} = 0
+			\color{red}\frac{\partial \rho}{\partial t} \color{black}+  \frac{\partial (\color{red}\rho \color{black}.u)}{\partial x} + \frac{\partial (\color{red} \rho \color{black}.v)}{\partial y} + \frac{\partial (\color{red}\rho \color{black}.w)}{\partial z} = 0
 			\end{equation*}
 			\begin{equation}
 			\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0
@@ -386,7 +411,7 @@
 
 		\begin{frame}
 			\frametitle{Diferença de temperatura}
-			$\bullet$ Apesar de já em valores médios, o domínio da temperatura ainda assim não se reduz a um problema unidimensional. Para isso, as condições de contorno devem ser controladas. No caso deste trabalho, estabeleceu-se um regime de calor constante, o que converteu-se em um gradiente linear de temperatura nas paredes no sentido do eixo $x$.  \\
+			$\bullet$ Apesar de já em valores médios, o domínio da temperatura ainda assim não se reduz a um problema unidimensional. Para isso, as condições de contorno devem ser controladas. No caso deste trabalho, estabeleceu-se um regime de fluxo térmico constante, o que converteu-se em um gradiente linear de temperatura nas paredes no sentido do eixo $x$.  \\
 			\begin{minipage}[h!]{0.36\textwidth}
 				Tal gradiente linear se estende para todo o domínio, resultando em:
 				\begin{equation}
@@ -558,8 +583,18 @@
 		\end{frame}
 	
 
-
+	
+	
+	\section{Modelo numérico}
 		
+	
+	
+	
+	
+	
+	
+	
+	
 		
 	\section{Resultados}
 		
