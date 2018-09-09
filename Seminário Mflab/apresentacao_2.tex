@@ -423,10 +423,10 @@
 				\end{equation}
 				Dessa forma, para se ter um sistema unidimensional representativo, se parametrizou a variável em função de variáveis de parede, ou seja:
 				\begin{equation}
-				\overline{T}^\ast(x , y) = \overline{T}(x,y)  - \overline{T}_w(x , y) 
+				\overline{T}^\ast(x , y) = \overline{T}(x,y)  - \overline{T}_w(x) 
 				\end{equation}
 				\begin{equation}
-				\overline{T}(x,y) = \overline{T}^\ast(x , y) + \overline{T}_w(x , y)
+				\overline{T}(x,y) = \overline{T}^\ast(x , y) + \overline{T}_w(x)
 				\end{equation}
 			\end{minipage}\hfill
 			\begin{minipage}[h!]{0.60\textwidth}
@@ -542,7 +542,7 @@
 			Assim, desenvolvendo em ambas as equações: 
 			\\
 			\begin{minipage}[h!]{0.45\textwidth}
-				\begin{equation}\label{equation_var}
+				\begin{equation}
 				{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{T^\ast}}}{\partial{y}}}   
 				+ \alpha_\tau  \frac{\partial \overline{T^\ast}}{\partial y} \right)
 				= 
@@ -572,8 +572,94 @@
 			\nu_\tau = {l_m}^2 \left| \frac{\partial \overline{u}}{\partial y} \right|
 			\end{equation}
 		\end{frame}
+		
+		
+		
+		
+		
+		\begin{frame}
+			\frametitle{Substituindo o comprimento de mistura nas equações principais}	
+			$\bullet$ O comprimento de mistura introduz um módulo no modelo diferencial. Para o caso da temperatura, também introduz o parâmetro do número de Prandtl turbulento.   
+			\\
+			\begin{minipage}[h!]{0.5\textwidth}
+				\begin{equation}
+				{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
+				+ \frac{\nu_\tau}{Pr_\tau} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
+				= 
+				\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  
+				\end{equation}
+			\end{minipage}\hfill
+			\begin{minipage}[h!]{0.45\textwidth}
+				\begin{equation}
+				\frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} = \frac{\partial}{\partial y} \left( \nu  \frac{\partial \overline{u}}{\partial y} + {l_m}^2 \left| \frac{\partial \overline{u}}{\partial y} \right|  \frac{\partial \overline{u}}{\partial y}\right)  
+				\end{equation}
+			\end{minipage} \\
+		\begin{minipage}[h!]{0.5\textwidth}
+			\begin{equation}
+			{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
+			+ \frac{{l_m}^2 \left| \frac{\partial \overline{u}}{\partial y} \right|}{Pr_\tau} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
+			= 
+			\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  
+			\end{equation}
+		\end{minipage}\hfill
+		\\
+		É possível notar, ao se analisar o domínio dinâmico, que para valores positivos de $ y $, a primeira derivada da velocidade sempre será negativa, visto que pelos princípios de Dirichlet e Neumman, tem-se uma velocidade que cresce com a diminuição da coordenada $ y $. Assim, temos:\\
+		\begin{minipage}[h!]{0.5\textwidth}
+			\begin{equation}
+			{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
+			- \frac{{l_m}^2}{Pr_\tau}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
+			= 
+			\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  
+			\end{equation}
+		\end{minipage}\hfill
+		\begin{minipage}[h!]{0.45\textwidth}
+			\begin{equation}
+			\frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} = \frac{\partial}{\partial y} \left( \nu  \frac{\partial \overline{u}}{\partial y} - {l_m}^2 \left(\frac{\partial \overline{u}}{\partial y}\right) ^ 2 \right)  
+			\end{equation}
+		\end{minipage}\\
+		\end{frame}	
 	
 	
+	
+	
+		\begin{frame}
+			\frametitle{Um modelo para o comprimento de mistura de Prandtl}
+			Um modelo para $l_m$ devia ser estabelecido. Para tal, se observou os estudos experimentais de Nikuradse. Que descrevia o parâmetro com o polinômio a seguir. A definição está de acordo com a ideia de que os efeitos moleculares aumentam próximo às bordas. 
+			\begin{equation}
+			L\left(\frac{y}{R}\right) = \frac{l_m}{R} = 0.14 - 0.08 \left(\frac{y}{R}\right)^2 - 0.06\left(\frac{y}{R}\right)^4
+			\end{equation}
+			Para enriquecer ainda mais o modelo, foram adicionadas as funções de amortecimento de Van Driest junto da generalização de Cebeci e Bradshaw:
+			\begin{equation}
+			L\left(\frac{y}{R}\right)  = \frac{l_m}{R} = \left(\frac{l_m}{R} = 0.14 - 0.08 \left(\frac{y}{R}\right)^2 - 0.06\left(\frac{y}{R}\right)^4\right)\left\{  1 - e^{[(\tilde{y} - 1) \frac{Re_\tau}{26}]}\right\}
+			\end{equation}
+			Assim, tem-se o comprimento de mistura definido por:
+			\begin{equation}
+			lm = L R
+			\end{equation}
+			Sendo $ L $ uma função em $ y $. É importante notar que neste momento foi introduzida a constante de Cebeci, que é o número $ 26 $ que divide o $ Re_\tau $.
+		\end{frame}
+		
+		
+		
+		
+		
+		\begin{frame}
+			\frametitle{Substituindo o comprimento de mistura nas equações}
+			\begin{minipage}[h!]{0.5\textwidth}
+				\begin{equation}
+				{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
+				- \frac{{L}^2 R ^2}{Pr_\tau}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
+				= 
+				\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  
+				\end{equation}
+			\end{minipage}\hfill
+			\begin{minipage}[h!]{0.45\textwidth}
+				\begin{equation}
+				\frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} = \frac{\partial}{\partial y} \left( \nu  \frac{\partial \overline{u}}{\partial y} - {L}^2 R ^2 \left(\frac{\partial \overline{u}}{\partial y}\right) ^ 2 \right)  
+				\end{equation}
+			\end{minipage}\\
+		\end{frame}
+		
 	
 	
 	
