@@ -645,12 +645,13 @@
 		
 		\begin{frame}
 			\frametitle{Substituindo o comprimento de mistura nas equações}
+			$\bullet$ É importante observar que a função $ L(\frac{y}{R}) $ já está Adimensionalizada.
 			\begin{minipage}[h!]{0.5\textwidth}
 				\begin{equation}
 				{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
 				- \frac{{L}^2 R ^2}{Pr_\tau}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
 				= 
-				\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  
+				\overline{u}\frac{\partial{}\left(\overline{T_w}\right)  }{\partial{x}}
 				\end{equation}
 			\end{minipage}\hfill
 			\begin{minipage}[h!]{0.45\textwidth}
@@ -660,11 +661,75 @@
 			\end{minipage}\\
 		\end{frame}
 		
-	
+		
+		
+		
+		
+		\begin{frame}
+			\frametitle{Desenvolvendo a equação cinética}
+			$\bullet$ Desenvolvendo a equação cinética foi possível se explicitar de forma exata a primeira derivada da velocidade.
+			\begin{equation}
+			\int \frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} dy = \int \frac{\partial}{\partial y} \left( \nu  \frac{\partial \overline{u}}{\partial y} - {L}^2 R ^2 \left(\frac{\partial \overline{u}}{\partial y}\right) ^ 2 \right) dy  
+			\end{equation}
+			\begin{equation}
+			\frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} \int 1 dy = \int \frac{\partial}{\partial y} \left( \nu  \frac{\partial \overline{u}}{\partial y} - {L}^2 R ^2 \left(\frac{\partial \overline{u}}{\partial y}\right) ^ 2 \right) dy  
+			\end{equation}
+			\begin{equation}
+			y \frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} =  \nu  \frac{\partial \overline{u}}{\partial y} - {L}^2 R ^2 \left(\frac{\partial \overline{u}}{\partial y}\right) ^ 2 
+			\end{equation}
+			\begin{equation}
+			{L}^2 R ^2 \left(\frac{\partial \overline{u}}{\partial y}\right) ^ 2 - \nu  \frac{\partial \overline{u}}{\partial y} + y \frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} = 0
+			\end{equation}
+			Observando-se a conformação em forma de polinômio de segundo grau, retirou-se as raízes, onde só uma delas teve consistência física.
+			\begin{equation}
+			\frac{\partial \overline{u}}{\partial y} = \frac{2 y \frac{1}{\rho}\frac{\partial \overline{p}}{\partial x} }{ \nu + \sqrt{\nu ^2 - 4 y \frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} L ^2 R ^2}}
+			\end{equation}
+		\end{frame}
+			
+		
+		
+		
+		\begin{frame}
+		\frametitle{Modelando o gradiente de pressão}
+		$\bullet$ Para este desenvolvimento se utilizou a definição da tenção cisalhante e uma análise segundo a primeira lei de Newton.
+		\begin{equation}
+		u_\tau = \sqrt{\frac{\left| \tau_w \right|}{\rho}}
+		\end{equation}
+		\begin{equation}
+		p_1 2R = 2 \tau_w \Delta x + p_2 2 R
+		\end{equation}
+		Assim, desenvolvendo e substituindo, temos:
+		\begin{equation}
+		\frac{\tau_w}{R} = \frac{(p_1 - p_2)}{\Delta x}
+		\end{equation}
+		\begin{equation}
+		- \frac{\partial \overline{p}}{\partial x} = \frac{\tau_w}{R} = \frac{u_\tau^2 \rho}{R} 
+		\end{equation}
+		\end{frame}
+		
+		
 	
 	
 		\begin{frame}
 			\frametitle{Balanço de energia}
+			$\bullet$ Para se chegar ao gradiente de temperatura instaurado, foi desenvolvido uma análise térmica no sistema, onde aplicou-se um balanço de energia. 
+			\begin{equation}\label{c_h_e}
+			q_{conv.} = \dot{m} C_p \Delta T_m
+			\end{equation}
+			Observou-se que o balanço de energia térmica conduzida por difusão era nulo no sentido de x, logo a única forma de não haver mudança na variação de temperatura do volume de controle seria se toda essa energia escoasse por advecção:
+			\begin{equation}
+			2q_wh \Delta x = \dot{m} C_p \Delta T_m
+			\end{equation}
+			Sendo $h$ em $z$. Então, substituindo $ \dot{m} = u_m 2R h \rho $, e assumindo $ \Delta T_m = \frac{\partial{\left(\overline{T_m}\right)}}{\partial{x}} \Delta x $:
+			\begin{equation}
+			2q_wh \Delta x = u_m 2R h \rho  C_p \frac{\partial{\left(T_m\right)}}{\partial{x}} \Delta x
+			\end{equation}     
+			\begin{equation}
+			q_w = u_m R \rho  C_p \frac{\partial{\left(T_m\right)}}{\partial{x}} 
+			\end{equation} 
+			\begin{equation}\label{c_h_ee}
+			\frac{\partial{\left(T_m\right)}}{\partial{x}} = \frac{q_w}{u_m  R \rho  C_p } 
+			\end{equation} 
 		\end{frame}
 	
 	
