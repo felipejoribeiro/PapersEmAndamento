@@ -682,7 +682,7 @@
 			\end{equation}
 			Observando-se a conformação em forma de polinômio de segundo grau, retirou-se as raízes, onde só uma delas teve consistência física.
 			\begin{equation}
-			\frac{\partial \overline{u}}{\partial y} = \frac{2 y \frac{1}{\rho}\frac{\partial \overline{p}}{\partial x} }{ \nu + \sqrt{\nu ^2 - 4 y \frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} L ^2 R ^2}}
+			\frac{\partial \overline{u}}{\partial y} = \frac{2 y \frac{1}{\rho}\frac{\partial \overline{p}}{\partial x} }{ \nu + \sqrt{\nu ^2 + 4 y \frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} L ^2 R ^2}}
 			\end{equation}
 		\end{frame}
 			
@@ -690,7 +690,7 @@
 		
 		
 		\begin{frame}
-		\frametitle{Modelando o gradiente de pressão}
+		\frametitle{Modelo referente ao gradiente de pressão}
 		$\bullet$ Para este desenvolvimento se utilizou a definição da tenção cisalhante e uma análise segundo a primeira lei de Newton.
 		\begin{equation}
 		u_\tau = \sqrt{\frac{\left| \tau_w \right|}{\rho}}
@@ -738,6 +738,21 @@
 	
 		\begin{frame}
 			\frametitle{Adimensionalização}
+			$\bullet$ Para se comparar mais facilmente os modelos à literatura, adimensionalizou-se as equações segundo coordenadas de parede. Foi considerado: $ \tilde{y} = \frac{y . Re_\tau}{R} $, $ \tilde{\overline{u}} = \frac{\overline{u}}{u_\tau} $ , $ \tilde{\overline{T}} = \frac{\overline{T}}{T_\tau} $ , $Re_\tau = \frac{u_\tau R}{\nu}$, $Pr_\tau = \frac{\nu_\tau}{\alpha_\tau}$, $Pr = \frac{\nu}{\alpha}$ e $T_\tau = \frac{q_w}{\rho C_p u_\tau}$, $\frac{\partial{\left(T_m\right)}}{\partial{x}} = \frac{q_w}{u_m  R \rho  C_p } $, $\frac{\partial \overline{p}}{\partial x} = - \frac{u_\tau^2 \rho}{R} $.
+			\\
+			\begin{minipage}[h!]{0.5\textwidth}
+				\begin{equation}
+				{\frac{\partial{}}{\partial{\tilde{y}}}} \left( \left( \frac{Re_\tau}{Pr}   
+				- \frac{{L}^2 Re_\tau ^3}{Pr_\tau}\frac{\partial \tilde{\overline{u}}}{\partial \tilde{y}} \right) \frac{\partial \tilde{\overline{T^\ast}}}{\partial \tilde{y}} \right)
+				= 
+				\frac{\partial\tilde{\overline{u}}}{\tilde{u_m}}
+				\end{equation}
+			\end{minipage}\hfill
+			\begin{minipage}[h!]{0.45\textwidth}
+				\begin{equation}
+				\frac{\partial \tilde{\overline{u}}}{\partial \tilde{y}} = - \frac{2 \tilde{y} \frac{1}{Re_\tau} }{ 1 + \sqrt{ 1 + 4 L ^2 Re_\tau ^2 \tilde{y}}}
+				\end{equation}
+			\end{minipage}\\	
 		\end{frame}
 	
 
@@ -748,31 +763,170 @@
 	
 	
 	
+		
+		\begin{frame}
+			\frametitle{Discretização do espaço}
+			\begin{minipage}[h!]{0.5\textwidth}
+			$\bullet$ Para discretizar o espaço, foi formulado um domínio Euleriano. Para a velocidade foi aplicado um Runge-kutta de quarta ordem, enquanto a temperatura foi arranjada em um sistema de diferenças centradas que teve de ser resolvido implicitamente. O domínio dinâmico foi resolvido primeiro, e seu resultado numérico fora utilizado no desenvolvimento do perfil térmico. Quanto à localização das células, foi determinado um centro de célula na parede, e um ponto entre células no centro do canal, sendo o restante das unidades de espaço distribuídas uniformemente para todo o canal.
+			\end{minipage}\hfill
+			\begin{minipage}[h!]{0.45\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[angle=90, scale=0.06]{canalvermelho}
+				\caption{Representação gráfica do domínio do sistema.}
+				\label{temperatura}
+			\end{figure}
+			\end{minipage}\\
+		\end{frame}
 	
 	
+	
+	
+	
+			\begin{frame}
+		\begin{figure}
+			\centering
+			\includegraphics[angle=0, scale=0.42]{convergnciaprimeira}
+			\caption{Convergência e independência de malha.}
+			\label{temperatura}
+		\end{figure}
+	\end{frame}
+		
 	
 	
 	
 		
 	\section{Resultados}
-		
-		
-
-
 		\begin{frame}
-			\frametitle{Perspectivas}
-			$\bullet$ Extrapolação temporal para chute inicial do acoplamento forte;\\
-			$\bullet$ Spool no AMR;\\
-			$\bullet$ Validação do acoplamento forte;\\
-			$\bullet$ Outro método de fronteira imersa (Ghost Fluid);\\
-			$\bullet$ Estimativa do Jacobiano via mínimos quadrados;\\
-			$\bullet$ Fluido-estrutura monolítico:\\
-			$\longrightarrow$ Fluido monolítico;\\
-			$\longrightarrow$ Ghost Fluid monolítico;\\
-			$\longrightarrow$ Modelo de turbulência monolítico;\\
-			$\longrightarrow$ Estrutura monolítico.\\
+			\frametitle{Valores iniciais}
+				$\bullet$ Inicialmente determinou-se o Prandtl turbulento como um valor da literatura, de 0.71, onde se obteve os seguintes resultados:\\
+			\begin{minipage}[h!]{0.45\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[angle=0, scale=0.13]{150primeiro}
+				\caption{Resultado para $Re_\tau = 150$. L2 = }
+				\label{temperatura}
+			\end{figure}
+			\end{minipage}\hfill
+				\begin{minipage}[h!]{0.45\textwidth}
+				\begin{figure}
+					\centering
+					\includegraphics[angle=0, scale=0.13]{1020primeiro}
+					\caption{Resultado para $Re_\tau = 1020$. L2 = }
+					\label{temperatura}
+				\end{figure}
+			\end{minipage}		
+		\end{frame}
+	
+	
+	
+	
+		
+		\begin{frame}
+		\frametitle{Estudo do número de Prandtl turbulento fornecido pelo DNS}
+		\begin{figure}
+			\centering
+			\includegraphics[angle=0, scale=0.22]{perfisPrandtlturb_Ret_Pt}
+			\caption{Comparando com outras parametrizações do número de Prandtl turbulento.}
+			\label{temperatura}
+		\end{figure}
+		\end{frame}
+		
+		
+		
+		
+		
+		\begin{frame}
+		\frametitle{Após o ajuste de um valor fixo ideal}
+		\begin{minipage}[h!]{0.45\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[angle=0, scale=0.22]{150segundo}
+				\caption{Resultado para $Re_\tau = 150$. L2 = 0.32}
+				\label{temperatura}
+			\end{figure}
+		\end{minipage}\hfill
+		\begin{minipage}[h!]{0.45\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[angle=0, scale=0.22]{1020segundo}
+				\caption{Resultado para $Re_\tau = 1020$. L2 = 0.17}
+				\label{temperatura}
+			\end{figure}
+		\end{minipage}		
 		\end{frame}	
 	
+	
+	
+	
+		
+		\begin{frame}
+		\frametitle{Algoritmo de otimização}
+		\begin{minipage}[h!]{0.45\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[angle=0, scale=0.22]{convergnciacima}
+				\caption{Algoritmo para valores ótimos. Com início abaixo do valor estimado.}
+				\label{temperatura}
+			\end{figure}
+		\end{minipage}\hfill
+		\begin{minipage}[h!]{0.45\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[angle=0, scale=0.22]{convergnciabaixo}
+				\caption{Algoritmo para valores ótimos. Com início acima do valor estimado.}
+				\label{temperatura}
+			\end{figure}
+		\end{minipage}		
+		\end{frame}	
+	
+	
+	
+	
+		\begin{frame}
+		\frametitle{Ajuste dos valores obtidos}
+		\begin{figure}
+			\centering
+			\includegraphics[angle=0, scale=0.35]{fitdoPrt}
+			\caption{Ajuste de um modelo para $Pr_\tau$ variável.}
+			\label{temperatura}
+		\end{figure}
+		\end{frame}	
+	
+		
+		\begin{frame}
+		\frametitle{Algoritmo de otimização}
+		\begin{minipage}[h!]{0.45\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[angle=0, scale=0.32]{A100}
+				\caption{Algoritmo para valores ótimos, com malha de 100 unidades.}
+				\label{temperatura}
+			\end{figure}
+		\end{minipage}\hfill
+		\begin{minipage}[h!]{0.45\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[angle=0, scale=0.32]{A400}
+				\caption{Algoritmo para valores ótimos, com malha de 400 unidades.}
+				\label{temperatura}
+			\end{figure}
+		\end{minipage}		
+	\end{frame}	
+		
+		
+		
+	
+	
+		\begin{frame}
+		\frametitle{Ajuste do valor de Cebeci}
+		\begin{figure}
+			\centering
+			\includegraphics[angle=0, scale=0.32]{fitdoA}
+			\caption{Ajuste de um modelo para um número de Cebeci variável.}
+			\label{temperatura}
+		\end{figure}
+		\end{frame}	
 	
 	
 	
