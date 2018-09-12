@@ -534,24 +534,24 @@
 			$\bullet$ Dessa forma, na modelagem da temperatura havia o fluxo turbulento para se modelar, enquanto na equação da velocidade havia um tensor das tensões turbulentas de Reynolds. Os termos $\overline{T^{\ast\prime}  v^\prime}$ e $ \overline{u^\prime  v^\prime} $ podem ser modelados segundo a hipótese de Boussinesq, que postula:
 			\begin{equation}\label{bou}
 			-\left(\overline{ u^\prime  v^\prime}\right) = 
-			\nu_\tau \frac{\partial{\overline{u}}}{\partial{y}}
+			\nu_t \frac{\partial{\overline{u}}}{\partial{y}}
 			\implies
 			-\left(\overline{ T^{\ast\prime}  v^\prime}\right) = 
-			\alpha_\tau \frac{\partial{\overline{T^\ast}}}{\partial{y}}
+			\alpha_t \frac{\partial{\overline{T^\ast}}}{\partial{y}}
 			\end{equation}
 			Assim, desenvolvendo em ambas as equações: 
 			\\
 			\begin{minipage}[h!]{0.45\textwidth}
 				\begin{equation}
 				{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{T^\ast}}}{\partial{y}}}   
-				+ \alpha_\tau  \frac{\partial \overline{T^\ast}}{\partial y} \right)
+				+ \alpha_t  \frac{\partial \overline{T^\ast}}{\partial y} \right)
 				= 
 				\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  
 				\end{equation}
 			\end{minipage}\hfill
 			\begin{minipage}[h!]{0.45\textwidth}
 				\begin{equation}
-				\frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} = \frac{\partial}{\partial y} \left( \nu  \frac{\partial \overline{u}}{\partial y} + \nu_\tau  \frac{\partial \overline{u}}{\partial y}\right)  
+				\frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} = \frac{\partial}{\partial y} \left( \nu  \frac{\partial \overline{u}}{\partial y} + \nu_t  \frac{\partial \overline{u}}{\partial y}\right)  
 				\end{equation}
 			\end{minipage}
 		\end{frame}
@@ -562,14 +562,14 @@
 		
 		\begin{frame}
 			\frametitle{Comprimento de mistura de Prandtl}
-			$\bullet$ Dessa forma, surge o termo da viscosidade turbulenta $\nu_\tau$ que precisa ser modelado. No caso ta temperatura, como temos o coeficiente de difusidade térmica turbulento $\alpha_\tau$, um novo valor deve ser introduzido, o chamado número de Prandtl turbulento, como segue:
+			$\bullet$ Dessa forma, surge o termo da viscosidade turbulenta $\nu_t$ que precisa ser modelado. No caso da temperatura, como temos o coeficiente de difusidade térmica turbulento $\alpha_t$, uma nova variável deve ser introduzido, o chamado número de Prandtl turbulento, como segue:
 			\begin{equation}
-				Pr_\tau = \frac{\nu_\tau}{\alpha_\tau}
+				Pr_t = \frac{\nu_t}{\alpha_t}
 			\end{equation} 
-			Assim, temos nas duas equações o valor do número de Prandtl turbulento que precisa ser modelado. O valor do número de Prandtl turbulento foi definido como $ Pr_\tau = 0.71$, segundo a literatura.
-			O modelo do comprimento de mistura de Prandtl postula que:
+			Assim, temos nas duas equações o valor do $\nu_t$ que precisa ser modelado. O valor do número de Prandtl turbulento de $ Pr_t = 0.71$ tem sido utilizado na literatura.
+			Com o modelo do comprimento de mistura de Prandtl, postula-se que:
 			\begin{equation}
-			\nu_\tau = {l_m}^2 \left| \frac{\partial \overline{u}}{\partial y} \right|
+			\nu_t = {l_m}^2 \left| \frac{\partial \overline{u}}{\partial y} \right|
 			\end{equation}
 		\end{frame}
 		
@@ -584,7 +584,7 @@
 			\begin{minipage}[h!]{0.5\textwidth}
 				\begin{equation}
 				{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
-				+ \frac{\nu_\tau}{Pr_\tau} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
+				+ \frac{\nu_t}{Pr_t} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
 				= 
 				\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  
 				\end{equation}
@@ -597,17 +597,17 @@
 		\begin{minipage}[h!]{0.5\textwidth}
 			\begin{equation}
 			{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
-			+ \frac{{l_m}^2 \left| \frac{\partial \overline{u}}{\partial y} \right|}{Pr_\tau} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
+			+ \frac{{l_m}^2 \left| \frac{\partial \overline{u}}{\partial y} \right|}{Pr_t} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
 			= 
 			\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  
 			\end{equation}
 		\end{minipage}\hfill
 		\\
-		É possível notar, ao se analisar o domínio dinâmico, que para valores positivos de $ y $, a primeira derivada da velocidade sempre será negativa, visto que pelos princípios de Dirichlet e Neumman, tem-se uma velocidade que cresce com a diminuição da coordenada $ y $. Assim, temos:\\
+		É possível notar, ao se analisar o domínio dinâmico, que para valores positivos de $ y $, a primeira derivada da velocidade sempre será negativa, visto que pelos princípios de Dirichlet e Neumman, tem-se uma velocidade que diminui com o aumento de $ y $. Assim, temos:\\
 		\begin{minipage}[h!]{0.5\textwidth}
 			\begin{equation}
 			{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
-			- \frac{{l_m}^2}{Pr_\tau}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
+			- \frac{{l_m}^2}{Pr_t}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
 			= 
 			\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  
 			\end{equation}
@@ -624,11 +624,11 @@
 	
 		\begin{frame}
 			\frametitle{Um modelo para o comprimento de mistura de Prandtl}
-			Um modelo para $l_m$ devia ser estabelecido. Para tal, se observou os estudos experimentais de Nikuradse. Que descrevia o parâmetro com o polinômio a seguir. A definição está de acordo com a ideia de que os efeitos moleculares aumentam próximo às bordas. 
+			Um modelo para $l_m$ deve ser estabelecido. Para tal, se observou os estudos experimentais de Nikuradse, com o qual modelou-se esse parâmetro como segue.
 			\begin{equation}
 			L\left(\frac{y}{R}\right) = \frac{l_m}{R} = 0.14 - 0.08 \left(\frac{y}{R}\right)^2 - 0.06\left(\frac{y}{R}\right)^4
 			\end{equation}
-			Para enriquecer ainda mais o modelo, foram adicionadas as funções de amortecimento de Van Driest junto da generalização de Cebeci e Bradshaw:
+			Para enriquecer ainda mais o modelo, Cebeci e Bradshaw acrescentaram a função de amortecimento de Van Driest:
 			\begin{equation}
 			L\left(\frac{y}{R}\right)  = \frac{l_m}{R} = \left(\frac{l_m}{R} = 0.14 - 0.08 \left(\frac{y}{R}\right)^2 - 0.06\left(\frac{y}{R}\right)^4\right)\left\{  1 - e^{[(\tilde{y} - 1) \frac{Re_\tau}{26}]}\right\}
 			\end{equation}
@@ -649,7 +649,7 @@
 			\begin{minipage}[h!]{0.5\textwidth}
 				\begin{equation}
 				{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
-				- \frac{{L}^2 R ^2}{Pr_\tau}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
+				- \frac{{L}^2 R ^2}{Pr_t}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
 				= 
 				\overline{u}\frac{\partial{}\left(\overline{T_w}\right)  }{\partial{x}}
 				\end{equation}
@@ -666,8 +666,8 @@
 		
 		
 		\begin{frame}
-			\frametitle{Desenvolvendo a equação cinética}
-			$\bullet$ Desenvolvendo a equação cinética foi possível se explicitar de forma exata a primeira derivada da velocidade.
+			\frametitle{Desenvolvendo a equação dinâmica}
+			$\bullet$ Desenvolvendo a equação dinâmica foi possível se explicitar de forma exata a primeira derivada da velocidade.
 			\begin{equation}
 			\int \frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} dy = \int \frac{\partial}{\partial y} \left( \nu  \frac{\partial \overline{u}}{\partial y} - {L}^2 R ^2 \left(\frac{\partial \overline{u}}{\partial y}\right) ^ 2 \right) dy  
 			\end{equation}
@@ -712,23 +712,22 @@
 	
 		\begin{frame}
 			\frametitle{Balanço de energia}
-			$\bullet$ Para se chegar ao gradiente de temperatura instaurado, foi desenvolvido uma análise térmica no sistema, onde aplicou-se um balanço de energia. 
+			$\bullet$ Para se chegar ao gradiente de temperatura instaurado, foi desenvolvida uma análise térmica no sistema, onde aplicou-se um balanço de energia. 
 			\begin{equation}\label{c_h_e}
 			q_{conv.} = \dot{m} C_p \Delta T_m
 			\end{equation}
-			Observou-se que o balanço de energia térmica conduzida por difusão era nulo no sentido de x, logo a única forma de não haver mudança na variação de temperatura do volume de controle seria se toda essa energia escoasse por advecção:
 			\begin{equation}
-			2q_wh \Delta x = \dot{m} C_p \Delta T_m
+			2q_w b \Delta x = \dot{m} C_p \Delta T_m
 			\end{equation}
-			Sendo $h$ em $z$. Então, substituindo $ \dot{m} = u_m 2R h \rho $, e assumindo $ \Delta T_m = \frac{\partial{\left(\overline{T_m}\right)}}{\partial{x}} \Delta x $:
+			Sendo $b$ a profundidade do canal. Então, substituindo $ \dot{m} = u_m 2R b \rho $, e assumindo $ \Delta T_m = \frac{\partial{\left(\overline{T}_w\right)}}{\partial{x}} \Delta x $, segundo a linearidade do domínio na coordenada $ x $:
 			\begin{equation}
-			2q_wh \Delta x = u_m 2R h \rho  C_p \frac{\partial{\left(T_m\right)}}{\partial{x}} \Delta x
+			2q_w b \Delta x = u_m 2R b \rho  C_p \frac{\partial{\left(\overline{T}_w\right)}}{\partial{x}} \Delta x
 			\end{equation}     
 			\begin{equation}
-			q_w = u_m R \rho  C_p \frac{\partial{\left(T_m\right)}}{\partial{x}} 
+			q_w = u_m R \rho  C_p \frac{\partial{\left(\overline{T}_w\right)}}{\partial{x}} 
 			\end{equation} 
 			\begin{equation}\label{c_h_ee}
-			\frac{\partial{\left(T_m\right)}}{\partial{x}} = \frac{q_w}{u_m  R \rho  C_p } 
+			\frac{\partial{\left(\overline{T}_w\right)}}{\partial{x}} = \frac{q_w}{u_m  R \rho  C_p } 
 			\end{equation} 
 		\end{frame}
 	
@@ -738,12 +737,12 @@
 	
 		\begin{frame}
 			\frametitle{Adimensionalização}
-			$\bullet$ Para se comparar mais facilmente os modelos à literatura, adimensionalizou-se as equações segundo coordenadas de parede. Foi considerado: $ \tilde{y} = \frac{y . Re_\tau}{R} $, $ \tilde{\overline{u}} = \frac{\overline{u}}{u_\tau} $ , $ \tilde{\overline{T}} = \frac{\overline{T}}{T_\tau} $ , $Re_\tau = \frac{u_\tau R}{\nu}$, $Pr_\tau = \frac{\nu_\tau}{\alpha_\tau}$, $Pr = \frac{\nu}{\alpha}$ e $T_\tau = \frac{q_w}{\rho C_p u_\tau}$, $\frac{\partial{\left(T_m\right)}}{\partial{x}} = \frac{q_w}{u_m  R \rho  C_p } $, $\frac{\partial \overline{p}}{\partial x} = - \frac{u_\tau^2 \rho}{R} $.
+			$\bullet$ Para se comparar mais facilmente os modelos à literatura, adimensionalizou-se as equações segundo coordenadas de parede. Foi considerado: $ \tilde{y} = \frac{y . Re_\tau}{R} $, $ \tilde{\overline{u}} = \frac{\overline{u}}{u_\tau} $ , $ \tilde{\overline{T}} = \frac{\overline{T}}{T_\tau} $ , $Re_\tau = \frac{u_\tau R}{\nu}$, $Pr_t = \frac{\nu_t}{\alpha_t}$, $Pr = \frac{\nu}{\alpha}$ e $T_\tau = \frac{q_w}{\rho C_p u_\tau}$, $\frac{\partial{\left(T_m\right)}}{\partial{x}} = \frac{q_w}{u_m  R \rho  C_p } $, $\frac{\partial \overline{p}}{\partial x} = - \frac{u_\tau^2 \rho}{R} $.
 			\\
 			\begin{minipage}[h!]{0.5\textwidth}
 				\begin{equation}
 				{\frac{\partial{}}{\partial{\tilde{y}}}} \left( \left( \frac{Re_\tau}{Pr}   
-				- \frac{{L}^2 Re_\tau ^3}{Pr_\tau}\frac{\partial \tilde{\overline{u}}}{\partial \tilde{y}} \right) \frac{\partial \tilde{\overline{T^\ast}}}{\partial \tilde{y}} \right)
+				- \frac{{L}^2 Re_\tau ^3}{Pr_t}\frac{\partial \tilde{\overline{u}}}{\partial \tilde{y}} \right) \frac{\partial \tilde{\overline{T^\ast}}}{\partial \tilde{y}} \right)
 				= 
 				\frac{\partial\tilde{\overline{u}}}{\tilde{u_m}}
 				\end{equation}
