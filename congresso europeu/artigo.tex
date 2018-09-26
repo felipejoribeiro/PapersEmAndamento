@@ -74,7 +74,7 @@
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[angle=0, scale=0.60]{turbulence}
+	\includegraphics[angle=0, trim={0 1cm 0 1cm},scale=0.70]{turbulence}
 	\label{turbulence}
 \end{figure}
 
@@ -116,6 +116,11 @@
 	
 	
 	
+	$T_m$ = Bulk temperature. 
+	
+	
+	
+	
 	$\overline{U}_c$ = Mean velocity on channel`s center.
 	
 	
@@ -136,6 +141,10 @@
 	
 	
 	R = Mean channel length.
+	
+	
+	
+	b = channel depth
 	
 	
 	
@@ -227,16 +236,46 @@ Where (\ref{energy permanent}) represents the mean energy balance for a given po
 
 \subsection{The temperature permanent regime}
 
-Even when on simplified mean values, the temperature field of a turbulent channel flow don't converge naturally to a unidimensional permanent state (fig.\ref{figure.2}).
-
+Even when on simplified mean values, the temperature field of a turbulent channel flow don't converge naturally to a unidimensional permanent state (fig.\ref{figure.2}). The thermal configuration was studied in order to better understand the system profile.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[angle=0, scale=0.40]{temperatura}
 	\caption{Temperature field in statistical permanent regime over a channel.}
 	\label{figure.2}
 \end{figure}
- 
- To make this happen, the boundaries condition had to be controlled. On this work, a constant temperature gradient was imposed on the heated walls, creating a boundary condition of constant heat, causing all the field T(x,y) to varies linearly on the streamwise direction. The temperature value was then decomposed to the form $ T^\ast(y) = T(x,y) - T_w(x) $ where $T_w(x)$ was the temperature near the wall, resulting in a similarity effect on the streamwise direction, resuming the problem to a unidimensional representative state for the variable $T^\ast(y)$. Therefore, the expression was substituted in (\ref{energy permanent}):
+\begin{equation}\label{c_h_e}
+q_{conv.} = \dot{m} C_p \Delta T_m.
+\end{equation}
+\begin{equation}
+2q_w b \Delta x = \dot{m} C_p \Delta T_m.
+\end{equation}
+Being $b$ the depth of the channel and $T_m$ the average temperature in a cross-section. So, substituting $ \dot{m} = u_m 2R b \rho $, and assuming $ \Delta T_m = \frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} \Delta x $:
+\begin{equation}
+2q_w b \Delta x = u_m 2R b \rho  C_p \frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} \Delta x.
+\end{equation}     
+\begin{equation}
+q_w = u_m R \rho  C_p \frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} .
+\end{equation} 
+\begin{equation}\label{c_h_ee}
+\frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} = \frac{q_w}{u_m  R \rho  C_p } .
+\end{equation} 
+
+To better understand the wall temperature with such energy profile, a convective thermal flow study was made, which can be expressed mathematically by:
+\begin{equation}
+q_w = h A \left( T_w(x) - \overline{T}_m(x)\right).
+\end{equation}
+It is noted that $h$ is constant since there is a fully developed flow. Thus it is possible to write:
+\begin{equation}
+T_w(x) - \overline{T}_m(x) = \frac{q_w}{hA}.
+\end{equation}
+\begin{equation}
+\frac{d T_w(x)}{d x} - \frac{d \overline{T}_m(x)}{d x} = \frac{d \frac{q_w}{hA}}{dx}.
+\end{equation}
+\begin{equation}
+\frac{d T_w(x)}{d x} = \frac{d \overline{T}_m(x)}{d x} = Ctt.
+\end{equation}	
+
+With the temperature on the walls and the mean temperature gradient set as linear by these mathematical determinations, it was possible to extend this gradient to all de domain considering the boundary conditions and the symmetry of the system. So a constant temperature gradient was imposed on the heated walls, creating a boundary condition of constant thermal flux, causing all the field T(x,y) to varies linearly on the streamwise direction. The temperature value was then decomposed to the form $ T^\ast(y) = T(x,y) - T_w(x) $ where $T_w(x)$ was the temperature near the wall, resulting in a similarity effect on the streamwise direction, resuming the problem to a unidimensional representative state for the variable $T^\ast(y)$. Therefore, the expression was substituted in (\ref{energy permanent}):
 
 
 
@@ -262,21 +301,230 @@ Then the expression could be further developed algebraically considering all mea
 
 \subsection{The Boussinesq hypothesis}
 
-
-
-
+The turbulent flux had to be modeled. The term $\overline{T^{\ast\prime}  v^\prime}$ 
+can be developed according to the Boussinesq hypothesis, which postulates:
+\begin{equation}\label{bou}
+-\left(\overline{ u^\prime  v^\prime}\right) = 
+\nu_t \frac{\partial{\overline{u}}}{\partial{y}}
+\implies
+-\left(\overline{ T^{\ast\prime}  v^\prime}\right) = 
+\alpha_t \frac{\partial{\overline{T^\ast}}}{\partial{y}}.
+\end{equation}
+Thus, by developing the equation:
+\\
+\begin{equation}
+{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{T^\ast}}}{\partial{y}}}   
++ \alpha_t  \frac{\partial \overline{T^\ast}}{\partial y} \right)
+= 
+\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right) . 
+\end{equation}
 
 \subsection{Prandtl mixing length model} 
 
+Thus, arises the term of the turbulent thermal diffusion $\alpha_t$ that needs to be modeled. A new variable should be introduced, the turbulent Prandtl number, as follows:
+\begin{equation}
+Pr_t = \frac{\nu_t}{\alpha_t}.
+\end{equation} 
+So we have the $ \ nu_t $ value that needs to be modeled. The value of the turbulent Prandtl number of $ Pr_t = 0.71 $ that has been used in the literature.
+With the model of the Prandtl mixing length, it is postulated that:
+\begin{equation}
+\nu_t = {l_m}^2 \left| \frac{\partial \overline{u}}{\partial y} \right|.
+\end{equation}
+The mixing length introduces a module into the differential model and the parameter of the turbulent Prandtl number.
+\\
+\begin{equation}
+{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
++ \frac{\nu_t}{Pr_t} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
+= 
+\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  .
+\end{equation}
+\begin{equation}
+{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
++ \frac{{l_m}^2 \left| \frac{\partial \overline{u}}{\partial y} \right|}{Pr_t} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
+= 
+\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  .
+\end{equation}
+\\
+
+It is possible to notice, when analyzing the dynamic domain, that for positive values of $ y $ the first derivative of velocity will always be negative, since by the principles of Dirichlet and Neumman, we have a velocity that decreases with the increase of $ y $.\\
+\begin{equation}
+{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
+- \frac{{l_m}^2}{Pr_t}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
+= 
+\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  .
+\end{equation}
+
+
+
 \subsection{The damping function}
+
+A model for $ l_m $ must be established. For this, we observed the experimental studies of Nikuradse, with which this parameter was modeled as follows.
+\begin{equation}
+L\left(\frac{y}{R}\right) = \frac{l_m}{R} = 0.14 - 0.08 \left(\frac{y}{R}\right)^2 - 0.06\left(\frac{y}{R}\right)^4.
+\end{equation}
+To further enrich the model, Cebeci and Bradshaw added the Van Driest damping function:
+\begin{equation}
+L\left(\frac{y}{R}\right)  = \frac{l_m}{R} = \left(\frac{l_m}{R} = 0.14 - 0.08 \left(\frac{y}{R}\right)^2 - 0.06\left(\frac{y}{R}\right)^4\right)\left\{  1 - e^{[(\tilde{y} - 1) \frac{Re_\tau}{A}]}\right\}.
+\end{equation}
+With $A = 26$ as the Cebeci`s constant.Thus, we have the mixing length defined by:
+\begin{equation}
+lm = L R.
+\end{equation}
+Being $ L $ a function in the $ y $ axis.
+\begin{equation}
+{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
+- \frac{{L}^2 R ^2}{Pr_t}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
+= 
+\overline{u}\frac{\partial{}\left(\overline{T_w}\right)  }{\partial{x}}.
+\end{equation}
+ To compare this work with literature models more easily, the equation was Nondimensionalized with the constants according to wall coordinates. It was considered: $ \tilde{y} = \frac{y . Re_\tau}{R} $, $ \tilde{\overline{u}} = \frac{\overline{u}}{u_\tau} $ , $ \tilde{\overline{T}} = \frac{\overline{T}}{T_\tau} $ , $Re_\tau = \frac{u_\tau R}{\nu}$, $Pr_t = \frac{\nu_t}{\alpha_t}$, $Pr = \frac{\nu}{\alpha}$ e $T_\tau = \frac{q_w}{\rho C_p u_\tau}$, $\frac{\partial{\left(T_m\right)}}{\partial{x}} = \frac{q_w}{u_m  R \rho  C_p } $, $\frac{\partial \overline{p}}{\partial x} = - \frac{u_\tau^2 \rho}{R} $.
+\\
+\begin{equation}
+{\frac{\partial{}}{\partial{\tilde{y}}}} \left( \left( \frac{Re_\tau}{Pr}   
+- \frac{{L}^2 Re_\tau ^3}{Pr_t}\frac{\partial \tilde{\overline{u}}}{\partial \tilde{y}} \right) \frac{\partial \tilde{\overline{T^\ast}}}{\partial \tilde{y}} \right)
+= 
+\frac{\tilde{\overline{u}}}{\tilde{u_m}}.
+\end{equation}
+It is important to note how there is velocity in the main equation, that is, for the development of the thermal domain, the development of the dynamic channel profile was necessary. For this, a previously established RANS methodology was used, as follows:
+\begin{equation}
+\frac{\partial \tilde{\overline{u}}}{\partial \tilde{y}} = - \frac{2 \tilde{y} \frac{1}{Re_\tau} }{ 1 + \sqrt{ 1 + 4 L ^2 Re_\tau ^2 \tilde{y}}}.
+\end{equation}		
+In this way, we have the first derivative of velocity in an exact form.
+
 
 \section{Numerical model}
 
+
+To discretize the space, an Eulerian domain was formulated. For the velocity a fourth-order Runge-kutta method was applied, while the temperature was arranged in a central differences scheme that had to be solved implicitly. The dynamic domain was solved first, and its numerical result were used in the development of the thermal profile. As for cell location, a cell center was determined on the wall, and a point between cells in the center of the channel, the rest of the space units being evenly distributed throughout the channel.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[angle=90, scale=0.06]{canalvermelho}
+	\caption{Graphical representation of the system domain.}
+	\label{sistema}
+\end{figure}
+
 \subsection{Preliminary results}
+Initially the turbulent Prandtl number was used as in the literature, a value of 0.71, where the results were:\\
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[angle=0, scale=0.24]{150orto}
+		\caption{Results for $Re_\tau = 150$. L2 = 1.36 }
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[angle=0, scale=0.24]{1020orto}
+		\caption{Results for $Re_\tau = 1020$. L2 = 1.77}
+	\end{figure}	
+
+The result was observed for when the turbulent Prandtl number from the DNS was used, obtaining an L2 norm of $ 0.19 $ to $ Re_t = 640 $. Thus it was identified that the problem was in the parametrization of the turbulent Prandtl number that became the focus of the research.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[angle=0, scale=0.25]{perfisPrandtlturb_Ret_Pt}
+	\caption{Vector with the turbulent Prandtl number according to the coordinate $ y $ in the channel.}
+\end{figure}
+
+Thus, the effort to propose a parameterization adjusted for the turbulent Prandtl number started.
+In this sense we tried to adjust a value for which the error was minimal when comparing the simulation with DNS.
 
 \subsection{The meta-modeling}
+We wrote an algorithm that searched for a minimal error for the function, considering the turbulent Prandtl number as an editable variable and the smaller error as the pattern of interest.
+
+It obtained a turbulent Prandtl number adjusted from $ 0.905 $ for the turbulent Reynolds number of $ 1020$.
+
+The value was applied to the entire domain.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[angle=0, scale=0.25]{oloco}
+	\caption{Results for $Re_\tau = 1020$. L2 = 0.151}
+\end{figure}
+
+Simulations with the turbulent Prandtl number set in $Re_\tau = 1020$:  \\
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[angle=0, scale=0.36]{150segundo}
+		\caption{Results for $Re_\tau = 150$. L2 = 0.341}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[angle=0, scale=0.36]{395segundo}
+		\caption{Results for $Re_\tau = 395$. L2 = 0.23}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[angle=0, scale=0.36]{640segundo}
+		\caption{Results for $Re_\tau = 640$. L2 = 0.192}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[angle=0, scale=0.36]{1020segundo}
+		\caption{Results for $Re_\tau = 1020$. L2 = 0.151}
+	\end{figure}	
+
+In order to obtain a curve that contemplated the Reynolds numbers throughout the domain, an optimizing algorithm was used to determine an ideal turbulent Prandtl number for each turbulent Reynolds number available in DNS.
+As a way of making sure that a global minimum has been reached, the algorithm was run from a point above and a point below the inferred.	\\
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[angle=0, scale=0.20]{convergnciacima}
+		\caption{Algorithm for optimal values. With initial value lower than the estimated.}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[angle=0, scale=0.10]{convergnciabaixo}
+		\caption{Algorithm for optimal values. With initial value greater than the estimated.}
+	\end{figure}
+
+By performing a polynomial curve fit, the following relation was obtained:
+\begin{equation}
+\begin{split}
+Pr_t = 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 + 0,0001 Re_\tau + 0,87 
+\end{split}
+\end{equation}
+Thus, a model adjusted for the turbulent Prandtl number as a function of the turbulent Reynolds number was developed.
+	\begin{figure}[!h]
+	\centering
+	\includegraphics[angle=0, scale=0.43]{ajustePrandtl}
+	\caption{Adjust of a model for the $ Pr_t $ variable.}
+\end{figure}
+
+
+ From the resulting points of the optimization algorithm, the model adjusted for the Cebeci value was developed. As follows:
+\begin{equation}
+A = \frac{Re_\tau ^{0.0451 * \ln(Re_\tau)} *e ^ {5.2753} }{Re_\tau ^{0.6094}}
+\end{equation}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[angle=0, scale=0.45]{ajustecebeci}
+	\caption{Adjust of a model for a variable Cebeci's number.}
+\end{figure}
+It was studied the influence of the number of molecular Prandtl and it was observed that it was also a variable with influences in the error of the method, thus began a study with the objective of adding the influence of the value of Prandtl number to the parameterization of the turbulent Prandtl number. For this the following model was proposed:
+\begin{equation}
+\begin{split}
+Pr_t = \left( 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 + 0,0001 Re_\tau + 0,87 \right) \left(  \frac{Pr}{0,71}\right) ^{-0.008}
+\end{split}
+\end{equation}
+
 
 \section{Results}
+With all these methods, a big number of simulations in concerning all the DNS data was made.
+Results can be seen ahead.\\
+\begin{figure}[!h]
+	\centering
+	\includegraphics[angle=0, scale=0.52]{finais}
+	\caption{Geral results per method.}
+\end{figure}
+\\
+Here are some cuts from the previous chart, explaining the errors obtained for a fixed Ret of 395, and a fixed Pr of 0.71.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[angle=0, scale=0.59]{finaispr}
+	\caption{Results for $Re_\tau = 395$}
+\end{figure}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[angle=0, scale=0.59]{finaisRey}
+	\caption{Results for $Pr = 0.71$}
+\end{figure}
 
 \section{Conclusion}
 
