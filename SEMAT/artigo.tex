@@ -193,23 +193,49 @@ Assim, expandindo-se no primeiro termo obtem-se a equação modificada:
 - \sum\limits_{n=2}^{\infty} \frac{\Delta t^{n - 1}}{n!} \frac{\partial^{n} \Psi (t , x)}{\partial t^{n}}	
 \end{split}
 \end{equation}
+Assim, truncando-se a partir dos termos de quinta ordem, obtemos a equação expandida:
+\begin{equation}
+\frac{\partial \Psi}{\partial t} - \alpha \frac{\partial^2 \Psi}{\partial x^2} = 2 \alpha \frac{\Delta x^2}{4!} \frac{\partial^4 \Psi}{\partial x ^4}
++ 2 \alpha \frac{\Delta x^4}{6!} \frac{\partial^6 \Psi}{\partial x ^6} - \frac{\Delta t}{2!} \frac{\partial^2 \Psi}{\partial t ^2} - \frac{\Delta t ^2}{3!} \frac{\partial^3 \Psi}{\partial t ^3} - \frac{\Delta t ^3}{4!} \frac{\partial^4 \Psi}{\partial t ^4} - \frac{\Delta t ^4}{5!} \frac{\partial^5 \Psi}{\partial t ^5}
+\end{equation}
+Dessa forma, utilizando-se a própria relação para se substituir nas derivadas parciais temporais, e a partir do princípio de Clairaut-Schwarz é possível desenvolver a expressão em:
+\begin{equation}\label{aloaloalo}
+\begin{split}
+\frac{\partial \Psi}{\partial t} - \alpha \frac{\partial^2 \Psi}{\partial x^2} = \left(2\alpha \frac{\Delta x^2}{24}-\alpha ^2 \frac{\Delta t}{2}\right)
+\frac{\partial ^4 \Psi}{\partial x ^4} + \left(2\alpha \frac{\Delta x^4}{6!}-\alpha ^2 \frac{\Delta t \Delta x^2}{24}\right)\frac{\partial ^6 \Psi}{\partial x ^6}
++ \left( \frac{\Delta t^4}{48} -\frac{\Delta t^4}{120} - \frac{\Delta t^4}{72} \right)\frac{\partial^5 \Psi}{\partial t^5} \\
++ \left(\alpha^2 \frac{\Delta t^2}{3}-\alpha \frac{\Delta t \Delta x^2}{24}\right)\frac{\partial ^5 \Psi}{\partial t \partial x ^4}
+\end{split}
+\end{equation}
+
+ 
+
 Pode-se escrever o passo de tempo em função do passo espacial a partir da definição do CFL (Courant Friedrichs Lewy), da seguinte forma:
 \begin{equation} \label{CFL}
 \Delta t^n= CFL^n \frac{\Delta x^{2n}}{\alpha^{n}}
 \end{equation}
-Assim, substituindo esta relação na equação \ref{olalaaa} e truncando-se os termos de ordem superior à quarta:
+Assim, substituindo esta relação na equação \ref{aloaloalo}:
 
 \begin{equation}
 \begin{split}
-\frac{\partial \Psi \left(t, x\right) }{\partial t} -
-\alpha \frac{\partial^2 \Psi \left(t, x\right) }{\partial x^2} 
-= 
-2 \alpha \sum\limits_{n=2}^{\infty} \frac{\Delta x^{\left(2n - 2\right)}}{\left(2n\right)!} \frac{\partial^{\left(2n\right)} \Psi \left(t, x\right)}{\partial x^{\left(2n\right)}}
-- \sum\limits_{n=2}^{\infty} \frac{\Delta t^{n - 1}}{n!} \frac{\partial^{n} \Psi (t , x)}{\partial t^{n}}	
+\frac{\partial \Psi}{\partial t} - \alpha \frac{\partial^2 \Psi}{\partial x^2} = \left(2\alpha \frac{\Delta x^2}{24}-\alpha ^2 \frac{CFL \Delta x^2}{2\alpha}\right)
+\frac{\partial ^4 \Psi}{\partial x ^4} + \left(2\alpha \frac{\Delta x^4}{6!}-\alpha ^2 \frac{CFL\Delta x^4}{24\alpha}\right)\frac{\partial ^6 \Psi}{\partial x ^6}\\
++ \left( \frac{CFL^4 \Delta x^8}{48\alpha^4} -\frac{CFL^4 \Delta x^8}{120\alpha^4} - \frac{CFL^4 \Delta x^8}{72\alpha^4} \right)\frac{\partial^5 \Psi}{\partial t^5} 
++ \left(\alpha^2 \frac{CFL^2 \Delta x^4}{3\alpha^2}-\alpha \frac{CFL \Delta x^4}{24\alpha}\right)\frac{\partial ^5 \Psi}{\partial t \partial x ^4}
+\end{split}
+\end{equation}
+Assim, desenvolvendo algebricamente:
+\begin{equation}
+\begin{split}
+\frac{\partial \Psi}{\partial t} - \alpha \frac{\partial^2 \Psi}{\partial x^2} = \alpha\Delta x^2 \left(\frac{1}{12}-\frac{CFL}{2}\right)
+\frac{\partial ^4 \Psi}{\partial x ^4} + \alpha \Delta x ^4\left(\frac{1}{360}-\frac{CFL}{24}\right)\frac{\partial ^6 \Psi}{\partial x ^6}\\
+- \frac{CFL^4 \Delta x ^8 }{\alpha^4 720} \frac{\partial^5 \Psi}{\partial t^5} 
++ \frac{FCL \Delta x ^4}{3}\left(CFL - \frac{1}{8}\right)\frac{\partial ^5 \Psi}{\partial t \partial x ^4}
 \end{split}
 \end{equation}
 \\
 . \\ 
+Fazer análise, ...
 . \\
 . \\
 Utilizando-se o teorema de Clairaut-Schwarz, as derivadas temporais podem ser escritas em função das derivadas espaciais, conforme equação \ref{temp_func_epac}.
