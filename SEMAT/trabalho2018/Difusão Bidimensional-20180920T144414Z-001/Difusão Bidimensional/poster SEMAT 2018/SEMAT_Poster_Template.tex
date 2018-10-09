@@ -1,0 +1,248 @@
+
+%---------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[a0,portrait]{a0poster}
+%%
+\usepackage[top=5cm, bottom=0.3cm, left=5cm, right=3cm]{geometry}
+\usepackage[compact]{titlesec}
+\usepackage{multicol} % This is so we can have multiple columns of text side-by-side
+\columnsep=100pt % This is the amount of white space between the columns in the poster
+\columnseprule=20pt % This is the thickness of the line between the columns in the poster
+%\usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
+%\usepackage{times} % Use the times font
+\usepackage{palatino} % Uncomment to use the Palatino font
+\usepackage{xkeyval}
+\usepackage{graphicx} % Required for including images
+\setlength{\abovecaptionskip}{5pt plus 5pt minus 3pt}
+\graphicspath{{figures/}} % Location of the graphics files
+\usepackage{booktabs} % Top and bottom rules for table
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+\usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
+%\usepackage[pdftex]{color}
+\usepackage{framed}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{wrapfig} % Allows wrapping text around tables and figures
+\usepackage[usenames, dvipsnames]{xcolor}
+\definecolor{sematcolor2}{rgb}{0.09, 0.41, 0.56}
+\definecolor{sematcolor}{rgb}{0.05, 0.25, 0.50}
+\definecolor{sematcolor3}{rgb}{0.24, 0.82, 0.98}
+\colorlet{frameborder}{sematcolor2}
+\def\columnseprulecolor{\color{sematcolor}}%
+
+\usepackage{mdframed}
+\usepackage{xcolor}
+
+\newmdenv[
+hidealllines=true,
+backgroundcolor=sematcolor3,
+topline=true,
+bottomline=true,
+linewidth=5pt,
+linecolor=sematcolor
+]{mybox}
+
+\newmdenv[
+hidealllines=true,
+backgroundcolor=sematcolor,
+topline=true,
+bottomline=true,
+linewidth=5pt,
+linecolor=sematcolor
+]{mydarkbox}
+
+\usepackage{amsthm, amsmath, wasysym, MnSymbol}
+
+\newtheorem{theorem}{Teorema}
+\newtheorem{proposition}[theorem]{Proposição}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{definition}[theorem]{Definição}
+\newtheorem{corollary}[theorem]{Corolário}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	POSTER HEADER 
+%----------------------------------------------------------------------------------------
+% The header is divided into three boxes:
+% The widths of these boxes can be easily edited to accommodate your content as you see fit
+\begin{document}
+%\hspace*{0.2cm}
+\begin{minipage}[c]{\linewidth}
+\vspace{0.1cm}
+\noindent\makebox[\textwidth][c]{
+\begin{minipage}[c]{0.10\linewidth}
+\vspace{0pt}\raggedright
+\hspace{1cm}
+\includegraphics[width=\linewidth]{ufulogo}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.70\textwidth}
+\centering
+\Huge \color{sematcolor} \textbf{Um Título não muito muito muito muito Longo}\\[1cm]
+\Large \color{Black} \textbf{\underline{Autor Apresentador}$^{1}$, Segundo Autor$^{2}$, Terceiro Autor$^{1}$ e Orientador$^{1,2}$}\\[1cm] % Author(s)
+\normalsize 1. Faculdade de Matemática, UFU, Uberlândia-MG\\[0.1cm] % University
+2. Instituto de Matemática, USP, São Paulo-SP\\[0.1cm] % Affiliation 2
+
+\small \texttt{Contato: autorapresentador@email.com}\\
+\end{minipage}
+%\hfill
+\begin{minipage}[c]{0.17\textwidth}
+\vspace{0pt}\raggedleft
+\includegraphics[scale=0.33]{fundologo}
+\hspace{1cm}
+\end{minipage}}
+\\[0.1cm]%
+% A bit of extra whitespace between the header and poster content
+%----------------------------------------------------------------------------------------
+\color{sematcolor}\setlength\FrameRule{25pt}
+\begin{framed}
+\vspace{0.5cm}
+\begin{multicols}{2} % This is how many columns your poster will be broken into, a portrait poster is generally split into 2 columns
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+\color{Black}
+\section*{Introdução}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+\begin{mybox}
+\begin{lemma}
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+\end{lemma}
+\end{mybox}
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+\begin{mybox}
+\begin{theorem}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+\end{theorem}
+\end{mybox}
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum (Fig.-\ref{IGSMap}) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\\
+%\begin{wrapfigure}{R}{0.25\textwidth}
+\begin{center}
+\hspace*{\fill}
+\includegraphics[width=0.49\linewidth]{figures/placeholder}
+\includegraphics[width=0.49\linewidth]{figures/placeholder}
+\captionof{figure}{\color{sematcolor2}(left) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi \textendash re Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+\label{IGSMap}
+\end{center}
+In this contributionLorem ipsum dolor sit amet, consectetur liquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+%----------------------------------------------------------------------------------------
+%	METHODS
+%---------------------------------------------------------------------------------------- 
+\color{Black}
+\section*{Outra Seção}
+\begin{wrapfigure}{R}{0.25\textwidth} % R é o parametro que coloca a figura a direita do texto, para esquerda troque por L. 0.25\textwidth define a largura como 25 por cento do largura do texto do poster.
+\centering
+\includegraphics[scale=0.5]{figures/placeholder}
+\captionof{figure}{\color{sematcolor2}Loreteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+\label{STECchart}
+\end{wrapfigure}
+Key information about the sources of data and methods employed in the study are highlighted below.\\
+\hspace{0.1cm}$\circ$ Sdfshd d: 25\textendash31 January, 2015;\\
+\hspace{0.1cm}$\circ$ Redfshdghgons (Fig.\ref{IGSMap}): Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed;\\
+\hspace{0.1cm}$\circ$ Geomagnetic activity: Kp $<$ 4 throughout the study period;\\
+\hspace{0.1cm}$\circ$ Analysis: Two types of accuracy and;\\
+\hspace{0.1cm}$\circ$ GIR: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor;\\
+\hspace{0.1cm}$\circ$ AGD: Lsunt in culpa qui officia deserunt mollit anim id est laborum.\\
+
+\begin{mybox}
+\begin{proposition}
+Num triângulo retângulo, o quadrado da medida da hipotenusa é igual à soma dos quadrados das medidas dos catetos.
+\end{proposition}
+\end{mybox}
+%----------------------------------------------------------------------------------------
+%	Section 2
+%---------------------------------------------------------------------------------------- 
+\color{Black}
+\section*{Seção 2}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum 705 valid (CT$\neq$0) improvements in CT.
+
+
+% O ambiente table não funciona neste modelo de poster em duas colunas, utilize apenas o ambiente tabular
+
+\begin{center}
+\begin{tabular}{clccc}
+\toprule
+$D$ &               & $P_u$      & $\sigma_N$    \\
+(in)&               & (lbs)      & (psi)          \\  \toprule
+%
+5    & test 1      & 285         & 38.00   \\
+& test 2      & 287         & 38.27          \\
+& test 3      & 230         & 30.67          \\   \midrule
+10   & test 1      & 430         & 28.67   \\
+& test 2      & 433         & 28.87          \\
+& test 3      & 431         & 28.73          \\    \bottomrule
+\end{tabular}
+\end{center}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+%----------------------------------------------------------------------------------------
+%	RESULTS
+%---------------------------------------------------------------------------------------- 
+\color{Black}
+\section*{Resultados}
+Fig.-\ref{BIvar} compares tLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\begin{center}
+\includegraphics[width=0.6\linewidth]{figures/placeholder}
+\captionof{figure}{\color{sematcolor2}Cdfhfghgf R (gfhfgh) and GDDDE.}
+\label{BIvar}
+\end{center}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum 705 valid (CT$\neq$0) improvements in CT.
+\begin{center}
+\includegraphics[width=0.6\linewidth]{figures/placeholder}
+\captionof{figure}{\color{sematcolor2} Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+\label{ALICerros}
+\end{center}
+Fig.-\ref{ALICerros} illustrates Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\\
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+\begin{center}
+\includegraphics[width=0.6\linewidth]{figures/placeholder}
+\captionof{figure}{\color{sematcolor2}VLorem ipsum dolor sit amet, ulpa qui officia deserunt mollit anim id est laborumime.}
+\label{GIMupdown}
+\end{center}
+\vspace{0.1cm}
+\begin{center}
+\includegraphics[width=0.6\linewidth]{figures/placeholder}
+\captionof{figure}{\color{sematcolor2}Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.}
+\label{GIMlatlon}
+\end{center}
+%----------------------------------------------------------------------------------------
+%	CONCLUSIONS
+%----------------------------------------------------------------------------------------
+\color{Black}
+\section*{Conclusão}
+Two typesLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Uore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. In summary, we wish to highlight the following:\\ 
+\hspace{0.1cm}$\circ$ text is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorum;\\
+\hspace{0.1cm}$\circ$ text is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorum;\\
+\hspace{0.1cm}$\circ$ text is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorum;\\ 
+\hspace{0.1cm}$\circ$ text is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorum;\\
+\hspace{0.1cm}$\circ$ text is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorum;\\
+\hspace{0.1cm}$\circ$ text is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorum.\\
+text is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorumtext is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorumtext is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorumtext is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorumtext is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorumtext is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorumtext is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorumtext is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorum.
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+\section*{Agradecimentos}
+This research was undertaken text is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorumtext is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorumtext is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorum.
+\end{multicols}
+%\textcolor{NavyBlue}{\rule{\linewidth}{15pt}}
+\vspace{0.5cm}
+\end{framed}
+\end{minipage}
+%\hspace*{0.1cm}
+\end{document}
+%----------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
