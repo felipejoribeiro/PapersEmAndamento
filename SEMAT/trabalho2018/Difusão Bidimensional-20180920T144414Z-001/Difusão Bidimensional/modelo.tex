@@ -54,7 +54,7 @@
 \title{Análise numérica da equação da difusão bidimensional em regime transiente pelo método explícito}
 % Autores: o primeiro será, necessariamente, o apresentador do trabalho
 \author[1]{\underline{Felipe José Oliveira Ribeiro }\thanks{feliperibeiro.ufu@gmail.com}}
-\author[1]{Ítalo Augusto Magalhães de Ávila Ribeiro\thanks{italo.ufuracing@gmail.com}}
+\author[1]{Ítalo Augusto Magalhães de Ávila\thanks{italo.ufuracing@gmail.com}}
 \author[1]{Hélio Ribeiro Neto\thanks{helio.ribeiro@ufu.br}}
 \author[1]{Aristeu da Silveira Neto\thanks{aristeus@ufu.br}}
 \affil[1]{FEMEC - Universidade Federal de Uberlândia}
@@ -278,16 +278,26 @@
 	Segue ainda a avaliação do erro variando-se o $CFL$. O número de divisões para cada direção no domínio espacial foi mantido constante em $50$ para o intervalo $CFL \in [2,5 \ .10^{-3} , 2,5 \ .10^{-1}]$. O resultado obtido é ilustrado à seguir.
 	
 	\vspace*{-4mm}
-	
-	\begin{figure}[!hbt]
+	\begin{figure*}[h!]
+	\centering
+	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
-		\includegraphics[scale=0.3]{NormaL1.png}
-		\vspace*{-5mm}
-		\caption{Erro numérico das simulações em função do $CFL$.}
+		\includegraphics[scale=0.3]{L1}
 		\label{fig:erro}
-	\end{figure}
-
-
+	\end{subfigure}
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[scale=0.3]{L2}
+		\label{fig:erro}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[scale=0.3]{L3}
+		\label{fig:erro}
+	\end{subfigure}
+	\vspace{-5 mm}
+	\caption{Erro numérico em função do valor do Cfl.}
+	\end{figure*}
 
 
 	
