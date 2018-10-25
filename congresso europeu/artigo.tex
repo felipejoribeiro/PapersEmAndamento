@@ -187,7 +187,7 @@ On the present paper, the authors aim to develop a semi analytical RANS (Reynold
 \section{Physical model}
 
 The problem was defined as a plane channel flow, with only one finite dimension on the $y$ axis. Two boundary walls were set as two nonslip infinite plates in a constant thermal flux regime. The $z$ axis was proposed self similar both on velocity and temperature, resulting on a plane domain (Fig.\ref{figure.1}). \\
-The fluid was incompressible and Newtonian. It was flowing on the $x$ axis direction on Reynolds numbers that variated from $4560$ to $41441$, resulting on a turbulent regime domain. 
+The flow was considered incompressible and the fluid Newtonian. It was flowing on the $x$ axis direction on Reynolds numbers that ranged from $4560$ to $41441$, resulting on a turbulent regime. 
 
 \begin{figure}[h!]
 	\centering
@@ -196,7 +196,7 @@ The fluid was incompressible and Newtonian. It was flowing on the $x$ axis direc
 	\label{figure.1}
 \end{figure}
 
-The base mathematical formulation for the problem where the continuity and Navier-Stokes equations as defined on Cengel's book \cite{Cengel}, and the  energy transport equation, as defined on Freank's Incropera \cite{Incropera}. These were the assumptions made to the proposed problem, that will be considered on the mathematical model ahead.
+The base mathematical formulation for the problem where the continuity and Navier-Stokes equations as defined on Cengel's book \cite{Cengel}, and the thermal energy transport equation, as defined on Freank's Incropera \cite{Incropera}. These were the assumptions made to the proposed problem, that will be considered on the mathematical model ahead.
 
 
 
@@ -206,7 +206,7 @@ The base mathematical formulation for the problem where the continuity and Navie
 
 
 
-\section{Differential model}
+\section{Differential mathematical model}
 
 Developing the thermal energy equation, the continuity equation and the Navier-Stokes equations for mean statistical permanent regimes resulted on: 
 
@@ -228,11 +228,12 @@ Developing the thermal energy equation, the continuity equation and the Navier-S
 - \frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} + \frac{\partial}{\partial y}\left(\nu \frac{\partial \overline{u}}{\partial y} - \overline{u^\prime v^\prime}\right).
 \end{equation}
 
-Where (\ref{energy permanent}) represents the mean energy balance for a given point, the (\ref{mass}) represents the mean mass balance and (\ref{dynamics}) represents de mean linaer momentum balance. What configure the method as a Reynolds Averaged Navier Stokes(RANS) methodology.
+Where (\ref{energy permanent}) represents the mean energy balance for a given point, (\ref{mass}) represents the mean mass balance and (\ref{dynamics}) represents de mean linaer momentum balance. What configure the method as a Reynolds Averaged Navier Stokes (RANS) methodology.
 
 \subsection{The temperature permanent regime}
 
-Even when on simplified mean values, the temperature field of a turbulent channel flow don't converge naturally to a unidimensional permanent state (fig.\ref{figure.2}). In a effort to simplify the solution, the thermal configuration was studied with a thermal flux equation (\ref{c_h_e}).
+Even when on mean values, the temperature field of a turbulent channel flow don't converge naturally to a unidimensional permanent state (fig.\ref{figure.2}). In a effort to simplify the solution, the thermal configuration was studied with a thermal energy equation (\ref{c_h_e}).
+The velocity field is completely developed, but this is not the case for the temperature field, as a constant thermal flux is imposed over the walls.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[angle=0, scale=0.40]{temperatura}
@@ -243,9 +244,9 @@ Even when on simplified mean values, the temperature field of a turbulent channe
 q_{conv.} = \dot{m} C_p \Delta T_m.
 \end{equation}
 \begin{equation}
-2q_w b \Delta x = \dot{m} C_p \Delta T_m.
+2q_w b \Delta x = \dot{m} C_p \Delta T_m,
 \end{equation}
-Being $b$ the depth of the channel and $T_m$ the average temperature in a cross-section. So, substituting $ \dot{m} = u_m 2R b \rho $, and assuming $ \Delta T_m = \frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} \Delta x $:
+being $b$ the depth of the channel and $T_m$ the average temperature in a cross-section. So, substituting $ \dot{m} = u_m 2R b \rho $, and assuming $ \Delta T_m = \frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} \Delta x $:
 \begin{equation}
 2q_w b \Delta x = u_m 2R b \rho  C_p \frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} \Delta x.
 \end{equation}     
@@ -261,7 +262,7 @@ To better understand the wall temperature with such energy profile, a convective
 \begin{equation}
 q_w = h A \left( T_w(x) - \overline{T}_m(x)\right).
 \end{equation}
-It is noted that $h$ is constant since there is a fully developed flow. Thus it is possible to write:
+It is noted that $h$ is constant since this is a fully developed flow dynamically. Thus it is possible to write:
 %\begin{equation}
 %T_w(x) - \overline{T}_m(x) = \frac{q_w}{hA}.
 %\end{equation}
@@ -272,7 +273,7 @@ It is noted that $h$ is constant since there is a fully developed flow. Thus it 
 \frac{d T_w(x)}{d x} = \frac{d \overline{T}_m(x)}{d x} = Ctt.
 \end{equation}	
 
-With the temperature on the walls and the mean temperature gradient set as linear by these mathematical determinations, it was possible to extend this gradient to all de domain considering the boundary conditions and the symmetry of the system. So a constant temperature gradient was imposed on the heated walls, creating a boundary condition of constant thermal flux, causing all the field T(x,y) to varies linearly on the streamwise direction. The temperature value was then decomposed to the form $ T^\ast(y) = T(x,y) - T_w(x) $ where $T_w(x)$ was the temperature near the wall, resulting in a similarity effect on the streamwise direction, resuming the problem to a unidimensional representative state for the variable $T^\ast(y)$. Therefore, the expression was substituted in (\ref{energy permanent}):
+With the temperature on the walls and the mean temperature gradient set as linear by these mathematical determinations, it was possible to extend this gradient to all the domain considering the boundary conditions and the symmetry of the system. So a constant temperature gradient was imposed on the heated walls, creating a boundary condition of constant thermal flux, causing all the field T(x,y) to varies linearly on the streamwise direction. The temperature value was then decomposed to the form $ T^\ast(y) = T(x,y) - T_w(x) $ where $T_w(x)$ was the temperature near the wall, resulting in a similarity effect on the streamwise direction, resuming the problem to a unidimensional representative state for the variable $T^\ast(y)$. Therefore, the expression was substituted in (\ref{energy permanent}):
 
 
 
