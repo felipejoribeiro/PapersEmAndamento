@@ -73,20 +73,18 @@
 \begin{document}
 \maketitle
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[angle=0, trim={0 1cm 0 1cm},scale=0.70]{turbulence}
-	\label{turbulence}
-\end{figure}
+%\begin{figure}[h!]
+%	\centering
+%	\includegraphics[angle=0, trim={0 1cm 0 1cm},scale=0.70]{turbulence}
+%	\label{turbulence}
+%\end{figure}
 
 \begin{abstract}
 	\noindent Fluid dynamics is a subject of great academic and industrial interest. It offers many opportunities for optimization in a variety of practical engineering problems. The modeling of thermal properties of turbulent flows is something of remarkable complexity, that can be explained mathematically by the chaotic nature of this non-linear differential analysis, fact beautifully stated in the Strogatz`s book "Nonlinear Dynamics and Chaos". The immediate result of such fact is the impossibility of an exact mathematical answer for, near, all real applications. The only way of gathering results, then, is by numerical approach, with the discretization of space and time, for an approximate result. The problem is that, in most cases, these are a so big computational problem that become inviable. With that in mind, the present paper aims to develop a semi-exact meta-modeled approach on a turbulent Poiseuille flow thermal analysis over a channel, aiming on efficiency and accuracy when compared to the DNS solution, the most respected but computational expensive method there is. Such approach resulted on a new adjusted model for the turbulent Prandtl number on a Poiseuille channel.
-\end{abstract}
+\end{abstract} 
 
-
-
-
-\pagebreak
+%\pagebreak
+\vspace{8.0mm}
 
 \begin{LARGE}
 	Nomenclature: 
@@ -160,16 +158,18 @@
 	
 	$\alpha_t$ = Turbulent thermal diffusivity 
 	
+	\vspace{8.00mm}
+	
+	\begin{LARGE}
+		Superscripts: 
+	\end{LARGE} 
 	
 	$\tilde{()}$ = Normalized under wall properties
 	
-	$\overline{()}$ = mean value
+	$\overline{()}$ = Mean value.
 	 
-	$()^\ast$ = mean value 
+	$()^\prime$ = Fluctuation. 
 
-
-
-\tableofcontents
 
 \section{Introduction}
 
@@ -193,7 +193,7 @@ The flow was considered incompressible and the fluid Newtonian. It was flowing o
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[angle=0, scale=0.50]{figure1}
+	\includegraphics[angle=0, scale=0.50]{canal1}
 	\caption{Geometric definition and boundary condition of the system.}
 	\label{figure.1}
 \end{figure}
@@ -394,8 +394,8 @@ In this way, we had the first derivative of velocity in an exact form.
 To discretize the differential equation, an Eulerian domain was formulated. For the velocity a fourth-order Runge-kutta method was applied, while the temperature was arranged in a central differences scheme that had to be solved implicitly. The dynamic model is solved first, and its numerical result are used in the solution of the thermal profile. As for cell location, a cell center was determined on the wall, and a point between cells in the center of the channel, the rest of the space units being evenly distributed throughout the channel.
 \begin{figure}[!h]
 	\centering
-	\includegraphics[angle=90, scale=0.06]{canalvermelho}
-	\caption{Graphical representation of the system domain.}
+	\includegraphics[angle=0, trim={20mm 10mm 0mm 0mm}, clip , scale=0.5]{convergnciaprimeira}
+	\caption{The convergence of the numerical methodology.}
 	\label{sistema}
 \end{figure}
 
