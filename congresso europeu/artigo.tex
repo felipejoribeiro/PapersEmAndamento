@@ -93,7 +93,7 @@
 
 	Pr = Molecular Prandtl number
 	
-	
+	A = Cebeci's constant
 	
 	
 	$Re$ = Reynolds number, $Re = \frac{2R \overline{U}}{\nu}$
@@ -107,12 +107,22 @@
 	
 	
 	
-	$T_\tau$ = Wall coordinate temperature, $\frac{q_w}{\rho c_p u_\tau}$ 
+	$T_\tau$ = Wall coordinate temperature, $T_\tau = \frac{q_w}{\rho c_p u_\tau}$ 
 	
 	
 	
 	
 	$T_m$ = Bulk temperature 
+	
+	
+	
+	
+	$T_w$ = Temperature on the walls
+	
+	
+	
+	
+	$T^\ast$ = Difference of temperature, $T^\ast = T - t_w $ 
 	
 	
 	
@@ -193,7 +203,7 @@ The flow was considered incompressible and the fluid Newtonian. It was flowing o
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[angle=0, scale=0.50]{canal1}
+	\includegraphics[angle=0, scale=0.50]{fotos_formatacao_final/canal1}
 	\caption{Geometric definition and boundary condition of the system.}
 	\label{figure.1}
 \end{figure}
@@ -234,14 +244,20 @@ Where (\ref{energy permanent}) represents the mean energy balance for a given po
 
 \subsection{The temperature permanent regime}
 
-The velocity field is completely developed, but this is not the case for the temperature field, as a constant thermal flux is imposed over the walls.
+The velocity field is completely developed on the channel, for mean values (fig.\ref{figure.3}), but this is not the case for the temperature field, as a constant thermal flux is imposed over the walls.
 Even when on mean values, the temperature field of a turbulent channel flow don't converge naturally to a unidimensional permanent state (fig.\ref{figure.2}). In a effort to simplify the solution, the thermal configuration was studied with a thermal energy equation (\ref{c_h_e}).
 The velocity field is completely developed, but this is not the case for the temperature field, as a constant thermal flux is imposed over the walls.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[angle=0, scale=0.40]{temperatura}
+	\includegraphics[angle=0, scale=0.40]{fotos_formatacao_final/temperatura}
 	\caption{Temperature field in statistical permanent regime over a channel.}
 	\label{figure.2}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[angle=0, height=1.4cm , width=12.3cm]{fotos_formatacao_final/velocidade}
+	\caption{velocity field in completely developed regime over a channel.}
+	\label{figure.3}
 \end{figure}
 \begin{equation}\label{c_h_e}
 q_{conv.} = \dot{m} C_p \Delta T_m,
@@ -367,7 +383,7 @@ With $A = 26$ as the Cebeci`s constant. Thus, we had the mixing length defined b
 lm = L R,
 \end{equation}
 $ L $ being a function in the $ y $ axis.
-\begin{equation}
+\begin{equation}\label{cebeciconstant}
 {\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
 - \frac{{L}^2 R ^2}{Pr_t}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
 = 
@@ -400,123 +416,285 @@ To discretize the differential equation, an Eulerian domain was formulated. For 
 \end{figure}
 
 \subsection{Preliminary results}
-Initially the turbulent Prandtl number was used as in the literature, a value of 0.71, where the results were:\\
+Initially the turbulent Prandtl number, $Pr_t = 0.71$, was used as in the literature, and the obtained results were:\\
 	\begin{figure*}[h!]
 		\centering
-		\begin{subfigure}[t]{0.45\textwidth}
+%		\begin{subfigure}[t]{0.49\textwidth}
+%		\centering
+%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_150_0025_classico}
+%		\caption{Temperature configuration for $Re_\tau = 150$, $Pr = 0.025$, $L2 = 0.13$ }
+%		\end{subfigure}%
+		\begin{subfigure}[t]{0.49\textwidth}
 		\centering
-		\includegraphics[angle=0, scale=0.24]{150orto}
-		\caption{Results for $Re_\tau = 150$. L2 = 1.36 }
-		\end{subfigure}%
-		~
-		\begin{subfigure}[t]{0.45\textwidth}
-		\centering
-		\includegraphics[angle=0, scale=0.24]{1020orto}
-		\caption{Results for $Re_\tau = 1020$. L2 = 1.77}
+		\includegraphics[angle=0, scale=0.28]{fotos_formatacao_final/Temperature_150_071_classico}
+		\caption{Temperature distribution for $Re_\tau = 150$, $L2 = 1.42$}
 		\end{subfigure}
-	\caption{For $Pr_t = 0.71$ and $A = 26$} 
+%		\begin{subfigure}[t]{0.49\textwidth}
+%		\centering
+%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_395_0025_classico}
+%		\caption{Temperature configuration for $Re_\tau = 395$, $Pr = 0.025$, $L2 = 0.52$}
+%		\end{subfigure}%
+		\begin{subfigure}[t]{0.49\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.28]{fotos_formatacao_final/Temperature_395_071_classico}
+		\caption{Temperature distribution for $Re_\tau = 395$, $L2 = 1.55$}
+		\end{subfigure}
+%		\centering
+%		\begin{subfigure}[t]{0.49\textwidth}
+%		\centering
+%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_395_1_classico}
+%		\caption{Temperature configuration for $Re_\tau = 395$, $Pr = 1.0$, $L2 = 1.89$}
+%		\end{subfigure}%
+%		\begin{subfigure}[t]{0.49\textwidth}
+%		\centering
+%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_395_2_classico}
+%		\caption{Temperature configuration for $Re_\tau = 395$, $Pr = 2.0$, $L2 = 2.60$}
+%		\end{subfigure}\\
+%		\begin{subfigure}[t]{0.49\textwidth}
+%		\centering
+%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_395_5_classico}
+%		\caption{Temperature configuration for $Re_\tau = 395$, $Pr = 5.0$, $L2 = 3.75$}
+%		\end{subfigure}%
+%		\begin{subfigure}[t]{0.49\textwidth}
+%		\centering
+%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_395_7_classico}
+%		\caption{Temperature configuration for $Re_\tau = 395$, $Pr = 7.0$, $L2 = 4.24$}
+%		\end{subfigure}\\
+%	    \centering
+%		\begin{subfigure}[t]{0.49\textwidth}
+%		\centering
+%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_395_10_classico}
+%		\caption{Temperature configuration for $Re_\tau = 395$, $Pr = 10.0$, $L2 = 4.55$}
+%		\end{subfigure}%
+%		\begin{subfigure}[t]{0.49\textwidth}
+%		\centering
+%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_640_0025_classico}
+%		\caption{Temperature configuration for $Re_\tau = 640$, $Pr = 0.025$, $L2 = 0.84$}
+%		\end{subfigure}\\
+		\begin{subfigure}[t]{0.49\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.28]{fotos_formatacao_final/Temperature_640_071_classico}
+		\caption{Temperature distribution for $Re_\tau = 640$, $L2 = 1.79$}
+		\end{subfigure}%
+		\begin{subfigure}[t]{0.49\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.28]{fotos_formatacao_final/Temperature_1000_071_classico}
+		\caption{Temperature distribution for $Re_\tau = 1020$, $L2 = 2.04$}
+		\end{subfigure}%
+		\caption{Temperature distribution for $Pr_t = 0.71$, $A = 26$ and $Pr = 0.71$} 
 	\end{figure*}	
 
-First results weren't satisfactory. Then, it was noticed that the turbulent Prandtl number had great influence on the outcome, so the turbulent Prandtl number from the DNS was used as a parameter in the program, obtaining an L2 norm of $ 0.19 $ to $ Re_t = 640 $. Thus it was identified that the problem was in the parametrization of the turbulent Prandtl number. It became the focus of the research.
+First results weren't satisfactory. Then, it was noticed that the turbulent Prandtl number had great influence on the outcome, so the turbulent Prandtl number from the DNS (fig.\ref{figure5}) was used as a parameter in the program, obtaining an L2 norm of $ 0.19 $ to $ Re_t = 640 $. Thus it was identified that the problem was in the parametrization of the turbulent Prandtl number. It became the focus of the present research.
 
 \begin{figure*}[h!]
 	\centering
-	\includegraphics[angle=0, scale=0.25]{perfisPrandtlturb_Ret_Pt}
-	\caption{Vector from the DNS with the turbulent Prandtl number according to the coordinate $ y $ in the channel.}
+	\includegraphics[angle=0, scale=0.55]{fotos_formatacao_final/DNS_PRt}
+	\caption{Prandtl from the DNS with the turbulent Prandtl number according to the coordinate $ y $ in the channel.}
+	\label{figure5}
 \end{figure*}
 
 Thus, the effort to propose a parameterization adjusted for the turbulent Prandtl number started.
-In this sense was tried to adjust a value for which the error was minimal when comparing the simulation with DNS.
+In this sense it was tried to adjust a value for which the error was minimal, comparing to the simulation with DNS. In this regards, the differential evolution algorithm methodology was applied. 
 
-\newpage
 
-\subsection{The meta-modeling}
-Was wrote an algorithm that searched for a minimal error for the function, considering the turbulent Prandtl number as an editable variable and the smaller error as the pattern of interest.
-It obtained a turbulent Prandtl number adjusted of $ 0.905 $ for the turbulent Reynolds number of $ 1020$.
+
+\subsection{The meta-modeling, with the genetic algorithm: Differential Evolution (DE)}
+It was used an algorithm that searched for a minimal error for the given function, considering the turbulent Prandtl number as an editable variable and the smaller error as the pattern of interest.
+It was obtained a turbulent Prandtl number, for the turbulent Reynolds number $ 1020$, of $ 0.89999 $ .
 \begin{figure}[!h]
 	\centering
-	\includegraphics[angle=0, scale=0.25]{oloco}
-	\caption{Adjustment algorithm converged on $Pr_t = 0.905$.}
+	\includegraphics[angle=0, scale=0.31]{fotos_formatacao_final/Genetic_amostra}
+	\caption{Genetic algorithm iterations, with simulations for $Re_\tau = 1020$. Convergence on $Pr_t = 0.89999 $.}
 \end{figure}
 
-The value was applied to the entire domain, with the results as follows:
+The turbulent Prandtl number obtained was applied to the others turbulent Reynolds numbers, with the results as follows:
 \begin{figure*}[!h]
 	\centering
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[angle=0, scale=0.24]{150segundo}
-		\caption{Results for $Re_\tau = 150$. L2 = 0.341}
+		\includegraphics[angle=0, scale=0.3]{fotos_formatacao_final/Temperature_150_071_Prt(Ret)_A26}
+		\caption{Temperature distribution for $Re_\tau = 150$, $L2 = 0.34$}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.45\textwidth}
 		\centering
-		\includegraphics[angle=0, scale=0.24]{395segundo}
-		\caption{Results for $Re_\tau = 395$. L2 = 0.23}
+		\includegraphics[angle=0, scale=0.3]{fotos_formatacao_final/Temperature_395_071_Prt(Ret)_A26}
+		\caption{Temperature distribution for $Re_\tau = 395$, $L2 = 0.23$}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[angle=0, scale=0.24]{640segundo}
-		\caption{Results for $Re_\tau = 640$. L2 = 0.192}
+		\includegraphics[angle=0, scale=0.3]{fotos_formatacao_final/Temperature_640_071_Prt(Ret)_A26}
+		\caption{Temperature distribution for $Re_\tau = 640$, $L2 = 0.19$}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.45\textwidth}
 		\centering
-		\includegraphics[angle=0, scale=0.24]{1020segundo}
-		\caption{Results for $Re_\tau = 1020$. L2 = 0.151}
+		\includegraphics[angle=0, scale=0.3]{fotos_formatacao_final/Temperature_1000_071_Prt(Ret)_A26}
+		\caption{Temperature distribution for $Re_\tau = 1020$, $L2 = 0.14$}
 	\end{subfigure}	
-	\caption{Results for $Pr_t = 0.905$ and $A = 26$}
+	\caption{Results for $Pr_t = 0.89999$, $A = 26$ and $Pr =0.71$ }
 \end{figure*}
 
-Although the results were much better, the model had to be further developed, because the turbulent Prandtl number varies with the Reynolds number, so a model that contemplate this fact had to be created. 
-In order to obtain a curve that contemplated the Reynolds numbers throughout the domain, the same optimizing algorithm was used to determine an ideal turbulent Prandtl number for each turbulent Reynolds number available in DNS.
+Although the results were much better, the model had to be further developed. The turbulent Prandtl number varies with the Reynolds number as observed on (fig.\ref{figure5}), so a model that contemplate this fact had to be created. 
+In order to obtain a curve that relate with the turbulent Reynolds numbers. The same optimizing algorithm had to be used to determine an ideal turbulent Prandtl number for each turbulent Reynolds number available in DNS.
+The best turbulent Prandtl numbers obtained were:
 
-As a way of making sure that a global minimum has been reached, the algorithm was run from a point above and a point below the inferred.	\\
-
-\begin{figure}[!h]
+\begin{table}[!h]
 	\centering
-	\begin{subfigure}[t]{0.49\textwidth}
-		\centering
-		\includegraphics[angle=0, scale=0.19]{convergnciacima}
-		\caption{Algorithm for optimal values. With initial value lower than the estimated.}
-	\end{subfigure}
-	\begin{subfigure}[t]{0.49\textwidth}
-		\centering
-		\includegraphics[angle=0, scale=0.19]{convergnciabaixo}
-		\caption{Algorithm for optimal values. With initial value greater than the estimated.}
-	\end{subfigure}
-\caption{Optimization algorithm.}
-\end{figure}
+	\caption{Ideal turbulent Prandtl Numbers adjusted for each turbulent Reynolds number}
+	\begin{tabular}{ll}
+		  \hline
+		  $Re_\tau$ & $Pr_t$\\
+		  \hline
+		  150  &   0.94531\\
+		  395  &   0.89531\\
+		  640  &   0.89531\\
+		  1020 &  0.89999\\ 
+		  \hline
+	\end{tabular}
+\end{table}
+
+
 
 By performing a polynomial curve fit, the following relation was obtained:
 \begin{equation}
 \begin{split}
-Pr_t = 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 + 0,0001 Re_\tau + 0,87 
+Pr_t = -4.5604 * 10^{-10} Re_\tau^3 + 9.5690 * 10^{-7} Re_\tau^2 - 6.1715 *10 ^{-4} Re_\tau + 1.0178 
 \end{split}
 \end{equation}
-Thus, a model adjusted for the turbulent Prandtl number as a function of the turbulent Reynolds number was developed.
-	\begin{figure}[!h]
+Thus, a model adjusted for the turbulent Prandtl number as a function of the turbulent Reynolds number was developed. The result of the simulations were much accurate, even more than the simulations with the turbulent Prandtl numbers set as the mean values of the ones from the DNS data (fig.\ref{figure5}). These results can be seen ahead:
+
+%\begin{table}[!h]
+%	\centering
+%	\caption{Comparison between The L2 norm from The simulations with $Pr_t =0.8999$ and $Pr_t(Re_\tau)$}
+%	\begin{tabular}{lll}
+%		\hline
+%		150  &   0.34 &    \\
+%		395  &   0.23 &    \\
+%		640  &   0.19 &    \\
+%		1020 &   0.89999 &    \\ 
+%		\hline
+%	\end{tabular}
+%\end{table}
+
+
+\begin{figure*}[!h]
 	\centering
-	\includegraphics[angle=0, scale=0.295]{ajustePrandtl}
-	\caption{Adjust of a model for the $ Pr_t $ variable.}
-\end{figure}  
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_071_Prt0905_A26}
+		\caption{Temperature distribution for $Re_\tau = 150$, $L2 = 0.26$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_071_Prt0905_A26}
+		\caption{Temperature distribution for $Re_\tau = 395$, $L2 = 0.22$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_071_Prt0905_A26}
+		\caption{Temperature distribution for $Re_\tau = 640$, $L2 = 0.174$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_071_Prt0905_A26}
+		\caption{Temperature distribution for $Re_\tau = 1020$, $L2 = 0.14$}
+	\end{subfigure}	
+	\caption{Results for $Pr_\tau(Ret)$, $A = 26$ and $Pr =0.71$ }
+\end{figure*}
 
 
-It was studied the velocity profile too, and a adjusted model was created for the Cebeci constant. The same algorithm utilized to find the ideal turbulent Prandtl numbers was used to find an ideal cebecis's constant for each turbulent Reynolds number. 
 
-\begin{figure}[!h]
+\newpage
+
+Other means of reducing the inaccuracy were searched. The velocity profile was a possibility as it plays an important role in the error of the method. Simulations were carried developing just this physical property, and there was error associated, as it can be seen ahead:
+
+\begin{figure*}[!h]
 	\centering
-	\includegraphics[angle=0, scale=0.295]{ajustecebeci}
-	\caption{Adjust of a model for a variable Cebeci's number.}
-\end{figure}
- From the resulting points of the optimization algorithm, a model adjusted for the Cebeci value was developed too. As follows:
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_Avelocity}
+		\caption{Velocity distribution for $Re_\tau = 150$, $L2 = 0.47$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_Avelocity}
+		\caption{Velocity distribution for $Re_\tau = 395$, $L2 = 0.17$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_Avelocity}
+		\caption{Velocity distribution for $Re_\tau = 640$, $L2 = 0.23$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_Avelocity}
+		\caption{Velocity distribution for $Re_\tau = 1020$, $L2 = 0.23$}
+	\end{subfigure}	
+	\caption{Results for $A = 26$}
+\end{figure*}
+
+
+A adjusted model was created for the Cebeci's constant $A$ aiming to reduce it's error, and by extension, making the role method more accurate. The same algorithm used to find the ideal turbulent Prandtl numbers was used to find an ideal Cebecis's constant for each turbulent Reynolds number. It was used the velocity from DNS available to calculate de L2 norm. The Cebeci constant "A" was defined as an editable variable for the program, and the L2 norm was set as a parameter of interest. The results for ideal Cebeci's constants can be seen ahead:
+
+\newpage
+
+\begin{table}[!h]
+	\centering
+	\caption{Ideal Cebeci's constant adjusted for each turbulent Reynolds number}
+	\begin{tabular}{ll}
+		\hline
+		$Re_\tau$ & $A$\\
+		\hline
+		150  &   28.616180\\
+		395  &   25.673782\\
+		640  &   25.001266\\
+		1020 &  25.002136\\ 
+		\hline
+	\end{tabular}
+\end{table}
+
+ From the resulting points of the optimization algorithm, a model adjusted for the Cebeci value was developed too, as follows:
 \begin{equation}
-A = \frac{Re_\tau ^{0.0451 * \ln(Re_\tau)} *e ^ {5.2753} }{Re_\tau ^{0.6094}}
+A = \frac{Re_\tau ^{0.04510 * \ln(Re_\tau)} *e ^ {5.27528} }{Re_\tau ^{0.60911}}
 \end{equation}
-It was studied the influence of the number of molecular Prandtl and it was observed that it was also a variable with influences in the error of the method, thus began a study with the objective of adding the influence of the value of Prandtl number to the parameterization of the turbulent Prandtl number. For this the following model was proposed:
+
+Then, there was a adjusted method for the Cebeci's constant too, optimized for minimal error relative to the velocity, as can be seen in the simulations, there was a improvement on the velocity calculation:
+
+
+\begin{figure*}[!h]
+	\centering
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_Amodeled}
+		\caption{Velocity distribution for $Re_\tau = 150$, $L2 = 0.28$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_Amodeled}
+		\caption{Velocity distribution for $Re_\tau = 395$, $L2 = 0.16$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_Amodeled}
+		\caption{Velocity distribution for $Re_\tau = 640$, $L2 = 0.14$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_Amodeled}
+		\caption{Velocity distribution for $Re_\tau = 1020$, $L2 = 0.13$}
+	\end{subfigure}	
+	\caption{Results for $A = 26$}
+\end{figure*}
+
+It was also studied the influence of the molecular Prandtl number and it was observed that it was also a variable with influences in the error of the method, thus a study was developed with the objective of adding the influence of the value of Prandtl number to the parameterization of the turbulent Prandtl number. For this the following model was proposed:
 \begin{equation}
 \begin{split}
 Pr_t = \left( 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 + 0,0001 Re_\tau + 0,87 \right) \left(  \frac{Pr}{0,71}\right) ^{-0.008}
 \end{split}
 \end{equation}
 
+
+Continua ...
+ 
 
 \section{Results}
 With all these methods, a big number of simulations in concerning all the DNS data was made.
@@ -526,7 +704,7 @@ Results can be seen ahead.\\
 	\includegraphics[angle=0, scale=0.42]{finais}
 	\caption{Geral results per method.}
 \end{figure}
-\\
+
 Here are some cuts from the previous chart, explaining the errors obtained for a fixed Ret of 395, and a fixed Pr of 0.71.
 \begin{figure}[!h]
 	\centering
@@ -644,8 +822,10 @@ college (FEMEC) of the Federal university of Uberlandia (UFU). PETROBRAS, Cnpq a
 	
 	\bibitem{Luigi}
 	L A Antonialli and A N Silveira ,
-	\newblock{Theoretical study of fully develop turbulent flow in a flat channel, using prandtl'smixing length model},
-	\newblock{2015}.	
+	\newblock{Theoretical study of fully develop turbulent flow in a flat channel, using prandtl's
+mixing length model},
+	\newblock{2015}.
+	
 	
 	
 \end{thebibliography}
