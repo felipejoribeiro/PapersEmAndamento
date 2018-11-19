@@ -1,0 +1,133 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \documentclass[a4paper,12pt]{report}                   % Tipo de documento
+   %\documentclass[10pt,twoside,a4paper]{article}         % Para duas ou mais colunas, pesquise a respeito
+   \usepackage[utf8]{inputenc}                            % Biblioteca para ascentos 
+   \usepackage[brazil]{babel}                             % Biblioteta para português
+   \usepackage{amssymb}                                   % Biblioteta para simbolos
+   \usepackage{graphicx}                                  % Biblioteta para figuras 
+   \usepackage{amsmath}                                   % Biblioteta para simbolos matemáticos
+   \usepackage{esint}                                     % Biblioteta para ...
+   \usepackage{enumitem}                                  % Biblioteta para numerar itens
+   \usepackage{amsfonts}                                  % Biblioteta para mais simbolos
+   \usepackage{amscd}                                     % Biblioteta para ...
+   \usepackage{amstext}                                   % Biblioteta para ...
+   \usepackage{mathrsfs}                                  % Biblioteta para ambiente matematico
+   \usepackage{amsthm}                                    % Biblioteta para ...
+   \usepackage{hyperref}                                  % Biblioteta para alguma coisa importante
+   \usepackage{wrapfig}                                   % Biblioteta para colocar duas figuras
+   \usepackage{textcomp}                                  % Biblioteta para ...
+   \usepackage{lipsum}                                    % É importante também
+   \usepackage{longtable}                                 % Biblioteta para tabelas
+   \usepackage{multicol}                                  % Biblioteta para tabelas
+   \usepackage{geometry}  
+   \usepackage{setspace} 
+   
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+   
+   
+   %\usepackage[latin1]{inputenc}                         % para acentuação em Português OU
+   %\usepackage[utf8]{inputenc}                           % para acentuação em Português com o uso do Unicode,  mude a codificação desse template para utf-8
+   %\usepackage[english]{babel}                           % para texto em Inglês
+   %\usepackage{graphics}                                 % Para colcar figuras
+   %\usepackage{subfigure}                                % Para colocar texto e figuras     
+   %\usepackage{epsfig}                                   % Para colocar figuras em eps
+   %\usepackage[centertags]{amsmath}                      % Para mudar a fonte do ambiente matemático
+   %\usepackage{indentfirst}                              % Para Parágrafos
+   %\usepackage{newlfont}                                 % Não sei 
+   %\usepackage{cite}                                     % Para fazer citações 'mais bonitas'
+   %\usepackage[usenames,dvipsnames]{color}               % Alguma coisa com cor
+   %\usepackage[T1]{fontenc}                              % Alguma fonte
+   %\usepackage[a4paper]{geometry}                   	  % Define o tamanho da folha
+   %\usepackage{subcaption}                               % Figuras lado a lado
+   %\usepackage{booktabs}                                 % Tabelas
+   %\usepackage{url}                                      % Web links
+   %\usepackage{lipsum}                                   % Texto automático
+   %\usepackage{wasysym}                                  % Biblioteca para simbolos
+   %\usepackage{MnSymbol}                                 % Sim, mais simbolos
+   %\usepackage{helvet}                                   % Fonte
+   %\usepackage{lineno}                                   % Pacote para colocar números das linhas
+   %\usepackage{mathptmx}                                 % Fonte padrão em fórmulas - Times!!!!
+   %\usepackage{fancyhdr}                                 % Para editar cabeçalhos
+   %\usepackage{latexsym}                                 % Simbolos ...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   % Define o scopo do texto (CAPA)
+   %\title{Relatório final de iniciação científica}  
+   %\author{Ítalo Augusto Magalhães de Ávila}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   % Seta o scopo do texto
+   
+    %\geometry{tmargin=1.2cm,bmargin=1.2cm,lmargin=1.2cm,rmargin=1.2cm}     % Define as margens
+   
+   \setlength{\textwidth}{15cm}                                 % Lateral
+   \setlength{\textheight}{22cm}                                % Altura
+   
+   %\pagestyle{fancy}                                           % Coloca cabeçalho e rodapé
+   %\fancyhead{}                                                % Tira informações do cabeçalho, como seção, etc
+   %\fancyfoot{}                                                % Tira número das páginas do rodapé
+   %\renewcommand{\headrulewidth}{0pt}                          % Retira linha automática de cima
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   % Definição de comandos
+   \newcommand{\sen}{{\rm \: sen\: }}                      % Seno   
+   \newcommand\x{\times}                                   % Multiplicação Vetorial
+   \newcommand\bigzero{\makebox(0,0){\text{\huge0}}}       % Um Zero bem grande
+   \newcommand*{\bord}{\multicolumn{1}{c|}{}}              % Linha Vertical
+   
+   \newcommand{\pr}{\hspace*{.6cm}}                        % Parágrafo, usar apenas no início da seção ou subseção
+   
+   \renewcommand{\qedsymbol}{$\blacksquare$}               % C.Q.D.
+   \newcommand{\conjC}{\mathbb{C}}                         % Conjuntos
+   \newcommand{\conjR}{\mathbb{R}}	                       % Conjuntos
+   \newcommand{\conjN}{\mathbb{N}}                         % Conjuntos
+   \newcommand{\conjT}{\mathbb{T}}                         % Conjuntos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   % Definição de Novas secções e Teoremas
+   \newtheorem{teo}{\normalcolor Teorema}                      % Para colocar um Teorema
+   \newtheorem{col}[teo]{\normalcolor Corol\'ario}             % Para colocar um Colorário
+   \newtheorem{prop}[teo]{\normalcolor Proposi\c c\~ao}        % Para colocar uma Preposição
+   \newtheorem{definicao}{\normalcolor Defini\c{c}\~{a}o}      % Para Definir algo
+   \newtheorem{exemplo}{\normalcolor Exemplo}                  % Para dar Exemplos
+   \newtheorem{solucao}{\normalcolor solu\c{c}\~{a}o}          % Para Solução de Exemplos
+   \newtheorem{lema}[teo]{\normalcolor Lema}                   % Para colocar um Lema
+   \newtheorem{Demc}{Demonstração}[teo]                        % Para Demonstrar um Teoremas
+   \newtheorem{Dem}{Demonstração}[teo]                         % Uai, é a mesma coisa do de cima
+   \newtheorem{nota}[teo]{Nota}                                % Para fazer uma pequena observação
+   \newtheorem{obs}[teo]{Observação}                           % A mesma coisa
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+  \begin{document}
+
+     %\maketitle    	 
+  	  
+  	 \include{capa}
+  	 
+  	 \include{resumo}
+     
+	 \tableofcontents    
+          
+  	 \include{introducao}
+  	 
+  	 \include{modelo_matematico}
+  	 
+  	 \include{modelo_numerico}
+  	 
+  	 \include{resultados}
+  	 
+  	 \newpage
+  	 
+  	 \include{referencias}
+  	 
+  \end{document}

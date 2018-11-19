@@ -1,0 +1,131 @@
+
+\chapter{Modelo Matemático Diferencial}
+
+\noindent
+	
+	Uma fração da modelagem matemática já foi citada na introdução. Neste capítulo analisa-se mais detalhadamente essa parte do estudo.
+	
+\section{Equação da Energia}
+
+\noindent
+	
+	Como a dedução das equações base não é o foco deste trabalho, a simples citação das relações pode acontecer sem implicar algum dano ao texto.
+	
+	A relação integral para a equação de energia adequada para um volume de controle fixo é dada na Eq.(\ref{energia})
+	
+\begin{align}
+\label{energia}
+Q - We - Wv = \dfrac{\partial}{\partial t}\int\limits_{VC} e \rho dV + \int\limits_{SC}\left(e+\dfrac{p}{\rho}\right) \rho (V n) dA
+\end{align}	
+	
+	Após uma série de considerações e simplificações, é possível reescrever a relação como indicado pela Eq.(\ref{energiadif}).
+	
+\begin{align}
+\label{energiadif}
+\rho \dfrac{\partial u}{\partial t} + p (\nabla V) = \nabla (k \nabla T)+ \phi
+\end{align}
+
+	Tal equação é válida para um fluido newtoniano sob condições bastante gerais de escoamento não permanente, compressível, viscoso e com codução de calor, desprezando a transferência de calor por radiação e fontes internas de calor. Na Eq.(\ref{energiadif}), o termo $\phi$ equivale à uma abreviação para a função de dissipação viscosa.
+	Considerando apenas o processo de difusão, obtém-se a relação dada pela Eq.(\ref{Difusaoone}).
+
+\begin{align}
+ \label{Difusao}
+ f(x,y,z,t) = \dfrac{\partial \phi}{\partial t} - \alpha \nabla^2 \phi
+\end{align}	
+
+\newpage
+
+	Os casos unidimensional e bidimensional são explicitados na introdução, pelas Eq. (\ref{Difuni}) e Eq.(\ref{Difbi}).
+	
+	Considerando apenas o processo de advecção (com velocidade não nula), obtém-se a relação dada pela Eq.(\ref{Adveccao}).
+	
+\begin{align}
+\label{Adveccao}
+f(x,y,z,t) = \dfrac{\partial \phi}{\partial t} + c \nabla \phi
+\end{align}
+
+\section{Solução Analítica}
+
+\noindent
+
+	A solução analítica é encontrada através da solução das EDPs indicadas pelas Eq.(\ref{Difusao}) e Eq.(\ref{Adveccao}) quando limitadas à uma ou duas dimensões. Assim, tem-se que a solução analítica para o caso da difusão unidimensional é dado pela Eq.(\ref{soldifun}). As soluções para o caso da advecção unidimensional e bidimensional são dadas pelas Eq.(\ref{soladvuni}) e Eq.(\ref{soladvbi}).
+	
+\begin{align}
+\label{soldifun}
+Ue = sen(\theta x) e^{(-\alpha \theta^2 t)}
+\end{align}
+
+\begin{align}
+\label{soladvuni}
+Ue = sen(x - c \ t)
+\end{align}
+
+\begin{align}
+\label{soladvbi}
+Ue = sen(x - cx \ t)sen(y - cy \ t)
+\end{align}
+
+	Para a solução analítica da difusão unidimensional fez-se um estudo de otimização de CFL, que possibilitou a redução do erro de segunda ordem para um de quarta ordem. Tal assunto será abordado mais adiante. Para as rotinas regulares da difusão, no entanto, fez-se uso de uma relação que não é solução, sendo assim associada à um termo fonte. A mesma é dada pela Eq.(\ref{difused}) para o caso unidimensional e pela Eq.(\ref{difused2}) para o caso bidimensional.
+	
+\begin{align}
+\label{difused}
+Ue = sen(x)[1- e^{(-\theta t)}]
+\end{align}
+
+\begin{align}
+\label{difused2}
+Ue = sen(x) \ sen(y)\ [1- e^{(-\theta t)}] 
+\end{align}
+
+\newpage
+
+\section{Condição de Contorno}
+\noindent
+
+	Para a difusão e advecção, enquanto eventos separados ou simultâneos, para os casos unidimensional e bidimensional, foi utilizada a condição de contorno de Dirichlet (de primeiro tipo). Assim, a condição de contorno é uma constante conhecida. Para os casos das funções dadas pelas Eq.(\ref{soldifun}),Eq.(\ref{soladvuni}), Eq.(\ref{soladvbi}) e Eq.(\ref{difused}), a condição de contorno obedece à uma senóide, para um domínio fechado de 0 até 2$\pi$, sendo assim de valor nulo.
+	Logo, para o caso unidimensional, têm-se as seguintes condições.
+	
+\begin{align}
+\label{eqone}
+\phi(0,t) = 0 
+\end{align}
+
+\begin{align}
+\label{eqtwo}
+\phi(2\pi,t) = 0 
+\end{align}
+
+	E para o caso bidimensional, têm-se as seguintes relações.
+	
+\begin{align}
+\label{eqthree}
+\phi(0,y,t) = 0 
+\end{align}
+
+\begin{align}
+\label{eqfour}
+\phi(2\pi,y,t) = 0
+\end{align}
+
+\begin{align}
+\label{eqfive}
+\phi(x,0,t) = 0
+\end{align}
+
+\begin{align}
+\label{eqsix}
+\phi(x,2\pi,t) = 0
+\end{align}
+	
+\section{Condição Inicial}
+\noindent
+
+	Como explicitado anteriormente, o transporte a ser reproduzido é consequente de uma senóide corrigida temporalmente por uma diferença de resposta exponencial com índice negativo. Tal fato se traduz em uma condição inicial de valor nulo, obtida ao substituir o tempo inicial de avaliação nas relações (\ref{difused}) e (\ref{difused2}).
+	
+	Assim, modela-se um caso em que as relações devem seguir as condições dadas abaixo.
+
+\begin{align}
+\label{eqth}
+\phi = 0 , \ \forall \ x \ \text{e} \ y 
+\end{align}
+

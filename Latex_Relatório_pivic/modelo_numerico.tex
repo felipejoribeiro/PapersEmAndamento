@@ -1,0 +1,382 @@
+\chapter{Modelo Matemático Numérico}
+
+\noindent
+
+\section{Discretização para a Difusão Unidimensional}
+
+\noindent
+
+	Trabalha-se inicialmente com a discretização da equação da difusão unidensional. Nesse caso, faz-se a expansão das derivadas parciais pela série de Taylor. 
+	Para a derivada de primeira ordem, deseja-se descrever tal elemento em função de um diferencial de tempo($\Delta t$). A expansão é dada, na sua forma truncada, pela Eq.(\ref{expone}).
+	
+\begin{align}
+\label{expone}
+\phi(t + \Delta t) = \phi(t) + \sum_{n=1}^{\infty} \left[ \dfrac{(\Delta t^n)}{n!} \left(\dfrac{\partial^n \phi}{\partial t^n} \right)   \right] 
+\end{align}
+
+	Ao abrir o somatório acima, obtém-se a Eq.(\ref{exptwo})
+
+\begin{align}
+\label{exptwo}
+\phi(t + \Delta t) = \phi(t) + \dfrac{\Delta t}{1!} \left(\dfrac{\partial \phi}{\partial t} \right) + \dfrac{\Delta t^2}{2!} \left(\dfrac{\partial^2 \phi}{\partial t^2} \right) + \dfrac{\Delta t^3}{3!} \left(\dfrac{\partial^3 \phi}{\partial t^3} \right) + ...
+\end{align}
+
+	Isolando a derivada de primeira ordem, chega-se à Eq.(\ref{expthree}).
+
+\begin{align}
+\label{expthree}
+\dfrac{\partial \phi}{\partial t} = \dfrac{\phi(t+\Delta t) - \phi(t)}{\Delta t} - \dfrac{\Delta t}{2} \dfrac{\partial^2 \phi}{\partial t^2} - \dfrac{\Delta t^2}{6} \dfrac{\partial^3 \phi}{\partial t^3} - ...
+\end{align}
+	
+	Diz-se então que a expansão apresenta erro de primeira ordem para o tempo. Substitui-se o somatório das parcelas do erro por uma função ($\xi$) da menor ordem (parcela mais significativa).
+
+\begin{align}
+\label{expfour}
+\dfrac{\partial \phi}{\partial t} = \dfrac{\phi(t+\Delta t) - \phi(t)}{\Delta t} + \xi(\Delta t)
+\end{align}
+
+	Para a derivada de segunda ordem, associada à componente espacial da equação da difusão, faz-se um somatório das expansões por série de Taylor para uma variação positiva e negativa no domínio do espaço. As relações são obtidas de forma análoga ao caso da discretização no tempo.
+	As relações para a variação positiva e negativa são dadas pelas expressões dadas pelas Eq.(\ref{expfive}) e Eq.(\ref{expsix}), respectivamente.
+	
+\begin{align}
+\label{expfive}
+\phi(x + \Delta x) = \phi(x) + \dfrac{\Delta x}{1!} \left(\dfrac{\partial \phi}{\partial x} \right) + \dfrac{\Delta x^2}{2!} \left(\dfrac{\partial^2 \phi}{\partial x^2} \right) + \dfrac{\Delta x^3}{3!} \left(\dfrac{\partial^3 \phi}{\partial x^3} \right) + ...
+\end{align}
+
+\begin{align}
+\label{expsix}
+\phi(x - \Delta x) = \phi(x) - \dfrac{\Delta x}{1!} \left(\dfrac{\partial \phi}{\partial x} \right) + \dfrac{\Delta x^2}{2!} \left(\dfrac{\partial^2 \phi}{\partial x^2} \right) - \dfrac{\Delta x^3}{3!} \left(\dfrac{\partial^3 \phi}{\partial x^3} \right) + ...
+\end{align}
+
+	Somando as relações acima, obtém-se a discretização da derivada de segunda ordem.
+	
+\begin{align}
+\label{expseven}
+\dfrac{\partial^2 \phi}{\partial x^2} = \dfrac{\phi(x + \Delta x) + \phi(x - \Delta x) - 2 \phi(x)}{\Delta x^2} + \dfrac{\Delta x^2}{12} \dfrac{\partial^4 \phi}{\partial x^4} + \dfrac{\Delta x^4}{60} \dfrac{\partial^6 \phi}{\partial x^6}
+\end{align}
+
+	Novamente, pode-se reescrever a expressão dada pela Eq.(\ref{expseven}) substituindo o somatório das parcelas do erro por uma função da fração de menor ordem. Assim, obtém-se a Eq.(\ref{expeight}).
+	
+\begin{align}
+\label{expeight}
+\dfrac{\partial^2 \phi}{\partial x^2} = \dfrac{\phi(x + \Delta x) + \phi(x - \Delta x) - 2 \phi(x)}{\Delta x^2} + \xi(\Delta x^2)
+\end{align}
+
+\subsection{Difusão Unidimensional pelo método explícito}
+\noindent
+
+	Na metodologia explícita (em que todos os termos à direita da igualdade na Eq.(\ref{expeight}) estão no tempo atual), simplesmente substitui-se as expressões obtidas nas Eq.(\ref{expfour}) e Eq.(\ref{expeight}) na Eq.(\ref{Difusao}). O resultado é uma discretização numérica que oferece o valor de $\phi$ em um passo futuro em função do vetor de $\phi$ no tempo presente.
+	
+	Uma representação conveniente é dada abaixo, na Eq.(\ref{expnine}), na qual se atribui aos índices $i$, na parte inferior, a posição e ao $n$, na parte superior, o tempo. Na Eq.(\ref{expten}) já se tem o termo fonte inserido.
+	
+\begin{align}
+\label{expnine}
+\dfrac{\phi_{i}^{n+1} - \phi_{i}^{n}}{\Delta t} = \dfrac{\phi_{i+1}^{n} + \phi_{i-1}^{n} - 2 \phi_{i}^{n}}{\Delta x^2} + f
+\end{align}
+	
+\begin{align}
+\label{expten}
+\phi(x,t+\Delta t) = \Delta t \left[f+ \dfrac{\phi(x + \Delta x,t) + \phi(x - \Delta x,t) - 2 \phi(x,t)}{\Delta x^2} \right] - \phi(x,t)
+\end{align}
+
+\subsection{Difusão Unidimensional pelo método implícito}
+\noindent
+
+	No método implícito, no entanto, os termos à direita da igualdade na Eq.(\ref{expeight}) são pertencentes ao próximo tempo. Trabalha-se a relação de forma a isolar o termo $\phi_{i}^{n+1}$, como indicado a seguir.
+	
+\begin{align}
+\label{expeleven}
+\dfrac{\phi_{i}^{n+1} - \phi_{i}^{n}}{\Delta t} = \dfrac{\phi_{i+1}^{n+1} + \phi_{i-1}^{n+1} - 2 \phi_{i}^{n+1}}{\Delta x^2} + f
+\end{align}
+
+\begin{align}
+\label{exptwelve}
+\phi_{i}^{n+1} = \Delta t \left[f+ \dfrac{\phi_{i+1}^{n+1} + \phi_{i-1}^{n+1} - 2 \phi_{i}^{n+1} }{\Delta x^2} \right] + \phi_{i}^{n}
+\end{align}
+
+\begin{align}
+\label{expthirteen}
+\phi_{i}^{n+1} = \Delta t \ f \ \phi_{i}^{n} + \dfrac{\Delta t \  \alpha \ \phi_{i+1}^{n+1}}{\Delta x^2} + \dfrac{\Delta t \ \alpha \ \phi_{i-1}^{n+1}}{\Delta x^2} - 2 \dfrac{\Delta t \ \alpha \ \phi_{i}^{n+1}}{\Delta x^2}
+\end{align}
+
+\begin{align}
+\label{expfourteen}
+\phi_{i}^{n+1} + 2 \dfrac{\Delta t \ \alpha}{\Delta x^2} \ \phi_{i}^{n+1} = \Delta t \ f \ \phi_{i}^{n} + \dfrac{\Delta t \ \alpha \ \phi_{i+1}^{n+1}}{\Delta x^2} + \dfrac{\Delta t \ \alpha \ \phi_{i-1}^{n+1}}{\Delta x^2}
+\end{align}
+
+	Finalmente, reescrevendo a Eq.(\ref{expfourteen}) de forma a isolar os termos do vetor $\phi$, obtém-se a relação dada pela Eq.(\ref{expfifteen}).
+	
+\begin{align}
+\label{expfifteen}
+\left(1 + 2 \dfrac{\Delta t \ \alpha}{\Delta x^2} \right) \ \phi_{i}^{n+1} = \Delta t \ f + \phi_{i}^{n} + \left( \dfrac{\Delta t \ \alpha}{\Delta x^2} \right)  \phi_{i+1}^{n+1} + \left( \dfrac{\Delta t \ \alpha \ }{\Delta x^2} \right) \phi_{i-1}^{n+1} 
+\end{align}
+
+	Da expressão acima, apelidam-se os termos que multiplicam os nós do ponto avaliado, do ponto a montante e do ponto a jusante como $Ap$, $Aw$ e $Ae$, respectivamente. 
+	
+\begin{align}
+\label{expsixteen}
+Ap =  \left(1 + 2 \dfrac{\Delta t \ \alpha}{\Delta x^2} \right)
+\end{align}
+
+\begin{align}
+\label{expseventeen}
+Aw =  \left( \dfrac{\Delta t \ \alpha}{\Delta x^2} \right)
+\end{align}
+
+\begin{align}
+\label{expeighteen}
+Ae =  \left( \dfrac{\Delta t \ \alpha}{\Delta x^2} \right)
+\end{align}
+
+	É possível montar um sistema linear, com uma matriz de coeficientes composta por $Ap$, $Aw$ e $Ae$, que multiplica o vetor $\phi_{i}^{n+1}$ e tem como resposta o vetor B, que corresponde ao termo associado ao $\phi_{i}^{n}$, ao termo fonte e ao diferencial temporal.
+	
+	Uma alternativa, no entanto, é elaborar uma repetição com um método de convergência para sistemas lineares. Para este trabalho, essa alternativa foi explorada para diminuir o custo operacional da simulação. O método de escolha foi o método iterativo de Gauss-Seidel.
+
+\section{Discretização para a Difusão Bidimensional}
+
+\noindent
+
+	Para o caso bidimensional, obtém-se a discretização em uma posição ortogonal à primeira de forma análoga ao procedimento da mesma. Chega-se à uma expressão semelhante àquela dada pela Eq.(\ref{expeight}). Ao somar os efeitos, obtém-se a discretização de $\phi$ em duas direções.
+	
+\subsection{Difusão Bidimensional pelo método explícito}
+
+\noindent
+	
+	Novamente, para o método explícito, expressa-se o valor de $\phi$ no tempo $n+1$ em função do vetor $\phi$ do tempo $n$.
+	
+\begin{align}
+\label{expnineteen}
+\dfrac{\phi_{i,j}^{n+1} - \phi_{i}^{n}}{\Delta t} = \dfrac{\phi_{i+1,j}^{n} + \phi_{i-1,j}^{n} - 2 \phi_{i,j}^{n}}{\Delta x^2} + \dfrac{\phi_{i,j+1}^{n} + \phi_{i,j-1}^{n} - 2 \phi_{i,j}^{n}}{\Delta x^2} + f
+\end{align}
+
+	É possível então, escrever a discretização de forma semelhante ao feito para o caso unidimensional. A expressão resultante é dada pela Eq.(\ref{exptwenty})
+
+\begin{align}
+\label{exptwenty}
+\begin{array}{cc}
+&\phi(x,y,t+\Delta t) = \Delta t \ f + \Delta t \left[\dfrac{\phi(x + \Delta x,y,t) + \phi(x - \Delta x,t) - 2 \phi(x,y,t)}{\Delta x^2} \right] + \\
+&\\
+&\Delta t \left[\dfrac{\phi(x,y + \Delta y,t) + \phi(x,y- \Delta y,t) - 2 \phi(x,y,t)}{\Delta x^2} \right] + \phi(x,y,t)
+\end{array}
+\end{align}
+
+\subsection{Difusão Bidimensional pelo método implícito}
+
+\noindent
+	
+	Para o método implícito, tem-se a modificação já comentada quanto ao tempo de cada elemento. Os elementos associados à nova direção seguem a ordem daqueles já expressados na Eq.(\ref{expfifteen}). O desenvolvimento é apresentado a seguir.
+	
+\begin{align}
+\label{expttone}
+\dfrac{\phi_{i,j}^{n+1} - \phi_{i}^{n}}{\Delta t} = \dfrac{\phi_{i+1,j}^{n+1} + \phi_{i-1,j}^{n+1} - 2 \phi_{i,j}^{n+1}}{\Delta x^2} + \dfrac{\phi_{i,j+1}^{n+1} + \phi_{i,j-1}^{n+1} - 2 \phi_{i,j}^{n+1}}{\Delta x^2} + f
+\end{align}
+	
+
+\begin{align}
+\label{exptttwo}
+\begin{array}{cc}
+&\phi_{i}^{n+1} = \Delta t \ f \ \phi_{i,j}^{n} + \dfrac{\Delta t \  \alpha \ \phi_{i+1,j}^{n+1}}{\Delta x^2} + \dfrac{\Delta t \ \alpha \ \phi_{i-1,j}^{n+1}}{\Delta x^2} - 2 \dfrac{\Delta t \ \alpha \ \phi_{i+1,j}^{n+1}}{\Delta x^2} + \\
+&\\
+&\dfrac{\Delta t \  \alpha \ \phi_{i,j+1}^{n+1}}{\Delta x^2} + \dfrac{\Delta t \ \alpha \ \phi_{i,j-1}^{n+1}}{\Delta x^2} - 2 \dfrac{\Delta t \ \alpha \ \phi_{i,j}^{n+1}}{\Delta x^2}
+\end{array}
+\end{align}
+
+
+\begin{align}
+\label{expttthree}
+\begin{array}{cc}
+&\left(1 + 2 \dfrac{\Delta t \ \alpha}{\Delta x^2} + 2 \dfrac{\Delta t \ \alpha}{\Delta y^2}\right) \ \phi_{i,j}^{n+1} = \Delta t \ f \ \phi_{i,j}^{n} + \left( \dfrac{\Delta t \ \alpha}{\Delta x^2} \right)  \phi_{i+1,j}^{n+1} + \left( \dfrac{\Delta t \ \alpha \ }{\Delta x^2} \right) \phi_{i-1,j}^{n+1} + \\
+&\\
+& \left( \dfrac{\Delta t \ \alpha}{\Delta x^2} \right)  \phi_{i,j+1}^{n+1} + \left( \dfrac{\Delta t \ \alpha \ }{\Delta x^2} \right) \phi_{i,j-1}^{n+1} 
+\end{array}
+\end{align}
+
+	Novamente, deve-se apelidar os elementos que multiplicam cada nó. Assim, os coeficientes dos nós do ponto analisado, à oeste, leste, norte e sul são nomeados de $Ap$, $Aw$, $Ae$, $An$ e $As$, respectivamente.
+	
+\begin{align}
+\label{expttfour}
+Ap =  \left(1 + 2 \dfrac{\Delta t \ \alpha}{\Delta x^2}  + 2 \dfrac{\Delta t \ \alpha}{\Delta y^2}\right)
+\end{align}
+
+\begin{align}
+\label{expttfive}
+Aw =  \left( \dfrac{\Delta t \ \alpha}{\Delta x^2} \right)
+\end{align}
+
+\begin{align}
+\label{expttsix}
+Ae =  \left( \dfrac{\Delta t \ \alpha}{\Delta x^2} \right)
+\end{align}
+
+\begin{align}
+\label{exptteight}
+An =  \left( \dfrac{\Delta t \ \alpha}{\Delta y^2} \right)
+\end{align}
+
+\begin{align}
+\label{expttnine}
+As =  \left( \dfrac{\Delta t \ \alpha}{\Delta y^2} \right)
+\end{align}
+
+	Novamente, escolhe-se resolver esse caso através do método de Gauss-Seidel. Mas uma matriz pode ser confeccionada com os coeficientes supracitados, transformando a matriz $\phi$ em um vetor e executando as mesmas rotinas comentadas no item 3.1.2.
+
+\newpage
+
+\section{Discretização para a Advecção Unidimensional}
+
+\noindent
+
+	Para a advecção, usa-se outro método de discretização, conhecido como Upwind Scheme, utilizado para descrever equações diferenciais parciais hiperbólicas. Esse método possui uma sensibilidade à direção, assumindo diferentes formas para um termo de acordo com a direção de propagação de uma informação.
+	A discretização para o caso unidimensional com Upwind de primeira ordem se dá como indicado pela Eq.(\ref{expthirty}) ou pela Eq.(\ref{expthone}).
+	
+\begin{align}
+\label{expthirty}
+\dfrac{\partial \phi}{\partial x} = \dfrac{\phi(x)-\phi(x-\Delta x)}{\Delta x} \ ,\  \forall \ c \ > \ 0
+\end{align}
+
+\begin{align}
+\label{expthone}
+\dfrac{\partial \phi}{\partial x} = \dfrac{\phi(x + \Delta x)-\phi(x)}{\Delta x} \ ,\  \forall \ c \ < \ 0
+\end{align}
+
+	É possível escrever uma expressão que representa as duas ilustradas acima, fazendo uma comparação entre a velocidade e zero. Tal expressão é dada pela Eq.(\ref{expththree}).
+
+\begin{align}
+\label{expthtwo}
+a1 = max (c,0)
+\end{align}
+
+\begin{align}
+\label{expthtwo}
+a2 = min (c,0)
+\end{align}
+	
+\begin{align}
+\label{expththree}
+\dfrac{\partial \phi}{\partial x} = \left[a1 \dfrac{\phi(x)-\phi(x-\Delta x)}{\Delta x} + a2 \dfrac{\phi(x + \Delta x)-\phi(x)}{\Delta x} \right]
+\end{align}	
+	
+	Reunindo esses casos ao termo de primeira ordem do tempo, é possível discretizar a equação da advecção como indicado pela Eq.(\ref{expthfour})
+	
+\begin{align}
+\label{expthfour}
+\phi(x,t+\Delta t) = \Delta t \ c \left[a1 \dfrac{\phi(x,t)-\phi(x-\Delta x,t)}{\Delta x} + a2 \dfrac{\phi(x + \Delta x,t)-\phi(x,t)}{\Delta x} \right] - \phi(x,t) 
+\end{align}
+
+\newpage
+
+\section{Discretização para a Advecção Bidimensional}
+
+\noindent
+
+	De forma análoga ao caso da difusão, o fenômeno bidimensional é obtido ao se somar o efeito de uma direção ortogonal àquela já discretizada. Finalmente, a relação dada pela Eq.(\ref{expthnine}) é aquela que descreve numéricamente a advecção em duas direções.
+	
+	Observa-se também a necessidade de se escrever os auxiliares $a3$ e $a4$, que comparam a velocidade em $y$, da mesma forma que $a1$ e $a2$ fazem em $x$.
+	
+\begin{align}
+\label{expthnine}
+\begin{array}{cc}
+&\phi(x,y,t+\Delta t) = \Delta t \ c \left[a1 \dfrac{\phi(x,y,t)-\phi(x-\Delta x,t)}{\Delta x} + a2 \dfrac{\phi(x + \Delta x,y,t)-\phi(x,t)}{\Delta x}\right] + \\
+&\\
+&\Delta t \ c  \left[a3 \dfrac{\phi(x,y,t)-\phi(x,y-\Delta y,t)}{\Delta y} + a4 \dfrac{\phi(x,y+\Delta y,t)-\phi(x,y,t)}{\Delta y} \right] - \phi(x,y,t) 
+\end{array}
+\end{align}
+
+
+\section{Análise de Ordem}
+
+\noindent
+
+	Como já comentado para a Eq.(\ref{expthree}), a parcela do erro da discretização numérica mais representativa é aquela de menor expoente, ou de menor ordem. Assim, é comum avaliar um método numérico através de sua ordem.
+	
+	Para tanto, se faz necessária a introdução de duas normas para a avaliação de erros numéricos, a norma $L\infty$ e a norma $L2$. Formalmente, a norma de ordem $p$ de um elemento qualquer é definida como dado na Eq.(\ref{expfourty}).
+	
+\begin{align}
+\label{expfourty}
+\mid x \mid _{p} = \sqrt[p]{\sum_{i}^{n}\mid x_{i}\mid ^p}
+\end{align}
+
+	Sabe-se então que para a norma $L2$, a expressão utilizada é aquela dada pela Eq.(\ref{expfoone}).
+
+\begin{align}
+\label{expfoone}
+\mid x \mid _{2} = \dfrac{\sqrt{\sum_{i}^{n}\mid x_{i}\mid ^2}}{n}
+\end{align}
+
+	Para a norma $L\infty$, a expressão utilizada é dada pela Eq.(\ref{expfotwo}).
+
+\begin{align}
+\label{expfotwo}
+\mid x \mid_{\infty} = \dfrac{\sum_{i}^{n}\mid x_{i}\mid}{n}
+\end{align}
+
+\newpage
+
+	Sabendo que o erro numérico varia de forma mais representativa com sua menor ordem, é possível relacionar o erro obtido com o número de divisões espaciais ou temporais. Considera-se um vetor posição contendo $n$ elementos, que apresentará um erro após a execução das rotinas. Espera-se que ao aumentar o número de divisões para $2n$ o valor do erro seja reduzido por um fator de $2\vartheta$, onde $\vartheta$ é a ordem da discretização.
+
+
+\section{Otimização de CFL}
+\noindent
+
+	Durante o desenvolvimento teórico do fenômeno da difusão, na modelagem matemática numérica, foi observada uma possibilidade de otimização do código. O que levou à uma análise mais minuciosa da discretização dos elementos associados à esse fenômeno para o caso unidimensional.
+	
+	Para melhor compreender os eventos a serem descritos, será feito um transporte de equações já explicitadas na sua forma truncada, bem como a apresentação de novas relações.
+	
+	Este estudo de caso é fundamentado no teorema de Clairaut-Schwarz, que estabelece que para funções contínuas em todos os seus domínios, a ordem de derivação não altera o resultado final. Essa propriedade é utilizada na Eq.(\ref{clairaut}) para a substituição de um termo temporal por um espacial.
+	
+	Fazendo uso da expansão em série de Taylor, chega-se às Eq.(\ref{expone}) e Eq.(\ref{expseven}). Reescrevendo a Eq.(\ref{Difusaoone}) substituindo as derivadas parciais pelos termos obtidos da expansão, obtém-se a relação dada à seguir.
+	
+\begin{align}
+\label{artone}
+\dfrac{\partial \phi (x,t)}{\partial t} + \sum_{n=2}^{\infty} \dfrac{\Delta t ^{n-1}}{n!} \dfrac{\partial^{n}\phi(x,t)}{\partial t^{n}} = \alpha \left( \dfrac{\partial^{2}\phi(x,t)}{\partial x^{2}} + 2 \ \sum_{n=2}^{\infty} \dfrac{\Delta x^{2(n-1)}}{(2n!)} \dfrac{\partial^{2n}\phi(t,x)}{\partial x^{2n}}\right)
+\end{align}
+
+	
+	Utilizando-se o teorema de Clairaut-Schwarz, as derivadas temporais podem ser escritas em função das derivadas espaciais.
+	
+\begin{align}
+\label{clairaut}
+\dfrac{\partial^{n}\phi(x,t)}{dt^{n}} = \alpha^{n} \dfrac{\partial^{2n}\phi(x,t)}{\partial x^{2n}}
+\end{align}
+
+	Substituindo-se (\ref{clairaut}) em (\ref{artone}), obtém-se a equação modificada (\ref{arttwo}).
+	
+\begin{align}
+\label{arttwo}
+\dfrac{\partial \phi (x,t)}{\partial t} = \alpha  \dfrac{\partial^{2}\phi(x,t)}{\partial x^{2}} + \sum_{n=2}^{\infty}\left(\left(\dfrac{2\alpha\Delta x^{2(n-1)}}{(2n!)}-\dfrac{\Delta t^{n-1}\alpha^{n}}{n!}\right) \dfrac{\partial^{(2n)}\phi(x,t)}{\partial x^{(2n)}}\right)
+\end{align}
+
+	Pode-se escrever o passo de tempo em função do passo espacial da definição de CFL.
+	
+\begin{align}
+\label{artthree}
+\Delta t^{n}=CFL^{n}\dfrac{\Delta x^{2n}}{\alpha^{n}}
+\end{align}
+
+	Na qual CFL é uma constante. Substituindo-se a Eq.(\ref{artthree}) na Eq.(\ref{arttwo}), obtém-se a expressão a seguir.
+	
+\begin{align}
+\label{artfour}
+\dfrac{\partial \phi (x,t)}{\partial t} = \alpha  \dfrac{\partial^{2}\phi(x,t)}{\partial x^{2}} + \sum_{n=2}^{\infty}\left(\left(\dfrac{2}{(2n!)}-\dfrac{CFL^{(n-1)}}{n!}\right)\alpha \Delta x^{2(n-1)} \dfrac{\partial^{(2n)}\phi(x,t)}{\partial x^{(2n)}}\right)
+\end{align}
+
+
+	Para cada $n$ existe um valor de $CFL$ que zera o erro de ordem $ \xi(\Delta x^{2(n-1)}) $ conforme a Eq.(\ref{artfive}).
+	
+\begin{align}
+\label{artfive}
+CFL_{o}(n)=\left(\dfrac{2n!}{(2n)!}\right)^{(n-1)^{-1}}
+\end{align}	
+
+
+	Na qual $CFL_o(n)$ é o valor de $CFL$ que zera o erro de ordem $ \xi(\Delta x^{2(n-1)}) $. Pode-se avaliar o valor de $CFLo(n)$ para $n=2$ :
+	
+\begin{align}
+\label{artfive}
+CFL_{o}(2)= \dfrac{1}{6}
+\end{align}
+
+
+	Portanto, se $CFL=1/6$ o erro de ordem $\xi(\Delta x^2)$ desaparece. Dessa forma, o erro $\xi(\Delta x^4)$ passa a ser o erro de mais baixa ordem do método. Para outros valores de $CFL$ o erro do método é de segunda ordem. É importante notar que as derivadas parciais presentes na equação modificada são pares. Tais derivadas são associadas à difusão numérica artificial, enquanto as derivadas ímpares são associadas à dispersão numérica artificial. Assim, na solução numérica, espera-se que a difusão da informação seja maior que a difusão física. Quanto maior o erro numérico, maior será a difusão numérica.
+	
+	Esse desenvolvimento foi aquele executado para uma função que seja solução da equação da difusão unidimensional, indicada pela Eq.(\ref{soldifun}). Essa metodologia foi também aplicada para casos em que há um termo fonte e para o caso bidimensional pelos métodos explícito e implícito. Estes não serão citados no presente relatório pois tais demonstrações são feitas à título de curiosidade, já satisfeita sem maiores prejuízos à objetividade do trabalho, nesta seção. 

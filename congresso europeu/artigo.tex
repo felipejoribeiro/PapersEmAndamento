@@ -500,11 +500,11 @@ In this sense it was tried to adjust a value for which the error was minimal, co
 
 \subsection{The meta-modeling, with the genetic algorithm: Differential Evolution (DE)}
 It was used an algorithm that searched for a minimal error for the given function, considering the turbulent Prandtl number as an editable variable and the smaller error as the pattern of interest.
-It was obtained a turbulent Prandtl number, for the turbulent Reynolds number $ 1020$, of $ 0.89999 $ .
+It was obtained a turbulent Prandtl number, for the turbulent Reynolds number $ 1020$, of $ 0.9 $ .
 \begin{figure}[!h]
 	\centering
 	\includegraphics[angle=0, scale=0.31]{fotos_formatacao_final/Genetic_amostra}
-	\caption{Genetic algorithm iterations, with simulations for $Re_\tau = 1020$. Convergence on $Pr_t = 0.89999 $.}
+	\caption{Genetic algorithm iterations, with simulations for $Re_\tau = 1020$. Convergence on $Pr_t = 0.9 $.}
 \end{figure}
 
 The turbulent Prandtl number obtained was applied to the others turbulent Reynolds numbers, with the results as follows:
@@ -530,7 +530,7 @@ The turbulent Prandtl number obtained was applied to the others turbulent Reynol
 		\includegraphics[angle=0, scale=0.3]{fotos_formatacao_final/Temperature_1000_071_Prt(Ret)_A26}
 		\caption{Temperature distribution for $Re_\tau = 1020$, $L2 = 0.14$}
 	\end{subfigure}	
-	\caption{Results for $Pr_t = 0.89999$, $A = 26$ and $Pr =0.71$ }
+	\caption{Results of temperature simulations for $Pr_t = 0.9 $, $A = 26$ and $Pr =0.71$ }
 \end{figure*}
 
 Although the results were much better, the model had to be further developed. The turbulent Prandtl number varies with the Reynolds number as observed on (fig.\ref{figure5}), so a model that contemplate this fact had to be created. 
@@ -539,7 +539,7 @@ The best turbulent Prandtl numbers obtained were:
 
 \begin{table}[!h]
 	\centering
-	\caption{Ideal turbulent Prandtl Numbers adjusted for each turbulent Reynolds number}
+	\caption{Ideal turbulent Prandtl Numbers adjusted for each turbulent Reynolds number, with $A = 26$}
 	\begin{tabular}{ll}
 		  \hline
 		  $Re_\tau$ & $Pr_t$\\
@@ -547,7 +547,7 @@ The best turbulent Prandtl numbers obtained were:
 		  150  &   0.94531\\
 		  395  &   0.89531\\
 		  640  &   0.89531\\
-		  1020 &  0.89999\\ 
+		  1020 &   0.90000\\ 
 		  \hline
 	\end{tabular}
 \end{table}
@@ -562,18 +562,6 @@ Pr_t = -4.5604 * 10^{-10} Re_\tau^3 + 9.5690 * 10^{-7} Re_\tau^2 - 6.1715 *10 ^{
 \end{equation}
 Thus, a model adjusted for the turbulent Prandtl number as a function of the turbulent Reynolds number was developed. The result of the simulations were much accurate, even more than the simulations with the turbulent Prandtl numbers set as the mean values of the ones from the DNS data (fig.\ref{figure5}). These results can be seen ahead:
 
-%\begin{table}[!h]
-%	\centering
-%	\caption{Comparison between The L2 norm from The simulations with $Pr_t =0.8999$ and $Pr_t(Re_\tau)$}
-%	\begin{tabular}{lll}
-%		\hline
-%		150  &   0.34 &    \\
-%		395  &   0.23 &    \\
-%		640  &   0.19 &    \\
-%		1020 &   0.89999 &    \\ 
-%		\hline
-%	\end{tabular}
-%\end{table}
 
 
 \begin{figure*}[!h]
@@ -598,7 +586,7 @@ Thus, a model adjusted for the turbulent Prandtl number as a function of the tur
 		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_071_Prt0905_A26}
 		\caption{Temperature distribution for $Re_\tau = 1020$, $L2 = 0.14$}
 	\end{subfigure}	
-	\caption{Results for $Pr_\tau(Ret)$, $A = 26$ and $Pr =0.71$ }
+	\caption{Results of temperature simulations for $Pr_\tau(Re_\tau)$, $A = 26$ and $Pr =0.71$ }
 \end{figure*}
 
 
@@ -629,7 +617,7 @@ Other means of reducing the inaccuracy were searched. The velocity profile was a
 		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_Avelocity}
 		\caption{Velocity distribution for $Re_\tau = 1020$, $L2 = 0.23$}
 	\end{subfigure}	
-	\caption{Results for $A = 26$}
+	\caption{Results of velocity simulations for $A = 26$}
 \end{figure*}
 
 
@@ -682,20 +670,71 @@ Then, there was a adjusted method for the Cebeci's constant too, optimized for m
 		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_Amodeled}
 		\caption{Velocity distribution for $Re_\tau = 1020$, $L2 = 0.13$}
 	\end{subfigure}	
-	\caption{Results for A modeled}
+	\caption{Results in velocity for A modeled}
 \end{figure*}
 
-With the Cebeci's constant adjusted, a new 
+With the Cebeci's constant adjusted, a new group of optimizations were made, with the same differential evolution methodology, taking into consideration this new formulation for the Cebeci's constant. Such study resulted in a new set of optimal turbulent Prandtl numbers for each DNS sample Reynolds number, as follows:
 
-It was also studied the influence of the molecular Prandtl number and it was observed that it was also a variable with influences in the error of the method, thus a study was developed with the objective of adding the influence of the value of Prandtl number to the parameterization of the turbulent Prandtl number. For this the following model was proposed:
+
+\begin{table}[!h]
+	\centering
+	\caption{Ideal turbulent Prandtl Numbers adjusted for each turbulent Reynolds number, with A modeled. }
+	\begin{tabular}{ll}
+		\hline
+		$Re_\tau$ & $Pr_t$\\
+		\hline
+		150  &   0.88594\\
+		395  &   0.90156\\
+		640  &   0.91094\\
+		1020 &   0.91406\\ 
+		\hline
+	\end{tabular}
+\end{table}
+
+With these new points, a new model could be created, with a polynomial fit again for the Turbulent Prandtl number:
+
 \begin{equation}
 \begin{split}
-Pr_t = \left( 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 + 0,0001 Re_\tau + 0,87 \right) \left(  \frac{Pr}{0,71}\right) ^{-0.008}
+Pr_t = 4.5290 * 10^{-12} Re_\tau^3 - 5.73952 * 10^{-8} Re_\tau^2 + 9.397 * 10^{-5} Re_\tau + 0.873117480 
 \end{split}
 \end{equation}
 
 
-Continua ...
+With such parametrization, a new set of simulations were made, with the results following ahead:
+
+\begin{figure*}[!h]
+	\centering
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_071_Prt(Ret)_Avelocity}
+		\caption{Velocity distribution for $Re_\tau = 150$, $L2 = 0.212$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_071_Prt(Ret)_Avelocity}
+		\caption{Velocity distribution for $Re_\tau = 395$, $L2 = 0.233$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_071_Prt(Ret)_Avelocity}
+		\caption{Velocity distribution for $Re_\tau = 640$, $L2 = 0.205$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_071_Prt(Ret)_Avelocity}
+		\caption{Velocity distribution for $Re_\tau = 1020$, $L2 = 0.175$}
+	\end{subfigure}	
+	\caption{Results of temperature simulations for $Pr_\tau(Re\tau)$, $A(Re_\tau)$ and $Pr =0.71$ }
+\end{figure*}
+
+Another method of adjustment on differential evolution is the multi objective adjustment. Such approach is used to model more then one variable simultaneously, for a minimal value in another variable of interest. This method was used to adjust the Cebeci's constant and the Turbulent Prandtl number for the minor error, for each DNS sample:
+
+
+
+
+ 
+
+
  
 
 \section{Results}
