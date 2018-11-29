@@ -157,6 +157,10 @@
 			\small{Fluids Mechanical laboratory}\\
 			}
 		}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[trim={2.0 0.5 0.5 0.5}, angle=0, clip , scale=0.30]{fotos_formatacao_final/encit}
+		\end{figure}
 		\maketitle
 	\end{frame}
 
@@ -413,7 +417,7 @@
 	
 	
 		\begin{frame}
-		\frametitle{The energy balance}
+		\frametitle{A incompletely developed temperature field}
 		$\bullet$ Although it was already in mean values, the temperature in the domain was not reduced to a one-dimensional problem. The thermal configuration was studied in order to better understand the system profile.
 		\begin{equation}\label{c_h_e}
 		q_{conv.} = \dot{m} C_p \Delta T_m.
@@ -458,33 +462,33 @@
 	
 	
 		
-		\begin{frame}
-		\frametitle{All domain generalization}
-		$\bullet$ If the average temperature and the wall temperature increase linearly in the direction of the $ x $ axis, then this fact can be extended for all the domain:
-		\begin{equation}
-		T_m(x) = \frac{\int u(y) T(x , y) dy}{\int u(y)  dy} .
-		\end{equation}
-		\begin{equation}
-		T_m(x) \int u(y)dy = \int u(y) T(x , y) dy .
-		\end{equation}
-		\begin{equation}
-		\frac{\partial T_m(x) \int u(y)dy}{\partial x} = \frac{ \partial \int u(y) T(x , y) dy}{
-		\partial x} .
-		\end{equation}
-		\begin{equation}
-		 \int u(y)dy \frac{\partial T_m}{\partial x} = \int u(y)  \frac{\partial T}{
-			\partial x}  dy.
-		\end{equation}
-		\begin{equation}
-		u(y) \frac{\partial T_m}{\partial x} = u(y)  \frac{\partial T(x , y)}{
-			\partial x}.
-		\end{equation}
-		\begin{equation}
-		\frac{\partial T_m}{\partial x} = \frac{\partial T(x , y)}{
-			\partial x}.
-		\end{equation}		
-		
-		\end{frame}
+%		\begin{frame}
+%		\frametitle{All domain generalization}
+%		$\bullet$ If the average temperature and the wall temperature increase linearly in the direction of the $ x $ axis, then this fact can be extended for all the domain:
+%		\begin{equation}
+%		\overline{T}_m(x) = \frac{\int (\overline{u} \ \overline{T} + \overline{u^\prime T^\prime}) dy}{\int \overline{u}  dy} .
+%		\end{equation}
+%		\begin{equation}
+%		\overline{T}_m(x) \int u(y)dy = \int u(y) T(x , y) dy .
+%		\end{equation}
+%		\begin{equation}
+%		\frac{\partial \overline{T}_m(x) \int u(y)dy}{\partial x} = \frac{ \partial \int u(y) T(x , y) dy}{
+%		\partial x} .
+%		\end{equation}
+%		\begin{equation}
+%		 \int u(y)dy \frac{\partial \overline{T}_m}{\partial x} = \int u(y)  \frac{\partial T}{
+%			\partial x}  dy.
+%		\end{equation}
+%		\begin{equation}
+%		u(y) \frac{\partial \overline{T}_m}{\partial x} = u(y)  \frac{\partial T(x , y)}{
+%			\partial x}.
+%		\end{equation}
+%		\begin{equation}
+%		\frac{\partial \overline{T}_m}{\partial x} = \frac{\partial T(x , y)}{
+%			\partial x}.
+%		\end{equation}		
+%		
+%		\end{frame}
 		
 
 
@@ -821,8 +825,8 @@
 		
 	\section{Results}
 		\begin{frame}
-			\frametitle{Preliminary results: $Pr_t= 0.71$ , $A = 26 $}
-				$\bullet$ Initially the turbulent Prandtl number was used as in the literature, a value of 0.71, where the results were:\\
+			\frametitle{Preliminary results: $Pr_t= 0.71$}
+				$\bullet$ Initially the turbulent Prandtl number was used as in the literature, a value of 0.71, where the results were (for the Reynolds numbers of $4560$, $14062$, $24428$ and $41441$):\\
 			\begin{minipage}[h!]{0.5\textwidth}
 			\begin{figure}
 				\centering
@@ -879,7 +883,7 @@
 		\begin{minipage}[h!]{0.35\textwidth}
 			$\bullet$ Was used an algorithm that searched for a minimal error for the function, considering the turbulent Prandtl number as an editable variable and the smaller error as the pattern of interest.
 			
-			It obtained a turbulent Prandtl number adjusted from $ 0.905 $ for the turbulent Reynolds number of $ 1020$.
+			It obtained a turbulent Prandtl number adjusted from $ 0.9 $ for the turbulent Reynolds number of $ 1020$.
 			
 			The value was applied to the entire domain.
 		\end{minipage}
@@ -899,30 +903,29 @@
 		
 		
 		\begin{frame}
-		\frametitle{Adjust of a fixed value: $Pr_t = 0.905$ , $A = 26$}
-		$\bullet$Simulations with the turbulent Prandtl number set in $Re_\tau = 1020$:  \\
-		\begin{minipage}[h!]{0.45\textwidth}
+		\frametitle{Adjust of a fixed value: $Pr_t = 0.9$}
+		\begin{minipage}[h!]{0.49\textwidth}
 			 \begin{figure}
 			 	\centering
-			 	\includegraphics[angle=0, scale=0.18]{fotos_formatacao_final/Temperature_150_071_Prt0905_A26}
-			 	\caption{Results for $Re_\tau = 150$. L2 = 0.26}
+			 	\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_071_Prt0905_A26}
+			 	\caption{Results for $Re_\tau = 150$. $L2 = 0.34$}
 			 \end{figure}
 			 \begin{figure}
 			 	\centering
-			 	\includegraphics[angle=0, scale=0.18]{fotos_formatacao_final/Temperature_150_071_Prt0905_A26}
-			 	\caption{Results for $Re_\tau = 395$. L2 = 0.22}
+			 	\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_071_Prt0905_A26}
+			 	\caption{Results for $Re_\tau = 395$. $L2 = 0.23$}
 			 \end{figure}
 		\end{minipage}\hfill
-		\begin{minipage}[h!]{0.45\textwidth}
+		\begin{minipage}[h!]{0.5\textwidth}
 			\begin{figure}
 				\centering
-				\includegraphics[angle=0, scale=0.18]{fotos_formatacao_final/Temperature_150_071_Prt0905_A26}
-				\caption{Results for $Re_\tau = 640$. L2 = 0.174}
+				\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_071_Prt0905_A26}
+				\caption{Results for $Re_\tau = 640$. $L2 = 0.19$}
 			\end{figure}
 			\begin{figure}
 				\centering
-				\includegraphics[angle=0, scale=0.18]{fotos_formatacao_final/Temperature_150_071_Prt0905_A26}
-				\caption{Results for $Re_\tau = 1020$. L2 = 0.14}
+				\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_071_Prt0905_A26}
+				\caption{Results for $Re_\tau = 1020$. $L2 = 0.14$}
 			\end{figure}
 		\end{minipage}		
 		\end{frame}	
@@ -932,130 +935,130 @@
 	
 	
 	
-		\begin{frame}
-		\frametitle{Optimization algorithm}
-		$\bullet$ In order to obtain a curve that contemplated the Reynolds numbers throughout the domain, an optimizing algorithm was used to determine an ideal turbulent Prandtl number for each turbulent Reynolds number available in DNS.\\
-		\begin{minipage}[h!]{0.5\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.18]{convergnciacima}
-				\caption{Algorithm for optimal values. With initial value lower than the estimated.}
-			\end{figure}
-		\end{minipage}
-		\begin{minipage}[h!]{0.45\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.22]{convergnciabaixo}
-				\caption{Algorithm for optimal values. With initial value greater than the estimated.}
-			\end{figure}
-		\end{minipage}\\
-	As a way of making sure that a global minimum has been reached, the algorithm was run from a point above and a point below the inferred.	
-		\end{frame}
+%		\begin{frame}
+%		\frametitle{Optimization algorithm}
+%		$\bullet$ In order to obtain a curve that contemplated the Reynolds numbers throughout the domain, an optimizing algorithm was used to determine an ideal turbulent Prandtl number for each turbulent Reynolds number available in DNS.\\
+%		\begin{minipage}[h!]{0.5\textwidth}
+%			\begin{figure}
+%				\centering
+%				\includegraphics[angle=0, scale=0.18]{convergnciacima}
+%				\caption{Algorithm for optimal values. With initial value lower than the estimated.}
+%			\end{figure}
+%		\end{minipage}
+%		\begin{minipage}[h!]{0.45\textwidth}
+%			\begin{figure}
+%				\centering
+%				\includegraphics[angle=0, scale=0.22]{convergnciabaixo}
+%				\caption{Algorithm for optimal values. With initial value greater than the estimated.}
+%			\end{figure}
+%		\end{minipage}\\
+%	As a way of making sure that a global minimum has been reached, the algorithm was run from a point above and a point below the inferred.	
+%		\end{frame}
 	
 	
 	
 	
 	
-		\begin{frame}
-		\frametitle{Adjust of the obtained values}
-		\begin{minipage}[h!]{0.48\textwidth}
-			$\bullet$ By performing a polynomial curve fit, the following relation was obtained:
-			\begin{equation}
-			\begin{split}
-			Pr_t = 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 \\ + 0,0001 Re_\tau + 0,87 
-			\end{split}
-			\end{equation}
-			Thus, a model adjusted for the turbulent Prandtl number as a function of the turbulent Reynolds number was developed.
-		\end{minipage}
-		\begin{minipage}[h!]{0.45\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.43]{ajustePrandtl}
-				\caption{Adjust of a model for the $ Pr_t $ variable.}
-			\end{figure}
-		\end{minipage}\\
-		\end{frame}	
+%		\begin{frame}
+%		\frametitle{Adjust of the obtained values}
+%		\begin{minipage}[h!]{0.48\textwidth}
+%			$\bullet$ By performing a polynomial curve fit, the following relation was obtained:
+%			\begin{equation}
+%			\begin{split}
+%			Pr_t = 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 \\ + 0,0001 Re_\tau + 0,87 
+%			\end{split}
+%			\end{equation}
+%			Thus, a model adjusted for the turbulent Prandtl number as a function of the turbulent Reynolds number was developed.
+%		\end{minipage}
+%		\begin{minipage}[h!]{0.45\textwidth}
+%			\begin{figure}
+%				\centering
+%				\includegraphics[angle=0, scale=0.43]{ajustePrandtl}
+%				\caption{Adjust of a model for the $ Pr_t $ variable.}
+%			\end{figure}
+%		\end{minipage}\\
+%		\end{frame}	
 	
 	
 	
 	
 	
-		\begin{frame}
-		\frametitle{Adjust of the Cebeci's value}
-		\begin{minipage}[h!]{0.45\textwidth}
-			$\bullet$ From the resulting points of the optimization algorithm, the model adjusted for the Cebeci value was developed. As follows:
-			\begin{equation}
-			A = \frac{Re_\tau ^{0.0451 * \ln(Re_\tau)} *e ^ {5.2753} }{Re_\tau ^{0.6094}}
-			\end{equation}
-		\end{minipage}
-		\begin{minipage}[h!]{0.51\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.45]{ajustecebeci}
-				\caption{Adjust of a model for a variable Cebeci's number.}
-			\end{figure}
-		\end{minipage}
-		\end{frame}	
+%		\begin{frame}
+%		\frametitle{Adjust of the Cebeci's value}
+%		\begin{minipage}[h!]{0.45\textwidth}
+%			$\bullet$ From the resulting points of the optimization algorithm, the model adjusted for the Cebeci value was developed. As follows:
+%			\begin{equation}
+%			A = \frac{Re_\tau ^{0.0451 * \ln(Re_\tau)} *e ^ {5.2753} }{Re_\tau ^{0.6094}}
+%			\end{equation}
+%		\end{minipage}
+%		\begin{minipage}[h!]{0.51\textwidth}
+%			\begin{figure}
+%				\centering
+%				\includegraphics[angle=0, scale=0.45]{ajustecebeci}
+%				\caption{Adjust of a model for a variable Cebeci's number.}
+%			\end{figure}
+%		\end{minipage}
+%		\end{frame}	
 	
 	
 	
 	
 	
-		\begin{frame}
-		\frametitle{Analysis of the influence of the Prandtl number}
-		\begin{minipage}[h!]{0.45\textwidth}
-			$\bullet$ It was studied the influence of the number of molecular Prandtl and it was observed that it was also a variable with influences in the error of the method, thus began a study with the objective of adding the influence of the value of Prandtl number to the parameterization of the turbulent Prandtl number. For this the following model was proposed:
-		\end{minipage}
-		\begin{minipage}[h!]{0.45\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.42]{analisepr}
-				\caption{Observation of the influence of Prandtl number.}
-			\end{figure}
-		\end{minipage}\\
-		\begin{equation}
-		\begin{split}
-		Pr_t = \left( 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 + 0,0001 Re_\tau + 0,87 \right) \left(  \frac{Pr}{0,71}\right) ^{v}
-		\end{split}
-		\end{equation}
-		\end{frame}
+%		\begin{frame}
+%		\frametitle{Analysis of the influence of the Prandtl number}
+%		\begin{minipage}[h!]{0.45\textwidth}
+%			$\bullet$ It was studied the influence of the number of molecular Prandtl and it was observed that it was also a variable with influences in the error of the method, thus began a study with the objective of adding the influence of the value of Prandtl number to the parameterization of the turbulent Prandtl number. For this the following model was proposed:
+%		\end{minipage}
+%		\begin{minipage}[h!]{0.45\textwidth}
+%			\begin{figure}
+%				\centering
+%				\includegraphics[angle=0, scale=0.42]{analisepr}
+%				\caption{Observation of the influence of Prandtl number.}
+%			\end{figure}
+%		\end{minipage}\\
+%		\begin{equation}
+%		\begin{split}
+%		Pr_t = \left( 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 + 0,0001 Re_\tau + 0,87 \right) \left(  \frac{Pr}{0,71}\right) ^{v}
+%		\end{split}
+%		\end{equation}
+%		\end{frame}
 		
 		
 		
 		
 		
 		
-			\begin{frame}
-		\frametitle{Genetic optimization algorithm}
-		$\bullet$ In the adjustment of the exponent in the expansion of the parameterization of the turbulent Prandtl number, an evolutionary algorithm was used, which from an initial population of cases converged to the minimum error value.\\ 
-		\begin{minipage}[h!]{0.32\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.19]{A100}
-				\caption{Algorithm for optimal values, with mesh of 100 units.}
-			\end{figure}
-		\end{minipage}
-		\begin{minipage}[h!]{0.32\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.19]{A400}
-				\caption{Algorithm for optimal values, with mesh of 400 units.}
-			\end{figure}
-		\end{minipage}
-		\begin{minipage}[h!]{0.32\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.19]{A400zoon}
-				\caption{Algorithm for optimal values, with mesh of 400 units, advanced generation.}
-			\end{figure}
-		\end{minipage}	
-		\begin{equation}
-		\begin{split}
-		Pr_t = \left( 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 + 0,0001 Re_\tau + 0,87 \right) \left(  \frac{Pr}{0,71}\right) ^{-0.008}
-		\end{split}
-		\end{equation}	
-		\end{frame}	
-	
+%			\begin{frame}
+%		\frametitle{Genetic optimization algorithm}
+%		$\bullet$ In the adjustment of the exponent in the expansion of the parameterization of the turbulent Prandtl number, an evolutionary algorithm was used, which from an initial population of cases converged to the minimum error value.\\ 
+%		\begin{minipage}[h!]{0.32\textwidth}
+%			\begin{figure}
+%				\centering
+%				\includegraphics[angle=0, scale=0.19]{A100}
+%				\caption{Algorithm for optimal values, with mesh of 100 units.}
+%			\end{figure}
+%		\end{minipage}
+%		\begin{minipage}[h!]{0.32\textwidth}
+%			\begin{figure}
+%				\centering
+%				\includegraphics[angle=0, scale=0.19]{A400}
+%				\caption{Algorithm for optimal values, with mesh of 400 units.}
+%			\end{figure}
+%		\end{minipage}
+%		\begin{minipage}[h!]{0.32\textwidth}
+%			\begin{figure}
+%				\centering
+%				\includegraphics[angle=0, scale=0.19]{A400zoon}
+%				\caption{Algorithm for optimal values, with mesh of 400 units, advanced generation.}
+%			\end{figure}
+%		\end{minipage}	
+%		\begin{equation}
+%		\begin{split}
+%		Pr_t = \left( 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 + 0,0001 Re_\tau + 0,87 \right) \left(  \frac{Pr}{0,71}\right) ^{-0.008}
+%		\end{split}
+%		\end{equation}	
+%		\end{frame}	
+%	
 	
 	
 	
@@ -1073,53 +1076,116 @@
 
 \begin{frame}
 \frametitle{Comparison between methods}
-$\bullet$ Here are some cuts from the previous chart, explaining the errors obtained for a fixed Ret of 395, and a fixed Pr of 0.71.\\
-\begin{minipage}[h!]{0.47\textwidth}
-\begin{figure}
+$\bullet$ The same algorithm was applied to others turbulent Reynolds numbers, what resulted on:\\
+\begin{table}[!h]
 	\centering
-	\includegraphics[angle=0, scale=0.39]{finaispr}
-	\caption{Results for $Re_\tau = 395$}
-\end{figure}
-\end{minipage}
-\begin{minipage}[h!]{0.47\textwidth}
-\begin{figure}
-	\centering
-	\includegraphics[angle=0, scale=0.39]{finaisRey}
-	\caption{Results for $Pr = 0.71$}
-\end{figure}
-\end{minipage}\\
+	\caption{Ideal turbulent Prandtl Numbers adjusted for each turbulent Reynolds number.}
+	\begin{tabular}{ll}
+		\hline
+		$Re_\tau$ & $Pr_t$\\
+		\hline
+		150  &   0.94531\\
+		395  &   0.89531\\
+		640  &   0.89531\\
+		1020 &   0.90000\\ 
+		\hline
+	\end{tabular}
+\end{table}
+$\bullet$ By performing a polynomial curve fit, the following relation was obtained:
+\begin{equation}
+\begin{split}
+Pr_t = -4.5604 * 10^{-10} Re_\tau^3 + 9.5690 * 10^{-7} Re_\tau^2 - 6.1715 *10 ^{-4} Re_\tau + 1.0178 
+\end{split}
+\end{equation}
+Then new simulations were made with the new parametrization.
+
 \end{frame}
 
+		\begin{frame}
+\frametitle{Adjust of a fixed value: $Pr_t = f(Re_\tau)$}
+\begin{minipage}[h!]{0.49\textwidth}
+	\begin{figure}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_071_Prt(Ret)_A26}
+		\caption{Results for $Re_\tau = 150$. $L2 = 0.26$}
+	\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_071_Prt(Ret)_A26}
+		\caption{Results for $Re_\tau = 395$. $L2 = 0.22$}
+	\end{figure}
+\end{minipage}\hfill
+\begin{minipage}[h!]{0.5\textwidth}
+	\begin{figure}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_071_Prt(Ret)_A26}
+		\caption{Results for $Re_\tau = 640$. $L2 = 0.17$}
+	\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_071_Prt(Ret)_A26}
+		\caption{Results for $Re_\tau = 1020$. $L2 = 0.14$}
+	\end{figure}
+\end{minipage}		
+\end{frame}	
 
+
+	
+	
+	
+			\begin{frame}
+	\frametitle{Comparing the L2 norm between methods}
+	$\bullet$ Comparing the results from the simulation with the mean turbulent Prandtl number from the DNS and the obtained with the Genetic algorithm:\\
+		\begin{table}[!h]
+			\centering
+			\caption{L2 norm from the simulations.}
+		\begin{tabular}{lll}
+		\hline
+		$Re_\tau$ & $Pr_t$ modeled & $Pr_t$ from DNS\\
+		\hline
+		150  &  0.26 & 0.27 \\
+		395  &  0.22 & 0.40 \\
+		640  &  0.17 & 0.44 \\
+		1020 &  0.14 & $ - ^{(1)} $ \\ 
+		\hline
+		$^{(1)}$There was no data from DNS.
+		\end{tabular}
+		\end{table}
+	\end{frame}	
 	
 	
 	
 	
 	\section{Conclusion}
 	
+	\begin{frame}
+	\frametitle{Conclusion}
+	$\bullet$ The Semi-analytical method was discovered to be very precise in relation with the DNS samples used as reference.\\
+	$\bullet$ Interpolating the turbulent Prandtl numbers vector from DNS resulted on the highest accurate results. What validate the semi-analytical approach. \\
+	$\bullet$ The Differential evolution methodology was found to be an excellent toll to increase the accuracy of this work's mathematical model. The adjustment was of such high quality that even comparing with simulations using the medium value of the turbulent Prandtl number from DNS, was better.\\
+	\end{frame}
 	
 	
 	
 	
 	
-	
-		\begin{frame}
-		\frametitle{Conclusion}
-		\begin{center}
-		\begin{figure}
-			\centering
-			\includegraphics[angle=0, scale=0.42]{finais}
-			\caption{Results.}
-		\end{figure}
-		\end{center}
-		\end{frame}
+%		\begin{frame}
+%		\frametitle{Conclusion}
+%		\begin{center}
+%		\begin{figure}
+%			\centering
+%			\includegraphics[angle=0, scale=0.42]{finais}
+%			\caption{Results.}
+%		\end{figure}
+%		\end{center}
+%		\end{frame}
 			
 		
 		
 		
 
 	
-	\section{Agradecimentos}
+	\section{Acknowledgments}
 		
 		
 		
@@ -1127,9 +1193,9 @@ $\bullet$ Here are some cuts from the previous chart, explaining the errors obta
 		
 			\begin{frame}
 				\placelogomflab 
-				\frametitle{Agradecimentos}
+				\frametitle{Acknowledgments}
 				\begin{minipage}[h!]{0.4\textwidth}
-			{\includegraphics[trim=0.0cm 0.0cm 0.0cm 0.0cm,clip=true,height=0.25\textheight]{figuras/EPTT.jpg}}
+			{\includegraphics[trim={2.0 0.5 0.5 0.5}, angle=0, clip , scale=0.40]{fotos_formatacao_final/encit}}
 				\end{minipage}
 				\begin{minipage}[h!]{0.47\textwidth}
 				\begin{figure}
@@ -1149,12 +1215,8 @@ $\bullet$ Here are some cuts from the previous chart, explaining the errors obta
 			
 			
 			\begin{frame}
-				\placelogomflab 
-				\frametitle{Agradecimentos}
-				\fontsize{44pt}{7.2}\selectfont
-				\begin{center}
-					Obrigado.
-				\end{center}
+\centering
+{\includegraphics[trim={2.0 0.5 0.5 0.5}, angle=0, clip , scale=0.70]{fotos_formatacao_final/LOGO_COBEM_FINAL-Grande}}
 			\end{frame}
 		
 		

@@ -512,22 +512,22 @@ The turbulent Prandtl number obtained was applied to the others turbulent Reynol
 	\centering
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[angle=0, scale=0.3]{fotos_formatacao_final/Temperature_150_071_Prt(Ret)_A26}
+		\includegraphics[angle=0, scale=0.3]{fotos_formatacao_final/Temperature_150_071_Prt0905_A26}
 		\caption{Temperature distribution for $Re_\tau = 150$, $L2 = 0.34$}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.45\textwidth}
 		\centering
-		\includegraphics[angle=0, scale=0.3]{fotos_formatacao_final/Temperature_395_071_Prt(Ret)_A26}
+		\includegraphics[angle=0, scale=0.3]{fotos_formatacao_final/Temperature_395_071_Prt0905_A26}
 		\caption{Temperature distribution for $Re_\tau = 395$, $L2 = 0.23$}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[angle=0, scale=0.3]{fotos_formatacao_final/Temperature_640_071_Prt(Ret)_A26}
+		\includegraphics[angle=0, scale=0.3]{fotos_formatacao_final/Temperature_640_071_Prt0905_A26}
 		\caption{Temperature distribution for $Re_\tau = 640$, $L2 = 0.19$}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.45\textwidth}
 		\centering
-		\includegraphics[angle=0, scale=0.3]{fotos_formatacao_final/Temperature_1000_071_Prt(Ret)_A26}
+		\includegraphics[angle=0, scale=0.3]{fotos_formatacao_final/Temperature_1000_071_Prt0905_A26}
 		\caption{Temperature distribution for $Re_\tau = 1020$, $L2 = 0.14$}
 	\end{subfigure}	
 	\caption{Results of temperature simulations for $Pr_t = 0.9 $, $A = 26$ and $Pr =0.71$ }
@@ -568,22 +568,22 @@ Thus, a model adjusted for the turbulent Prandtl number as a function of the tur
 	\centering
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_071_Prt0905_A26}
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_071_Prt(Ret)_A26}
 		\caption{Temperature distribution for $Re_\tau = 150$, $L2 = 0.26$}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.45\textwidth}
 		\centering
-		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_071_Prt0905_A26}
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_071_Prt(Ret)_A26}
 		\caption{Temperature distribution for $Re_\tau = 395$, $L2 = 0.22$}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_071_Prt0905_A26}
-		\caption{Temperature distribution for $Re_\tau = 640$, $L2 = 0.174$}
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_071_Prt(Ret)_A26}
+		\caption{Temperature distribution for $Re_\tau = 640$, $L2 = 0.17$}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.45\textwidth}
 		\centering
-		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_071_Prt0905_A26}
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_071_Prt(Ret)_A26}
 		\caption{Temperature distribution for $Re_\tau = 1020$, $L2 = 0.14$}
 	\end{subfigure}	
 	\caption{Results of temperature simulations for $Pr_\tau(Re_\tau)$, $A = 26$ and $Pr =0.71$ }
@@ -727,7 +727,7 @@ With such parametrization, a new set of simulations were made, with the results 
 	\caption{Results of temperature simulations for $Pr_\tau(Re\tau)$, $A(Re_\tau)$ and $Pr =0.71$ }
 \end{figure*}
 
-Another method of adjustment on differential evolution is the multi objective adjustment. Such approach is used to model more then one variable simultaneously to decrease an resulting variable of interest. This method was used to adjust the Cebeci's constant and the Turbulent Prandtl number for the minor error in the resulting temperature for each DNS sample. With this arrangement, new ideal values were found for the turbulent Prandtl number and Cebeci`s constant:
+Another method of adjustment on differential evolution is the multi objective adjustment. Such approach is used to model more then one variable simultaneously to decrease an resulting variable of interest. This method was used to adjust the Cebeci's constant and the Turbulent Prandtl number for the minor error (L2 norm) in the resulting temperature field for each DNS sample. With this arrangement, new ideal values were found for the turbulent Prandtl number and the Cebeci`s constant:
 
 \begin{table}[!h]
 	\centering
@@ -736,13 +736,26 @@ Another method of adjustment on differential evolution is the multi objective ad
 		\hline
 		$Re_\tau$ & $Pr_t$ & $A$\\
 		\hline
-		150  &   0.88594 & \\
-		395  &   0.90156 & \\
-		640  &   0.91094 & \\
-		1020 &   0.91406 & \\ 
+		150  &   0.60036 & 46.73029 \\
+		395  &   0.75938 & 34.93877 \\
+		640  &   0.83399 & 30.11493 \\
+		1020 &   0.84876 & 29.92139 \\ 
 		\hline
 	\end{tabular}
 \end{table}
+With such numerical DATA, new models were made both to the Turbulent Prandtl number and the Cebeci`s constant:
+
+\begin{equation}
+A = \frac{Re_\tau ^{0.04510 * \ln(Re_\tau)} *e ^ {5.27528} }{Re_\tau ^{0.60911}}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+Pr_t = 3.19792 * 10^{-10} Re_\tau^3 - 1.08216 * 10^{-6} Re_\tau^2 + 1.16281 *10 ^{-3} Re_\tau + 0.44921 
+\end{split}
+\end{equation}
+
+
 
 
 
