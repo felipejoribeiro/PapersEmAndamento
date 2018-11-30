@@ -746,7 +746,7 @@ Another method of adjustment on differential evolution is the multi objective ad
 With such numerical DATA, new models were made both to the Turbulent Prandtl number and the Cebeci`s constant:
 
 \begin{equation}
-A = \frac{Re_\tau ^{0.04510 * \ln(Re_\tau)} *e ^ {5.27528} }{Re_\tau ^{0.60911}}
+A = \frac{Re_\tau ^{0.164405721 \ln(Re_\tau)^2 - 2.874243343 \ln(Re_\tau) +  16.356287317 } }{e ^{26.631037045}}
 \end{equation}
 
 \begin{equation}
@@ -755,44 +755,53 @@ Pr_t = 3.19792 * 10^{-10} Re_\tau^3 - 1.08216 * 10^{-6} Re_\tau^2 + 1.16281 *10 
 \end{split}
 \end{equation}
 
+More simulations were made using such parametrization:
+
+\begin{figure*}[!h]
+	\centering
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_071_Genetic}
+		\caption{Velocity distribution for $Re_\tau = 150$, $L2 = 0.076$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_071_Genetic}
+		\caption{Velocity distribution for $Re_\tau = 395$, $L2 = 0.054$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_071_Genetic}
+		\caption{Velocity distribution for $Re_\tau = 640$, $L2 = 0.072$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_071_Genetic}
+		\caption{Velocity distribution for $Re_\tau = 1020$, $L2 = 0.073$}
+	\end{subfigure}	
+	\caption{Results of temperature simulations for $Pr_\tau(Re_\tau)$, $A(Re_\tau)$ and $Pr =0.71$, with multi-objective adjustment.}
+\end{figure*}
 
 
 
 
 
  
-
-
- 
-
 \section{Results}
-With all these methods, a big number of simulations in concerning all the DNS data was made.
-Results can be seen ahead.\\
+
+With such methods, it was studied the advantages and disadvantages of each one. A comparison between their errors can be seen ahead:\\
+
 \begin{figure}[!h]
 	\centering
-	\includegraphics[angle=0, scale=0.42]{finais}
-	\caption{Geral results per method.}
+	\includegraphics[angle=0, scale=0.61]{fotos_formatacao_final/gerais}
+	\caption{Comparison between all parameterizations for $Re_\tau$ and $Pr_t$.}
 \end{figure}
 
-Here are some cuts from the previous chart, explaining the errors obtained for a fixed Ret of 395, and a fixed Pr of 0.71.
-\begin{figure}[!h]
-	\centering
-\begin{subfigure}[t]{0.49\textwidth}
-	\centering
-	\includegraphics[angle=0, scale=0.35]{finaispr}
-	\caption{Results for $Re_\tau = 395$}
-\end{subfigure}
-\begin{subfigure}[t]{0.49\textwidth}
-	\centering
-	\includegraphics[angle=0, scale=0.35]{finaisRey}
-	\caption{Results for $Pr = 0.71$}
-\end{subfigure}
-\caption{From the 3D plot above.}
-\end{figure}
+All the models developed on the present paper shown better results then the classical parametrization of $Pr_t = 0.71$ and $A = 26$ on the turbulent Poiseuille flow. The correction in the Cebeci's constant, although represented a smaller error in the velocity, didn't resulted in smaller errors in the temperature profile for all the domain, only improving results for low turbulent Reynolds numbers ($150$ and $395$), but the differences were small. The model that had the best results was the developed with the multi-objective differential evolution algorithm.
 
 \section{Conclusion}
 
-...
+This paper was successful in developing a semi-analytical methodology to calculate the temperature profile over a channel with the mixing length model of Prandtl, a classic closure model in the study of turbulence. The validations with DNS were satisfactory. Its is important to notice that such values of turbulent Prandtl number and Cebeci's constant are just applicable for this particular case, as the parameterizations were particular computational adjustments and are simplifications of the physical abstractions that each represents. But they suited well for this case, resulting in accuracy and efficiency. The semi analytical method was successful in model the problem, as good results were obtained when used the turbulent Prandtl numbers from the DNS. The turbulent Prandtl number, although nonlinear dependent of a variety of physical states, could be simplified to a constant and provide good results for the method.      
 
 \section{Acknowledgments}
 
