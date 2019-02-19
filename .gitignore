@@ -1,9 +1,8 @@
-##########################################
+﻿##########################################
 #    arquivos derivados ignoráveis...    #
 ##########################################
 
 *.gz
-*.pdf
 *.log
 *.aux
 *.toc
@@ -17,3 +16,19 @@
 Seminário Mflab/apresentacao_2\.blg
 
 Seminário Mflab/apresentacao_2\.bbl
+
+congresso europeu/artigo\.pdf
+
+ENCIT2018/apresentacao_2\.pdf
+
+Latex_Relatório_pivic/Relatorio\.pdf
+
+projeto statera/apresentacao_2\.pdf
+
+SEMAT/artigo\.pdf
+
+Seminário Mflab/apresentacao_2\.pdf
+
+Seminário Mflab/apresentasao_eptt2018\.pdf
+
+Tension/COBEM_2019_a/cobem2019\.pdf
