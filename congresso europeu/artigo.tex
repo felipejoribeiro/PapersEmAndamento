@@ -80,7 +80,7 @@
 %\end{figure}
 
 \begin{abstract}
-	\noindent Fluid dynamics is a subject of great academic and industrial interest. It offers many opportunities for optimization in a variety of practical engineering problems. The modeling of thermal properties of turbulent flows is something of remarkable complexity, that can be explained mathematically by the chaotic nature of this non-linear differential analysis, fact beautifully stated in the Strogatz`s book "Nonlinear Dynamics and Chaos". The immediate result of such fact is the impossibility of an exact mathematical answer for, near, all real applications. The only way of gathering results, then, is by numerical approach, with the discretization of space and time, for an approximate result. The problem is that, in most cases, these are a so big computational problem that become inviable. With that in mind, the present paper aims to develop a semi-exact meta-modeled approach on a turbulent Poiseuille flow thermal analysis over a channel, aiming on efficiency and accuracy when compared to the DNS solution, the most respected but computational expensive method there is. Such approach resulted on a new adjusted model for the turbulent Prandtl number on a Poiseuille channel.
+	\noindent Fluid dynamics is a subject of great academic and industrial interest. It offers many opportunities for optimization in a variety of practical engineering problems. The modeling of thermal properties of turbulent flows is something of remarkable complexity, that can be explained mathematically by the chaotic nature of this non-linear differential analysis, fact beautifully stated in the Strogatz`s book "Nonlinear Dynamics and Chaos". The immediate result of such fact is the impossibility of an exact mathematical answer for, near, all real applications. The only way of gathering results, then, is by numerical approach, with the discretization of space and time, for an approximate result. The problem is that, in most cases, these are a so big computational problem that become inviable. With that in mind, the authors of the present paper aim to develop a semi-exact meta-modeled approach on a turbulent Poiseuille flow thermal analysis over a channel, aiming on efficiency and accuracy when compared to the DNS solution, the most respected but computational expensive method. Such approach resulted on a new adjusted model for the turbulent Prandtl number on Poiseuille channel flows.
 \end{abstract} 
 
 %\pagebreak
@@ -103,7 +103,7 @@
 	
 	
 	
-	T = temperature
+	T = Temperature
 	
 	
 	
@@ -131,7 +131,7 @@
 	
 	
 	
-	u , v , w = velocities components on each axis
+	u , v , w = Velocities components on each axis
 	
 	
 	$u^\prime $ , $ v^\prime $ , $ w^\prime $ = Fluctuations of velocity on each axis
@@ -146,15 +146,15 @@
 	$\tilde{y} $= $ y \frac{u_\tau}{R} $
 	
 	
-	R = half of the channel length
+	R = Half of the channel width
 	
 	
 	
-	b = channel depth
+	b = Channel depth
 	
 	
 	
-	$\nu$ = kinetic viscosity
+	$\nu$ = Kinetic viscosity
 	
 	
 	$\nu_\tau$ = Turbulent viscosity
@@ -183,11 +183,11 @@
 
 \section{Introduction}
 
-\lettrine[nindent=0em,lines=2]{I}s well known that the field of turbulent diffusion is of such hight complexity that, even nowadays, it is not completely understood, as described by O. Basim and Hasan, 2007 \cite{hasan}. Out of the domain of Direct Numerical Solutions (DNS), all sorts of experimental approximations have to be assumed to properly mathematically develop the Navier-Stokes equations as the nonlinear behavior of these systems \cite{John} make difficult for an exact mathematical solution. 
+\lettrine[nindent=0em,lines=2]{I}t is well known that the field of turbulent diffusion is of such hight complexity that, even nowadays, it is not completely understood, as described by O. Basim and Hasan, 2007 \cite{hasan}. Out of the domain of Direct Numerical Simulations (DNS), all sorts of experimental approximations have to be assumed to properly mathematically develop the Navier-Stokes equations as the nonlinear behavior of these systems \cite{John} make difficult for an exact mathematical solution. 
 
 Despite the difficulty, a big part of the scientific community is studying turbulence on fluid and thermal dynamics, because of the great industrial and academic interest, as the problem offers great opportunities in optimization of machinery. In other hand, it is an example of chaotic nonlinear dynamic system, what grows in the eyes of academia.   
 
-In this work, the mixing length model was used, by Ludwig Prandtl, that rely on the Boussinesq hypothesis for being a way of modeling the Reynolds tensor on the development of the Navier-Stokes equation.\\ 
+In the present work, the mixing length model, by Ludwig Prandtl, was used, and it relies on the Boussinesq hypothesis for being a way of modeling the Reynolds tensor on the development of the Navier-Stokes equation.
 
 In this context, some parameters that worth mentioning are the turbulent Prandtl number \cite{Prandtl} and the constant $A = 26$, on Cebeci`s damping formulation \cite{Cebeci}. These physical terms are responsible for modeling important properties of the fluid`s thermal diffusion and dynamics as said by S. N. Aristeu, 2018 \cite{aristeu}. Such parameters models are examples of approximations that are necessary to implement a semi analytical method, like RANS, URANS and LES \cite{aristeu}. It consists in not numerically resolving the Naiver-Stokes equation on all scales required, but instead substituting some tensors and other nonlinear therms by conceptual and experimental approximations.
 
@@ -198,8 +198,8 @@ On the present paper, the authors aim to develop a semi analytical RANS (Reynold
 
 \section{Physical model}
 
-The problem was defined as a plane channel flow, with only one finite dimension on the $y$ axis. Two boundary walls were set as two nonslip infinite plates in a constant thermal flux regime. The $z$ axis was proposed self similar both on velocity and temperature, resulting on a plane domain (Fig.\ref{figure.1}). \\
-The flow was considered incompressible and the fluid Newtonian. It was flowing on the $x$ axis direction on Reynolds numbers that ranged from $4560$ to $41441$, resulting on a turbulent regime. 
+The problem was defined as a plane channel flow, with only one finite dimension on the $y$ axis. Two boundary walls were set as nonslip infinite plates and in a constant thermal flux regime. The $z$ axis was proposed self similar both on velocity and temperature, resulting on a plane domain (Fig.\ref{figure.1}). \\
+The flow was considered incompressible and the fluid was considered Newtonian. The fluid flows on the $x$ axis direction. The Reynolds numbers ranges from $4560$ to $41441$, resulting on a turbulent regime. 
 
 \begin{figure}[h!]
 	\centering
@@ -208,7 +208,7 @@ The flow was considered incompressible and the fluid Newtonian. It was flowing o
 	\label{figure.1}
 \end{figure}
 
-The base mathematical formulation for the problem where the continuity and Navier-Stokes equations as defined on Cengel's book \cite{Cengel}, and the thermal energy transport equation, as defined on Freank's Incropera \cite{Incropera}. These were the assumptions made to the proposed problem, that will be considered on the mathematical model ahead.
+The base mathematical formulation for the problem where the continuity and Navier-Stokes equations as presented on Cengel's book \cite{Cengel}, and the thermal energy transport equation, as presented on Freank's Incropera \cite{Incropera}. These were the assumptions made to the proposed problem, that will be considered on the differential mathematical model ahead.
 
 
 
@@ -220,16 +220,8 @@ The base mathematical formulation for the problem where the continuity and Navie
 
 \section{Differential mathematical model}
 
-Developing the thermal energy equation, the continuity equation and the Navier-Stokes equations for mean statistical permanent regimes resulted on: 
+The mean continuity (Eq.\ref{mass}), the mean Navier-Stokes (Eq.\ref{dynamics}) and the mean energy (Eq.\ref{energy permanent}) equations are presented as follows: 
 
-
-\begin{equation}\label{energy permanent}
-\frac{\partial{}}{\partial{x}} \left(\overline{T^\prime u^\prime}\right) + \frac{\partial{}}{\partial{x}}\left(\overline{u}.\overline{T}\right)     + 
-\frac{\partial{}}{\partial{y}} \left(\overline{T^\prime v^\prime}\right) + \frac{\partial{}}{\partial{y}}\left(\overline{v}.\overline{T}\right) 
-=
-{\frac{\partial{}}{\partial{x}}} \left(\alpha {\frac{\partial{\overline{T}}}{\partial{x}}} \right) +
-{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{T}}}{\partial{y}}} \right). 
-\end{equation}
 
 \begin{equation}\label{mass}
 \frac{\partial \overline{u}}{\partial x} = 0.
@@ -240,13 +232,24 @@ Developing the thermal energy equation, the continuity equation and the Navier-S
 - \frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} + \frac{\partial}{\partial y}\left(\nu \frac{\partial \overline{u}}{\partial y} - \overline{u^\prime v^\prime}\right).
 \end{equation}
 
-Where (\ref{energy permanent}) represents the mean energy balance for a given point, (\ref{mass}) represents the mean mass balance and (\ref{dynamics}) represents de mean linaer momentum balance. What configure the method as a Reynolds Averaged Navier Stokes (RANS) methodology.
+
+\begin{equation}\label{energy permanent}
+\frac{\partial{}}{\partial{x}} \left(\overline{T^\prime u^\prime}\right) + \frac{\partial{}}{\partial{x}}\left(\overline{u}.\overline{T}\right)     + 
+\frac{\partial{}}{\partial{y}} \left(\overline{T^\prime v^\prime}\right) + \frac{\partial{}}{\partial{y}}\left(\overline{v}.\overline{T}\right) 
+=
+{\frac{\partial{}}{\partial{x}}} \left(\alpha {\frac{\partial{\overline{T}}}{\partial{x}}} \right) +
+{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{T}}}{\partial{y}}} \right). 
+\end{equation}
+
+
+The time independence and mean characterization of the system configure the method as a Reynolds Averaged Navier Stokes (RANS) methodology.
 
 \subsection{The temperature permanent regime}
 
 The velocity field is completely developed on the channel, for mean values (fig.\ref{figure.3}), but this is not the case for the temperature field, as a constant thermal flux is imposed over the walls.
-Even when on mean values, the temperature field of a turbulent channel flow don't converge naturally to a unidimensional permanent state (fig.\ref{figure.2}). In a effort to simplify the solution, the thermal configuration was studied with a thermal energy equation (\ref{c_h_e}).
-The velocity field is completely developed, but this is not the case for the temperature field, as a constant thermal flux is imposed over the walls.
+Even considering the mean values, the temperature field of a turbulent channel flow don't converge naturally to a unidimensional permanent state (fig.\ref{figure.2}). The velocity field is completely developed, but this is not the case for the temperature field, as a constant thermal flux is imposed over the walls.
+
+In a effort to simplify the solution, the thermal configuration was studied with a thermal energy equation (\ref{c_h_e}).
 \begin{figure}[h!]
 	\centering
 	\includegraphics[angle=0, scale=0.40]{fotos_formatacao_final/temperatura}
@@ -259,12 +262,17 @@ The velocity field is completely developed, but this is not the case for the tem
 	\caption{velocity field in completely developed regime over a channel.}
 	\label{figure.3}
 \end{figure}
+
+
 \begin{equation}\label{c_h_e}
 q_{conv.} = \dot{m} C_p \Delta T_m,
 \end{equation}
 \begin{equation}
 2q_w b \Delta x = \dot{m} C_p \Delta T_m,
-\end{equation}
+\end{equation}\\
+
+
+
 being $b$ the depth of the channel and $T_m$ the average temperature in a cross-section. So, substituting $ \dot{m} = u_m 2R b \rho $, and assuming $ \Delta T_m = \frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} \Delta x $:
 \begin{equation}
 2q_w b \Delta x = u_m 2R b \rho  C_p \frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} \Delta x.
@@ -281,7 +289,7 @@ To better understand the wall temperature with such energy profile, a convective
 \begin{equation}
 q_w = h A \left( T_w(x) - \overline{T}_m(x)\right).
 \end{equation}
-It is noted that $h$ is constant since this is a fully developed flow dynamically. Thus it is possible to write:
+It should be observed that $h$ is constant since this is a fully dynamically developed flow. Thus it is possible to write:
 %\begin{equation}
 %T_w(x) - \overline{T}_m(x) = \frac{q_w}{hA}.
 %\end{equation}
@@ -289,10 +297,10 @@ It is noted that $h$ is constant since this is a fully developed flow dynamicall
 %\frac{d T_w(x)}{d x} - \frac{d \overline{T}_m(x)}{d x} = \frac{d \frac{q_w}{hA}}{dx}.
 %\end{equation}
 \begin{equation}
-\frac{d T_w(x)}{d x} = \frac{d \overline{T}_m(x)}{d x} = Ctt.
+\frac{d T_w(x)}{d x} = \frac{d \overline{T}_m(x)}{d x} = Cte.
 \end{equation}	
 
-With the temperature on the walls and the mean temperature gradient set as linear by these mathematical determinations, it was possible to extend this gradient to all the domain considering the boundary conditions and the symmetry of the system. So a constant temperature gradient was imposed on the heated walls creating a boundary condition of constant thermal flux, resulting on all the temperature field to varies linearly on the $x$ axis. The temperature value was then decomposed to the form $ T^\ast(y) = T(x,y) - T_w(x) $ where $T_w(x)$ was the temperature near the wall, resulting in a similarity effect on the streamwise direction, resuming the problem to a unidimensional representative state for the variable $T^\ast(y)$. Therefore, the expression was substituted in (\ref{energy permanent}):
+With the temperature on the walls and the mean temperature gradient set as linear by these mathematical determinations, it was possible to extend this gradient to all the domain considering the boundary conditions and the symmetry of the system. So a constant temperature gradient was imposed on the heated walls creating a boundary condition of constant thermal flux, resulting on all the temperature field to varies linearly on the $x$ axis. The temperature value was then decomposed to the form $ T^\ast(y) = T(x,y) - T_w(x) $ where $T_w(x)$ is the temperature near the wall, resulting in a similarity effect on the streamwise direction, resuming the problem to a unidimensional representative state for the variable $T^\ast(y)$. Therefore, the expression was replaced in (\ref{energy permanent}):
 
 
 
@@ -305,7 +313,7 @@ With the temperature on the walls and the mean temperature gradient set as linea
 \end{split}
 \end{equation}
 
-Then the expression could be further developed algebraically considering all mean velocity on $y$ axis and $z$ axis null:
+Then the expression could be further developed algebraically considering all mean velocity on $y$ and $z$ axis null:
 
 \begin{equation}\label{equation_var}
 {\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{T^\ast}}}{\partial{y}}}   
@@ -323,7 +331,7 @@ Now, on a unidimensional simplified expression, the model requires a closure mod
 -\left(\overline{ T^{\ast\prime}  v^\prime}\right) = 
 \alpha_t \frac{\partial{\overline{T^\ast}}}{\partial{y}}.
 \end{equation}
-Thus, by substituting in the main equation (\ref{equation_var}):
+Thus, the following equation can be obtained by substituting in the main equation (\ref{equation_var}):
 \\
 \begin{equation}
 {\frac{\partial{}}{\partial{y}}} \left[(\alpha + \alpha_t)  \frac{\partial \overline{T^\ast}}{\partial y} \right]
@@ -333,16 +341,16 @@ Thus, by substituting in the main equation (\ref{equation_var}):
 
 \subsection{Prandtl mixing length model} 
 
-The term of the turbulent thermal diffusion, $\alpha_t$, that needs to be modeled. A new variable should be introduced, the turbulent Prandtl number, as follows:
+The term of the turbulent thermal diffusion, $\alpha_t$, needs to be modeled. The classical concept of the turbulent Prandtl number is used in the present work:
 \begin{equation}
 Pr_t = \frac{\nu_t}{\alpha_t}.
 \end{equation} 
-The term $ \nu_t $ need to be modeled. The value of the turbulent Prandtl number $ Pr_t = 0.71 $ that has been used in the literature.
+The term $ \nu_t $ need to be modeled. The value of the turbulent Prandtl number $ Pr_t = 0.71 $ has been used in the literature.
 With the model of the Prandtl mixing length, it is postulated that:
 \begin{equation}
 \nu_t = {l^2_m} \left| \frac{\partial \overline{u}}{\partial y} \right|.
 \end{equation}
-The mixing length introduces a module into the differential model and the parameter turbulent Prandtl number.
+The mixing length introduces a module into the differential model as well as the parameter turbulent Prandtl number:
 \\
 \begin{equation}
 {\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
@@ -350,7 +358,7 @@ The mixing length introduces a module into the differential model and the parame
 = 
 \overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  .
 \end{equation}
-\begin{equation}
+\begin{equation}\label{equationquasela}
 {\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
 + \frac{{l^2_m} \left| \frac{\partial \overline{u}}{\partial y} \right|}{Pr_t} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
 = 
@@ -358,7 +366,7 @@ The mixing length introduces a module into the differential model and the parame
 \end{equation}
 \\
 
-It is possible to notice, when analyzing the dynamics of the flow, that for positive values of $ y $ the first derivative of velocity will always be negative, since we have a velocity that decreases with the increase of $ y $:\\
+It is possible to notice, when analyzing the dynamics of the flow, that for positive values of $ y $, see figure \ref{figure.1}, the first derivative of velocity will always be negative, since we have a velocity that decreases with the increase of $ y $. It result:\\
 \begin{equation}
 {\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
 - \frac{{l^2_m}}{Pr_t}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
@@ -370,48 +378,48 @@ It is possible to notice, when analyzing the dynamics of the flow, that for posi
 
 \subsection{The mixing length}
 
-Then, was missing a parametrization for the mixing length $ l_m $. For this, we observed the experimental studies of Nikuradse, with which this parameter was modeled as follows:
+The mixing length $ l_m $ needs to be modeled. It can be observed that the experimental studies of Nikuradse was used in order to model this parameter, as follows:
 \begin{equation}
 L\left(\frac{y}{R}\right) = \frac{l_m}{R} = 0.14 - 0.08 \left(\frac{y}{R}\right)^2 - 0.06\left(\frac{y}{R}\right)^4.
 \end{equation}
 To further completeness of the model, Cebeci and Bradshaw added the Van Driest damping function:
-\begin{equation}
-L\left(\frac{y}{R}\right)  = \frac{l_m}{R} = \left\{\frac{l_m}{R} = 0.14 - 0.08 \left(\frac{y}{R}\right)^2 - 0.06\left(\frac{y}{R}\right)^4\right\}\left\{  1 - e^{[(\tilde{y} - 1) \frac{Re_\tau}{A}]}\right\}.
+\begin{equation}\label{eqution_mixturelength}
+L\left(\frac{y}{R}\right)  = \frac{l_m}{R} = \left\{\frac{l_m}{R} = 0.14 - 0.08 \left(\frac{y}{R}\right)^2 - 0.06\left(\frac{y}{R}\right)^4\right\}\left\{  1 - e^{[(\tilde{y} - 1) \frac{Re_\tau}{A}]}\right\},
 \end{equation}
-With $A = 26$ as the Cebeci`s constant. Thus, we had the mixing length defined by:
+with $A = 26$ as the Cebeci`s constant. Thus, we had the mixing length defined by:
 \begin{equation}
 lm = L R,
 \end{equation}
-$ L $ being a function in the $ y $ axis.
+$ L $ being a function in the $ y $ axis, given by equation (\ref{eqution_mixturelength}). So equation (\ref{equationquasela}) can be rewritten as:
 \begin{equation}\label{cebeciconstant}
 {\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
 - \frac{{L}^2 R ^2}{Pr_t}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
 = 
 \overline{u}\frac{\partial{}\left(\overline{T_w}\right)  }{\partial{x}}.
 \end{equation}
- To compare the present work with literature models, the equation was nondimensionalized with the constants according to wall coordinates. It was considered: $ \tilde{y} = \frac{y . Re_\tau}{R} $, $ \tilde{\overline{u}} = \frac{\overline{u}}{u_\tau} $ , $ \tilde{\overline{T}} = \frac{\overline{T}}{T_\tau} $ , $ \tilde{\overline{T^\ast}} = \frac{\overline{T^\ast}}{T_\tau} $ , $Re_\tau = \frac{u_\tau R}{\nu}$, $Pr_t = \frac{\nu_t}{\alpha_t}$, $Pr = \frac{\nu}{\alpha}$ e $T_\tau = \frac{q_w}{\rho C_p u_\tau}$, $\frac{\partial{\left(T_m\right)}}{\partial{x}} = \frac{q_w}{u_m  R \rho  C_p } $, $\frac{\partial \overline{p}}{\partial x} = - \frac{u_\tau^2 \rho}{R} $.
+ To compare the present work with literature models, this equation was nondimensionalized using the wall coordinates. It was considered: $ \tilde{y} = \frac{y . Re_\tau}{R} $, $ \tilde{\overline{u}} = \frac{\overline{u}}{u_\tau} $ , $ \tilde{\overline{T}} = \frac{\overline{T}}{T_\tau} $ , $ \tilde{\overline{T^\ast}} = \frac{\overline{T^\ast}}{T_\tau} $ , $Re_\tau = \frac{u_\tau R}{\nu}$, $Pr_t = \frac{\nu_t}{\alpha_t}$, $Pr = \frac{\nu}{\alpha}$, $T_\tau = \frac{q_w}{\rho C_p u_\tau}$, $\frac{\partial{\left(T_m\right)}}{\partial{x}} = \frac{q_w}{u_m  R \rho  C_p } $ and $\frac{\partial \overline{p}}{\partial x} = - \frac{u_\tau^2 \rho}{R} $. It results:
 \\
-\begin{equation}
+\begin{equation}\label{equationultima}
 {\frac{\partial{}}{\partial{\tilde{y}}}} \left( \left( \frac{Re_\tau}{Pr}   
 - \frac{{L}^2 Re_\tau ^3}{Pr_t}\frac{\partial \tilde{\overline{u}}}{\partial \tilde{y}} \right) \frac{\partial \tilde{\overline{T^\ast}}}{\partial \tilde{y}} \right)
 = 
 \frac{\tilde{\overline{u}}}{\tilde{u_m}}.
 \end{equation}
-It is important to note that there is velocity in the main equation, that is, for the development of the thermal problem, the development of the dynamic channel profile is necessary. For this, a previously established RANS methodology \cite{Luigi} was used, as follows:
+It is important to note that there is the velocity in the equation (\ref{equationultima}), that is, for the development of the thermal problem, the development of the dynamic channel profile is necessary. For this, a previously established RANS methodology \cite{Luigi} was used, as follows:
 \begin{equation}
 \frac{\partial \tilde{\overline{u}}}{\partial \tilde{y}} = - \frac{2 \tilde{y} \frac{1}{Re_\tau} }{ 1 + \sqrt{ 1 + 4 L ^2 Re_\tau ^2 \tilde{y}}}.
 \end{equation}		
-In this way, we had the first derivative of velocity in an exact form.
+This way, we had the first derivative of velocity in an exact form.
 
 
 \section{Numerical model}
 
 
-To discretize the differential equation, an Eulerian domain was formulated. For the velocity a fourth-order Runge-kutta method was applied, while the temperature was arranged in a central differences scheme that had to be solved implicitly. The dynamic model is solved first, and its numerical result are used in the solution of the thermal profile. As for cell location, a cell center was determined on the wall, and a point between cells in the center of the channel, the rest of the space units being evenly distributed throughout the channel.
+To discretize the differential equation, an Eulerian domain was formulated. For the velocity a fourth-order Runge-kutta method was applied, while the temperature was arranged in a central differences scheme that had to be solved implicitly. The dynamic model is solved first, and its numerical result are used in the solution of the thermal profile. The cell center was in a such way that the wall was placed at the cell center, and a point between cells was placed in the center of the channel. The convergence of the numerical results is shown in figure \ref{sistema}.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[angle=0, trim={20mm 10mm 0mm 0mm}, clip , scale=0.5]{convergnciaprimeira}
-	\caption{The convergence of the numerical methodology.}
+	\caption{The convergence of the numerical methodology up to 400 cells.}
 	\label{sistema}
 \end{figure}
 
