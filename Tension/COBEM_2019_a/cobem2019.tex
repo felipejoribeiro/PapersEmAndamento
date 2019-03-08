@@ -1,0 +1,89 @@
+% LaTeX .tex
+% Example for the proceedings of the  25th International Congress of Mechanical Engineering
+% COBEM 2019
+% October, 20-25, 2019, Uberlândia, MG, Brazil
+% Based on the template of the proceedings of COBEM2015 and COBEM2017
+
+\documentclass[10pt,fleqn,a4paper,twoside]{article}
+\usepackage{abcm}
+\def\shortauthor{F. Author, S. Author and T. Author (update this heading accordingly)}
+\def\shorttitle{Paper Short Title (First Letters Uppercase, make sure it fits in one line)}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{blindtext}
+\begin{document}
+\fphead
+\hspace*{-2.5mm}\begin{tabular}{||p{\textwidth}}
+\begin{center}
+\vspace{-4mm}
+\title{Dynamical formulation with experimental validation of subsonic sounding rocket model}
+\end{center}
+\authors{Ian Costa Alves} \\
+\authors{Felipe Jose Oliveira Ribeiro} \\
+\authors{Alexandre Zuquete Guarato}\\
+\institution{Federal University of Uberlândia (UFU), Av. João Naves de Ávila, 2121, Campos Santa Mônica, Uberlândia, MG } \\
+\institution{iancostalves@ufu.br} \\
+\institution{feliperibeiro.ufu@gmail.com} \\
+\institution{azguarato@ufu.br} \\
+\\
+\abstract{\textbf{Abstract.}  \blindtext .}\\
+\\
+\keywords{\textbf{Keywords:} Rocket, dynamical simulations, Aerodynamical modeling, Simulation}\\
+\end{tabular}
+
+\section{INTRODUCTION}
+
+---> Comentar sobre a equipe, Descrever o processo material e teórico. 
+
+
+
+\section{METHODOLOGY}
+
+----> bateria de testes a se fazer (computacionais e teóricos)
+
+----> Determinação dos ensaios
+	
+----> Tratamento estatístico dos dados
+
+\subsection{Differential modeling}
+
+----> parte analítica do desenvolvimento teórico
+
+
+\subsection{Numerical modeling}
+
+----> parte numérica do desenvolvimento teórico
+
+
+\section{Material experiments}
+
+----> Descrição da construção e testes do modelo foguete
+
+
+\section{Initial results}
+
+
+----> Resultados computacionais
+
+
+----> Esperar experimento
+
+\section{Future work}
+
+
+----> Descrever o que será feito até o artigo final
+
+
+\section{ACKNOWLEDGEMENTS}
+The authors would like to thank the following professors and institutions: Dr. José Antônio Ferreira Borges, LEPDV (vehicles Dynamics research and learning Laboratory), FEMEC (Mechanical engineering College), UFU (Federal University of Uberl\^andia) and, especially, EPTA(Propulsion and Aerospace Technology Team) for financial support.
+
+
+
+
+\section{REFERENCES} 
+
+\bibliographystyle{abcm}
+\renewcommand{\refname}{}
+\bibliography{bibfile}
+
+\end{document}
