@@ -6,9 +6,10 @@
 
 \documentclass[10pt,fleqn,a4paper,twoside]{article}
 \usepackage{abcm}
-\def\shortauthor{F. Author, S. Author and T. Author (update this heading accordingly)}
-\def\shorttitle{Paper Short Title (First Letters Uppercase, make sure it fits in one line)}
+\def\shortauthor{Ian Costa Alves, Felipe José Oliveira Ribeiro and Alexandre Zuquete Guarato}
+\def\shorttitle{Dynamic Modeling of a Rocket for High Accuracy Trajectory Simulations}
 \usepackage{subcaption}
+\usepackage{amsmath}
 \captionsetup{compatibility=false}
 \usepackage{blindtext}
 \begin{document}
@@ -16,136 +17,81 @@
 \hspace*{-2.5mm}\begin{tabular}{||p{\textwidth}}
 \begin{center}
 \vspace{-4mm}
-\title{Study of mechanical properties of parts fabricated with PETG via fused deposition modeling}
+\title{Modelagem dinâmica do voo de um foguete para simulações de trajetória de alta exatidão}
 \end{center}
-\authors{Maíra Fernanda Oliveira de Miranda} \\
+\authors{Ian Costa Alves} \\
 \authors{Felipe Jose Oliveira Ribeiro} \\
 \authors{Alexandre Zuquete Guarato}\\
-\institution{Federal University of Uberlândia (UFU), Av. João Naves de Ávila, 2121, Campos Santa Mônica, Uberlândia, MG } \\
-\institution{mairaf\_miranda@hotmail.com} \\
+\institution{Federal University of Uberlândia (UFU), Av. João Naves de Ávila, 2121, Campus Santa Mônica, Uberlândia, MG } \\
+\institution{iancostalves@gmail.com} \\
 \institution{feliperibeiro.ufu@gmail.com} \\
 \institution{azguarato@ufu.br} \\
 \\
-\abstract{\textbf{Abstract.}  \blindtext .}\\
+\abstract{\textbf{Abstract.} Para o projeto de um veículo aeroespacial, simulações de voo de alta fidelidade são essenciais e podem ser críticas para viabilizar ou invalidar o produto. Para o caso de foguetes e mísseis isso se torna ainda mais crítico, visto que a localização exata do local de pouso é um parâmetro determinante para o planejamento do lançamento. Nesse paper, é discutida uma modelagem dinâmica com seis graus de liberdade para o voo de um foguete, além de um modelo aerodinâmico consistente baseado do Método de Barrowman Extendido para a obtenção das forças e momentos aerodinâmicos para o voo do foguete. Além da modelagem, serão mostrados resultados de simulações de voo com o modelo proposto.}\\
 \\
-\keywords{\textbf{Keywords:} FDM(Fused Deposition Modeling), PETG(Polyethylene Terephthalate Glycol), Young modulus, Poisson coefficient}\\
+\keywords{\textbf{Keywords:} Aerospace, Rocket, Dynamic simulations, Trajectory simulation, Flight mechanics}\\
 \end{tabular}
 
 \section{INTRODUCTION}
 
-PETG (Polyethylene Terephthalate Glycol) is a polymer that has been steadily gaining popularity among the 3D printing community, since it combines the reliability of PLA with the durability of ABS, the two most commonly used materials for FDM (Fused Deposition Modeling) \citep{tiposfilamento}. Such fact makes this polymer a good choice when prototyping mechanical parts. PETG may be considered better due to its increased strength, temperature and impact resistance when compared to PLA and ABS.
+O modelismo de mini foguetes é uma tarefa muito complexa. O forte carácter multidisciplinar desta atividade resulta em uma constante busca por referencias nas mais diversas áreas da engenharia. Para uma prática segura deste tipo de projeto grande atenção técnica deve ser investida dês das concepções teóricas no início da missão até as partes práticas finais de construção. Para isso, estudos devem ser feitos de forma a se ter sob controle o maior número de variáveis possível, minimizando as chances de falhas. 
 
-For all of its advantages, though, when it comes to the finished printed parts, its mechanical properties (as with others materials) present some complications \citep{3Dcomplication}. Since 3D printing is not yet well standardized by the manufacturers, it is impossible to safely predict the final properties of the parts by filament qualities. This problem becomes worse when considering the many parameters that influence the printing part of the process, such as printing temperature, rate, geometry and nozzle width. Another difficulty is that the final FDM part also becomes anisotropic \citep{PETG}, further complicating structural analysis. 
-
-On the present paper, the authors aim to create a database of the mechanical properties of 3D printed parts made with the Prusa i3 MK2S Printer and out of PETG XT filament from 3Dfila. For that, several parameterizations of printing temperature and geometry were used to create testing parts with were subjected to tensile stress until rupture. From those tests the young modulus and Poisson coefficients were measured and used to formulate an statistical theoretical model. It is important to mention that these properties were chosen because they are needed to characterize the material on simulation softwares such as Ansys and Nastran for future structural analysis and material applications.  
-
-
+O estudo da dinâmica de um mini foguete tem grande importância, visto que possibilita a avaliação das propriedades cinemáticas e das principais solicitações mecânicas experimentadas pela estrutura durante o voo. Para tal, cria-se um modelo representativo da realidade onde se aplicam as leis de balanço de força e energia. Tais equações diferenciais são então integradas numericamente, resultando na trajetória simulada.
 
 \section{METHODOLOGY}
-
-----> bateria de testes a se fazer
-
-----> Determinação das temperaturas e geometrias
-
-----> Determinação dos ensaios
-	
-----> Tratamento estatístico dos dados
-
-----> Propor-se-á um modelo médio para a fase elástica. 
-
-----> Seguardará os parametros específicos em função da direção da solicitação mecânica para análises específicas.
-
-----> Tal esforço servirá para possibilitar a simulação do material na fase elástica em softwares comerciais de simulação.
+Para o desenvolvimento da dinâmica do foguete, primeiramente, foi determinado o modelo físico tanto do foguete quanto do espaço onde este estaria imerso.
 
 
+\subsection{Physical model}
+O foguete foi considerado como um corpo rígido de massa constante. O referencial cartesiano também considerou o planeta terra como plano, e a gravidade com módulo e sentido constantes na vertical para baixo durante toda a trajetória do veículo. A geometria do foguete pode ser descrita de acordo com a imagem \ref{geometria_foguete}.
 
-
-
-\section{SPECIMENS}
-
-The tensile stress testing parts were designed following the geometry specified in the ASTM D638-02a standard (Type I specimen, with 7mm thickness). The geometry designed can be seen on Fig.\ref{fig1}:
-
-\begin{figure*}[h!]
+\begin{figure}[h!]
 	\centering
-	\includegraphics[ trim = {24cm 80cm 43cm 32cm}, clip , angle=0, scale=0.60 ]{imagens/Drawing1}
-	\caption{Test parts CAD Draw.}
-	\label{fig1}
-\end{figure*}
+	\includegraphics[trim = {0cm 13cm 0cm 0cm}, clip , angle=0, scale=0.30]{imagens/foguete_statera}
+	\caption{Geometria externa do modelo foguete.}
+	\label{geometria_foguete}
+\end{figure}
+
+\subsubsection{Eixos de referencia, Equações cinemáticas e matrizes de transformação}
+Para se descrever o sistema foi necessária a criação de três eixos de referencia no sistema. Foram criados um referencial fixo $ O $.
+
+Para o devido tratamento matemático e representação das grandezas em referenciais convenientes, foram desenvolvidas matrizes de conversão entre os referenciais desenvolvidos, com na figura \ref{referenciais}
+
+\begin{equation}
+\begin{bmatrix}
+x_{11}       & x_{12} & x_{13} & \dots & x_{1n} \\
+x_{21}       & x_{22} & x_{23} & \dots & x_{2n} \\
+\hdotsfor{5} \\
+x_{d1}       & x_{d2} & x_{d3} & \dots & x_{dn}
+\end{bmatrix}
+=
+\begin{bmatrix}
+x_{11} & x_{12} & x_{13} & \dots  & x_{1n} \\
+x_{21} & x_{22} & x_{23} & \dots  & x_{2n} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+x_{d1} & x_{d2} & x_{d3} & \dots  & x_{dn}
+\end{bmatrix}
+\end{equation}
 
 
-From this scetch, a 3D model was created on a CAD software for printing (Figure \ref{fig2}). Such model was then exported as a STL file to the slicing software (Simplify3D), as seen on Fig.\ref{fig3}: 
+\subsubsection{Equações dinâmicas para um foguete com 6 graus de liberdade}
+
+\subsubsection{Modelo de empuxo}
+
+\subsubsection{Modelo aerodinâmico}
+Com as equações dinâmicas e o modelo de empuxo prontos, nos resta somente modelar as forças e momentos provenientes da interação do airframe com o escoamento externo e é isso que será desenvolvido nesta seção.
+
+Um modelo aerodinâmico fiel é fundamental para uma boa simulação de voo de um veículo aeroespacial, ainda mais quando tratamos de aeronaves que facilmente atingem velocidades no regime sônico. Desse modo faz-se necessário um modelo não muito complexo, mas capaz de descrever bem o comportamento aerodinâmico do veículo em uma ampla faixa de velocidades, inclusive em altíssimas velocidades.
 
 
-\begin{figure*}[h!]
-	\centering
-	\begin{subfigure}[b]{0.5\textwidth}
-		\centering
-		\includegraphics[ trim = {0 0 0 0}, clip , angle=0, scale=0.05 ]{imagens/renderizacao}
-		\caption{CAD rendering.}
-		\label{fig2}
-	\end{subfigure}%
-	~ 
-	\begin{subfigure}[b]{0.5\textwidth}
-		\centering
-		\includegraphics[ trim = {0cm 0cm 0 0cm}, clip , angle=0, scale=0.25 ]{imagens/simplify_zoom}
-		\caption{Sliced part G code, read for printing.}
-		\label{fig3}
-	\end{subfigure}
-	\caption{Modeling and slicing of the specimen for printing.}
-\end{figure*}
+\subsection{Mathematical model}
 
-In the image, is possible to see that the part was made on a support bed, in other words, not directly on the heated bed. Such method is to secure the z axis regularity on the printed part, as the fist layer printed directly over the heated plate has very different properties from the rest of the print. 
-
-Is important to point here the qualities that will be set to all the test specimens, parameters that will not be discussed on the present paper:
-
-
-------> Oq por aqui?
-
-
-
-
-
-
-%
-%\begin{table}[!h]
-%\centering
-%\caption{Experimental results for flexural properties of CFRC-4HS and CFRC-TWILL composites. \protect\\Span/depth ratio = 35:1. Average results of 7 specimens.}
-%\begin{tabular}{|c|c|c|}
-%\hline
-%Composite Properties & CFRC-TWILL & CFRC-4HS\\
-%\hline
-%Flexural Strength (MPa)$^{(1)}$ & 209$\pm$ 10 & 180 $\pm$  15\\
-%\hline
-%Flexural Modulus (GPa)$^{(1)}$ & 57.0 $\pm$ 2.8 & 18.0 $\pm$  1.3\\
-%\hline
-%Mid-span deflection at the failure stress (mm) & 2.15 $\pm$  1.90 & 6.40 $\pm$  0.25\\
-%\hline
-%\end{tabular}
-%\\
-%\begin{tabular}{p{11cm}ll}
-%$^{(1)}$ measured at 25$^{o}$C & &
-%\end{tabular}
-%\label{tab1}
-%\end{table}
-
-
-
-
-
-
-\section{MATERIAL PROCEDURES}
-
-
-
-
-----> Esperar experimento
-
-
-
+\subsection{Computational model}
 
 
 \section{ACKNOWLEDGEMENTS}
-The authors would like to thank the following professors and institutions: Dr. Ruham Pablo Reis, Dr. Pedro Pio Rosa Nishida, Lmest (Structural Mechanics Laboratory), FEMEC (Mechanical engineering College), UFU (Federal University of Uberl\^andia) and, especially, EPTA(Propulsion and Aerospace Technology Team) for financial support.
+
+The authors would like to thank the following professors and institutions: FEMEC (Faculdade de Engenharia Mecânica), UFU (Universidade Federal de Uberlândia) and, especially, EPTA (Equipe de Propulsão e Tecnologia Aeroespacial) for financial support.
 
 
 

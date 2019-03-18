@@ -1,4 +1,4 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{0}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -7,25 +7,5 @@
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
-
-\bibitem[{Domingo-Espin \emph{et~al.}(2015)Domingo-Espin, Josep, Andres-Amador,
-  Jordi, Salvador and Guillermo}]{3Dcomplication}
-Domingo-Espin, M., Josep, M., P.F., Andres-Amador, G.G., Jordi, L., Salvador,
-  B. and Guillermo, R., 2015.
-\newblock \enquote{Mechanical property characterization and simulation of fused
-  deposition modeling polycarbonate parts}.
-\newblock \emph{Elsevier}.
-
-\bibitem[{Griffey(2017)}]{tiposfilamento}
-Griffey, J., 2017.
-\newblock \enquote{Types of filaments for fdm printing}.
-\newblock \emph{Library Technology Reports}, Vol.~53, p.~12.
-
-\bibitem[{Szykiendans \emph{et~al.}(2016)Szykiendans, Credo and
-  Osi\'{n}ski}]{PETG}
-Szykiendans, K., Credo, W. and Osi\'{n}ski, D., 2016.
-\newblock \enquote{Selected mechanical properties of petg 3d prints}.
-\newblock \emph{International Polish-Slovak conference "Machine modeling and
-  simulations", XXI}.
 
 \end{thebibliography}
