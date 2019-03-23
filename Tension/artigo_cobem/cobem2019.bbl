@@ -1,4 +1,4 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{4}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -27,5 +27,12 @@ Szykiendans, K., Credo, W. and Osi\'{n}ski, D., 2016.
 \newblock \enquote{Selected mechanical properties of petg 3d prints}.
 \newblock \emph{International Polish-Slovak conference "Machine modeling and
   simulations", XXI}.
+
+\bibitem[{VIDAKIS \emph{et~al.}(2016)VIDAKIS, VAIRIS, PETOUSIS, SAVVAKIS and
+  KECHAGIAS}]{test_on_fdm}
+VIDAKIS, N., VAIRIS, A., PETOUSIS, M., SAVVAKIS, K. and KECHAGIAS, J., 2016.
+\newblock \enquote{Fused deposition modelling parts tensile strength
+  characterisation}.
+\newblock \emph{Academic Journal of Manufacturing Engineering}.
 
 \end{thebibliography}
