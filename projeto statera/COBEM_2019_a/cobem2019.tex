@@ -34,12 +34,16 @@
 
 \section{INTRODUCTION}
 
-O modelismo de mini foguetes é uma tarefa muito complexa. O forte carácter multidisciplinar desta atividade resulta em uma constante busca por referencias nas mais diversas áreas da engenharia. Para uma prática segura deste tipo de projeto grande atenção técnica deve ser investida dês das concepções teóricas no início da missão até as partes práticas finais de construção. Para isso, estudos devem ser feitos de forma a se ter sob controle o maior número de variáveis possível, minimizando as chances de falhas. 
+O projeto de veículos aeroespaciais é tido como uma atividade de alta complexidade. O forte carácter multidisciplinar desta atividade resulta em uma constante busca por referencias nas mais diversas áreas da engenharia. Para uma prática segura deste tipo de projeto grande atenção técnica deve ser investida desde as concepções teóricas no início da missão até as partes práticas finais de construção. Para isso, estudos devem ser feitos de forma a se ter sob controle o maior número de variáveis possível, minimizando assim a probabilidade de falhas. 
 
-O estudo da dinâmica de um mini foguete tem grande importância, visto que possibilita a avaliação das propriedades cinemáticas e das principais solicitações mecânicas experimentadas pela estrutura durante o voo. Para tal, cria-se um modelo representativo da realidade onde se aplicam as leis de balanço de força e energia. Tais equações diferenciais são então integradas numericamente, resultando na trajetória simulada.
+O estudo da dinâmica de um mini foguete tem grande importância, visto que possibilita a avaliação de propriedades cinemáticas como velocidade máxima, apogeu e dispersão horizontal ao fim do voo, além das principais solicitações mecânicas experimentadas pela estrutura a partir das acelerações impressas no veículo durante sua trajetória. Para tal, cria-se um modelo representativo da realidade onde se aplicam as forças e as leis de balanço. Tais equações diferenciais são então integradas numericamente, resultando na trajetória e nos esforços simulados. 
+
+Tendo esse objetivo em mente, no presente trabalho, busca-se desenvolver esse modelo de forma acurada, considerando-se a influencia das forças mais significativas que agem sobre um modelo foguete durante o voo, como a força gravitacional, os esforços aerodinâmicos e o empuxo advindo do motor. Para modelar tais grandezas utilizou-se o modelo de Barrowman na aerodinâmica, aproximações experimentais para o empuxo e um modelo linearizado da gravidade.
+
+Ao fim do estudo se pretende comparar as simulações com testes materiais desenvolvidos pela Equipe de Propulsão e Tecnologia Aeroespacial (EPTA) da UFU, como forma de validação.  
 
 \section{METHODOLOGY}
-Para o desenvolvimento da dinâmica do foguete, primeiramente, foi determinado o modelo físico tanto do foguete quanto do espaço onde este estaria imerso.
+Para o desenvolvimento da dinâmica do foguete, primeiramente, foi determinado um modelo físico tanto para o foguete quanto para o espaço circundante. Foram então fixados eixos de referencia e matrizes de conversão de grandezas vetoriais entre estes eixos. Por último sendo definidos os modelos das forças atuantes. Após isso, houve a discretização do tempo e a integração numérica da equação resultando em um modelo teórico completo.
 
 
 \subsection{Physical model}
@@ -51,6 +55,9 @@ O foguete foi considerado como um corpo rígido de massa constante. O referencia
 	\caption{Geometria externa do modelo foguete.}
 	\label{geometria_foguete}
 \end{figure}
+Nesta geometria, as aletas foram consideradas como placas planas com espessura máxima de 10 por cento da menor corda.
+
+
 
 \subsubsection{Eixos de referencia, Equações cinemáticas e matrizes de transformação}
 Para se descrever o sistema foi necessária a criação de três eixos de referencia no sistema. Foram criados um referencial fixo $ O $.
