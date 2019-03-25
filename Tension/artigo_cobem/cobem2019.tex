@@ -16,7 +16,7 @@
 \hspace*{-2.5mm}\begin{tabular}{||p{\textwidth}}
 \begin{center}
 \vspace{-4mm}
-\title{Study of mechanical properties of parts fabricated with PETG via fused deposition modeling}
+\title{The mechanical properties of parts fabricated with PETG via fused deposition modeling}
 \end{center}
 \authors{Ma\'ira Fernanda Oliveira de Miranda} \\
 \authors{Felipe Jose Oliveira Ribeiro} \\
@@ -26,7 +26,7 @@
 \institution{feliperibeiro.ufu@gmail.com} \\
 \institution{azguarato@ufu.br} \\
 \\
-\abstract{\textbf{Abstract.}  \blindtext .}\\
+\abstract{\textbf{Abstract.}  In the present paper, the authors aim to study the mechanical properties of parts made with the fusion deposition modeling process. Test specimens were made solid, with 100\% of infill, varying the extrusion temperature of the printed parts. Tensile tests were performed in each one of the twenty five test parts, being five for each extrusion temperature. It was studied the extrusion temperatures of: $230^\circ$, $235^\circ$, $240^\circ$, $245^\circ$ and $250^\circ$.It was observed that the (***** termianr com resultados)}\\
 \\
 \keywords{\textbf{Keywords:} FDM(Fused Deposition Modeling), PETG(Polyethylene Terephthalate Glycol), Young modulus, Poisson coefficient}\\
 \end{tabular}
@@ -43,31 +43,15 @@ On the present paper, the authors aim to create a database of the mechanical pro
 
 \section{METHODOLOGY}
 
-First, the test specimens were made out of the ASTM D638-02a standard. As this norm describe experimental tests on polymer materials and fit well with the theme of the present study.
-
-As these are ready, they are exposed to the tests and their mechanical properties are observed and registered. With these results, the numbers are compared with literature references for the material.
-
-----> bateria de testes a se fazer
-
-----> Determinação das temperaturas e geometrias
-
-----> Determinação dos ensaios
-	
-----> Tratamento estatístico dos dados
-
-----> Propor-se-á um modelo médio para a fase elástica. 
-
-----> Seguardará os parametros específicos em função da direção da solicitação mecânica para análises específicas.
-
-----> Tal esforço servirá para possibilitar a simulação do material na fase elástica em softwares comerciais de simulação.
+First it was made the specimens geometry for the study, as determined on the standard. After that, the parts were manufactured five at a time to increase uniformity. Then they were performed in the tensile test machine. The results were then treated statistically resulting in the mechanical properties for each temperature.
 
 
-
+\vspace{3cm}
 
 
 \section{SPECIMENS}
 
-The tensile stress testing parts were designed following the geometry specified in the ASTM D638-02a standard (Type I specimen, with 7mm thickness). The geometry designed can be seen on Fig.\ref{fig1}:
+The tensile stress testing parts were designed following the geometry specified in the ASTM D638-02a standard (Type I specimen, with 7mm thickness) as utilized on \citep{test_on_fdm}. The geometry designed can be seen on Fig.\ref{fig1}:
 
 \begin{figure*}[h!]
 	\centering
@@ -84,29 +68,28 @@ From this scetch, a 3D model was created on a CAD software for printing (Figure 
 	\centering
 	\begin{subfigure}[b]{0.5\textwidth}
 		\centering
-		\includegraphics[ trim = {0 0 0 0}, clip , angle=0, scale=0.05 ]{imagens/renderizacao}
+		\includegraphics[ trim = {0 0 0 0}, clip , angle=0, scale=0.063 ]{imagens/renderizacao}
 		\caption{CAD rendering.}
 		\label{fig2}
 	\end{subfigure}%
 	~ 
 	\begin{subfigure}[b]{0.5\textwidth}
 		\centering
-		\includegraphics[ trim = {0cm 0cm 0 0cm}, clip , angle=0, scale=0.25 ]{imagens/simplify_zoom}
-		\caption{Sliced part G code, read for printing.}
+		\includegraphics[ trim = {0cm 0cm 0 0cm}, clip , angle=0, scale=0.45 ]{imagens/Esboco2}
+		\caption{Sliced part`s G code, made with Simplify3D software.}
 		\label{fig3}
 	\end{subfigure}
 	\caption{Modeling and slicing of the specimen for printing.}
 \end{figure*}
 
-In the image, is possible to see that the part was made on a support bed, in other words, not directly on the heated bed. Such method is to secure the z axis regularity on the printed part, as the fist layer printed directly over the heated plate has very different properties from the rest of the print, and due to these being very fin parts, such difference ends up not being 
-negligible. 
+In the Figure \ref{fig3}, is possible to see that the parts were made on a support bed, in other words, not directly on the heated bed. Such method is used to secure the z axis regularity on the printed parts, as the fist layer printed directly over the heated plate has very different properties from the rest of the print \citep{PETG}. 
 
-Is important to point here the qualities that will be set to all the test specimens, parameters that will not be discussed on the present paper:
+Is important to point here the qualities that will be set constantly throw all the test specimens. These parameters will not be discussed on the present paper: The Nozzle diameter was 0.4 mm, the retraction distance and speed were 5 mm and 2100 mm/min, the layer hight was 0.15 mm, with 3 lateral outer layers (Fig.\ref{fig3}) and the Heated bed were set to 80 degrees celsius.
 
-The infill of these parts were all set to $ 100 $ percent.
+The infill percentage was set to 100\%. The layers were made out of parallel lines and from one layer to the other the inclination of these lines varied $90^\circ$ from one another and made $45^\circ$ with the y axis of the print.
 
 
-------> Oq por aqui?
+
 
 
 
@@ -141,11 +124,50 @@ The infill of these parts were all set to $ 100 $ percent.
 
 
 \section{MATERIAL PROCEDURES}
+There was 25 test specimens, being 5 of each temperature. 
 
 
+\section{PRELIMINARY RESULTS}
+After the tests, all the data were taken and processed. Firs, these were the brute numerical result:
 
+\begin{figure*}[h!]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[ trim = {0 0 0 0}, clip , angle=0, scale=0.35 ]{imagens/230_bruto}
+		\caption{For the temperature of $230^\circ$.}
+		\label{fig2}
+	\end{subfigure}%
+	~ 
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[ trim = {0cm 0cm 0 0cm}, clip , angle=0, scale=0.35 ]{imagens/235_bruto}
+		\caption{For the temperature of $235^\circ$.}
+		\label{fig3}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[ trim = {0 0 0 0}, clip , angle=0, scale=0.35 ]{imagens/240_bruto}
+		\caption{For the temperature of $240^\circ$.}
+		\label{fig4}
+	\end{subfigure}%
+	~ 
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[ trim = {0cm 0cm 0 0cm}, clip , angle=0, scale=0.35 ]{imagens/245_bruto}
+		\caption{For the temperature of $245^\circ$.}
+		\label{fig5}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[ trim = {0cm 0cm 0 0cm}, clip , angle=0, scale=0.35 ]{imagens/250_bruto}
+		\caption{For the temperature of $250^\circ$.}
+		\label{fig6}
+	\end{subfigure}
 
-----> Esperar experimento
+	\caption{Tensile tests performed on each specimen.}
+\end{figure*}
+ 
 
 
 
