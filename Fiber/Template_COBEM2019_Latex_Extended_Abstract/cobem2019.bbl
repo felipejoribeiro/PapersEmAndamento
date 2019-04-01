@@ -1,4 +1,4 @@
-\begin{thebibliography}{0}
+\begin{thebibliography}{8}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -7,5 +7,53 @@
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
+
+\bibitem[{{Abdalla} \emph{et~al.}(2005){Abdalla}, {Mutasher}, {Khalid},
+  {Sapuan}, {Hamouda}, {Sahari} and {Hamdan}}]{design_fiber}
+{Abdalla}, F., {Mutasher}, S., {Khalid}, Y., {Sapuan}, S., {Hamouda}, A.,
+  {Sahari}, B. and {Hamdan}, M., 2005.
+\newblock \enquote{Design and fabrication of low cost filament winding
+  machine}.
+\newblock \emph{Elsevier}.
+
+\bibitem[{Aktas and Karakuzu(2009)}]{ensaio_artigo}
+Aktas, M. and Karakuzu, R., 2009.
+\newblock \enquote{Determination of mechanical properties of glass-epoxy
+  composites in high temperatures}.
+\newblock \emph{Wiley InterScience}.
+
+\bibitem[{{Carvill} and T.(1987)}]{utilizacaoi}
+{Carvill}, M. and T., W., 1987.
+\newblock \enquote{Fillament-winding resins, composites}.
+\newblock \emph{Engineered Materials Handbook, ASM International}, Vol.~1.
+
+\bibitem[{{Marafona}(1994)}]{bobinamento}
+{Marafona}, J.D.R., 1994.
+\newblock \emph{Review of Manufacturing of Fiber Composite Components by
+  Filament Winding}.
+\newblock Ph.D. thesis, Universidade do Porto, Portugal.
+
+\bibitem[{{Mertiny} and {Ellyin}(2002)}]{influence_tension}
+{Mertiny}, P. and {Ellyin}, F., 2002.
+\newblock \enquote{Influence of the filament winding tension on physical and
+  mechanical properties of reinforced composites}.
+\newblock \emph{Elsevier Science Ltd.}
+
+\bibitem[{{Munro}(1988)}]{vari_bobi}
+{Munro}, M., 1988.
+\newblock \enquote{M\'{e}todos para obten\c{c}\~{a}o da trajet\'{o}ria do olhal
+  de deposi\c{c}\~{a}o com elimina\c{c}\~{a}o de colis\~{a}o}.
+\newblock \emph{POLYMER COMPOSITES}, Vol.~9, pp. 352--359.
+
+\bibitem[{{Njuguna} and {James}(2016)}]{rocket_tube}
+{Njuguna} and {James}, 2016.
+\newblock \emph{Lightweight composite structures in transport : design,
+  manufacturing, analysis and performance}.
+\newblock Woodhead Publishing, UK, 1st edition.
+
+\bibitem[{{Peters}(2011)}]{livro_prof}
+{Peters}, S.T., 2011.
+\newblock \emph{Composite Filament Winding}.
+\newblock ASM international, 1st edition.
 
 \end{thebibliography}

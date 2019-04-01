@@ -1,4 +1,4 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{6}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -7,6 +7,14 @@
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
+
+\bibitem[{\'{C}wikta \emph{et~al.}(2017)\'{C}wikta, Grabowik, Kalinowski,
+  Paprocka and Ociepka}]{fdm_today}
+\'{C}wikta, G., Grabowik, C., Kalinowski, K., Paprocka, I. and Ociepka, P.,
+  2017.
+\newblock \enquote{The influence of printing parameters on selected mechanical
+  properties of fdm/fff 3d-printed parts}.
+\newblock \emph{IOP Conference Series: Materials Science and Engineering}.
 
 \bibitem[{Domingo-Espin \emph{et~al.}(2015)Domingo-Espin, Josep, Andres-Amador,
   Jordi, Salvador and Guillermo}]{3Dcomplication}
@@ -20,6 +28,13 @@ Domingo-Espin, M., Josep, M., P.F., Andres-Amador, G.G., Jordi, L., Salvador,
 Griffey, J., 2017.
 \newblock \enquote{Types of filaments for fdm printing}.
 \newblock \emph{Library Technology Reports}, Vol.~53, p.~12.
+
+\bibitem[{Rodr\'{i}guez-Panes \emph{et~al.}(2018)Rodr\'{i}guez-Panes, Claver
+  and Camacho}]{ABS_PLA_today}
+Rodr\'{i}guez-Panes, A., Claver, J. and Camacho, A.M., 2018.
+\newblock \enquote{The influence of manufacturing parameters on the mechanical
+  behaviour of pla and abs pieces manufactured by fdm: A comparative analysis}.
+\newblock \emph{MDPI:Materials}.
 
 \bibitem[{Szykiendans \emph{et~al.}(2016)Szykiendans, Credo and
   Osi\'{n}ski}]{PETG}

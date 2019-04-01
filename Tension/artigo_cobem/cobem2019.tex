@@ -6,8 +6,8 @@
 
 \documentclass[10pt,fleqn,a4paper,twoside]{article}
 \usepackage{abcm}
-\def\shortauthor{F. Author, S. Author and T. Author (update this heading accordingly)}
-\def\shorttitle{Paper Short Title (First Letters Uppercase, make sure it fits in one line)}
+\def\shortauthor{Ma\'{i}ra F. O. M., Felipe J. O. R., Alexandre Z. G., N\'{u}bia S. S.}
+\def\shorttitle{Experimental Analysis on the Mechanical Properties of PETG Parts Made With Fused Deposition Modeling Manufacturing}
 \usepackage{subcaption}
 \captionsetup{compatibility=false}
 \usepackage{blindtext}
@@ -16,42 +16,52 @@
 \hspace*{-2.5mm}\begin{tabular}{||p{\textwidth}}
 \begin{center}
 \vspace{-4mm}
-\title{The mechanical properties of parts fabricated with PETG via fused deposition modeling}
+\title{Experimental Analysis on the Mechanical Properties of PETG Parts Made With Fused Deposition Modeling Manufacturing}
 \end{center}
 \authors{Ma\'ira Fernanda Oliveira de Miranda} \\
 \authors{Felipe Jose Oliveira Ribeiro} \\
-\authors{Alexandre Zuquete Guarato}\\
 \institution{Federal University of Uberl\^andia (UFU), Av. Jo\~ao Naves de \'Avila, 2121, Campos Santa M\^onica, Uberl\^andia, MG } \\
 \institution{mairaf\_miranda@hotmail.com} \\
 \institution{feliperibeiro.ufu@gmail.com} \\
+\authors{Núbia dos Santos Saad}\\
+\authors{Alexandre Zuquete Guarato}\\
+\institution{Federal University of Uberl\^andia (UFU), Av. Jo\~ao Naves de \'Avila, 2121, Campos Santa M\^onica, Uberl\^andia, MG } \\
+\institution{nubia@ufu.br}\\
 \institution{azguarato@ufu.br} \\
 \\
-\abstract{\textbf{Abstract.}  In the present paper, the authors aim to study the mechanical properties of parts made with the fusion deposition modeling process. Test specimens were made solid, with 100\% of infill, varying the extrusion temperature of the printed parts. Tensile tests were performed in each one of the twenty five test parts, being five for each extrusion temperature. It was studied the extrusion temperatures of: $230^\circ$, $235^\circ$, $240^\circ$, $245^\circ$ and $250^\circ$.It was observed that the (***** termianr com resultados)}\\
+\abstract{\textbf{Abstract.}  Fast prototyping technology, especially 3D printing, has gaining increasing importance for its suitability and constant decrease of costs in printing equipment and material. In the present paper, the authors study the mechanical properties of parts made with the fusion deposition modeling process. The material used was the PETG XT from 3DFila. It was studied the variation of the mechanical properties in function of the temperature of extrusion. The temperatures studied were $230^\circ C$, $235^\circ C$, $240^\circ C$, $245^\circ C$ and $250^\circ C$, with five test objects made for each temperature. The specimens were made solid, with 100\% infill and according geometrically with the ASTM D638-02a standard. Then tensile tests were performed in each one of the twenty five test parts in order to obtain the Young's modulus for each temperature. It was observed that the elasticity coefficient, in general, increased with the temperature on the hot end, with a exception on the temperature of $235^\circ C$, where the properties were much higher then the points around.}\\
 \\
-\keywords{\textbf{Keywords:} FDM(Fused Deposition Modeling), PETG(Polyethylene Terephthalate Glycol), Young modulus, Poisson coefficient}\\
+\keywords{\textbf{Keywords:} FDM(Fused Deposition Modeling), PETG(Polyethylene Terephthalate Glycol), Young modulus, Poisson coefficient, Stress }\\
 \end{tabular}
+
+
 
 \section{INTRODUCTION}
 
-PETG (Polyethylene Terephthalate Glycol) is a polymer that has been steadily gaining popularity among the 3D printing community, since it combines the reliability of PLA with the durability of ABS, the two most commonly used materials for FDM (Fused Deposition Modeling) \citep{tiposfilamento}. Such fact makes this polymer a good choice when prototyping mechanical parts. PETG may be considered better due to its increased strength, temperature and impact resistance when compared to PLA and ABS.
+The fusion deposition modeling process is a manufacturing methodology ideal for prototyping. Whit it`s automation, there is a relative simple setup that has to be done, and with some practice it become fairly simple the development of complex mechanical geometries \citep{fdm_today}, some of witch even impossible to be made from others classic manufacturing process.   
 
-For all of its advantages, though, when it comes to the finished printed parts, its mechanical properties (as with others materials) present some complications \citep{3Dcomplication}. Since 3D printing is not yet well standardized by the manufacturers, it is impossible to safely predict the final properties of the parts by filament qualities. This problem becomes worse when considering the many parameters that influence the printing part of the process, such as printing temperature, rate, geometry and nozzle width. Another difficulty is that the final FDM part also becomes anisotropic \citep{PETG}, further complicating structural analysis. 
+PETG (Polyethylene Terephthalate Glycol) is a polymer that has been steadily gaining popularity among the 3D printing community, since it combines the reliability of PLA (polylactic acid), in terms of overall easy printability, with the durability of ABS (Acrylonitrile Butadiene Styrene), in terms of mechanical resilience properties \citep{tiposfilamento}. Such fact makes this polymer a good choice when prototyping mechanical parts. Is worth mentioning too that the PETG deforms much more than ABS before breaking, making this material better suitable for structural applications. 
 
-On the present paper, the authors aim to create a database of the mechanical properties of 3D printed parts made with the Prusa i3 MK2S Printer and out of PETG XT filament from 3Dfila. For that, several parameterizations of printing temperature and geometry were used to create testing parts with were subjected to tensile stress until rupture. From those tests the young modulus and Poisson coefficients were measured and used to formulate an statistical theoretical model. It is important to mention that these properties were chosen because they are needed to characterize the material on simulation softwares such as Ansys and Nastran for future structural analysis and material applications.  
+But, even though there are these advantages, when it comes to the finished printed parts, there are some complications in the usability of the material \citep{3Dcomplication}: Since 3D printing is not yet well standardized by the manufacturers, it is impossible to safely predict the final properties of the parts because there are many parameters that influence the printing part of the process, such as printing temperature, rate, geometry and nozzle width \citep{ABS_PLA_today}. Another difficulty is that the final FDM part also becomes anisotropic \citep{PETG}, further complicating structural analysis. 
+
+On the present paper, the authors aim to create a database of the mechanical properties of 3D printed parts made with the Prusa i3 MK2S Printer and out of PETG XT filament from 3Dfila. For that, several parameterizations of printing temperature and geometry were used to create testing parts with were subjected to tensile stress until rupture. From those tests the young modulus coefficients were measured and studied. The Poisson coefficient is needed to, and will be experimentally evaluated in future experimental procedures. It is important to mention that these properties were chosen because they are needed to characterize the material on simulation softwares such as Ansys and Nastran for future structural analysis of rocketry applications in the Propulsions and Aerospace Technology Team (EPTA).  
+
 
 
 
 \section{METHODOLOGY}
 
-First it was made the specimens geometry for the study, as determined on the standard. After that, the parts were manufactured five at a time to increase uniformity. Then they were performed in the tensile test machine. The results were then treated statistically resulting in the mechanical properties for each temperature.
+The study consisted in $25$ parts being built and tested. For these parts, the only printing parameter altered was nozzle temperature, with a $5^\circ C$ increase every five parts, starting at $230^\circ C$ for parts $1$ through $5$ and ending with $250^\circ C$ for parts $21$ through $25$. All of them were printed in a Prusa i3 MK2S printer, using PETG XT filament from 3Dfila. They had $100$ \% infill and were printed in the longitudinal direction, meaning a $0^\circ$ angle between the layers and the heated bed. Tests varying printing direction are also planned for the near future and will be included in the final paper. 
+The test procedure was conducted in accordance to the ASTM D638-02a standard, with the exception of the testing speed which was reduced from 5 mm/min to 1 mm/min to prevent issues such as the heating of the parts.
+Each part was subjected to tensile stress on a MTS Landmark 647 machine until rupture and the MTS software was used to gather and export the results. 
 
+In the end, the results were compared with the mechanical properties of the PETG polymer from literature. 
 
-\vspace{3cm}
 
 
 \section{SPECIMENS}
 
-The tensile stress testing parts were designed following the geometry specified in the ASTM D638-02a standard (Type I specimen, with 7mm thickness) as utilized on \citep{test_on_fdm}. The geometry designed can be seen on Fig.\ref{fig1}:
+The tensile stress testing parts were designed following the geometry specified in the ASTM D638-02a standard (Type I specimen, with 7mm thickness) as utilized on \citep{test_on_fdm}. The geometry designed can be seen on Fig.\ref{fig1}.
 
 \begin{figure*}[h!]
 	\centering
@@ -61,7 +71,7 @@ The tensile stress testing parts were designed following the geometry specified 
 \end{figure*}
 
 
-From this scetch, a 3D model was created on a CAD software for printing (Figure \ref{fig2}). Such model was then exported as a STL file to the slicing software (Simplify3D), as seen on Fig.\ref{fig3}: 
+From this scetch, a 3D model was designed on the CATIA V5 CAD software (Figure \ref{fig2}). Such model was then exported as a STL file to the slicing software (Simplify3D), as seen on Fig.\ref{fig3}.
 
 
 \begin{figure*}[h!]
@@ -82,9 +92,9 @@ From this scetch, a 3D model was created on a CAD software for printing (Figure 
 	\caption{Modeling and slicing of the specimen for printing.}
 \end{figure*}
 
-In the Figure \ref{fig3}, is possible to see that the parts were made on a support bed, in other words, not directly on the heated bed. Such method is used to secure the z axis regularity on the printed parts, as the fist layer printed directly over the heated plate has very different properties from the rest of the print \citep{PETG}. 
+In the Figure \ref{fig3}, is possible to see that the parts were made on a support bed. In other words, not directly on the heated bed. Such method is used to secure the z axis regularity of the printed parts, as the fist layer printed directly over the heated plate has very different properties from the rest of the print \citep{PETG}. 
 
-Is important to point here the qualities that will be set constantly throw all the test specimens. These parameters will not be discussed on the present paper: The Nozzle diameter was 0.4 mm, the retraction distance and speed were 5 mm and 2100 mm/min, the layer hight was 0.15 mm, with 3 lateral outer layers (Fig.\ref{fig3}) and the Heated bed were set to 80 degrees celsius.
+Is important to point out the qualities that will be set constantly throw all the test specimens. These parameters will not be discussed on the present paper: The Nozzle diameter was 0.4 mm, the retraction distance and speed were 5 mm and 2100 mm/min, the layer hight was 0.15 mm, with 3 lateral outer layers (Fig.\ref{fig3}) and the Heated bed were set to 80 degrees Celsius.
 
 The infill percentage was set to 100\%. The layers were made out of parallel lines and from one layer to the other the inclination of these lines varied $90^\circ$ from one another and made $45^\circ$ with the y axis of the print.
 
@@ -120,15 +130,8 @@ The infill percentage was set to 100\%. The layers were made out of parallel lin
 
 
 
-
-
-
-\section{MATERIAL PROCEDURES}
-There was 25 test specimens, being 5 of each temperature. 
-
-
 \section{PRELIMINARY RESULTS}
-After the tests, all the data were taken and processed. Firs, these were the brute numerical result:
+The data obtained from the five parts for each temperature are plotted in Fig.\ref{fig7} and linear regression was used to calculate the Young Modulus of each part.
 
 \begin{figure*}[h!]
 	\centering
@@ -136,14 +139,14 @@ After the tests, all the data were taken and processed. Firs, these were the bru
 		\centering
 		\includegraphics[ trim = {0 0 0 0}, clip , angle=0, scale=0.35 ]{imagens/230_bruto}
 		\caption{For the temperature of $230^\circ$.}
-		\label{fig2}
+		\label{fig22}
 	\end{subfigure}%
 	~ 
 	\begin{subfigure}[b]{0.5\textwidth}
 		\centering
 		\includegraphics[ trim = {0cm 0cm 0 0cm}, clip , angle=0, scale=0.35 ]{imagens/235_bruto}
 		\caption{For the temperature of $235^\circ$.}
-		\label{fig3}
+		\label{fig33}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.5\textwidth}
 		\centering
@@ -164,18 +167,42 @@ After the tests, all the data were taken and processed. Firs, these were the bru
 		\caption{For the temperature of $250^\circ$.}
 		\label{fig6}
 	\end{subfigure}
-
 	\caption{Tensile tests performed on each specimen.}
+	\label{fig7}
 \end{figure*}
  
+From Fig.\ref{fig7} is possible to see that some regularity were achieved. The overall behavior were very steady, with similar curve profiles between the specimens, but there was a notable dissonance in terms of fracture point. The temperature that had the bigger extension before breaking were the $235^\circ C$ specimen (Fig.\ref{fig33}), with the part holding it up with a maximum extension up to $5.419$ mm.
 
+The fracture on the specimens were consistently at a $45^\circ$ degree direction with the stress axis, as seen in Figure.\ref{fig9}: 
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[ trim = {98cm 10cm 22cm 10cm}, clip , angle=90, scale=0.15 ]{imagens/fracture}
+	\caption{Specimens fractured after stress test.}
+	\label{fig9}
+\end{figure*}
+
+The average Young Modulus was then calculated for each temperature, resulting in Fig.\ref{fig10}, so that their values could be better analyzed. 
+
+\vspace{-0.2cm}
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[ trim = {0.1cm 0.1cm 0.1cm 0.1cm}, clip , scale=0.85 ]{imagens/finais2}
+	\caption{Averaged Young's modulus for each extrusion temperature.}
+	\label{fig10}
+\end{figure*}
+
+
+
+The results were mostly as expected, with the Young Modulus increasing with the increase in temperature which happens because the higher temperatures allow for better bonding between each layer of the print. An anomaly can be observed at the $235^\circ C$ extrusion temperature, as it assumes a temperature bigger than the others.
+
+The overall results were close to other test executed in literature as seen in \citep{PETG}, but with slightly higher measures, possibly because diferent printing and filament qualities. 
 
 
 \section{CONCLUSION}
-The PETG (Polyethylene Terephthalate Glycol) is a good material for aerospace engineering, as its mechanical properties meet the project mechanical needs. 
-
-As seen in the material experiments...
-
+This study shows that higher nozzle temperature results, usually, in higher Young Modulus. Therefore, in printing mechanical parts were stress resistance is important it is better to print at higher temperatures. On the other hand, if that is not the case it may be worth it to use lower temperatures to save electric energy and get a better superficial finishing in the printed part, as lower temperatures prevent warping and stringing. These tests will be revisited aiming to better study the $235^\circ C$ anomaly.
+More experiments are being made to analyze the variation of the Young Modulus with printing direction, in order to determine the best combination of temperature and direction for creating mechanical parts. 
 
 
 
