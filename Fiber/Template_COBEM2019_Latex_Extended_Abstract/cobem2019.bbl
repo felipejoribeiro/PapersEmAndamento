@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{9}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -21,6 +21,12 @@ Aktas, M. and Karakuzu, R., 2009.
 \newblock \enquote{Determination of mechanical properties of glass-epoxy
   composites in high temperatures}.
 \newblock \emph{Wiley InterScience}.
+
+\bibitem[{ASTM(2002)}]{astm}
+ASTM, 2002.
+\newblock \enquote{Standard test method for tensile properties of polymer
+  matrix composite materials d 3039/d 3039m}.
+\newblock \emph{American Society for Testing and Materials}.
 
 \bibitem[{{Carvill} and T.(1987)}]{utilizacaoi}
 {Carvill}, M. and T., W., 1987.
