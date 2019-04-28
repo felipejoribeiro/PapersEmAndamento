@@ -53,7 +53,7 @@
 \pagestyle{fancy} % All pages have headers and footers
 \fancyhead{} % Blank out the default header
 \fancyfoot{} % Blank out the default footer
-\fancyhead[C]{Running title $\bullet$ May 2016 $\bullet$ Vol. XXI, No. 1} % Custom header text
+\fancyhead[C]{Desenvolvimento de aplicativo com protocolo de reanimação $\bullet$ Abril 2019 $\bullet$ Artigo} % Custom header text
 \fancyfoot[RO,LE]{\thepage} % Custom footer text
 
 \usepackage{titling} % Customizing the title section
@@ -68,9 +68,12 @@
 
 \pretitle{\begin{center}\Huge\bfseries} % Article title formatting
 \posttitle{\end{center}} % Article title closing formatting
-\title{Desenvolvimento de aplicativo com utilidade médica} % Article title
+\title{Desenvolvimento de aplicativo com protocolo de reanimação para auxílio no procedimento} % Article title
 \author{%
-\textsc{Felipe Jose Oliveira Ribeiro}\thanks{Discente em Engenharia Aeronáutica pela UFU.} \\[1ex] % Your name
+\textsc{Arthur Farias}\thanks{Discente em Medicina pela UEPA.} \\ % Your name	
+\normalsize Universidade estadual do Pará \\ % Your institution
+\normalsize \href{mailto:arthur.ncx@gmail.com}{arthur.ncx@gmail.com} \\[1ex]% Your email address
+\textsc{Felipe Jose Oliveira Ribeiro}\thanks{Discente em Engenharia Aeronáutica pela UFU.} \\ % Your name
 \normalsize Universidade federal de Uberlândia \\ % Your institution
 \normalsize \href{mailto:feliperibeiro.ufu@gmail.com}{feliperibeiro.ufu@gmail.com} % Your email address
 %\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
@@ -81,7 +84,8 @@
 \date{\today} % Leave empty to omit a date
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
-\noindent O presente texto procurará esclarecer o projeto de criação de um aplicativo móvel com aplicação médica, mas sob um viés computacional e técnico. Será discutida a plataforma em que o código está sendo redigido, a linguagem e os objetivos que pautarão as atividades relacionadas ao projeto. Também haverá uma breve explicação sobre os paradigmas de programação e a metodologia de desenvolvimento. Com isso espera-se deixar claro a metodologia da parte técnica do trabalho que está sendo desenvolvido. Detalhes quanto aos procedimentos médicos ficam a cargo do colega de trabalho. Este material tem também o objetivo de servir de base para trabalhos acadêmicos do projeto desenvolvido por essa equipe. Assim tópicos na área médica podem ser propostos e adicionados conforme necessário. 
+\noindent O presente texto procurará esclarecer o projeto de criação de um aplicativo móvel com aplicação médica. Tal procedimento consiste na metodologia de reanimação, para fins práticos e educacionais. Será discutida a plataforma em que o código está sendo redigido, a linguagem e os objetivos que pautarão as atividades relacionadas ao projeto. Também haverá uma breve explicação sobre os paradigmas de programação e a metodologia de desenvolvimento. Com isso espera-se deixar claro a metodologia da parte técnica do trabalho que está sendo desenvolvido. Detalhes quanto aos procedimentos médicos serão exclarecidos e determinados.
+O aplocativo, após completado será levado a testes pela comunidade médica a título de validação.
 \end{abstract}
 }
 
@@ -97,66 +101,77 @@
 %----------------------------------------------------------------------------------------
 
 \section{Introdução}
-\lettrine[nindent=0em,lines=3]{I} mplementar a reanimação demanda grande acurácia e organização por parte do agente de saúde que cumpre a tarefa. Isso deve-se à quantidade de detalhes e protocolos que permeiam essa prática. São muitos passos que precisam ser tomados de forma ordenada e cronometrada para que se tenham as melhores condições de atendimento. 
+\lettrine[nindent=0em,lines=3]{A}s doenças cardiovasculares constituem a principal causa de mortalidade no Brasil e no mundo(Brasil, 2017). Sendo que, a depender da gravidade do evento, seu desfecho pode ser uma Parada cardiorrespiratória (PCR), a mais grave das emergências clínicas (AHA, 2015).
+
+Durante a PCR, a circulação espontânea cessa subitamente e os órgãos vitais deixam de ser perfundidos. As compressões torácicas conseguem fornecer fluxo sanguíneo de até 30\% em relação  ao estado normal. Somente ocorre uma melhor perfusão dos órgãos vitais após o retorno da  circulação espontânea nos pacientes submetidos às manobras de ressuscitação cardiorrespiratória  realizadas com eficácia. (Kernl, 2011)
+
+Diante deste contexto, verifica-se a importância de aplicar medidas de ressuscitação cardiopulmonar eficazes, pois esses casos clínicos são determinantes em unidades de emergências, extra-hospitalares ou não, em que o número de óbitos chega a mais de 280 mil ao ano no Brasil. (BRANT, 2017)
+
+Para pacientes adultos, o conceito de times de resposta rápida (TRR) ou times de emergência médica (TEM), em que equipes multiprofissionais dedicam sua atuação a pacientes críticos afim  prevenir complicações nestes, podem ser eficazes na redução da incidência da parada cardiorrespiratória, especialmente nos setores de cuidados gerais. Enquanto boa parte dos serviços hospitalares brasileiros ainda não contam com esses times dedicados apenas a prevenção de  desfechos desfavoráveis, ter equipes bem treinadas e coordenadas para efetuar corretamente as manobras de ressuscitação cardiopulmonar a quem precisa é mais do que necessário. Embora as evidências ainda estejam em evolução, há uma nítida validade do conceito de ter equipes treinadas na complexa coreografia da ressuscitação.
+
+Os sistemas de ressuscitação devem estabelecer a avaliação contínua e a melhoria dos sistemas de atendimento(AHA, 2015). Desta forma, observando as dificuldades práticas para organizar a abordagem à vítima de parada cardiorrespiratório, e na possibilidade real de que o estresse da situação instale o caos em equipes menos treinadas, propomos o desenvolvimento de um aplicativo mobile para smartphones que trará de forma simples, esquematizada e cronometrada as principais medidas preconizadas pela American Heart Association, sem sua última diretriz. Oferecendo ao líder do time de ressuscitação, em tempo real, informações do que já ocorreu durante o procedimento, a antecipará o que deve ser feito. 
+
+Por vivermos em uma sociedade conectada por meio da Tecnologia da Informação e Comunicação (TIC), e em crescente demanda por conteúdo móvel e popularização dos aparelhos celulares. Este trabalho objetiva apresentar o desenvolvimento de um aplicativo mobile para smartphones, destinado aos líderes de equipes na condução dos procedimentos de RCP destinados às vítimas de parada cardiorrespiratória, auxiliando na tomada de decisões com base nas medidas já adotas, bem como cronometrando e indicando para o usuário as ações que deverão ser tomadas nos segundos ou minutos subsequentes.
+
 
 %------------------------------------------------
 
-\section{Methods}
+\section{Metodologia}
 
-Maecenas sed ultricies felis. Sed imperdiet dictum arcu a egestas. 
-\begin{itemize}
-\item Donec dolor arcu, rutrum id molestie in, viverra sed diam
-\item Curabitur feugiat
-\item turpis sed auctor facilisis
-\item arcu eros accumsan lorem, at posuere mi diam sit amet tortor
-\item Fusce fermentum, mi sit amet euismod rutrum
-\item sem lorem molestie diam, iaculis aliquet sapien tortor non nisi
-\item Pellentesque bibendum pretium aliquet
-\end{itemize}
-\blindtext % Dummy text
+O aplicativo Cordis foi desenvolvido utilizando-se Android Studio Integrated Development Environment (IDE), criado pela empresa Google, com a finalidade de acelerar o desenvolvimento de aplicações Android. O Android Studio é um ambiente de desenvolvimento criado para programação nativa em Android (DRONGELEN, 2015; BRITO, 2017). 
+Os aplicativos Android são desenvolvidos na linguagem Java, por ter código fonte aberto e possuir diversos recursos, além de uma das linguagens mais utilizadas do mundo. 
+Ainda, no Android Studio há a possibilidade de criar, executar e depurar aplicativos de forma simples e eficiente (DEITEL, 2016).
+O app foi implementado para dispositivos móveis que possuem a versão do Sistema Operacional Android 4.0.3 ou superior. A referida versão foi escolhida, pautando-se em referências (ANDROID DEVELOPER n.d apud PATIL, 2017; CHISANGA; VENTURA; MWANGAMA, 2017), que  salientam que 97,4\% dos usuários a utilizam, além de apresentar a possibilidade do uso de  algumas bibliotecas 1 que permitem deixar a aplicação com a interface mais interativa.
 
-Text requiring further explanation\footnote{Example footnote}.
+Trata-se de um sistema de contagens progressivas e regressivas, que obedecem às determinações da American Heart Association, contidas em seu Guideline 2015 acerca do suporte avançado de vida em cardiologia (Advanced Cardiology Life Support). 
+Sua interface de ação objetiva sistematizar de forma simples, por meio de cronômetros ilustrados os principais eventos relacionados à ressuscitação cardiopulmonar, como: desfibrilação, drogas vasoativas e antiarrítmicas. Bem como demonstrando ao usuário a importância das compressões cardíacas, ventilação e o momento correto de avaliação das vítimas em meio à assistência prestada.
 
-%------------------------------------------------
+Uma contagem progressiva central inicia-se instantaneamente, mediante a opção de abordar o evento da parada. A ilustração central lembra o usuário da importância de iniciar a compressão torácica. Em um ambiente onde é possível a monitorização da vítima, faz-se necessário definir qual ritmo está se manifestando, entre eles: Fibrilação Ventricular (FV), Taquicardia Ventricular sem Pulso (TVSP), Atividade Elétrica sem Pulso (AESP) ou Assistolia. O aplicativo oferece duas interfaces de atuação, uma para abordar os ritmos chocáveis (FV/TVSP), e outra para os não chocáveis (AESP/Assistolia).
 
-\section{Results}
+Se a opção for pelos ritmos chocáveis, habilita-se os cronômetros referentes a desfibrilação e epinefrina (droga vasoativa), com contagens regressivas e emitindo sinais luminosos segundos antes do momento ideal para implementação da desfibrilação ou infusão da droga. Em virtude da importância do choque nesta situação, assim que um ritmo chocável é definido, sinais luminosos indicam que a desfibrilação deve ser realizada imediatamente. Desferido o choque, inicia-se a contagem regressiva para a próxima descarga elétrica, enquanto as demais contagens ocorrem simultaneamente. Seguindo as diretrizes da AHA 2015, após infusão de duas doses de Epinefrina, seu ícone de contagem é desabilitado, ativando assim o próximo cronômetro, referente à Amiodarona, droga antiarrítmica utilizada em sequência. 
 
-\begin{table}
-\caption{Example table}
-\centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Name} \\
-\cmidrule(r){1-2}
-First name & Last Name & Grade \\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
-\end{tabular}
-\end{table}
+Já optando-se por abordar um ritmo não chocável, após sua observação no monitor, o aplicativo Cordis apresenta uma interface em que o ícone referente a desfibrilação está desabilitado, e a Amiodarona encontra-se indisponível após duas infusões de Epinefrina, visto que tanto o choque quanto a droga antiarrítmica são condutas proscritas nas situações de AESP ou Assistolia. Apenas o ícone do cronômetro central inicia sua contagem progressiva, emitindo 110 pulsos luminosos por minuto, referentes a velocidade da administração da compressão torácica, além da ativação da contagem regressiva para a droga vasoativa. 
 
-\blindtext % Dummy text
+Desta forma auxiliando o líder da equipe na tomada de decisões com base nas medidas já implementadas, bem como preparar-se para as demais ações por meio da observação das contagens regressivas dos eventos críticos na abordagem à vítima de Parada Cardiopulmonar (PCR).
 
-\begin{equation}
-\label{eq:emc}
-e = mc^2
-\end{equation}
+Para validação do app foi realizada uma avaliação qualitativa com uma docente e coordenadora de  um curso de pós-graduação lato sensu em Urgência, Emergência e Terapia Intensiva de uma Universidade do interior paulista e os relatos foram usados para ajustar o app. A pesquisa  participante foi usada como metodologia para essa avaliação, pois de acordo com Behar et al. (2008), nessa modalidade os dados coletados são analisados a partir da descrição das concepções que a população pesquisada apresenta, quanto ao tema em questão.
 
-\blindtext % Dummy text
+Foi feita também uma avaliação qualitativa, por meio de grupo focal, com estudantes leigos para validação do app por seu público alvo. Backes et al. (2011) evidencia que a pesquisa qualitativa se fundamenta de diversas alternativas metodológicas, as quais possibilitam um processo desenvolto de coleta e de análise de dados e, dentre essas alternativas, o grupo focal representa um método de coleta de dados que, a partir da interação grupal, propicia uma ampla problematização sobre um tema ou foco específico.
+
+O presente processo de avaliação, desenvolvido com 09 estudantes (leigos) de uma Universidade privada do interior paulista, foi realizado buscando-se levantar a percepção dos participantes com relação a utilidade, usabilidade, interface e conhecimento adquirido para realização da  ressuscitação cardiopulmonar. As entrevistas ocorreram em uma sala de aula, em ambiente privativo para a atividade, e com a presença de um dos membros da equipe de desenvolvimento do app. 
+
+Inicialmente, o pesquisador apresentou o objetivo do estudo e cada participante instalou o aplicativo no seu smartphone e interagiu com o mesmo.
+
+Seguindo as recomendações de Yin (2016), não houve um instrumento estruturado para coleta de dados, uma vez que em pesquisas qualitativas há valorização da subjetividade dos participantes  com relação à apreciação do software, portanto, as entrevistas seguiram um modo dialógico, pois essa dinâmica de entrevistas qualitativas assemelha-se ao conversar que é parte natural das comunicações rotineiras das pessoas.
+
+Os comentários foram registrados e, posteriormente, transcritos pelo pesquisador responsável pela avaliação que utilizou a metodologia de análise de conteúdo, considerando Bardin (2009) para análise dos resultados. 
+
 
 %------------------------------------------------
+\section{Resultados}
 
-\section{Discussion}
 
-\subsection{Subsection One}
 
-A statement requiring citation \cite{Figueredo:2009dg}.
-\blindtext % Dummy text
 
-\subsection{Subsection Two}
 
-\blindtext % Dummy text
+%------------------------------------------------
+\section{Discussão}
+
+
+
+
+
+
+%------------------------------------------------
+\section{Conclusão}
+
+
+De acordo com os resultados obtidos nas avaliações qualitativas é possível concluir que o app atende o público alvo a que se destina, uma vez que ao ser apreciado, os participantes conseguiram compreender as orientações e os procedimentos apresentados e simularam rotas de acesso até as instituições de saúde.
+
+Com a disponibilização do aplicativo na App Store do Android acredita-se que em pouco tempo  este será utilizado por diversas pessoas que poderão identificar as instituições de saúde, mais  próximas da localização onde ocorre a situação de urgência, que oferecerem serviço de pronto atendimento, bem como reconhecer a PCR e realizar a ressuscitação cardiopulmonar, caso haja  uma vítima que necessite desse procedimento no local de ocorrência até a chegada do socorro  avançado de vida, seguindo a cadeia de sobrevivência.
+
+Portanto, o aplicativo desenvolvido é uma ferramenta para auxiliar o leigo a reconhecer situações de urgência e emergência e atender as vítimas de parada cardiorrespiratória, realizando o suporte básico de vida necessário à estabilização da vítima acometida por essa emergência clínica, até a chegada do suporte avançado.
+
 
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
