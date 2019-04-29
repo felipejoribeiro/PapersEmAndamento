@@ -6,8 +6,20 @@
 
 \noindent
 	
-	No presente trabalho procura-se desenvolver dinamicamente e termicamente um canal turbulento de Poiseuille unidimensional por meio de uma metodologia semi-analítica. Para tal,  utilizou-se as equações diferenciais da energia térmica, de Navier-Stokes e da continuidade, que foram desenvolvidas numericamente e acopladas em um código final capaz de simular o sistema em questão. Foi analisado o erro com base em DNS (Simulações Numéricas Diretas) a fim de se validar o método. \\
-	A partir dos resultados iniciais foi notado que algumas constantes tinham grande influencia sobre o resultado (Prandtl turbulento e constante de cebeci), e se experimentou muda-las de forma a se obter o melhor resultado, com isso criou-se modelos simplificados para os mesmos de forma a se melhorar a acurácia do método.
+	A dinâmica dos fluidos é um assunto de grande interesse acadêmico e industrial. Ele oferece
+	muitas oportunidades de otimização em uma variedade de problemas práticos de engenharia.
+	A modelagem de propriedades térmicas de escoamentos turbulentos é algo de notável
+	complexidade, que pode ser explicado matematicamente pela natureza caótica desse problema
+	não-linear, fato muito bem explicado no livro de Strogatz "Nonlinear Dynamics and
+	Chaos". O resultado imediato de tal fato é a impossibilidade de uma resposta matemática
+	exata para, quase, todas as aplicações reais. A única maneira de coletar resultados, então, é
+	por abordagem numérica, com a discretização de espaço e tempo, para um resultado aproximado.
+	O problema é que, na maioria dos casos, esses são um problema computacional tão
+	grande que se torna inviável. Com isso em mente, os autores do presente trabalho pretendem
+	desenvolver uma abordagem meta-modelada semi-exata em um problema térmico de canal
+	de Poiseuille turbulento, visando eficiência e precisão quando comparada à solução de DNS,
+	a mais respeitada mas mais cara computacionalmente. Tal abordagem resultou em um novo
+	modelo ajustado para o número de Prandtl turbulento nos canais de Poiseuille.
 
 \newpage
 
@@ -19,7 +31,19 @@
 
 \noindent
 
-In the present work, it was developed, dynamically and thermally, a one-dimensional Poiseuille turbulent channel flow by means of a semi-analytical methodology. For that, we used the differential equations of thermal energy, Navier-Stokes and continuity, which were developed numerically and coupled in a final algorithm capable of simulating the channel. The error based on DNS (Direct Numerical Simulations) was analyzed in order to validate the method. \\
-From the initial results it was noticed that some constants had great influence on the results (turbulent Prandtl number and Cebeci number), and if it was tried to change them in order to obtain the best result, with that simplified models were created for them in order to improve the accuracy of the method.
+Fluid dynamics is a subject of great academic and industrial interest. It offers
+many optimization opportunities in a variety of practical engineering problems.
+The modeling of thermal properties of turbulent flows is something of remarkable
+complexity, which can be explained mathematically by the non-linear chaotic nature of this problem, 
+a fact very well explained in Strogatz's book "Nonlinear Dynamics and
+Chaos. "The immediate result of this fact is the impossibility of a mathematical answer
+to almost any real application. The only way to collect results, then, is
+by a numerical approach, with the discretization of space and time, for an approximated result.
+The problem is that, in most cases, these are such a large computational problem that becomes unfeasible. 
+With this in mind, the authors of the present paper intend
+to develop a semi-analytical meta-modeled approach to a thermal channel problem
+of turbulent Poiseuille flow aiming at efficiency and precision when compared to the DNS solution,
+the most precise but computationally expensive method. This approach has resulted in a new
+model adjusted for the number of turbulent Prandtl in Poiseuille channels.
 
 \newpage
