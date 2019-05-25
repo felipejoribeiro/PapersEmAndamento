@@ -9,7 +9,7 @@
 	Neste sentido, no presente artigo, desenvolve-se um RANS (Reynolds Averaged Navier-Stokes) unidimensional que soluciona o campo de temperatura em um canal turbulento de Poiseuille (Poiseuille, 1846). Tal abordagem de valores médios procura acurácia, mas sem se deixar cair nos esforços computacionais exacerbados de um DNS (Direct Numerical Simulation).
 	
 	Para resolver o campo de temperatura, a equação de energia térmica foi acoplada com o fenômeno da convecção. Por isso, o campo de velocidade tinha que ser resolvido, o que traz a equação de Navier-Stokes para a abordagem matemática. Foi necessária a modelagem dos termos não-lineares nas expressões para simplificar essas equações e fechar o modelo.
-	Estudos experimentais como Nikuradse (1966), Van Driest (1956) foram utilizados, assim como hipóteses conceituais, como a de Boussinesq (1877), e também métodos puramente computacionais como algoritmos genéticos para o ajusto do número de Prandtl turbulento de forma multi objetiva. 
+	Estudos experimentais como Nikuradse (1966), Van Driest (1956) foram utilizados, assim como hipóteses conceituais, como a de Boussinesq (1877), e também métodos puramente computacionais como algoritmos genéticos para o ajuste do número de Prandtl turbulento de forma multi objetiva. 
 	Detalhes são apresentados e discutidos.
 	
 	
@@ -17,5 +17,10 @@
 	
 
  \section{Metodologia}
+ Alguns parâmetros que merecem destaque são o número de Prandtl turbulento (Prandtl, 1925) e a constante $ A = 26 $, na formulação de amortecimento de Cebeci (Cebeci and Bradshaw, 1984). Esses termos físicos são responsáveis por modelar propriedades importantes da difusão e dinâmica térmicas do fluido, como afirma S. N. Aristeu, 2018 (Neto, 2018). Tais modelos são exemplos de aproximações necessárias para implementar um método semi analítico, como RANS, URANS e LES (Neto, 2018). Consiste em não resolver numericamente a equação de Naiver-Stokes em todas as escalas requeridas, mas sim substituir alguns tensores e outros termos não-lineares por aproximações conceituais e experimentais.
+ 
+ Esses métodos são importantes porque oferecem uma solução muito mais rápida. A abordagem do DNS demanda alto trabalho computacional, nem mesmo sendo possível ou viável em alguns casos, como explicado no trabalho de H. Kawamura, H. Abe e Yuichi Matsuo (1999). Um exemplo disso é para sistemas de altos números de Reynolds. Mas, por outro lado, esses métodos aproximados resultam em alguns erros em comparação com a solução de DNS. 
+ 
+ No presente trabalho, os autores pretendem desenvolver um método semi-analítico RANS (Reynold`s Averaged Navier-Stokes) para descrever a configuração térmica em um canal plano turbulento de Poiseuille (Poiseuille, 1846), modelado com a metodologia do comprimento da mistura. Meta-modelos foram desenvolvidos definindo o número Prandtl turbulento (Prandtl, 1925) e a constante $ A = 26 $, na formulação de amortecimento de Cebeci, para melhorar os resultados comparados às soluções de DNS. Os resultados da formulação deste trabalho foram comparados com o resultado do DNS (Kawamura, 2007) , (kasagi et al., 1992), com o objetivo de fornecer uma análise sobre a viabilidade de meta-modelos em problemas térmicos turbulentos de Poiseuille. \\
  % --------------------------------------------------------------------------
 

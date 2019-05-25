@@ -1,249 +1,394 @@
-\chapter{Resultados e Conclusões}
-\noindent
+\chapter{Resultados}
 
-	Neste capítulo serão apresentados os parâmetros utilizados nas simulações e os resultados obtidos para cada caso. Ainda, uma análise de erro é efetivada para a verificação da ordem do método. Todas as simulações foram feitas até o tempo de $20$ segundos para os CFL's indicados.
-	
-	Vale lembrar que as funções utilizadas para a difusão unidimensional e bidimensional e para a advecção unidimensional e bidimensional são aquelas dadas pelas Eq.(\ref{difused}), Eq.(\ref{difused2}), Eq.(\ref{soladvuni}) e Eq.(\ref{soladvbi}), respectivamente.
-		
-\section{Difusão Unidimensional}
-\noindent
+A partir dos resultados iniciais, desenvolveram-se mais e mais modificações para melhorá-los.
 
-	Para o caso da difusão unidimensional, faz-se uma simulação numérica com diferentes números de divisões espaciais em uma dimensão para avaliar a convergência e o refinamento do resultado com a diminuição dos intervalos no espaço e, consequentemente, no tempo. Para o método explícito na difusão, o CFL limite é de $1/2$, sendo que para valores maiores que esse a simulação diverge.
-	
-	Ainda, espera-se para este caso explícito, como dado pela Eq.(\ref{expeight}), um erro de segunda ordem. Ou seja, ao reduzir o intervalo diferencial $\Delta x$ para metade de seu valor inicial, o erro deve reduzir quatro vezes. Verifica-se que tal evento é confirmado na Tabela(\ref{tabela1}).
-
-\begin{table}[h!]
-	\caption{Erro do método numérico do caso explícito para $CFL$=0,5.}
-	\label{tabela1}
+\section{Resultados preliminares}
+Inicialmente, o número de Prandtl turbulento, $Pr_t = 0.71$, foi usado como o da literatura. Os resultados obtidos são mostrados na figura \ref{figuraresultados1} e comparados com DNS de (Kawamura, 2007) e (kasagi et al., 1992).\\
+\begin{figure*}[h!] 
 	\centering
-	\begin{tabular}{c | c c c | c c c}
+	%		\begin{subfigure}[t]{0.49\textwidth}
+	%		\centering
+	%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_150_0025_classico}
+	%		\caption{Temperature configuration for $Re_\tau = 150$, $Pr = 0.025$, $L2 = 0.13$ }
+	%		\end{subfigure}%
+	\begin{subfigure}[t]{0.49\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_071_classico}
+		\caption{Distribuição de temperatura para $Re_\tau = 150$, $L2 = 1.42$}
+	\end{subfigure}
+	%		\begin{subfigure}[t]{0.49\textwidth}
+	%		\centering
+	%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_395_0025_classico}
+	%		\caption{Temperature configuration for $Re_\tau = 395$, $Pr = 0.025$, $L2 = 0.52$}
+	%		\end{subfigure}%
+	\begin{subfigure}[t]{0.49\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_071_classico}
+		\caption{Distribuição de temperatura para $Re_\tau = 395$, $L2 = 1.55$}
+	\end{subfigure}
+	%		\centering
+	%		\begin{subfigure}[t]{0.49\textwidth}
+	%		\centering
+	%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_395_1_classico}
+	%		\caption{Temperature configuration for $Re_\tau = 395$, $Pr = 1.0$, $L2 = 1.89$}
+	%		\end{subfigure}%
+	%		\begin{subfigure}[t]{0.49\textwidth}
+	%		\centering
+	%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_395_2_classico}
+	%		\caption{Temperature configuration for $Re_\tau = 395$, $Pr = 2.0$, $L2 = 2.60$}
+	%		\end{subfigure}\\
+	%		\begin{subfigure}[t]{0.49\textwidth}
+	%		\centering
+	%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_395_5_classico}
+	%		\caption{Temperature configuration for $Re_\tau = 395$, $Pr = 5.0$, $L2 = 3.75$}
+	%		\end{subfigure}%
+	%		\begin{subfigure}[t]{0.49\textwidth}
+	%		\centering
+	%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_395_7_classico}
+	%		\caption{Temperature configuration for $Re_\tau = 395$, $Pr = 7.0$, $L2 = 4.24$}
+	%		\end{subfigure}\\
+	%	    \centering
+	%		\begin{subfigure}[t]{0.49\textwidth}
+	%		\centering
+	%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_395_10_classico}
+	%		\caption{Temperature configuration for $Re_\tau = 395$, $Pr = 10.0$, $L2 = 4.55$}
+	%		\end{subfigure}%
+	%		\begin{subfigure}[t]{0.49\textwidth}
+	%		\centering
+	%		\includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_640_0025_classico}
+	%		\caption{Temperature configuration for $Re_\tau = 640$, $Pr = 0.025$, $L2 = 0.84$}
+	%		\end{subfigure}\\
+	\begin{subfigure}[t]{0.49\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_071_classico}
+		\caption{Distribuição de temperatura para $Re_\tau = 640$, $L2 = 1.79$}
+	\end{subfigure}%
+	\begin{subfigure}[t]{0.49\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_071_classico}
+		\caption{Distribuição de temperatura para $Re_\tau = 1020$, $L2 = 2.04$}
+	\end{subfigure}%
+	\caption{Distribuição de temperatura para $Pr_t = 0.71$, $A = 26$ e $Pr = 0.71$} 
+	\label{figuraresultados1}
+\end{figure*}	
+
+Os primeiros resultados não foram satisfatórios. Então, notou-se que o número de Prandtl turbulento teve grande influência no resultado, então o número de Prandtl turbulento do DNS (figura \ref{figure5}) foi utilizado como parâmetro no programa, obtendo-se uma norma L2 de $ 0.19 $ para $ Re_t = 640 $. Assim, se observou que o problema se encontrava com a parametrização do número de Prandtl turbulento. Assim, este virou o foco da pesquisa.
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[angle=0, scale=0.4]{fotos_formatacao_final/DNS_PRt}
+	\caption{Prandtl do DNS com o número de Prandtl turbulento de acordo com a coordenada $ y $ do canal.}
+	\label{figure5}
+\end{figure*}
+
+Assim, iniciou-se o esforço para propor uma parametrização ajustada para o número de Prandtl turbulento.
+Neste sentido tentou-se ajustar um valor para o qual o erro foi mínimo comparado com o DNS. Neste sentido, a metodologia do algoritmo de evolução diferencial foi aplicada.
+
+
+
+\section{A meta-modelagem, com o algoritmo genético: Evolução Diferencial (DE)}
+Utilizou-se um algoritmo que buscou um erro mínimo para a função dada, considerando o número de Prandtl turbulento como variável editável e o menor erro como padrão de interesse.
+Foi obtido um número de Prandtl turbulento ideal de $ 0.9$ , para o número de Reynolds turbulento de $ 1020$.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[angle=0, scale=0.31]{fotos_formatacao_final/Genetic_amostra}
+	\caption{Iterações do algoritmo genético, com simulações para $Re_\tau = 1020$. Convergência em $Pr_t = 0.9 $.}
+\end{figure}
+
+O número de Prandtl turbulento obtido, $Pr_t = 0.9$, foi utilizado nos outros Reynolds turbulento, resultando em:
+\begin{figure*}[!h]
+	\centering
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_071_Prt0905_A26}
+		\caption{Distribuição de temperatura para $Re_\tau = 150$, $L2 = 0.34$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_071_Prt0905_A26}
+		\caption{Distribuição de temperatura para $Re_\tau = 395$, $L2 = 0.23$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_071_Prt0905_A26}
+		\caption{Distribuição de temperatura para $Re_\tau = 640$, $L2 = 0.19$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_071_Prt0905_A26}
+		\caption{Distribuição de temperatura para $Re_\tau = 1020$, $L2 = 0.14$}
+	\end{subfigure}	
+	\caption{Resultado de simulações térmicas para $Pr_t = 0.9 $, $A = 26$ e $Pr =0.71$ }
+\end{figure*}
+
+Mesmo os resultados sendo muito melhores quando comparados ás figuras \ref{figuraresultados1}, o modelo tinha que ser melhorado. O número de Prandtl turbulento variava com o número de Reynolds turbulento, como visto em (fig.\ref{figure5}), assim, um modelo que contemplasse esse fato tinha de ser proposto. 
+Para se obter uma curva para o $Pr_t$ em função de $Re_\tau$, o mesmo algoritmo de otimização teve que ser usado para determinar um número de Prandtl turbulento ideal para cada número de Reynolds turbulento disponível na base de dados de DNS. (Kawamura, 2007) e (kasagi et al., 1992).
+Os melhores números de Prandtl turbulentos obtidos foram:
+
+\begin{table}[!h]
+	\centering
+	\caption{Números de Prandtl turbulentos ideais ajustados para cada número de Reynolds turbulento, com $A = 26$}
+	\begin{tabular}{ll}
 		\hline
-		Número de nós  espaciais&       Erro $L_\infty$       	& Razão   	 & Ordem   & Erro $L_{2}$ 				& Razão 	  & Ordem  \\ \hline
-		$50$ 					&		$2,31 \, . 10^{-5}$     & $---$      & $---$   &       $1,62 \, . 10^{-5}$  & $---$       & $---$    \\ 
-		$100$ 					&       $5,66 \, . 10^{-6}$     & $4,08$     & $2,03$  &       $3,98 \, . 10^{-6}$  & $4,06$      & $2,02$    \\ 
-		$200$ 					&       $1,40 \, . 10^{-6}$     & $4,04$     & $2,01$  &       $9,87 \, . 10^{-7}$  & $4,03$      & $2,01$    \\ 
-		$400$ 					&       $3,48 \, . 10^{-7}$     & $4.02$     & $2.01$  &       $2,46 \, . 10^{-7}$  & $4,01$      & $2,01$    \\ \hline
+		$Re_\tau$ & $Pr_t$\\
+		\hline
+		150  &   0.94531\\
+		395  &   0.89531\\
+		640  &   0.89531\\
+		1020 &   0.90000\\ 
+		\hline
 	\end{tabular}
 \end{table}
 
-	Assim como para o método explícito, o método implícito para a difusão unidimensional é um método de segunda ordem. Os valores obtidos são apresentados na Tabela(\ref{tabela2}).
-	
-\begin{table}[h!]
-	\caption{Erro do método numérico do caso implícito para $CFL$=0,5.}
-	\label{tabela2}
+
+
+Executando um ajuste de curva polinomial, um modelo ajustado para o número de Prandtl turbulento como uma função do número de Reynolds turbulento foi desenvolvido:
+\begin{equation}
+\begin{split}
+Pr_t = -4.5604 * 10^{-10} Re_\tau^3 + 9.5690 * 10^{-7} Re_\tau^2 - 6.1715 *10 ^{-4} Re_\tau + 1.0178 
+\end{split}
+\end{equation}
+Os resultados das simulações foram muito precisos, ainda mais do que as simulações com os números de Prandtl turbulentos definidos como os valores médios dos dos dados do DNS. (fig.\ref{figure5}). Estes foram:
+
+
+
+\begin{figure*}[!h]
 	\centering
-	\begin{tabular}{c | c c c | c c c}
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_071_Prt(Ret)_A26}
+		\caption{Distribuição de temperatura para $Re_\tau = 150$, $L2 = 0.26$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_071_Prt(Ret)_A26}
+		\caption{Distribuição de temperatura para $Re_\tau = 395$, $L2 = 0.22$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_071_Prt(Ret)_A26}
+		\caption{Distribuição de temperatura para $Re_\tau = 640$, $L2 = 0.17$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_071_Prt(Ret)_A26}
+		\caption{Distribuição de temperatura para $Re_\tau = 1020$, $L2 = 0.14$}
+	\end{subfigure}	
+	\caption{Resultados de simulações térmicas para $Pr_\tau(Re_\tau)$, $A = 26$ e $Pr =0.71$ }
+\end{figure*}
+
+
+
+\newpage
+
+Outras maneiras de reduzir a imprecisão foram pesquisadas. O perfil de velocidade foi uma possibilidade, uma vez que desempenha um papel importante no erro do método. Simulações foram realizadas desenvolvendo apenas essa propriedade física, e houve erro associado, como pode ser visto adiante:
+
+\begin{figure*}[!h]
+	\centering
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_Avelocity}
+		\caption{Distribuição de velocidade para $Re_\tau = 150$, $L2 = 0.47$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_Avelocity}
+		\caption{Distribuição de velocidade para $Re_\tau = 395$, $L2 = 0.17$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_Avelocity}
+		\caption{Distribuição de velocidade para $Re_\tau = 640$, $L2 = 0.23$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_Avelocity}
+		\caption{Distribuição de velocidade para $Re_\tau = 1020$, $L2 = 0.23$}
+	\end{subfigure}	
+	\caption{Resultados de simulações dinâmicas para $A = 26$}
+\end{figure*}
+
+Um modelo ajustado foi preparado no presente trabalho para a constante de Cebeci $A$ com o objetivo de reduzir o erro e, por extensão, tornar o método mais preciso. O mesmo algoritmo usado para encontrar os números ideais de Prandtl turbulento foi usado para encontrar uma constante de Cebecis ideal para cada número de Reynolds turbulento. Foi utilizada a velocidade do DNS disponível para calcular a norma L2. A constante de Cebeci "A" foi definida como uma variável editável para o programa, e a norma L2 foi definida como um parâmetro de interesse. Os resultados para as constantes ideais do Cebeci podem ser vistos adiante:
+
+
+\begin{table}[!h]
+	\centering
+	\caption{Constantes de Cebeci ideais ajustadas para cada Reynolds turbulento.}
+	\begin{tabular}{ll}
 		\hline
-		Número de nós  espaciais&       Erro $L_\infty$       	& Razão   	 & Ordem   & Erro $L_{2}$ 				& Razão 	  & Ordem  \\ \hline
-		$50$ 					&		$1,01 \, . 10^{-3}$     & $---$      & $---$   &       $9,58 \, . 10^{-4}$  & $---$       & $---$    \\ 
-		$100$ 					&       $2,47 \, . 10^{-4}$     & $4,07$     & $2,03$  &       $1,74 \, . 10^{-4}$  & $5,51$      & $2,75$    \\ 
-		$200$ 					&       $6,11 \, . 10^{-5}$     & $4,04$     & $2,02$  &       $4,31 \, . 10^{-5}$  & $4,03$      & $2,01$    \\ 
-		$400$ 					&       $1,50 \, . 10^{-5}$     & $4.06$     & $2.03$  &       $1,06 \, . 10^{-5}$  & $4,05$      & $2,02$    \\ \hline
+		$Re_\tau$ & $A$\\
+		\hline
+		150  &   28.616180\\
+		395  &   25.673782\\
+		640  &   25.001266\\
+		1020 &   25.002136\\ 
+		\hline
+	\end{tabular}
+	\label{tablea}
+\end{table}
+
+Dos pontos resultantes do algoritmo de otimização, um modelo de função de Cebeci fora ajustado:
+\begin{equation}
+A = \frac{Re_\tau ^{0.04510621 * \ln(Re_\tau)} *e ^ {5.27528132} }{Re_\tau ^{0.60941173}}
+\end{equation}
+
+Em seguida, foram feitas simulações com a função otimizada para um erro mínimo em relação à velocidade, como pode ser visto nas simulações, houve uma melhora nos resultados:
+
+
+\begin{figure*}[!h]
+	\centering
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_Amodeled}
+		\caption{Distribuição de velocidade para $Re_\tau = 150$, $L2 = 0.28$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_Amodeled}
+		\caption{Distribuição de velocidade para $Re_\tau = 395$, $L2 = 0.16$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_Amodeled}
+		\caption{Distribuição de velocidade para $Re_\tau = 640$, $L2 = 0.14$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_Amodeled}
+		\caption{Distribuição de velocidade para $Re_\tau = 1020$, $L2 = 0.13$}
+	\end{subfigure}	
+	\caption{Resultados para a velocidade com o valor de Cebeci modelado.}
+\end{figure*}
+
+Com a função do Cebeci ajustada, um novo grupo de otimizações foi feito, com a mesma metodologia de evolução diferencial, levando em consideração essa nova formulação para a constante do Cebeci. Esse estudo resultou em um novo conjunto de números ótimos de Prandtl turbulentos para cada número de Reynolds de amostra de DNS, como segue:
+
+
+\begin{table}[!h]
+	\centering
+	\caption{Números de Prandtl turbulentos ideais ajustados para cada número de Reynolds turbulento, com A modelado.}
+	\begin{tabular}{ll}
+		\hline
+		$Re_\tau$ & $Pr_t$\\
+		\hline
+		150  &   0.88594\\
+		395  &   0.90156\\
+		640  &   0.91094\\
+		1020 &   0.91406\\ 
+		\hline
 	\end{tabular}
 \end{table}
 
-	É conveniente plotar as relações da resolução numérica e analítica para esse caso. A Figura(4.1) apresenta o gráfico para o método explícito, enquanto a Figura(4.2) apresenta o do método implícito.
-	
-\begin{figure}[ht!]
-	\label{explicito1}
-	\centering
-	\includegraphics[width=135mm]{Imagens/uniexplicito.png}
-	\caption{Difusão unidimensional pelo método explícito}
-\end{figure}
+Um novo modelo pôde ser proposto para o número de Prandtl Turbulento:
+\vspace{-2mm}
+\begin{equation}
+\begin{split}
+Pr_t = 4.5290 * 10^{-12} Re_\tau^3 - 5.73952 * 10^{-8} Re_\tau^2 + 9.397 * 10^{-5} Re_\tau + 0.873117480.
+\end{split}
+\end{equation}
 
-\begin{figure}[ht!]
-	\label{implicito1}
-	\centering
-	\includegraphics[width=135mm]{Imagens/uniimplicito.png}
-	\caption{Difusão unidimensional pelo método implícito}
-\end{figure}
 
-\newpage
-\section{Difusão Bidimensional}
-\noindent
+Com essa parametrização, foi feito um novo conjunto de simulações, com os seguintes resultados:
 
-	Assim como no caso unidimensional, faz-se uma simulação numérica com diferentes números de divisões espaciais, agora nas duas dimensões, para avaliar a convergência e o refinamento do resultado com a diminuição dos intervalos no espaço e no tempo. O CFL limite continua sendo $1/2$ para garantir a convergência.
-	
-	A Tabela(\ref{tabela3}), dada a seguir, apresenta os resultados para os erros e a ordem para o método explícito, enquanto a Tabela(\ref{tabela4}) apresenta esses dados para o método implícito.
-	
-	\begin{table}[h!]
-	\caption{Erro do método numérico do caso bidimensional explícito para $CFL$=0,5.}
-	\label{tabela3}
+\begin{figure*}[!h]
 	\centering
-	\begin{tabular}{c | c c c | c c c}
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_071_Prt(Ret)_Avelocity}
+		\caption{Distribuição de temperatura para $Re_\tau = 150$, $L2 = 0.212$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_071_Prt(Ret)_Avelocity}
+		\caption{Distribuição de temperatura para $Re_\tau = 395$, $L2 = 0.233$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_071_Prt(Ret)_Avelocity}
+		\caption{Distribuição de temperatura para $Re_\tau = 640$, $L2 = 0.205$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_071_Prt(Ret)_Avelocity}
+		\caption{Distribuição de temperatura para $Re_\tau = 1020$, $L2 = 0.175$}
+	\end{subfigure}	
+	\caption{Resultado para simulações térmicas para $Pr_\tau(Re\tau)$, $A(Re_\tau)$ and $Pr =0.71$ }
+\end{figure*}
+
+Os valores do Cebeci que resultaram em um pequeno erro para o algoritmo da velocidade não tiveram o mesmo efeito nos resultados de temperatura. O Cebeci foi modelado para o erro de velocidade mínima, não sendo o melhor para a solução térmica. Algebricamente, a constante de Cebeci aparece duas vezes como se vê nas equações \ref{equationultima} e \ref{finalequationvelocity}. Então, é possível propor dois modelos de constantes de Cebeci. Um para a simulação dinâmica e outro para a simulação de temperatura.    
+
+
+Outro método de ajuste na evolução diferencial é o ajuste multi objetivo. Tal abordagem foi usada para considerar mais de uma variável simultaneamente para otimização. Este método foi usado para ajustar a constante de Cebeci térmica e o número de Prandtl Turbulento para o menor erro (norma L2) no campo de temperatura resultante para cada amostra de DNS. A função dinâmica de Cebeci foi considerada a anteriormente desenvolvida. Novos valores ideais foram encontrados para o número de Prandtl turbulento e a constante térmica de Cebeci:
+
+\begin{table}[!h]
+	\centering
+	\caption{Números de Prandtl turbulentos ideais e constantes de Cebeci ajustadas para cada número turbulento de Reynolds, com a abordagem multi objetiva. O Cebeci dinâmico continuou o mesmo da tabela \ref{tablea}. }
+	\begin{tabular}{llll}
 		\hline
-		Número de nós  espaciais&       Erro $L_\infty$       	& Razão   	 & Ordem   & Erro $L_{2}$ 				& Razão 	  & Ordem  \\ \hline
-		$25$ 					&		$3,08 \, . 10^{-3}$     & $---$      & $---$   &       $1,48 \, . 10^{-3}$  & $---$       & $---$    \\ 
-		$50$ 					&       $7,38 \, . 10^{-4}$     & $4,18$     & $2,09$  &       $3,62 \, . 10^{-4}$  & $4,08$      & $2,04$    \\ 
-		$100$ 					&       $1,81 \, . 10^{-4}$     & $4,08$     & $2,04$  &       $8,96 \, . 10^{-5}$  & $4,04$      & $2,02$    \\ 
-		$200$ 					&       $4,48 \, . 10^{-5}$     & $4.04$     & $2.02$  &       $2,23 \, . 10^{-5}$  & $4,02$      & $2,01$    \\ \hline
+		$Re_\tau$ & $Pr_t$ & $A_d$ & $A_v$\\
+		\hline
+		150  &   0.72530 & 37.25510 & 28.616180\\
+		395  &   0.76821 & 34.24176 & 25.673782\\
+		640  &   0.81896 & 31.27627 & 25.001266\\
+		1020 &   0.86179 & 28.73726 & 25.002136\\ 
+		\hline
 	\end{tabular}
 \end{table}
+Com tais dados numéricos, foram propostos novos modelos para o número de Prandtl Turbulento e a constante térmica de Cebeci:
 
-	\begin{table}[h!]
-	\caption{Erro do método numérico do caso bidimensional implícito para $CFL$=0,5.}
-	\label{tabela4}
+\begin{equation}
+A_t = \frac{Re_\tau ^{0.0395059904287 \ln(Re_\tau)^2 - 0.758759596012 \ln(Re_\tau) +  4.66369525666  } }{e ^{5.67034263}}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+Pr_t = -2.4891 * 10^{-10} Re_\tau^3 +  3.60362 * 10^{-7} Re_\tau^2 + 3.7921 *10 ^{-5} Re_\tau + 0.71234 
+\end{split}
+\end{equation}
+Novas simulações foram desenvolvidas com essa parametrização:
+
+\begin{figure*}[!h]
 	\centering
-	\begin{tabular}{c | c c c | c c c}
-		\hline
-		Número de nós  espaciais&       Erro $L_\infty$       	& Razão   	 & Ordem   & Erro $L_{2}$ 				& Razão 	  & Ordem  \\ \hline
-		$25$ 					&		$1,49 \, . 10^{-3}$     & $---$      & $---$   &       $7,14 \, . 10^{-4}$  & $---$       & $---$    \\ 
-		$50$ 					&       $3,56 \, . 10^{-4}$     & $4,18$     & $2,09$  &       $1,75 \, . 10^{-4}$  & $4,10$      & $2,05$    \\ 
-		$100$ 					&       $8,73 \, . 10^{-5}$     & $4,08$     & $2,04$  &       $4,32 \, . 10^{-5}$  & $4,04$      & $2,02$    \\ 
-		$200$ 					&       $5,37 \, . 10^{-5}$     & $4.04$     & $2.02$  &       $1,07 \, . 10^{-5}$  & $4,02$      & $2,01$    \\ \hline
-	\end{tabular}
-\end{table}
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_071_Genetic2temperature}
+		\caption{Distribuição de temperatura para $Re_\tau = 150$, $L2 = 0.091$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_395_071_Genetic2temperature}
+		\caption{Distribuição de temperatura para $Re_\tau = 395$, $L2 = 0.049$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_640_071_Genetic2temperature}
+		\caption{Distribuição de temperatura para $Re_\tau = 640$, $L2 = 0.061$}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_1000_071_Genetic2temperature}
+		\caption{Distribuição de temperatura para $Re_\tau = 1020$, $L2 = 0.076$}
+	\end{subfigure}	
+	\caption{Resultados de simulações térmicas para $Pr_\tau(Re_\tau)$, $A_d(Re_\tau)$, $A_t(Re_\tau) $ e $Pr =0.71$, com ajuste multi objetivo.}
+	\vspace{-5mm}
+\end{figure*}
 
-	As representações gráficas dos resultados numéricos para os métodos explícito e implícito são fornecidas pelas Figura(4.3) e Figura(4.4), respectivamente.
 
-\newpage
 
-\begin{figure}[ht!]
-	\label{explicito2}
+\chapter{Discussão}
+
+
+\section{Resultados}
+
+Com esses métodos, foram estudadas as vantagens e desvantagens de cada um. Uma comparação entre seus erros pode ser vista adiante:\\
+
+\begin{figure}[!h]
 	\centering
-	\includegraphics[width=140mm]{Imagens/biexplicito.png}
-	\caption{Difusão bidimensional pelo método explícito}
+	\includegraphics[angle=0, trim = {0mm 0mm 0mm 10mm}, scale=0.5]{fotos_formatacao_final/gerais}
+	\caption{Comparison between all parameterizations for $Re_\tau$ and $Pr_t$.}
 \end{figure}
 
-\begin{figure}[ht!]
-	\label{implicito10}
-	\centering
-	\includegraphics[width=140mm]{Imagens/biimplicito.png}
-	\caption{Difusão bidimensional pelo método implícito}
-\end{figure}
+Todos os modelos desenvolvidos no presente trabalho apresentaram melhores resultados que a parametrização clássica de $ Pr_t = 0.71 $ e $ A = 26 $ no escoamento turbulento de Poiseuille. A correção na constante do Cebeci, apesar de representar um erro menor na velocidade, não resultou em erros menores no perfil de temperatura para todo o domínio. O modelo que obteve os melhores resultados foi o desenvolvido com o algoritmo de evolução diferencial multi-objetivo em que foram considerados dois valores de Cebeci para cada domínio (térmico e dinâmico).
 
-\newpage
+\section{Conclusões}
 
-\section{Advecção Unidimensional}
-\noindent
-
-	Repete-se aqui o procedimento utilizado para a difusão, sabendo agora que o método é de primeira ordem. A velocidade de advecção é definida como $-1 \ m/s$. Ainda, para o caso da advecção existe um CFL otimizado já conhecido para a solução. Para o CFL unitário, os erros chegam à ordem de $-15$, enquanto para $1/2$, os erros flutuam ao redor da ordem de $-2$. 
-	
-	Nota-se pela Figura(4.5) que informações são perdidas no decorrer das rotinas computacionais. Esse comportamento é característico de métodos de discretização difusivos, como é o caso para o upwind scheme de primeira ordem. 
-	
-	\begin{table}[h!]
-	\caption{Erro do método numérico do caso unidimensional explícito para $CFL$=0,5.}
-	\label{tabela5}
-	\centering
-	\begin{tabular}{c | c c c | c c c}
-		\hline
-		Número de nós  espaciais&       Erro $L_\infty$       	& Razão   	 & Ordem   & Erro $L_{2}$ 				& Razão 	  & Ordem  \\ \hline
-		$50$ 					&		$1,70 \, . 10^{-1}$     & $---$      & $---$   &       $8,17 \, . 10^{-2}$  & $---$       & $---$    \\ 
-		$100$ 					&       $8,89 \, . 10^{-2}$     & $1,91$     & $0,96$  &       $4,26 \, . 10^{-2}$  & $1,92$      & $0,96$    \\ 
-		$200$ 					&       $4,56 \, . 10^{-2}$     & $1,95$     & $0,97$  &       $2,17 \, . 10^{-2}$  & $1,96$      & $0,98$    \\ 
-		$400$ 					&       $2,31 \, . 10^{-2}$     & $1,98$     & $0,99$  &       $1,09 \, . 10^{-2}$  & $1,98$      & $0,99$    \\ \hline
-	\end{tabular}
-\end{table}
-
-	A comparação da solução numérica com a analítica é dada pela figura à seguir.
-	
-\begin{figure}[ht!]
-	\label{advexplicito}
-	\centering
-	\includegraphics[width=140mm]{Imagens/adveccaouni.png}
-	\caption{Advecção unidimensional pelo método explícito}
-\end{figure}
-
-	Na Figura(4.6), que fornece o gráfico para o caso de $CFL=1$, observa-se que o erro numérico é tão baixo que as curvas da resolução numérica e analítica se sobrepõem.
-
-\newpage
-
-\begin{figure}[ht!]
-	\label{advexplicitoone}
-	\centering
-	\includegraphics[width=140mm]{Imagens/adveccaounione.png}
-	\caption{Advecção unidimensional pelo método explícito com CFL unitário}
-\end{figure}	
-
-\section{Advecção Bidimensional}
-\noindent
-
-	Os valores obtidos são apresentados na Tabela(\ref{tabela6}). O método continua sendo de primeira ordem para o caso bidimensional. A velocidade de advecção para esse caso é definida como $0,707 \ m/s$, com as velocidades em x e y ($cx \ e\  cy$) definidas como $0,5 \ m/s$.
-	
-	Novamente é possível observar que nas proximidades do contorno do gráfico, dado em (4.7), que uma grande quantidade de informação é perdida durante a rotina, e essa deficiência é carregada para todo o domínio.
-	
-	\begin{table}[h!]
-	\caption{Erro do método numérico do caso bidimensional explícito para $CFL$=0,8.}
-	\label{tabela6}
-	\centering
-	\begin{tabular}{c | c c c | c c c}
-		\hline
-		Número de nós  espaciais&       Erro $L_\infty$       	& Razão   	 & Ordem   & Erro $L_{2}$ 				& Razão 	  & Ordem  \\ \hline
-		$50$ 					&		$2,70 \, . 10^{-1}$     & $---$      & $---$   &       $9,17 \, . 10^{-2}$  & $---$       & $---$    \\ 
-		$100$ 					&       $1,58 \, . 10^{-1}$     & $1,70$     & $0,85$  &       $5,16 \, . 10^{-2}$  & $1,78$      & $0,89$    \\ 
-		$200$ 					&       $8,69 \, . 10^{-2}$     & $1,82$     & $0,91$  &       $2,75 \, . 10^{-2}$  & $1,87$      & $0,94$    \\ 
-		$400$ 					&       $4,58 \, . 10^{-2}$     & $1,90$     & $0,95$  &       $1,42 \, . 10^{-2}$  & $1,93$      & $0,97$    \\ \hline
-%		$800$ 					&       $2,36 \, . 10^{-2}$     & $1,94$     & $0,97$  &       $7,25 \, . 10^{-3}$  & $1,96$      & $0,98$    \\ \hline
-	\end{tabular}
-\end{table}	
-
-	A comparação da solução numérica com a analítica é dada pela representação gráfica à seguir.
-
-\newpage
-
-\begin{figure}[ht!]
-	\label{badvexplicito}
-	\centering
-	\includegraphics[width=150mm]{Imagens/biadvec.png}
-	\caption{Advecção bidimensional pelo método explícito}
-\end{figure}
-	
-\section{Advecção e Difusão Unidimensional}
-\noindent
-
-	Trabalha-se agora o efeito conjugado dos mecanismos já avaliados. A Tabela(\ref{tabela7}) fornece os valores obtidos nas simulações para este caso. A velocidade de advecção ($c$) para esse caso é de $1 \ m/s$.
-	
-	\begin{table}[h!]
-	\caption{Erro do método numérico do caso bidimensional explícito para $CFL$=0,8.}
-	\label{tabela7}
-	\centering
-	\begin{tabular}{c | c c c | c c c}
-		\hline
-		Número de nós  espaciais&       Erro $L_\infty$       	& Razão   	 & Ordem   & Erro $L_{2}$ 				& Razão 	  & Ordem  \\ \hline
-		$50$ 					&		$5,08 \, . 10^{-2}$     & $---$      & $---$   &       $3,17 \, . 10^{-2}$  & $---$       & $---$    \\ 
-		$100$ 					&       $2,66 \, . 10^{-2}$     & $1,91$     & $0,96$  &       $1,66 \, . 10^{-2}$  & $1,91$      & $0,96$    \\ 
-		$200$ 					&       $1,36 \, . 10^{-2}$     & $1,96$     & $0,98$  &       $8,46 \, . 10^{-3}$  & $1,96$      & $0,98$    \\ 
-		$400$ 					&       $6,87 \, . 10^{-3}$     & $1,98$     & $0,99$  &       $4,28 \, . 10^{-3}$  & $1,98$      & $0,99$    \\ \hline
-
-	\end{tabular}
-\end{table}	
-
-A comparação da solução numérica com a analítica é dada pela Figura(4.8).
-
-\newpage
-
-\begin{figure}[ht!]
-	\label{difadvec}
-	\centering
-	\includegraphics[width=140mm]{Imagens/adveccaoedifusaouni.png}
-	\caption{Advecção e difusão unidimensional pelo método explícito}
-\end{figure}
-
-\section{Advecção e Difusão Bidimensional}
-\noindent
-
-	Finalmente, trabalha-se o efeito conjugado em duas direções. A Tabela(\ref{tabela8}) fornece os valores obtidos nas simulações para este caso. A velocidade na direção x ($cx$) é de $0,8 \ m/s$, enquanto a velocidade na direção y ($cy$) equivale à $0,6 m/s$, resultando numa velocidade de $1 \ m/s$.
-	
-	\begin{table}[h!]
-	\caption{Erro do método numérico do caso bidimensional explícito para $CFL$=0,2.}
-	\label{tabela8}
-	\centering
-	\begin{tabular}{c | c c c | c c c}
-		\hline
-		Número de nós  espaciais&       Erro $L_\infty$       	& Razão   	 & Ordem   & Erro $L_{2}$ 				& Razão 	  & Ordem  \\ \hline
-		$25$ 					&		$9,39 \, . 10^{-2}$     & $---$      & $---$   &       $3,34 \, . 10^{-2}$  & $---$       & $---$    \\ 
-		$50$ 					&       $5,03 \, . 10^{-2}$     & $1,87$     & $0,935$  &       $1,83 \, . 10^{-2}$  & $1,83$      & $0,92$    \\ 
-		$100$ 					&       $2,60 \, . 10^{-2}$     & $1,93$     & $0,965$  &       $9,57 \, . 10^{-3}$  & $1,91$      & $0,96$    \\ 
-		$200$ 					&       $1,32 \, . 10^{-2}$     & $1,97$     & $0,99$  &       $4,89 \, . 10^{-3}$  & $1,96$      & $0,98$    \\ \hline
-
-	\end{tabular}
-\end{table}	
-
-A comparação da solução numérica com a analítica é dada pelo gráfico fornecido à seguir.
-	
-\begin{figure}[ht!]
-	\label{bidifadvec}
-	\centering
-	\includegraphics[width=150mm]{Imagens/bidifadvec2.png}
-	\caption{Advecção e difusão bidimensional pelo método explícito}
-\end{figure}
+No presente trabalho foi desenvolvido com sucesso uma metodologia semi-analítica para calcular o perfil de temperatura em um canal com o modelo de comprimento de mistura Prandtl, um modelo clássico de fechamento no estudo da turbulência. As validações com o DNS foram satisfatórias. É importante notar que tais valores do número de Prandtl turbulento e constante de Cebeci foram aplicados para este caso particular, pois as parametrizações foram ajustes computacionais particulares e são simplificações das abstrações físicas que cada problema representa. Mas eles se adaptaram bem a este caso, resultando em precisão e eficiência. O método semi analítico foi bem sucedido no modelo do problema, pois bons resultados foram obtidos quando utilizados os números de Prandtl turbulento do DNS. Quanto aos modelos propostos, é uma ideia o aplicar então em outros problemas, com outras geometrias, como forma de testar sua universalidade.

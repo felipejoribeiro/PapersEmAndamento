@@ -64,13 +64,22 @@
 %%% END Article customizations
 
 %%% The "real" document content comes below...
-\font\loll= cmr25 at 45pt
+\font\loll= cmr25 at 30pt
 \title{ \loll Thermal analysis of turbulent Poiseuille flows}
-\author{Felipe J. O. Ribeiro, Aristeu da Silveira Neto.}
+\author{\textbf{Felipe J. O. Ribeiro} \\ 
+	    \small{feliperibeiro.ufu@gmail.com} \\
+	    \vspace{0.2cm}
+	    \small{Av. Jo\~{a}o Naves de \'Avila, 2121, Campos Santa M\^{o}nica, Uberl\^{a}ndia, MG}\\
+	    \textbf{Aristeu da Silveira Neto}\\
+	    \small{aristeus@ufu.br}\\
+    \small{Av. Jo\~{a}o Naves de \'Avila, 2121, Campos Santa M\^{o}nica, Uberl\^{a}ndia, MG}\\
+}
 %\date{} % Activate to display a given date or no date (if empty),
          % otherwise the current date is printed 
 
 \begin{document}
+	
+
 \maketitle
 
 %\begin{figure}[h!]
@@ -101,7 +110,7 @@
 	$Re$ = Reynolds number, $Re = \frac{2R \overline{U}}{\nu}$
 	
 	
-	$Re_\tau$ = Turbulent Reynolds number, $Re_\tau = \frac{R U_\tau}{\nu}$
+	$Re_\tau$ = Reynolds number for wall variables, $Re_\tau = \frac{R U_\tau}{\nu}$
 	
 	
 	
@@ -191,16 +200,16 @@ Despite the difficulty, a big part of the scientific community is studying turbu
 
 In the present work, the mixing length model, by Ludwig Prandtl, was used, and it relies on the Boussinesq hypothesis for being a way of modeling the Reynolds shear tensor and to close the filtered Navier-Stokes and energy equations.
 
-In this context, some parameters that worth mentioning are the turbulent Prandtl number \cite{Prandtl} and the constant $A = 26$, on Cebeci`s damping formulation \cite{Cebeci}. These parameters are used for modeling important properties of the fluid`s thermal diffusion and dynamics as said by Silveira-Neto, 2018 \cite{aristeu}. Such parameters are examples of approximations that are necessary to implement a modeling method, like RANS, URANS and LES \cite{aristeu}. It consists in not numerically resolving the Naiver-Stokes equation on all scales required, but instead substituting some tensors and other nonlinear therms by conceptual and experimental approximations.
+In this context, some parameters that worth mentioning are the turbulent Prandtl number \cite{Prandtl} and the constant $A = 26$, on Cebeci`s damping formulation \cite{Cebeci}. These parameters are used for modeling important properties of the fluid`s thermal diffusion and dynamics as said by Silveira-Neto, 2018 \cite{aristeu}. Such parameters are examples of approximations that are necessary to implement a modeling method, like RANS, URANS and LES. It consists in not numerically resolving the Naiver-Stokes equation on all scales required, but instead substituting some tensors and other nonlinear therms by conceptual and experimental approximations.
 
-Such methods are important because they offer a much quicker solution. The DNS approach demands high computational work, not even being possible or viable in some cases, as explained on H. Kawamura, H. Abe and Yuichi Matsuo's work \cite{Abe}. An example of this is for high Reynolds number flows. But, in other hand, these approximated methods result in some errors in comparison with the DNS solution.    
+Such methods are important because they offer a much quicker solution. The DNS approach demands high computational work, not even being possible or viable in some cases \cite{Kawamura}, as explained on H. Kawamura, H. Abe and Yuichi Matsuo's work \cite{Abe}. An example of this is for high Reynolds number flows. But, in other hand, these approximated methods result in some errors in comparison with the DNS solution.    
 
-On the present paper, the authors aim to develop a semi analytical RANS (Reynold`s Averaged Navier-Stokes) method, with the averaged energy equation, to describe the thermal configuration on turbulent plane Poiseuille flows \cite{Poiseuille}, modeled with the mixture length methodology. Meta-models were developed defining the turbulent Prandtl number \cite{Prandtl} and the constant $A = 26$, on Cebeci`s damping formulation, to enhance the results compared to DNS solutions, resulting on accuracy and efficiency, what gave birth to new models for the parameters modeled. The results of this work's formulation were compared with the DNS result (\cite{DNS1020} , \cite{DNS150}), aiming to provide an analysis on the viability of meta models on Poiseuille turbulent flows with thermal effects. \\       
+On the present paper, the authors aim to develop a semi analytical RANS (Reynold`s Averaged Navier-Stokes) method, with the averaged energy equation, to describe the thermal configuration on turbulent plane Poiseuille flows \cite{Poiseuille}, modeled with the mixture length methodology. Meta-models were developed defining the turbulent Prandtl number and the constant $A = 26$, on Cebeci`s damping formulation, to enhance the results compared to DNS solutions, resulting on accuracy and efficiency, what gave birth to new models for the parameters modeled. The results of this work's formulation were compared with the DNS result (\cite{DNS1020} , \cite{DNS150}), aiming to provide an analysis on the viability of meta models on Poiseuille turbulent flows with thermal effects. \\       
  
 
 \section{Physical model}
 
-The problem was defined as a plane channel flow, with only one finite dimension on the $y$ axis. Two boundary walls were set as nonslip infinite plates and in a constant thermal flux regime. The $z$ axis was proposed self similar both on velocity and temperature, resulting on a plane domain (Fig.\ref{figure.1}). \\
+The problem was defined as a plane channel flow, with only one finite dimension on the $y$ axis. Two boundary walls were set at perpendicular planes to the $y$ axis, as nonslip infinite plates and in a constant thermal flux regime. The $z$ axis was proposed self similar both on velocity and temperature, resulting on a plane domain (Fig.\ref{figure.1}). \\
 The flow was considered incompressible and the fluid was considered Newtonian. The fluid flows, in average, on the $x$ axis direction. 
 The Reynolds numbers ranges from $4560$ to $41441$, resulting on a turbulent regime. 
 
@@ -212,10 +221,6 @@ The Reynolds numbers ranges from $4560$ to $41441$, resulting on a turbulent reg
 \end{figure}
 
 The base for mathematical formulation for the problem where the continuity and Navier-Stokes equations, as presented on Cengel's book \cite{Cengel}, and the thermal energy transport equation, as presented on Freank's Incropera \cite{Incropera}. These were the assumptions made to the proposed problem, that will be considered on the differential mathematical model ahead.
-
-
-
-
 
 
 
@@ -255,13 +260,13 @@ Even considering the mean values, the temperature field of a turbulent channel f
 In a effort to simplify the solution, the thermal configuration was studied with a thermal energy balance (Eq. \ref{c_h_e}).
 \begin{figure}[h!]
 	\centering
-	\includegraphics[angle=0, scale=0.40]{fotos_formatacao_final/temperatura}
+	\includegraphics[angle=0, scale=0.4]{fotos_formatacao_final/temperatura}
 	\caption{Temperature field in statistical permanent regime inside a plane channel.}
 	\label{figure.2}
 \end{figure}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[angle=0, height=1.4cm , width=12.3cm]{fotos_formatacao_final/velocidade}
+	\includegraphics[angle=0, height=1.35cm , width=12.3cm]{fotos_formatacao_final/velocidade}
 	\caption{Velocity field in statistical developed regime inside a plane channel.}
 	\label{figure.3}
 \end{figure}
@@ -369,7 +374,7 @@ The mixing length introduces a module into the differential model as well as the
 = 
 \overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  .
 \end{equation}
-\\
+
 
 It is possible to notice, when analyzing the dynamics of the flow, that for positive values of $ y $, see figure \ref{figure.1}, the first derivative of velocity will always be negative, since we have a velocity that decreases with the increase of $ y $. It result:\\
 \begin{equation}
@@ -378,7 +383,6 @@ It is possible to notice, when analyzing the dynamics of the flow, that for posi
 = 
 \overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  .
 \end{equation}
-
 
 
 \subsection{The mixing length}
@@ -421,12 +425,14 @@ This way, we had the first derivative of velocity in an continuous form.
 
 
 To discretize the differential equation, an Eulerian domain was used. For the velocity a fourth-order Runge-kutta method was applied, while the temperature was arranged in a central differences scheme that had to be solved implicitly. The dynamic model is solved first, and its numerical result are used in the solution of the thermal profile. The cell center was used in a such way that the wall was placed at the cell center, and a point between cells was placed in the center of the channel. The convergence of the numerical results is shown in figure \ref{sistema}.
+
 \begin{figure}[!h]
 	\centering
-	\includegraphics[angle=0, trim={10mm 0mm 0mm 0mm}, clip , scale=0.32]{convergnciaprimeira}
+	\includegraphics[angle=0, trim={10mm 0mm 0mm 0mm}, clip , scale=0.30]{fotos_formatacao_final/convergnciaprimeira}
 	\caption{The convergence of the numerical methodology up to 400 cells, with $Re_\tau = 1020$.}
 	\label{sistema}
 \end{figure}
+
 
 \subsection{Preliminary results}
 Initially the turbulent Prandtl number, $Pr_t = 0.71$, was used as in the literature. The obtained results presented in figure \ref{figuraresultados1} are compared with DNS from \cite{DNS1020} and \cite{DNS150}, using the norm L2.\\
@@ -439,7 +445,7 @@ Initially the turbulent Prandtl number, $Pr_t = 0.71$, was used as in the litera
 %		\end{subfigure}%
 		\begin{subfigure}[t]{0.49\textwidth}
 		\centering
-		\includegraphics[angle=0, scale=0.24]{fotos_formatacao_final/Temperature_150_071_classico}
+		\includegraphics[angle=0, scale=0.26]{fotos_formatacao_final/Temperature_150_071_classico}
 		\caption{$Re_\tau = 150$, $L2_t = 1.42$}
 		\end{subfigure}
 %		\begin{subfigure}[t]{0.49\textwidth}
@@ -498,11 +504,11 @@ Initially the turbulent Prandtl number, $Pr_t = 0.71$, was used as in the litera
 		\label{figuraresultados1}
 	\end{figure*}	
 
-First results weren't satisfactory. It was noticed that the turbulent Prandtl number had great influence on the outcome, so the turbulent Prandtl number from the DNS (figure \ref{figure5}) was used as a parameter in the program, obtaining an L2 norm of $ 0.19 $ to $ Re_t = 640 $. Thus it was identified that the problem was in the parametrization of the turbulent Prandtl number. It became the focus of the present research.
+First results weren't satisfactory. It was noticed that the turbulent Prandtl number had great influence on the outcome, so the turbulent Prandtl number from \cite{DNS1020} and \cite{DNS150} (figure \ref{figure5}) was used as a parameter in the program, obtaining an L2 norm of $ 0.19 $ to $ Re_t = 640 $. Thus it was identified that the problem was in the parametrization of the turbulent Prandtl number and it became the focus of the present research.
 
 \begin{figure*}[h!]
 	\centering
-	\includegraphics[angle=0, scale=0.45]{fotos_formatacao_final/DNS_PRt}
+	\includegraphics[angle=0, scale=0.48]{fotos_formatacao_final/DNS_PRt}
 	\caption{Turbulent prandtl number from DNS in function of $ \tilde{y}/Re_\tau $ in the channel.}
 	\label{figure5}
 \end{figure*}
@@ -511,18 +517,17 @@ Thus, the effort to propose a parameterization adjusted for the turbulent Prandt
 In this sense it was tried to adjust a value for which the error was minimal, comparing to the DNS. In this regards, the differential evolution algorithm methodology was applied. 
 
 
-
 \subsection{The meta-modeling, with the genetic algorithm: Differential Evolution (DE)}
-An algorithm that searched for a minimal error was used for the given function, considering the turbulent Prandtl number as an editable variable and the smaller error as the pattern of interest.
+A differential evolution algorithm \cite{diferential} that searched for a minimal parameter of interest for a given function was used. It was considered the turbulent Prandtl number as an editable variable and the smaller error as the aim pattern.
 The error was calculated comparing the resulting temperature with DNS data (\cite{DNS1020} and \cite{DNS150}).
 It was obtained a turbulent Prandtl number of $ 0.9$, for the Reynolds number $ Re_\tau = 1020$.
 \begin{figure}[!h]
 	\centering
-	\includegraphics[angle=0, scale=0.35]{fotos_formatacao_final/Genetic_amostra}
+	\includegraphics[angle=0, scale=0.31]{fotos_formatacao_final/Genetic_amostra}
 	\caption{Genetic algorithm iterations, with simulations for $Re_\tau = 1020$. Convergence on $Pr_t = 0.9 $.}
 \end{figure}
 
-The turbulent Prandtl number obtained, $Pr_t = 0.9$ which minimize the error on temperature field, was considered to the others turbulent Reynolds numbers, resulting on figure \ref{primeiros}.
+The turbulent Prandtl number obtained, $Pr_t = 0.9$ which minimize the error on temperature field, was considered to the others Reynolds numbers, resulting on figure \ref{primeiros}.
 \begin{figure*}[!h]
 	\centering
 	\begin{subfigure}[t]{0.5\textwidth}
@@ -551,7 +556,7 @@ The turbulent Prandtl number obtained, $Pr_t = 0.9$ which minimize the error on 
 
 Although the results were much better as compared with figure \ref{figuraresultados1}, the model had to be further improved. The turbulent Prandtl number varies with the Reynolds number as observed on (fig.\ref{figure5}), so a model that contemplate this fact had to be proposed. 
 In order to obtain a curve for $Pr_t$ as a function of $Re_\tau$, the same optimizing algorithm had to be used to determine an ideal turbulent Prandtl number for each Reynolds number available in the DNS data base \cite{DNS1020} and \cite{DNS150}.
-The best turbulent Prandtl numbers obtained are summarized in table \ref{tabela1}:
+The best turbulent Prandtl numbers obtained are summarized in table \ref{tabela1}.
 
 \begin{table}[!h]
 	\centering
@@ -577,7 +582,7 @@ By performing a polynomial curve fit, a model adjusted for the turbulent Prandtl
 Pr_t = -4.5604 * 10^{-10} Re_\tau^3 + 9.5690 * 10^{-7} Re_\tau^2 - 6.1715 *10 ^{-4} Re_\tau + 1.0178 .
 \end{split}
 \end{equation}
-The result of the simulations were much accurate, even more than the simulations with the turbulent Prandtl numbers set as the mean values of the ones from the DNS data (fig.\ref{figure5}). These results can be seen in figure \ref{figura_9}:
+The result of the simulations were much accurate, even more than the simulations with the turbulent Prandtl numbers set as the mean values of the ones from the DNS data (fig.\ref{figure5}). These results can be seen in figure \ref{figura_9}.
 
 
 
@@ -607,10 +612,6 @@ The result of the simulations were much accurate, even more than the simulations
 	\label{figura_9}
 \end{figure*}
 
-
-
-\newpage
-
 Other manners of reducing the inaccuracy were searched. The velocity profile was a possibility, as it plays an important role in the error of the method. Simulations were carried developing just this physical property, and there was error associated too (fig.\ref{figura_10}).
 
 \begin{figure*}[!h]
@@ -639,10 +640,9 @@ Other manners of reducing the inaccuracy were searched. The velocity profile was
 	\label{figura_10}
 \end{figure*}
 
+\newpage
 
 A adjusted model was proposed in the present work for the Cebeci's constant $A$ aiming to reduce it's error, and by extension, making the method more accurate. The same algorithm used to find the ideal turbulent Prandtl numbers was used to find an ideal Cebecis's constant for each Reynolds number. The velocity from DNS available was used to calculate de L2 norm. The Cebeci constant "A" was defined as an editable variable for the program, and the L2 norm was set as a parameter of interest. The results for ideal Cebeci's constants can be seen ahead.
-
-\newpage
 
 \begin{table}[!h]
 	\centering
@@ -660,7 +660,7 @@ A adjusted model was proposed in the present work for the Cebeci's constant $A$ 
 	\label{tablea}
 \end{table}
 
- From the resulting points of the optimization algorithm, a model was prepared and adjusted for a kind of Cebeci function:
+ From the resulting points of the optimization algorithm, a model was prepared and adjusted for a Cebeci function:
 \begin{equation}
 A \left( Re_\tau\right)= \frac{Re_\tau ^{0.0451 * \ln(Re_\tau)} *e ^ {5.2753} }{Re_\tau ^{0.6094}}.
 \end{equation}
@@ -698,7 +698,7 @@ With the Cebeci's function adjusted, a new group of optimizations were made, wit
 
 \begin{table}[!h]
 	\centering
-	\caption{Ideal turbulent Prandtl Numbers adjusted for each turbulent Reynolds number, with the Cebeci's function modeled. }
+	\caption{Ideal turbulent Prandtl Numbers adjusted for each Reynolds number, with the Cebeci's function modeled. }
 	\begin{tabular}{ll}
 		\hline
 		$Re_\tau$ & $Pr_t$\\
@@ -721,7 +721,9 @@ Pr_t = 4.5290 * 10^{-12} Re_\tau^3 - 5.7395 * 10^{-8} Re_\tau^2 + 9.397 * 10^{-5
 
 
 With such parametrization, a new set of simulations were made, with the following results:
-
+   
+   
+   
 \begin{figure*}[!h]
 	\centering
 	\begin{subfigure}[t]{0.5\textwidth}
@@ -805,22 +807,22 @@ More simulations were developed using such new proposed models.
 	\vspace{-5mm}
 \end{figure*}
 
-
-
+\newpage
 
 
  
 \section{Results}
 
 With such methods, it was studied the advantages and disadvantages of each one. A comparison between errors can be seen ahead, in figure \ref{figure15}:\\
+\vspace{-0.5cm}
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[angle=0, trim = {20mm 0mm 0mm 10mm}, scale=0.5]{fotos_formatacao_final/gerais}
+	\includegraphics[angle=0, trim = {20mm 0mm 0mm 15mm} , clip , scale=0.5]{fotos_formatacao_final/gerais}
 	\caption{Comparison between all proposed models for $Pr_t$, $A_d$ and $A_v$, in respect to the temperature results in comparison with DNS.}
 	\label{figure15}
 \end{figure}
-
+\vspace{-0.5cm}
 All the models developed on the present paper shown better results then the classical parametrization of $Pr_t = 0.71$ and $A = 26$ on the turbulent Poiseuille flow. The correction in the Cebeci's constant, although represented a smaller error in the velocity, didn't resulted in smaller errors in the temperature profile for all the domain. The model that presents the best results was the developed with the multi-objective differential evolution algorithm in with it was considered two Cebeci's functions for each domain (thermal and dynamical).\\
 
 The dynamical Cebeci's constant optimization also caused gains in the velocity field in terms of velocity error, as seen in figure \ref{figure16}.
@@ -844,70 +846,95 @@ It's opportune to thanks all the institutions involved with the viabilization of
 	
 	
 	\bibitem{hasan}
-	{O. , Basim and Hasan}
-	\newblock  {"Turbulent Prandtl Number and its Use in Prediction of Heat Transfer Coefficient for liquids."}
+	{Basim O. and Hasan}
+	\newblock  {Turbulent Prandtl Number and its Use in Prediction of Heat Transfer Coefficient for liquids.}
 	\newblock {Nahrain University, College of engineering Journal (NUCEJ) Vol.10, No.1}
 	\newblock {2007}.
 	
 	
-	\bibitem{Poiseuille}
-	{J. , L. ,  M. , Poiseuille},
-	\newblock{"Recherches experimentales sur Ie mouvement des liquides dans les tubes de tres-petits diametres"},
-	\newblock{Memoires presentes par divers savants a l'Academie Royale des Sciences de l'Institut de France},
-	\newblock{IX: 433-544},
-	\newblock{1846}.
 	
+	\bibitem{John}
+	\newblock{John C. S., Edward O. and Tamas T.},
+	\newblock{Modeling Two-Dimensional Fluid Flows with Chaos Theory},
+	\newblock{Johns Hopkins APL Technical Digest, volume 18, number 2},
+	\newblock{193-202},
+	\newblock{1997}.
+		
 	
 	\bibitem{Prandtl}
-	\newblock{L. , Prandtl},
+	\newblock{Prandtl L.},
 	\newblock{Uber die ausgebildete Turbulenz},
 	\newblock{ZAMM},
 	\newblock{1925}.
 	
 	
 	\bibitem{Cebeci}
-	{T. , Cebeci and P. , Bradshaw},
-	\newblock{"Physical and computational aspects of convective heat transfer"},
+	{Cebeci T. and Bradshaw P.},
+	\newblock{Physical and computational aspects of convective heat transfer},
 	\newblock{Springer},
 	\newblock{New York},
 	\newblock{1984}.
 	
 	
-	\bibitem{John}
-	\newblock{John , C.  , Sommerer and Edward , Ott and Tamas , Tel},
-	\newblock{"Modeling Two-Dimensional Fluid Flows with Chaos Theory"},
-	\newblock{Johns Hopkins APL Technical Digest, volume 18, number 2},
-	\newblock{193-202},
-	\newblock{1997}.
 	
 	
 	\bibitem{aristeu}
-	\newblock{A. S. {Neto}},
-	\newblock{"Turbul\^encia nos fluidos, textbook of the post graduate mechanical engineering course of federal university of Uberl\^andia"},
+	\newblock{Neto A. S.},
+	\newblock{Turbul\^encia nos fluidos, textbook of the post graduate mechanical engineering course of federal university of Uberl\^andia},
 	\newblock{Uberl\^andia, Brazil},
 	\newblock{2018}.
 	
 	
-	\bibitem{Cengel}
-	\newblock{Y. , A., Cengel and J. , M. , Cimbala},
-	\newblock{Fluid mechanics Fundamentals and Applications},
-	\newblock{First edition},
-	\newblock{McGraw-Hill series in mechanical engineering},
-	\newblock{2006}.
+	
+	
+	
+	\bibitem{Kawamura}
+	Kawamura, H. , Abe, H. and Shingai, k. ,
+	\newblock {DNS of turbulence and heat transport in a channel flow with different Reynolds and Prandtl numbers and boundary conditions.},
+	\newblock { Turbulence, Heat and Mass Transfer 3, (Proc. of the 3rd International Symposium on Turbulence, Heat and Mass Transfer)},
+	\newblock {2000}.
+	
+	
+	
 	
 	\bibitem{Abe}
-	H. , Kawamura and H. , Abe and Yuichi , Matsuo,
+	Kawamura H., Abe H. and Yuichi M.,
 	\newblock{DNS of turbulent heat transfer in channel flow with respect to Reynolds and Prandtl number effects},
 	\newblock{Elsevier},
 	\newblock{Tokio, Japan},
 	\newblock{1999}.
 	
 	
-	\bibitem{Kawamura}
-	Kawamura, H. , Abe, H. and shingai, k. ,
-	\newblock {"DNS of turbulence and heat transport in a channel flow with different Reynolds and Prandtl numbers and boundary conditions."},
-	\newblock { Turbulence, Heat and Mass Transfer 3, (Proc. of the 3rd International Symposium on Turbulence, Heat and Mass Transfer)},
-	\newblock {2000}.
+	\bibitem{Poiseuille}
+	{Poiseuille J. L. M.},
+	\newblock{Recherches experimentales sur Ie mouvement des liquides dans les tubes de tres-petits diametres},
+	\newblock{Memoires presentes par divers savants a l'Academie Royale des Sciences de l'Institut de France},
+	\newblock{IX: 433-544},
+	\newblock{1846}.
+	
+	
+		
+	\bibitem{DNS1020}
+	Kawamura H.,
+	\newblock{Direct Numerical Simulation Data Base for Turbulent Channel Flow with Heat Transfer.},
+	\newblock{<http://www.rs.tus.ac.jp/~t2lab/db/index.html>, Laboratory of Thermo-fluid dynamics, Department of Mechanical Engineering, Faculty of Science and Technology, Tokyo University of Science, Noda-shi, Chiba-ken, Japan},
+	\newblock{2007}.	
+	
+	
+	\bibitem{DNS150}
+	Kasagi H., Horiuti K., Miyake Y., Miyauchi T. and Nagano Y.,
+	\newblock{Establishment of the Direct Numerical Simulation Data Bases of Turbulent Transport Phenomena},
+	\newblock{<http://thtlab.jp/DNS/dns\_database.html>,  Co-operative Research No. 02302043, Bunkyo-ku, Tokyo 113  },
+	\newblock{1992}.
+
+	
+	
+	\bibitem{Cengel}
+	\newblock{Cengel Y. A. and Cimbala J. M.},
+	\newblock{Fluid mechanics Fundamentals and Applications},
+	\newblock{First edition},
+	\newblock{McGraw-Hill series in mechanical engineering},
+	\newblock{2006}.
 	
 	
 	\bibitem{Incropera}
@@ -915,26 +942,18 @@ It's opportune to thanks all the institutions involved with the viabilization of
 	\newblock {\em fundamentals of Heat and Mass Transfer}, 3rd edition,
 	\newblock p. 310-316, 2007, LTC,
 	\newblock (INCROPERA and DEWITT).
-	
-	\bibitem{DNS1020}
-	H Kawamura,
-    \newblock{Direct Numerical Simulation Data Base for Turbulent Channel Flow with Heat Transfer.},
-	\newblock{<http://www.rs.tus.ac.jp/~t2lab/db/index.html>, Laboratory of Thermo-fluid dynamics, Department of Mechanical Engineering, Faculty of Science and Technology, Tokyo University of Science, Noda-shi, Chiba-ken, Japan},
-	\newblock{2007}.	
-	
-	
-	\bibitem{DNS150}
-	N Kasagi and K Horiuti and Y Miyake and T Miyauchi and Y Nagano ,
-	\newblock{Establishment of the Direct Numerical Simulation Data Bases of Turbulent Transport Phenomena},
-	\newblock{<http://thtlab.jp/DNS/dns\_database.html>,  Co-operative Research No. 02302043, Bunkyo-ku, Tokyo 113  },
-	\newblock{1992}.
+
 	
 	
 	\bibitem{Luigi}
-	L A Antonialli and A N Silveira ,
-	\newblock{Theoretical study of fully develop turbulent flow in a flat channel, using prandtl's
-mixing length model},
+	Antonialli L. A. and Silveira A. N.,
+	\newblock{Theoretical study of fully develop turbulent flow in a flat channel, using prandtl's mixing length model},
 	\newblock{2015}.
+	
+	\bibitem{diferential}
+	Price K. V., Storn M. R. and Lampinen A. J.,
+	\newblock{Differential Evolution, a practical approach to Global Optimization},
+	\newblock{2005}.
 	
 	
 	
