@@ -1,4 +1,4 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{10}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -7,6 +7,19 @@
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
+
+\bibitem[{Annual Book~of ASTM~Standards(2002)}]{norma}
+Annual Book~of ASTM~Standards, A.I., 2002.
+\newblock \enquote{Standard test method for tensile properties of plastics}.
+\newblock \emph{Annual Book of ASTM Standards}.
+
+\bibitem[{Carneiro \emph{et~al.}(2019)Carneiro, Barbar, dos Santos and
+  Guarato}]{temp_mesa}
+Carneiro, L.R.R., Barbar, G.D., dos Santos, L.C.P. and Guarato, A.Z., 2019.
+\newblock \enquote{InfluÊncia da temperatura da mesa de impressÃo 3d na
+  dureza e dimensÕes geomÉtricas de amostras em abs}.
+\newblock \emph{submitted in the Proceedings of the 26th Congresso Nacional de
+  Estudantes de Engenharia Mecanica}.
 
 \bibitem[{\'{C}wikta \emph{et~al.}(2017)\'{C}wikta, Grabowik, Kalinowski,
   Paprocka and Ociepka}]{fdm_today}
@@ -24,6 +37,14 @@ Domingo-Espin, M., Josep, M., P.F., Andres-Amador, G.G., Jordi, L., Salvador,
   deposition modeling polycarbonate parts}.
 \newblock \emph{Elsevier}.
 
+\bibitem[{dos Santos \emph{et~al.}(2019)dos Santos, Braga and
+  Guarato}]{metal_dental_implants}
+dos Santos, L.C.P., Braga, S.L. and Guarato, A.Z., 2019.
+\newblock \enquote{Metal as built additive manufacturing roughness parameters
+  evaluated to be used as intraosseous dental implants}.
+\newblock \emph{submitted in the Proceedings of the 25th Internacional Congress
+  of Mechanical Engineering}.
+
 \bibitem[{Griffey(2017)}]{tiposfilamento}
 Griffey, J., 2017.
 \newblock \enquote{Types of filaments for fdm printing}.
@@ -35,6 +56,15 @@ Rodr\'{i}guez-Panes, A., Claver, J. and Camacho, A.M., 2018.
 \newblock \enquote{The influence of manufacturing parameters on the mechanical
   behaviour of pla and abs pieces manufactured by fdm: A comparative analysis}.
 \newblock \emph{MDPI:Materials}.
+
+\bibitem[{Rosa \emph{et~al.}(2019)Rosa, Oliveira, Fiocchi, Alves, Guarato and
+  Saad}]{infill}
+Rosa, I.C.C., Oliveira, G.B., Fiocchi, A.A., Alves, D.A.C., Guarato, A.Z. and
+  Saad, N.S., 2019.
+\newblock \enquote{Effect of infill and number of parts per cycle on mechanical
+  properties of extruded pla by additive manufacturing}.
+\newblock \emph{submitted in the Proceedings of the 25th Internacional Congress
+  of Mechanical Engineering}.
 
 \bibitem[{Szykiendans \emph{et~al.}(2016)Szykiendans, Credo and
   Osi\'{n}ski}]{PETG}

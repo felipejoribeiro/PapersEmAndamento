@@ -1,3 +1,14 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: cobem2019.aux
 The style file: abcm.bst
 Database file #1: bibfile.bib
+You're missing a field name---line 49 of file bibfile.bib
+ :  
+ :  %AUTHOR = {<https://3dprint.com/134786/prusa-i3-mk2-new-features/>},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 196 of file bibfile.bib
+ : 
+ : % AUTHOR = {asdfa},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+(There were 2 error messages)

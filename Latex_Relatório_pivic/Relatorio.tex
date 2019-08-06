@@ -23,6 +23,8 @@
    \usepackage{setspace} 
    \usepackage{subcaption}
    \usepackage{lettrine}
+   \usepackage{fouriernc}                                      % New Century Schoolbook font
+   \usepackage{xcolor}                                         % Controle de cores
    
    
 \hypersetup{
@@ -109,12 +111,24 @@
    \newtheorem{Dem}{Demonstração}[teo]                         % Uai, é a mesma coisa do de cima
    \newtheorem{nota}[teo]{Nota}                                % Para fazer uma pequena observação
    \newtheorem{obs}[teo]{Observação}                           % A mesma coisa
+   
+   \usepackage[pages=some,scale=1,angle=0,opacity=1]{background} % imagem de Background
+   \newcommand{\plogo}{\fbox{  $EPTA$   }}                       % Logo da equipe (template)
+   \newcommand\BackImage[2][scale=1]{                            % cria a função background
+   	\BgThispage
+   	\backgroundsetup{
+   		contents={\includegraphics[#1]{#2}}
+   	}
+   }
+   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    
   \begin{document}
 
      %\maketitle    	 
   	  
+  	  
+    
   	 \include{capa}
   	 
   	 \include{resumo}

@@ -1,0 +1,53 @@
+\begin{thebibliography}{6}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{\'{C}wikta \emph{et~al.}(2017)\'{C}wikta, Grabowik, Kalinowski,
+  Paprocka and Ociepka}]{fdm_today}
+\'{C}wikta, G., Grabowik, C., Kalinowski, K., Paprocka, I. and Ociepka, P.,
+  2017.
+\newblock \enquote{The influence of printing parameters on selected mechanical
+  properties of fdm/fff 3d-printed parts}.
+\newblock \emph{IOP Conference Series: Materials Science and Engineering}.
+
+\bibitem[{Domingo-Espin \emph{et~al.}(2015)Domingo-Espin, Josep, Andres-Amador,
+  Jordi, Salvador and Guillermo}]{3Dcomplication}
+Domingo-Espin, M., Josep, M., P.F., Andres-Amador, G.G., Jordi, L., Salvador,
+  B. and Guillermo, R., 2015.
+\newblock \enquote{Mechanical property characterization and simulation of fused
+  deposition modeling polycarbonate parts}.
+\newblock \emph{Elsevier}.
+
+\bibitem[{Griffey(2017)}]{tiposfilamento}
+Griffey, J., 2017.
+\newblock \enquote{Types of filaments for fdm printing}.
+\newblock \emph{Library Technology Reports}, Vol.~53, p.~12.
+
+\bibitem[{Rodr\'{i}guez-Panes \emph{et~al.}(2018)Rodr\'{i}guez-Panes, Claver
+  and Camacho}]{ABS_PLA_today}
+Rodr\'{i}guez-Panes, A., Claver, J. and Camacho, A.M., 2018.
+\newblock \enquote{The influence of manufacturing parameters on the mechanical
+  behaviour of pla and abs pieces manufactured by fdm: A comparative analysis}.
+\newblock \emph{MDPI:Materials}.
+
+\bibitem[{Szykiendans \emph{et~al.}(2016)Szykiendans, Credo and
+  Osi\'{n}ski}]{PETG}
+Szykiendans, K., Credo, W. and Osi\'{n}ski, D., 2016.
+\newblock \enquote{Selected mechanical properties of petg 3d prints}.
+\newblock \emph{International Polish-Slovak conference "Machine modeling and
+  simulations", XXI}.
+
+\bibitem[{Vidakis \emph{et~al.}(2016)Vidakis, Vairis, Petousis, Savvakis and
+  Kechagia}]{test_on_fdm}
+Vidakis, N., Vairis, A., Petousis, M., Savvakis, K. and Kechagia, J., 2016.
+\newblock \enquote{Fused deposition modelling parts tensile strength
+  characterisation}.
+\newblock \emph{Academic Journal of Manufacturing Engineering}.
+
+\end{thebibliography}
