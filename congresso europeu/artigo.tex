@@ -89,7 +89,7 @@
 %\end{figure}
 
 \begin{abstract}
-	\noindent Fluid dynamics is a subject of great academic and industrial interest. It offers many opportunities that require optimization in a variety of practical engineering problems. The modeling of thermal properties of turbulent flows is something of remarkable complexity, that can be explained mathematically by the chaotic nature of this non-linear differential analysis, fact beautifully stated in the Strogatz`s book "Nonlinear Dynamics and Chaos". The immediate result of such fact is the impossibility of an exact mathematical answer for, near, all real applications. The only way of gathering results, then, is by numerical approach, with the discretization of space and time differential operators, in order to obtain discrete results. The problem is that, in most cases, these are a so big computational problem that become inviable. With that in mind, the authors of the present paper aim to develop a semi-exact meta-modeled approach for turbulent Poiseuille flow's thermal analysis inside a channel, aiming on efficiency and accuracy when compared to the DNS solution, the most accurate but computationally expensive method. Such approach, presented in the present paper, resulted on a new adjusted model for the turbulent Prandtl and Cebeci numbers on Poiseuille channel turbulent flows.
+	\noindent On the present paper the authors develop a semi-exact meta-modeled approach for thermal analysis on turbulent Poiseuille flows with a detailed study concerning the impact of different and innovative parameterizations of the turbulent Prandtl number and the Cebeci constant. The physical model consisted on a plan channel with isothermal walls that varied linearly in temperature on the stream-wise direction resulting in an statistical permanent regime for the temperature and velocity profiles. The parametrization of the turbulent Prandtl number and the Cebeci's constant were modified aiming to achieve better accuracy when compared with the DNS solution. For the development of new models for these constants, genetic algorithms were used resulting in new functions capable of describing the turbulent Prandtl number and the Cebeci's constant for this specific problem. According to the numerical results, these new models concerning the Turbulent Prandtl number and the Cebeci's constant are capable of substantially increase the accuracy of the semi-exact method. Finally, the generally accepted classical models for these constants failed to properly represent the physical properties of the turbulent Poiseuille flow, what resulted in losses inaccuracy, this was corrected by the new models from the present research.     
 \end{abstract} 
 
 %\pagebreak
@@ -194,9 +194,9 @@
 
 \section{Introduction}
 
-\lettrine[nindent=0em,lines=2]{I}t is well known that the field of turbulent regime is of such hight complexity that, even nowadays, it is not completely understood, as described by O. Basim and Hasan, 2007 \cite{hasan}. Out of the domain of Direct Numerical Simulations (DNS), all sorts of numerical approximations have to be assumed to properly mathematically develop the Navier-Stokes equations. The nonlinear behavior of these systems \cite{John} make difficult for a continuous mathematical solution. 
+\lettrine[nindent=0em,lines=2]{I}t is well known that the field of turbulent flows is capable of such hight complexity that, even nowadays, it is not completely understood, as described by O. Basim and Hasan, 2007 \cite{hasan}. Out of the domain of Direct Numerical Simulations (DNS), all sorts of numerical approximations have to be assumed to properly mathematically develop the Navier-Stokes equations. The nonlinear behavior of these systems \cite{John} make difficult for a continuous mathematical solution. 
 
-Despite the difficulty, a big part of the scientific community is studying turbulence on fluid and thermal dynamics, because of the great industrial and academic interest, as the problem offers great opportunities in optimization of machinery. In other hand, it is an example of chaotic nonlinear dynamic system, what grows in the eyes of academia.   
+Despite the difficulty, a big part of the scientific community is studying turbulence on fluid and thermal dynamics, because of the great industrial and academic interest, as the problem offers great opportunities in optimization of machinery. In other hand, it is an example of a chaotic nonlinear dynamic system, what grows in the eyes of academia.   
 
 In the present work, the mixing length model, by Ludwig Prandtl, was used, and it relies on the Boussinesq hypothesis for being a way of modeling the Reynolds shear tensor and to close the filtered Navier-Stokes and energy equations.
 
@@ -204,12 +204,12 @@ In this context, some parameters that worth mentioning are the turbulent Prandtl
 
 Such methods are important because they offer a much quicker solution. The DNS approach demands high computational work, not even being possible or viable in some cases \cite{Kawamura}, as explained on H. Kawamura, H. Abe and Yuichi Matsuo's work \cite{Abe}. An example of this is for high Reynolds number flows. But, in other hand, these approximated methods result in some errors in comparison with the DNS solution.    
 
-On the present paper, the authors aim to develop a semi analytical RANS (Reynold`s Averaged Navier-Stokes) method, with the averaged energy equation, to describe the thermal configuration on turbulent plane Poiseuille flows \cite{Poiseuille}, modeled with the mixture length methodology. Meta-models were developed defining the turbulent Prandtl number and the constant $A = 26$, on Cebeci`s damping formulation, to enhance the results compared to DNS solutions, resulting on accuracy and efficiency, what gave birth to new models for the parameters modeled. The results of this work's formulation were compared with the DNS result (\cite{DNS1020} , \cite{DNS150}), aiming to provide an analysis on the viability of meta models on Poiseuille turbulent flows with thermal effects. \\       
+On the present paper, the authors aim to develop a semi analytical RANS (Reynold`s Averaged Navier-Stokes) method, with the averaged energy equation, to describe the thermal configuration on turbulent plan Poiseuille flows \cite{Poiseuille}, modeled with the mixture length methodology. Meta-models were developed defining the turbulent Prandtl number and the constant $A = 26$, on Cebeci`s damping formulation, to enhance the results compared to DNS solutions, resulting on accuracy and efficiency, what gave birth to new models for the parameters modeled. The results of this work's formulation were compared with the DNS result (\cite{DNS1020} , \cite{DNS150}), aiming to provide an analysis on the viability of meta models on Poiseuille turbulent flows with thermal effects. \\       
  
 
 \section{Physical model}
 
-The problem was defined as a plane channel flow, with only one finite dimension on the $y$ axis. Two boundary walls were set at perpendicular planes to the $y$ axis, as nonslip infinite plates and in a constant thermal flux regime. The $z$ axis was proposed self similar both on velocity and temperature, resulting on a plane domain (Fig.\ref{figure.1}). \\
+The problem was defined as a plan channel flow, with only one finite dimension on the $y$ axis. Two boundary walls were set at perpendicular plans to the $y$ axis, as nonslip infinite plates and in a constant thermal flux regime. The $z$ axis was proposed self similar both on velocity and temperature, resulting on a plan domain (Fig.\ref{figure.1}). \\
 The flow was considered incompressible and the fluid was considered Newtonian. The fluid flows, in average, on the $x$ axis direction. 
 The Reynolds numbers ranges from $4560$ to $41441$, resulting on a turbulent regime. 
 
@@ -261,13 +261,13 @@ In a effort to simplify the solution, the thermal configuration was studied with
 \begin{figure}[h!]
 	\centering
 	\includegraphics[angle=0, scale=0.4]{fotos_formatacao_final/temperatura}
-	\caption{Temperature field in statistical permanent regime inside a plane channel.}
+	\caption{Temperature field in statistical permanent regime inside a channel. Profile constant in the XY plan.}
 	\label{figure.2}
 \end{figure}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[angle=0, height=1.35cm , width=12.3cm]{fotos_formatacao_final/velocidade}
-	\caption{Velocity field in statistical developed regime inside a plane channel.}
+	\caption{Velocity field in statistical developed regime inside a channel. Profile constant in the XY plan.}
 	\label{figure.3}
 \end{figure}
 
