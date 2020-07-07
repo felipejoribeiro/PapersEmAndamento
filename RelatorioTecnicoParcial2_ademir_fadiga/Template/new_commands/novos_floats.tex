@@ -1,0 +1,102 @@
+\newcommand{\figuraabnt}[6]{
+	\begin{figure}[H]
+		\centering
+		\caption{#1}
+		\centering
+		\begin{tabular}{c}
+			{\includegraphics[trim={#2},clip,width=#3\linewidth]{#4}}\\
+			\multicolumn{1}{l}{\footnotesize{Fonte: #5}}\\
+		\end{tabular}
+		\label{#6}
+	\end{figure}
+}
+
+\newcommand{\duasfigurasabnt}[9]{
+	\begin{figure}[H]
+		\centering
+		\caption{#1}
+		\centering
+		\begin{tabular}{c c}
+			{\includegraphics[width= #3 \linewidth]{#4}} & {\includegraphics[width= #6 \linewidth]{#7}}\\
+			{#2}&{#5}\\
+			\multicolumn{2}{l}{\footnotesize{Fonte: #8}} \\
+		\end{tabular}
+%	    \legend{Fonte: #8}
+		\label{#9}
+	\end{figure}
+	
+}
+
+
+\usepackage{float}
+\usepackage{caption}
+
+\newfloat{grafico}{htpb}{grf}[figure]
+\floatstyle{plaintop}
+\restylefloat{grafico}
+\renewcommand\thegrafico{\arabic{grafico}}
+\newcommand{\graficoname}{Gr\'{a}fico}
+\floatname{grafico}{\graficoname}
+
+\newcommand{\listofgraficoname}{Lista de gráficos}
+\newcommand{\listofgrafico}{%
+%	\addcontentsline{toc}{chapter}{\listofgraficoname}
+	\listof{grafico}{\listofgraficoname}
+}
+\newcounter{graficocount}
+
+\newcommand{\doisgraficosabnt}[9]{
+	
+	 \setcounter{grafico}{\value{graficocount}}
+	 
+	\begin{grafico}[H]
+
+		\caption[Gráfico \ref{#9}~--~#1]{#1\label{#9}}
+		\centering
+		\begin{tabular}{c c}
+			{\includegraphics[width= #3 \linewidth]{#4}} & {\includegraphics[width= #6 \linewidth]{#7}}\\
+			{\footnotesize{#2}}&{\footnotesize{#5}}\\
+			\multicolumn{2}{l}{\footnotesize{Fonte: #8}}
+		\end{tabular}
+		
+	\end{grafico}
+	\stepcounter{graficocount}
+}
+
+
+\newcommand{\doisgraficosabntcoluna}[9]{
+	
+	\setcounter{grafico}{\value{graficocount}}
+	
+	\begin{grafico}[H]
+		
+		\caption[Gráfico \ref{#9}~--~#1]{#1\label{#9}}
+		\centering
+		\begin{tabular}{c}
+			{\includegraphics[width= #3 \linewidth]{#4}}\\
+			{\footnotesize{#2}}\\
+			{\includegraphics[width= #6 \linewidth]{#7}}\\
+			{\footnotesize{#5}}\\
+			\multicolumn{1}{l}{\footnotesize{Fonte: #8}}
+		\end{tabular}
+		
+	\end{grafico}
+	\stepcounter{graficocount}
+}
+
+
+
+\newcommand{\graficoabnt}[5]{
+	 \setcounter{grafico}{\value{graficocount}}
+	\begin{grafico}[H]
+		
+		\caption[Gráfico \ref{#5}~--~#1]{#1\label{#5}}
+		\centering
+		\begin{tabular}{c c}
+			\multicolumn{2}{c}{\includegraphics[width= #2 \linewidth]{#3}}\\
+			\multicolumn{2}{l}{\footnotesize{Fonte: #4}}
+		\end{tabular}
+		
+	\end{grafico}
+	\stepcounter{graficocount}
+}

@@ -1,0 +1,405 @@
+\documentclass[12pt,fleqn,a4paper]{report}
+%\documentclass[12pt,fleqn,a4paper,draft]{report}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc} 
+%------------------------------------------------------
+\usepackage{caption}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+%\usepackage[compact]{titlesec}
+\usepackage{indentfirst}
+%------------------------------------------------------
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath,amsfonts,amscd,bezier,amstext}
+\usepackage{colortbl}
+\usepackage{setspace}
+\usepackage{pxfonts}
+\usepackage{subfigure,float,subfloat}
+\usepackage{textcomp}
+\usepackage{boxedminipage}
+\usepackage{algorithm}
+\usepackage[brazil,pagebackref,colorlinks,linkcolor=black,citecolor=black]{hyperref}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[title]{appendix}
+\usepackage{animate}
+\usepackage{rotating} %% permite rotacionar objetos do tipo ``floating''
+%\usepackage{subfig}
+\usepackage[flushleft]{threeparttable}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{icomma}
+\usepackage{fancyvrb}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{caption}
+\usepackage{stackengine}
+\usepackage{nomencl}
+\usepackage{ifthen}
+\usepackage{makecell}
+\usepackage{scalerel}
+\usepackage{here}
+\usepackage{marvosym}			% Alguns símbolos
+\usepackage{wasysym}			% Alguns símbolos
+\usepackage[alf,abnt-etal-list=0,abnt-etal-text=it,abnt-emphasize=it,bibjustif,abnt-last-names=bibtex,abnt-url-package=url]{abntex2cite}
+\usepackage{filecontents}
+\usepackage{lscape}
+\usepackage{color}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{ragged2e}
+%\usepackage{cleveref}
+%\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes, nas páginas #2.%
+	\fi}%
+% ---
+
+\usetikzlibrary{shapes,arrows}
+%
+%\pdfminorversion=5 
+%\pdfcompresslevel=9
+%\pdfobjcompresslevel=9
+%\setlength{\textheight}{24cm} \setlength{\textwidth}{16cm}
+%\voffset=-1.5cm \hoffset=-1.2cm
+\DeclareGraphicsExtensions{.JPG,.jpg,.tiff,.pdf,.mps,.PNG,.png}
+
+%\newfloat{algorithm}{!ht}{loa}
+%\floatname{algorithm}{Algorithm}
+
+\DeclareMathOperator{\sen}{sen}
+\usepackage[normalem]{ulem}
+
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+% \definecolor{dkblue{rgb}{} 
+
+%\lstset{ %
+%  language=C,                % the language of the code
+%  basicstyle=\footnotesize\ttfamily,           % the size of the fonts that are used for the code
+%  numbers=left,                   % where to put the line-numbers
+%  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+%  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+%                                  % will be numbered
+%  numbersep=5pt,                  % how far the line-numbers are from the code
+%  backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+%  showspaces=false,               % show spaces adding particular underscores
+%  showstringspaces=false,         % underline spaces within strings
+%  showtabs=false,                 % show tabs within strings adding particular underscores
+%  frame=single,                   % adds a frame around the code
+%  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+%  tabsize=2,                      % sets default tabsize to 2 spaces
+%  captionpos=b,                   % sets the caption-position to bottom
+%  breaklines=true,                % sets automatic line breaking
+%  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+%  title=\lstname,                   % show the filename of files included with \lstinputlisting;
+%                                  % also try caption instead of title
+%%   identifierstyle=\lighttt,
+%  keywordstyle=\color{blue}\bfseries,          % keyword style
+%  commentstyle=\color{dkgreen}\textit,       % comment style
+%  stringstyle=\color{mauve},         % string literal style
+%  escapeinside={\%*}{*)},            % if you want to add a comment within your code
+%  morekeywords={*,...}               % if you want to add more keywords to the set
+%}
+
+%\captionsetup[lstlistingname]{%
+%  labelsep=newline,
+%  format=plain,
+%  indention=0pt
+%}
+
+\newcommand{\mltc}[3]{\multicolumn{#1}{#2}{#3}}
+\newcommand{\mltr}[2]{\multirow{#1}{*}{#2}}
+\newcommand{\done}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\dtwo}[2]{\frac{\partial{^2#1}}{\partial{#2}^2}}
+\newcommand{\dtwotwo}[3]{\frac{\partial{^2#1}}{\partial{#2}\partial{#3}}}
+\newcommand{\dn}[3]{\frac{\partial{^{#3}#1}}{\partial{#2}^{#3}}}
+
+%=============================================================
+%============== Formatação dos códigos =======================
+%=============================================================
+% ---> Inserir codigos
+\usepackage{listings}		
+% ---> Aceitar acentos nos códigos
+\usepackage{listingsutf8}		 
+\lstset{inputencoding=utf8/latin1}
+
+% ---> Definição dos acentos para o listings:
+\lstset{
+	literate=%
+	{é}{{\'{e}}}1
+	{è}{{\`{e}}}1
+	{ê}{{\^{e}}}1
+	{ë}{{\¨{e}}}1
+	{É}{{\'{E}}}1
+	{Ê}{{\^{E}}}1
+	{û}{{\^{u}}}1
+	{ù}{{\`{u}}}1
+	{ú}{{\'{u}}}1
+	{â}{{\^{a}}}1
+	{à}{{\`{a}}}1
+	{á}{{\'{a}}}1
+	{ã}{{\~{a}}}1
+	{Á}{{\'{A}}}1
+	{Â}{{\^{A}}}1
+	{Ã}{{\~{A}}}1
+	{ç}{{\c{c}}}1
+	{Ç}{{\c{C}}}1
+	{õ}{{\~{o}}}1
+	{ó}{{\'{o}}}1
+	{ô}{{\^{o}}}1
+	{Õ}{{\~{O}}}1
+	{Ó}{{\'{O}}}1
+	{Ô}{{\^{O}}}1
+	{î}{{\^{i}}}1
+	{Î}{{\^{I}}}1
+	{í}{{\'{i}}}1
+	{Í}{{\~{Í}}}1
+}
+
+% ---> Formatação estilo fortran para o pacote listings
+%\definecolor{mygray}{rgb}{0.96,0.96,0.96}
+%\definecolor{mygreen}{rgb}{0, 0.360, 0.050}
+%\lstset{language=[90]Fortran,
+%	xleftmargin=\parindent, 
+%%	backgroundcolor=\color{mygray},
+%	numbers=left,
+%	breaklines=true,
+%	basicstyle=\tiny,
+%%	keywordstyle=\color{blue},
+%%	commentstyle=\color{mygreen},
+%	tabsize=2,
+%	morecomment=[l]{!\ }% Comment only with space after !
+%}
+
+\lstset{language=[90]Fortran,
+	basicstyle=\tiny,
+	numbers=left,
+	frame=shadowbox,
+	showstringspaces=false,
+	rulesepcolor=\color{black}}
+
+\renewcommand{\lstlistingname}{Código}
+
+%=============================================================
+%=============================================================
+
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage[top=2.0 cm,left=2 cm,right=2 cm,bottom=2.0 cm,includeheadfoot,headheight=30pt]{geometry} %Formata as margens do textos
+\rhead{\includegraphics[width=1cm]{layout_document/ufu.pdf}}
+\lhead{Relatório Técnico Parcial 2}
+\rfoot{ \thepage}
+% Redefine the plain page style
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\rfoot{ \thepage}
+	\rhead{\includegraphics[width=1cm]{layout_document/ufu.pdf}}
+	\lhead{Relatório Técnico Parcial 2}
+}
+\fancypagestyle{capa}{
+	\fancyhf{}
+}
+
+% Length to control the \fancyheadoffset and the calculation of \headline
+% simultaneously
+\newlength\FHoffset
+\setlength\FHoffset{0cm}
+
+\addtolength\headwidth{2\FHoffset}
+
+\fancyheadoffset{\FHoffset}
+
+% these lengths will control the headrule trimming to the left and right 
+\newlength\FHleft
+\newlength\FHright
+
+% here the trimmings are controlled by the user
+\setlength\FHleft{0cm}
+\setlength\FHright{0cm}
+
+%\pagestyle{fancy}
+%\fancyhf{}
+%%\usepackage[top=2.0 cm,left=3.5 cm,right=3.0 cm,bottom=2.0 cm,includeheadfoot]{geometry} %Formata as margens do textos
+%\usepackage[top=2.0 cm,left=2 cm,right=2 cm,bottom=2.0 cm,includeheadfoot,headheight=30pt]{geometry} %Formata as margens do textos
+%\rhead{\includegraphics[width=1cm]{layout_document/ufu.pdf}}
+%\lhead{Relatório técnico parcial}
+%\rfoot{ \thepage}
+%% Redefine the plain page style
+%\fancypagestyle{plain}{
+%	\fancyhf{}
+%	\rfoot{ \thepage}
+%	\rhead{\includegraphics[width=1cm]{layout_document/ufu.pdf}}
+%	\lhead{Relatório técnico parcial}
+%}
+%\fancypagestyle{capa}{
+%	\fancyhf{}
+%}
+
+\addto\captionsportugues{% Replace "english" with the language you use
+	\renewcommand{\contentsname}%
+	{Sumário}%
+}
+
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\include{new_commands/novos_floats}
+\include{new_commands/padroes}
+\include{new_commands/para_referencias}
+\include{new_commands/simbolos}
+%\include{new_commands/zoom_in_figure}
+
+\begin{document}
+
+	\baselineskip 25pt
+	\thispagestyle{empty}
+	
+	\begin{singlespace}
+	
+		\begin{figure}[htb]
+			\begin{center}
+				\includegraphics[scale=0.7]{layout_document/ufu.pdf}\\
+				{\bf Universidade Federal de Uberl\^andia}
+			\end{center}
+		\end{figure}
+		
+		\begin{figure}[htb]
+			\begin{minipage}{0.49\linewidth}
+				\centering
+				\includegraphics[scale=0.15]{layout_document/lmest.pdf}\\
+				{\bf \small{Laborat\'orio de Mec\^anica de Estruturas}} \\
+				{\bf \small{Jos\'e Eduardo Tann\'us Reis}}
+			\end{minipage}
+			\begin{minipage}{0.49\linewidth}
+				\centering
+				\vspace{-0.15cm}\includegraphics[scale=0.22]{layout_document/mflab.pdf}\\ \vspace{0.15cm}
+				{\bf \small{Laborat\'orio de Mec\^anica dos Fluidos}}
+			\end{minipage}
+		\end{figure}
+	
+	\end{singlespace}
+	%\vspace*{30 pt}
+	
+	\begin{large}
+		\begin{center}
+			Relatório Técnico Parcial 2\\
+			\vspace*{10 pt}
+			Período: 01/01/2020 à 31/08/2020\\
+			\vspace*{25 pt}
+			{\bf Desenvolvimento de uma ferramenta computacional dedicada à construção de metamodelos de estruturas submersas}
+		\end{center}
+	\end{large}
+	
+	\vspace*{10 pt}
+	\begin{normalsize}
+		\begin{description}
+			\item[] 
+	
+			\hspace{0.7cm} UNIVERSIDADE FEDERAL DE UBERLÂNDIA - UFU\\
+			FUNDA\c C\~AO DE APOIO UNIVERSITÁRIO - FAU
+			\begin{flushleft}
+				Termo de Cooperação: PT-127.01.13870 \\
+				Número SAP: 4600585313 \\
+				Número SIC: 2019/00056-2 \\
+				Número jurídico: 5900.0111467.19.9\\
+				Data de Assinatura: 31 de maio de 2019\\
+				Data de Término Prevista: 29 de maio de 2021
+			\end{flushleft}
+	
+			\vspace{10pt}
+			\item[Coordenador:] Prof. Dr. Aldemir Aparecido Cavalini Jr  \\
+			%\item[Vice-coordenador:] Prof. Dr. Roberto Mendes Finzi Neto \\   
+			\item[Gerencia Técnica:] CENPES/PDDP/TDUT
+			\item[Interlocutor Técnico:] Marcos André Duarte Martins
+	
+		\end{description}
+	\end{normalsize}
+	
+	\newpage
+	
+	\section*{Equipe Responsável}
+
+		\begin{normalsize}
+			\begin{description}
+				\vspace{20pt}
+				\item[Coordenador:] Prof. Dr. Aldemir Aparecido Cavalini Jr \\
+	%			\item[Vice-coordenador:] Prof. Dr. Roberto Mendes Finzi Neto  \\  
+		
+				\item[Pesquisadores:] Prof. Dr. Aristeu da Silveira Neto \\
+				\hspace*{1.95cm} Prof. Dr. João Marcelo Vedovoto \\
+				\hspace*{1.95cm} Dra. Denise Kinoshita \\
+				\hspace*{1.95cm} Dr. Marcelo Maia Ribeiro Damasceno \\
+				\hspace*{1.95cm} Msc. Hélio Ribeiro Neto \\
+				\hspace*{1.95cm} Msc. Tatiane Nunes da Costa \\
+				\hspace*{1.95cm} Eng. André Rezende Dessimoni Carvalho \\
+				\hspace*{1.95cm} Eng. Bruno Resende Ferreira Rende\\
+				\hspace*{1.95cm} Alessandra Lopes Paiva\\
+				\hspace*{1.95cm} Arturo Burgos Moreira\\
+				\hspace*{1.95cm} Felipe José Oliveira Ribeiro\\
+		
+				\item[Responsável da Convenente:] Gisele Debortoli Guilherme
+				 
+				\item[Gerencia Técnica:] CENPES/PDDP/TDUT
+				\item[Interlocutor Técnico:] Marcos André Duarte Martins
+			\end{description}
+		\end{normalsize}
+
+		\newpage
+	\section*{Resumo}
+	
+		\noindent O presente relatório técnico parcial corresponde às atividades realizadas durante o período de janeiro de 2020 -- agosto de 2020, a respeito do projeto \textit{Desenvolvimento de uma Ferramenta Computacional Dedicada à Construção de Metamodelos de Estruturas Submersas} sob o termo de cooperação PT-127.01.13870 / SAP 4600585313. Devido ao caráter multidisciplinar do presente projeto de pesquisa, este relatório é dividido em capítulos (quase) independentes, cada qual com sua metodologia, discussões e resultados específicos. Como regra geral, os desenvolvimentos seguiram as linhas: \textcolor{red}{\textbf{CONCLUIR CONCLUIR CONCLUIR CONCLUIR CONCLUIR CONCLUIR CONCLUIR}}.
+	
+	\newpage
+	\tableofcontents
+	\newpage
+	
+	%\include{informacoes}
+	%\include{objetivos}
+	
+	%\setcounter{page}{2}
+	%\tableofcontents \pagestyle{plain}
+	
+	\include{introducao}
+%	\include{andre/}
+%	\include{arturo/}
+%	\include{denise/}
+%	\include{felipe/}
+%	\include{helio/}
+%	\include{marcelo/}
+%	\include{tatiane/}
+
+	\chapter{Conclusões e considerações finais}
+		\label{finalsec}
+		
+		Este relatório técnico parcial teve como objetivo apresentar os desenvolvimentos realizados no período de junho de 2019 -- dezembro de 2019. Entre as principais contribuições compreendidas no mesmo, pode-se citar a revisão bibliográfica acerca de vários métodos de metamodelagem, a implementação computacional de algumas destas técnicas, bem como de procedimentos de amostragem, com posterior aplicação das mesmas em funções de teste bem difundidas na literatura, o êxito na realização de prolongamentos de séries temporais advindas de simulações realizadas com o \textit{software} Anflex e, por fim, a validação da ferramenta computacional MFSim através da comparação dos sinais de CD e CL obtidos com dados provenientes de experimentação material. 
+		
+	\begin{singlespace}
+		\phantomsection
+		\addcontentsline{toc}{chapter}{Referências Bibliográficas}
+		 %\bibliographystyle{acm}
+		% \bibliographystyle{plain}
+		\bibliography{metamodelo}
+	\end{singlespace}
+	%\include{apendices}
+
+\end{document}   % Fim.

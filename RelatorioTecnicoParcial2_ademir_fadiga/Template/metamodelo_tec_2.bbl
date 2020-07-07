@@ -1,0 +1,19 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[Chern \textit{et al.} 2014]{Chern2014}
+\abntrefinfo{Chern \textit{et al.}}{CHERN \textit{et al.}}{2014}
+{CHERN, M.-J.; KUAN, Y.-H.; NUGROHO, G.; LU, G.-T.; HORNG, T.-L. Direct-forcing
+  immersed boundary modeling of vortex-induced vibration of a circular
+  cylinder.
+\emph{Journal of Wind Engineering and Industrial Aerodynamics}, v.~134, p. 109
+  -- 121, 2014.
+ISSN 0167-6105.
+Dispon{\'\i}vel em:
+  \url{http://www.sciencedirect.com/science/article/pii/S0167610514001913}.}
+
+\end{thebibliography}
