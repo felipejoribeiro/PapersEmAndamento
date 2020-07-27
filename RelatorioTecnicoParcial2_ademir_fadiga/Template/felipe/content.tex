@@ -134,7 +134,7 @@ De início aplicou-se o \emph{Rainflow} nos resultados da simulação do Anflex.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=1\linewidth, trim = {0mm 0mm 0mm 0mm} , clip]{felipe/fig_felipe/tensao_tempo.png}
+    \includegraphics[width=0.96\linewidth, trim = {0mm 0mm 0mm 0mm} , clip]{felipe/fig_felipe/tensao_tempo.png}
     \caption{Série temporal de tensões externas de Von Mises do elemento \emph{PP\_M0520212}. }
     \label{serie_temporal}
 \end{figure}
@@ -143,7 +143,7 @@ A partir das séries de tensão foi possível calcular as vidas em fadiga de cad
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\linewidth, trim = {16mm 108mm 19mm 26mm} , clip]{felipe/fig_felipe/Vida_em_fadiga_series.pdf} 
+    \includegraphics[width=\linewidth, trim = {0mm 0mm 0mm 0mm} , clip]{felipe/fig_felipe/Vida_em_fadiga_series_1.pdf} 
     \caption{Vida em fadiga para cada elemento estrutural do \emph{riser} simulado no Anflex. }
     \label{vida_em_fadiga}
 \end{figure}
@@ -152,10 +152,12 @@ Observam-se bons resultados, sendo possível relacionar vários pontos no gráfi
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\linewidth, trim = {16mm 15mm 19mm 119mm} , clip]{felipe/fig_felipe/Vida_em_fadiga_series.pdf} 
+    \includegraphics[width=\linewidth, trim = {0mm 0mm 0mm 0mm} , clip]{felipe/fig_felipe/Vida_em_fadiga_series_2.pdf} 
     \caption{Dados estatísticos das séries temporais de cada elemento estrutural. }
     \label{vida_em_fadiga_estatistica}
 \end{figure}
+
+Na Fig.\ref{vida_em_fadiga_estatistica} pode-se observar uma anomalia nos últimos elementos estruturais do \emph{riser}. Isso pode ser explicado pelo fato de que estes elementos fazem parte do acoplamento entre a estrutura estudada e o corpo rígido flutuante. Dessa forma, suas propriedades mecânicas são diferentes e não carregam representatividade física.
 
 \subsection{Resultados preliminares do método KPLS}
 
@@ -168,16 +170,61 @@ Utilizaram-se os dados de rotação e deslocamento do ponto de ancoragem (elemen
     \label{serie_tensao_predicted_1}
 \end{figure}
 
-No caso exposto na Fig.\ref{serie_tensao_predicted_1}, observou-se uma média dos erros, no trecho predito, de $261.19 kPa$, que quando comparado ao valor médio da série de tensões resulta em um desvio percentual de $0.18\%$. O erro por raiz da média dos quadrados das diferenças (norma L2, que denota o erro por desvio padrão) foi de $327.07 kPa$. Somente $0.22\%$ do valor médio da série temporal de tensões. 
+No caso exposto na Fig.\ref{serie_tensao_predicted_1}, observou-se uma média dos erros de $130.59 kPa$, que resulta em um desvio percentual de $0.09\%$ quando comparado ao valor médio da série de tensões. O erro por raiz da média dos quadrados das diferenças (norma L2, que denota o erro por desvio padrão) foi de $231.28 kPa$. Somente $0.16\%$ do valor médio da série temporal de tensões. O maior erro observado em toda a série foi de $1321.2 kPa$, que corresponde a somente $0.91\%$ do valor médio da série temporal.
 
-Os dados das séries temporais de tensões expostas na Fig.\ref{serie_tensao_predicted_1} foram então analisadas com o método \emph{Rainflow} e Goodman modificado para o desenvolvimento das vidas em fadiga de ambas as séries resultando em $5772770299$ ciclos de vida para a série de referência e $6143567360$ para a parcialmente predita, o que resultou em um erro percentual de $6.42\%$.
+Os dados das séries temporais de tensões expostas na Fig.\ref{serie_tensao_predicted_1} foram então analisadas com o método \emph{Rainflow} e Goodman modificado para o desenvolvimento das vidas em fadiga. Os resultados foram $5772770299$ ciclos de vida para a série de referência e $6143567360$ para a parcialmente predita, o que resultou em um erro percentual de $6.42\%$.
 
 \subsection{Resultados gerais de vida em fadiga para séries feitas via KPLS}
 
-Dessa forma, a análise foi feita para diferentes porcentagens de predição ( $10\%$ , $20\%$ , $30\%$ , $40\%$ e $50\%$), ou seja, usando diferentes quantidades de pontos para treino. Além disso o estudo foi feito em todos os elemento estruturais do \emph{riser}.
+Dessa forma, a análise foi feita para diferentes porcentagens de passos de tempo dedicados para treino ( $10\%$ , $20\%$ , $30\%$ , $40\%$ e $50\%$), sendo o restantes dos pontos conseguidos a partir do método KPLS. Além disso o estudo foi feito em todos os elemento estruturais do \emph{riser}.
 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=1\linewidth, trim = {0mm 0mm 0mm 0mm} , clip]{felipe/fig_felipe/vida_fadiga_comparation.pdf} 
+    \caption{Resultados de vida em fadiga calculados para cada elemento estrutural do \emph{riser}, para cada porcentagem de passos de tempo dedicados ao treino do modelo.}
+    \label{comparation}
+\end{figure}
+
+Assim, notou-se que conforme se aumenta a porcentagem do número de passos de tempo dedicados ao treino observa-se uma diminuição no erro. Fez-se um estudo estatístico sobre estes resultados, com erros associados a cada porcentagem de treinamento. O resultado pode ser conferido adiante:
+
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=1\linewidth, trim = {0mm 0mm 0mm 0mm} , clip]{felipe/fig_felipe/fadiga_estatisticas.pdf} 
+    \caption{Dados estatísticos dos resultados obtidos quanto a vida em fadiga. Com a média dos erros e desvio padrão. Também adimensionalizados ao serem divididos pelo valor médio de ciclos da vida em fadiga.}
+    \label{estatistica_valores}
+\end{figure}
+
+Notaram-se erros que tendem a diminuir com o aumento da porcentagem de passos para treinamento. Com desvios percentuais significativos e de tendência não linear.
+
+As séries temporais de tensão parcialmente preditas também foram analisadas e os resultados estatísticos também podem ser vistos em Fig.\ref{L1_comparation}, Fig.\ref{L2_comparation} 3 Fig.\ref{Li_comparation}. Nelas tonam-se mais regularidades quanto às manifestações da alterações de número de passos de tempo dedicados ao treino do KPLS. Também observa-se que a maior quantidade de erros encontram-se próximos à estrutura flutuante do \emph{riser} e próximos do local onde o objeto de estudo toca o leito do mar, algo que pode ser explicado pela complexidade envolvida nestes segmentos.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.95\linewidth, trim = {0mm 0mm 0mm 0mm} , clip]{felipe/fig_felipe/L1_comparation.pdf} 
+    \caption{Análise da média dos erros das séries temporais devido à aplicação do método KPLS de predição.}
+    \label{L1_comparation}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.95\linewidth, trim = {0mm 0mm 0mm 0mm} , clip]{felipe/fig_felipe/L2_comparation.pdf} 
+    \caption{Análise por RMS dos erros das séries temporais devido à aplicação do método KPLS de predição.}
+    \label{L2_comparation}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.95\linewidth, trim = {0mm 0mm 0mm 0mm} , clip]{felipe/fig_felipe/Li_comparation.pdf} 
+    \caption{Análise dos maiores erros das séries temporais devido à aplicação do método KPLS de predição.}
+    \label{Li_comparation}
+\end{figure}
 
 
 \section{Conclusão}
 
+Conclui-se que o método KPLS para predição de séries temporais é aplicável no desenvolvimento de vida em fadiga ao se levar em conta quanto de erro é admissível no caso estudado. Isso pode causar grande otimização no processo uma vez que reduz de forma significativa o tempo de simulação necessário para o desenvolvimento da análise sem grandes comprometimentos quanto à acurácia do método numérico. 
 
+Vale ressaltar que a decisão de aplicação da metodologia KPLS também depende do tipo de análise que será feita, uma vez que a predição causa desvios significativos dependendo do segmento do \emph{riser}, como nos entornos de zonas flutuantes e nos pontos de contato das estruturas com o leito marinho. Assim, pontos sujeitos a grandes não linearidades dinâmicas resultam em anomalias perceptíveis. 
+
+No futuro deste estudo pretende-se analisar mais porcentagens de traino para o método KPLS, além de se procurar outros casos para se aplicar esta análise.
