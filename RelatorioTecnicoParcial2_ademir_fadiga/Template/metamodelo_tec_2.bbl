@@ -5,6 +5,15 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.7 }
 
+\bibitem[Bouhlel \textit{et al.} 2019]{BOUHLEL2019}
+\abntrefinfo{Bouhlel \textit{et al.}}{BOUHLEL \textit{et al.}}{2019}
+{BOUHLEL, M.~A.; HWANG, J.~T.; BARTOLI, N.; LAFAGE, R.; MORLIER, J.; MARTINS,
+  J.~R. A python surrogate modeling framework with derivatives.
+\emph{Advances in Engineering Software}, v.~135, p. 102662, 2019.
+ISSN 0965-9978.
+Dispon{\'\i}vel em:
+  \url{http://www.sciencedirect.com/science/article/pii/S0965997818309360}.}
+
 \bibitem[Chern \textit{et al.} 2014]{Chern2014}
 \abntrefinfo{Chern \textit{et al.}}{CHERN \textit{et al.}}{2014}
 {CHERN, M.-J.; KUAN, Y.-H.; NUGROHO, G.; LU, G.-T.; HORNG, T.-L. Direct-forcing
@@ -15,5 +24,10 @@
 ISSN 0167-6105.
 Dispon{\'\i}vel em:
   \url{http://www.sciencedirect.com/science/article/pii/S0167610514001913}.}
+
+\bibitem[Dowing 2007]{dowling2007}
+\abntrefinfo{Dowing}{DOWING}{2007}
+{DOWING, N.~E. \emph{Mechanical behavior of materials}. [S.l.]: Pearson
+  Prentice Hall, 2007.}
 
 \end{thebibliography}

@@ -18,7 +18,7 @@ Neste segmento estuda-se os impactos da utilização do método KPLS (\emph{Krig
 
 O segmento flutuante (denominado região de SAG/HOG) tem o objetivo de atenuar os carregamentos advindos dos deslocamentos da estrutura flutuante no segmento do \emph{riser} em contato com o leito marinho. Seus efeitos podem ser observados no andamento deste estudo ao causar notável influencia na vida em fadiga dos elementos próximos. 
 
-A biblioteca SMT foi utilizada para aplicação do método KPLS. Este pacote possui muitas ferramentas de metamodelo também aplicadas neste projeto \textbf{(BOUHLELet al., 2019)}.
+A biblioteca SMT foi utilizada para aplicação do método KPLS. Este pacote possui muitas ferramentas de metamodelo também aplicadas neste projeto \cite{BOUHLEL2019}.
 
 Dessa forma, tem-se o intúito de se aplicar o método \emph{RainFlow} e o método de Goodman modificado para determinação da vida em fadiga a partir das séries de tensões externas de Von Mises advindas das simulações feitas no Anflex. O método KPLS é utilizado para predição parcial destas séries e então se calcula a vida em fadiga destas séries parcialmente ajustadas. Ao comparar-se os resultados observou-se boa conformidade, o que levanta boas oportunidades de otimização ao tornar facultativo o desenvolvimento de uma simulação completa para este tipo de análise. 
 
@@ -27,7 +27,7 @@ Dessa forma, tem-se o intúito de se aplicar o método \emph{RainFlow} e o méto
 Para o estudo da vida em fadiga se utilizou o método \emph{RainFlow} e o método de Goodman modificado, enquanto que o método utilizado para se prever as séries temporais foi o \emph{KPLS}. 
 
 \subsection{Método RainFlow}\label{rainflow}
-Desenvolvido em 1968 por Tatsuo Endo e M. Matsuishi segundo \textbf{Dowing (2007)}, o método \emph{Rainflow} tem o objetivo de identificar os ciclos individuais de carregamento. Estas informações, ao se analisar séries temporais periódicas, podem ser usadas no desenvolvimento da vida em fadiga da estrutura analisada, isto é, o número de ciclos que o objeto de estudo aguentará antes de uma fratura devido à fadiga ocorrer. Ele foi desenvolvido com inspiração nos \emph{pagodes}, que são construções de arquitetura asiática muito utilizados como templos budistas (Fig.\ref{pagode}) em países como o Japão, China e as Coreias. 
+Desenvolvido em 1968 por Tatsuo Endo e M. Matsuishi segundo \cite{dowling2007}, o método \emph{Rainflow} tem o objetivo de identificar os ciclos individuais de carregamento. Estas informações, ao se analisar séries temporais periódicas, podem ser usadas no desenvolvimento da vida em fadiga da estrutura analisada, isto é, o número de ciclos que o objeto de estudo aguentará antes de uma fratura devido à fadiga ocorrer. Ele foi desenvolvido com inspiração nos \emph{pagodes}, que são construções de arquitetura asiática muito utilizados como templos budistas (Fig.\ref{pagode}) em países como o Japão, China e as Coreias. 
 
 \begin{figure}[!ht]
     \centering
@@ -79,7 +79,7 @@ As informações que se tira de cada ciclo de tensão identificado são $\sigma_
 
 Com o método de Goodman modificado somos capazes de determinar uma tensão alternada equivalente $\sigma_{ar}$, onde o efeito de tensão média $\sigma_{m}$ é levado em conta. Assim, a partir disto determina-se a curva de tensão versus número de ciclos (S-N) que pode ser utilizada para o cálculo da vida em fadiga.
 
-Assim, $\sigma_{ar}$ pode ser comparado diretamente com $\sigma_{a}$ (calculado na Eq.\ref{eq.2}) ao se considerar $R = -1$. Pode-se determinar $\sigma_{ar}$ com o método de Goodman modificado, como descrito em \textbf{Dowing (2007)}:
+Assim, $\sigma_{ar}$ pode ser comparado diretamente com $\sigma_{a}$ (calculado na Eq.\ref{eq.2}) ao se considerar $R = -1$. Pode-se determinar $\sigma_{ar}$ com o método de Goodman modificado, como descrito em \cite{dowling2007}:
 
 \begin{equation}
     \sigma_{ar} = \frac{\sigma_a}{1 - \frac{\sigma_m}{\sigma_f^\prime}},
@@ -122,7 +122,7 @@ O equacionamento principal deste método pode ser observado na Eq.\ref{kpls}:
     \prod^{nx}_{l=1} \prod^{nx}_{k=1} \text{exp} \left( -\theta_l(w_l^{(k)} x_l^{(i)} - w_l^{(k)} x_l^{(j)} )^2\right).
 \end{equation}
 
-O método foi aplicado a partir do pacote SMT \textbf{(BOUHLELet al., 2019)}.
+O método foi aplicado a partir do pacote SMT \cite{BOUHLEL2019}.
 
 \section{Resultados}
 
