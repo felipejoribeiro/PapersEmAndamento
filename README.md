@@ -7,3 +7,4 @@ h2 Work history:
 * EPTT publication
 * ENCIT publication 
 * COBEM publication
+* Amostra de ic
