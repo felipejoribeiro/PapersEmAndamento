@@ -1,3 +1,3 @@
 h1 Papers Em Andamento
 ---
-This work aims to turn simulations at PETROBRAS faster with AI implemented forecasting systems.
+This repository is where i leave papers and reposts from researchs.
