@@ -7,7 +7,7 @@
 \section{Introdução}
 % O método KPLS (Kriging e médios quadrados parciais), quando usado na predição de séries temporais de tensão, pode resultar em boas aproximações a baixos custos computacionais.
 
-Neste segmento estuda-se os impactos da utilização do método KPLS (\emph{Kriging model and partial least squares}) na predição de séries temporais de tensão para aplicação no estudo da vida em fadiga dos risers. No caso deste estudo, a análise é feita a partir das tensões externas de Von Mises desenvolvidas a partir do software Anflex do CENPES/PETROBRAS. O caso analisado consiste em um longo \emph{riser} com flutuadores (Fig. \ref{figure.1}) que tornam flutuante parte da estrutura submersa (configuração \emph{lazy-wave}). 
+Neste segmento estudam-se os impactos da utilização do método KPLS (\emph{Kriging model and partial least squares}) na predição de séries temporais de tensão para aplicação no estudo da vida em fadiga dos risers. No caso deste estudo, a análise é feita a partir das tensões externas de Von Mises desenvolvidas a partir do software Anflex do CENPES/PETROBRAS. O caso analisado consiste em um longo \emph{riser} com flutuadores (Fig. \ref{figure.1}) que tornam flutuante parte da estrutura submersa (configuração \emph{lazy-wave}). 
 
 \begin{figure}[!ht]
     \centering
@@ -16,18 +16,18 @@ Neste segmento estuda-se os impactos da utilização do método KPLS (\emph{Krig
     \label{figure.1}
 \end{figure}
 
-O segmento flutuante (denominado região de SAG/HOG) tem o objetivo de atenuar os carregamentos advindos dos deslocamentos da estrutura flutuante no segmento do \emph{riser} em contato com o leito marinho. Seus efeitos podem ser observados no andamento deste estudo ao causar notável influencia na vida em fadiga dos elementos próximos. 
+O segmento flutuante (denominado região de SAG/HOG) tem o objetivo de atenuar os carregamentos advindos dos deslocamentos da estrutura flutuante no segmento do \emph{riser} em contato com o leito marinho. Seus efeitos podem ser observados no andamento deste estudo ao causar notável influência na vida em fadiga dos elementos próximos. 
 
 A biblioteca SMT foi utilizada para aplicação do método KPLS. Este pacote possui muitas ferramentas de metamodelo também aplicadas neste projeto \cite{BOUHLEL2019}.
 
-Dessa forma, tem-se o intúito de se aplicar o método \emph{RainFlow} e o método de Goodman modificado para determinação da vida em fadiga a partir das séries de tensões externas de Von Mises advindas das simulações feitas no Anflex. O método KPLS é utilizado para predição parcial destas séries e então se calcula a vida em fadiga destas séries parcialmente ajustadas. Ao comparar-se os resultados observou-se boa conformidade, o que levanta boas oportunidades de otimização ao tornar facultativo o desenvolvimento de uma simulação completa para este tipo de análise. 
+Dessa forma, tem-se o intuito de se aplicar o método \emph{RainFlow} e o método de Goodman modificado para determinação da vida em fadiga a partir das séries de tensões externas de Von Mises advindas das simulações feitas no Anflex. O método KPLS é utilizado para predição parcial destas séries e então se calcula a vida em fadiga destas séries parcialmente ajustadas. Foi observada boa conformidade ao se comparar os resultados, o que levanta boas oportunidades de otimização ao tornar facultativo o desenvolvimento de uma simulação completa para este tipo de análise. 
 
 \section{Metodologia}
 
 Para o estudo da vida em fadiga se utilizou o método \emph{RainFlow} e o método de Goodman modificado, enquanto que o método utilizado para se prever as séries temporais foi o \emph{KPLS}. 
 
 \subsection{Método RainFlow}\label{rainflow}
-Desenvolvido em 1968 por Tatsuo Endo e M. Matsuishi segundo \cite{dowling2007}, o método \emph{Rainflow} tem o objetivo de identificar os ciclos individuais de carregamento. Estas informações, ao se analisar séries temporais periódicas, podem ser usadas no desenvolvimento da vida em fadiga da estrutura analisada, isto é, o número de ciclos que o objeto de estudo aguentará antes de uma fratura devido à fadiga ocorrer. Ele foi desenvolvido com inspiração nos \emph{pagodes}, que são construções de arquitetura asiática muito utilizados como templos budistas (Fig.\ref{pagode}) em países como o Japão, China e as Coreias. 
+Desenvolvido em 1968 por Tatsuo Endo e M. Matsuishi segundo \cite{dowling2007}, o método \emph{Rainflow} tem o objetivo de identificar os ciclos individuais de carregamento. Estas informações podem ser usadas no estudo de séries temporais periódicas no desenvolvimento da vida em fadiga da estrutura analisada, isto é, o número de ciclos que o objeto de estudo aguentará antes de uma fratura devido à fadiga ocorrer. Ele foi desenvolvido com inspiração nos \emph{pagodes}, que são construções de arquitetura asiática muito utilizados como templos budistas (Fig.\ref{pagode}) em países como o Japão, China e as Coreias. 
 
 \begin{figure}[!ht]
     \centering
@@ -36,7 +36,7 @@ Desenvolvido em 1968 por Tatsuo Endo e M. Matsuishi segundo \cite{dowling2007}, 
     \label{pagode}
 \end{figure}
 
-O método se baseia na analogia de um dia de chuva sobre um \emph{pagode}. Ao deixar um dos telhados a água cai verticalmente, podendo ou não tocar os telhados subsequentes. Tocar ou não o andar de baixo tem carácter classificatório sobre um ponto de vista de ciclos de carregamento. Ao se analisar três pontos em uma série temporal (pico, vale e pico) e se imaginar a situação descrita pela analogia, se a água que deixa o primeiro pico não tocar o segundo não há um ciclo de carregamento. Se, por outro lado, tocar, tem-se então identificado um ciclo de carregamento (Fig.\ref{rain_flow_1}). O mesmo pensamento pode ser aplicado em situações de vale, pico e vale.
+O método se baseia na analogia de um dia de chuva sobre um \emph{pagode}. Ao deixar um dos telhados a água cai verticalmente, podendo ou não tocar os telhados subsequentes. Tocar ou não o andar de baixo tem carácter classificatório sobre um ponto de vista de ciclos de carregamento. Ao se analisarem três pontos em uma série temporal (pico, vale e pico) e se imaginar a situação descrita pela analogia, se a água que deixa o primeiro pico não tocar o segundo não há um ciclo de carregamento. Se, por outro lado, tocar, tem-se então identificado um ciclo de carregamento (Fig.\ref{rain_flow_1}). O mesmo pensamento pode ser aplicado em situações de vale, pico e vale.
 
 \begin{figure}[!ht]
     \centering
@@ -59,7 +59,7 @@ Como o método só lida com ciclos de tensão, o primeiro passo nesta análise �
 Após a adequação, o algorítimo passará pelos seguintes passos a partir do primeiro elemento da série:
 \begin{itemize}
     \item É executada a análise \emph{Rainflow} de três pontos ($X_i$ , $X_{i+1}$ e $X_{i+2}$);
-    \item Se identificado um ciclo de carregamento, são armazenados os dados do ciclo ( $\sigma_{m}$ , $\sigma_{a}$ ) e se exclui da análise os dois primeiro pontos ($X_i$ e $X_{i+1}$). Depois disso, o algorítmo é encaminhado para o primeiro elemento da série temporal;
+    \item Identificado-se um ciclo de carregamento, são armazenados os dados do ciclo ( $\sigma_{m}$ , $\sigma_{a}$ ) e se excluem da análise os dois primeiro pontos ($X_i$ e $X_{i+1}$). Depois disso, o algoritmo é encaminhado para o primeiro elemento da série temporal;
     \item Se não for identificado um ciclo de carregamento a análise é levada ao próximo passo de tempo e se repete este protocolo;    
 \end{itemize}
 
@@ -114,12 +114,11 @@ Onde $B_f$ representa a vida em fadiga do material quando exposto à série  tem
 
 \subsection{Método KPLS de predição de séries temporais}
 
-O modelo KPLS (Kriging by partial least squares) é bem mais rápido que Kriging clássicos por lidar com um menor número de hiperparâmetros. Além disso ele apresenta boa performance em problemas multidimensionais. 
+O modelo KPLS (Kriging by partial least squares) é bem mais rápido que Kriging clássicos por lidar com um menor número de hiperparâmetros. Além disso ele apresenta boa performance em problemas multidimensionais.
 
 O equacionamento principal deste método pode ser observado na Eq.\ref{kpls}:
-    
 \begin{equation}\label{kpls}
-    \prod^{nx}_{l=1} \prod^{nx}_{k=1} \text{exp} \left( -\theta_l(w_l^{(k)} x_l^{(i)} - w_l^{(k)} x_l^{(j)} )^2\right).
+    \prod^{nx}_{l=1} \prod^{h}_{k=1} \text{exp} \left( -\theta_k \left(w_l^{(k)} x_l^{(i)} - w_l^{(k)} x_l^{(j)} \right)^2\right) \text{      $\forall$ $\theta_l$, $\theta_h$ $\in$ $\mathds{R^+}$}
 \end{equation}
 
 O método foi aplicado a partir do pacote SMT \cite{BOUHLEL2019}.
@@ -157,11 +156,11 @@ Observam-se bons resultados, sendo possível relacionar vários pontos no gráfi
     \label{vida_em_fadiga_estatistica}
 \end{figure}
 
-Na Fig.\ref{vida_em_fadiga_estatistica} pode-se observar uma anomalia nos últimos elementos estruturais do \emph{riser}. Isso pode ser explicado pelo fato de que estes elementos fazem parte do acoplamento entre a estrutura estudada e o corpo rígido flutuante. Dessa forma, suas propriedades mecânicas são diferentes e não carregam representatividade física.
+Na Fig.\ref{vida_em_fadiga_estatistica} pode-se observar quedas de tensão nos últimos elementos estruturais do \emph{riser}. Estes elementos fazem parte do acoplamento do tubo com o corpo rígido flutuante.
 
 \subsection{Resultados preliminares do método KPLS}
 
-Utilizaram-se os dados de rotação e deslocamento do ponto de ancoragem (elemento \emph{PP}) como entrada para o treino do modelo. Tem-se a predição de metade da série, isto é, foram utilizados 9000 passos para treino, prevendo-se o restante (50\%). O resultado obtido pode ser visto adiante:
+Utilizaram-se os dados de rotação e deslocamento do ponto de conexão (elemento \emph{PP}) como entrada para o treino do modelo. Tem-se a predição de metade da série, isto é, foram utilizados 9000 passos para treino, prevendo-se o restante (50\%). O resultado obtido pode ser visto adiante:
 
 \begin{figure}[!ht]
     \centering
@@ -176,7 +175,7 @@ Os dados das séries temporais de tensões expostas na Fig.\ref{serie_tensao_pre
 
 \subsection{Resultados gerais de vida em fadiga para séries feitas via KPLS}
 
-Dessa forma, a análise foi feita para diferentes porcentagens de passos de tempo dedicados para treino ( $10\%$ , $20\%$ , $30\%$ , $40\%$ e $50\%$), sendo o restantes dos pontos conseguidos a partir do método KPLS. Além disso o estudo foi feito em todos os elemento estruturais do \emph{riser}.
+Dessa forma, a análise foi feita para diferentes porcentagens de passos de tempo dedicados para treino ( $10\%$ , $20\%$ , $30\%$ , $40\%$ e $50\%$), sendo o restante dos pontos conseguidos a partir do método KPLS. Além disso o estudo foi feito em todos os elemento estruturais do \emph{riser}.
 
 \begin{figure}[!ht]
     \centering
@@ -191,7 +190,7 @@ Assim, notou-se que conforme se aumenta a porcentagem do número de passos de te
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=1\linewidth, trim = {0mm 0mm 0mm 0mm} , clip]{felipe/fig_felipe/fadiga_estatisticas.pdf} 
-    \caption{Dados estatísticos dos resultados obtidos quanto a vida em fadiga. Com a média dos erros e desvio padrão. Também adimensionalizados ao serem divididos pelo valor médio de ciclos da vida em fadiga.}
+    \caption{Dados estatísticos dos resultados obtidos quanto à vida em fadiga. Com a média dos erros e desvio padrão. Também adimensionalizados ao serem divididos pelo valor médio de ciclos da vida em fadiga.}
     \label{estatistica_valores}
 \end{figure}
 
@@ -225,6 +224,6 @@ As séries temporais de tensão parcialmente preditas também foram analisadas e
 
 Conclui-se que o método KPLS para predição de séries temporais é aplicável no desenvolvimento de vida em fadiga ao se levar em conta quanto de erro é admissível no caso estudado. Isso pode causar grande otimização no processo uma vez que reduz de forma significativa o tempo de simulação necessário para o desenvolvimento da análise sem grandes comprometimentos quanto à acurácia do método numérico. 
 
-Vale ressaltar que a decisão de aplicação da metodologia KPLS também depende do tipo de análise que será feita, uma vez que a predição causa desvios significativos dependendo do segmento do \emph{riser}, como nos entornos de zonas flutuantes e nos pontos de contato das estruturas com o leito marinho. Assim, pontos sujeitos a grandes não linearidades dinâmicas resultam em anomalias perceptíveis. 
+Vale ressaltar que a decisão de aplicação da metodologia KPLS também depende do tipo de análise que será feita, uma vez que a predição causa desvios significativos dependendo do segmento do \emph{riser}, como nos entornos de zonas flutuantes e nos pontos de contato das estruturas com o leito marinho. Assim, pontos sujeitos a grandes não linearidades dinâmicas resultam em anomalias perceptíveis. Tendo-se em mente a importância destes pontos neste tipo de análise, mais estudos serão feitos para que seja possível uma melhora nos resultados para estes pontos. Apesar disso, já se observam erros menores que 10\% ao se prever metade da série.
 
-No futuro deste estudo pretende-se analisar mais porcentagens de traino para o método KPLS, além de se procurar outros casos para se aplicar esta análise.
+No futuro deste estudo pretende-se analisar mais porcentagens de treino para o método KPLS, além de se procurar outros casos para se aplicar esta análise.
