@@ -1,0 +1,72 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main_ppgco_ufu.aux
+A level-1 auxiliary file: cap_introducao/introducao.aux
+A level-1 auxiliary file: cap_fundamentacao/fundamentacao.aux
+A level-1 auxiliary file: cap_casos/casos.aux
+A level-1 auxiliary file: cap_conclusao/conclusao.aux
+The style file: abntex2-alf.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Database file #1: abntex2-options.bib
+Database file #2: bib/abntex2-modelo-references.bib
+Warning--I didn't find a database entry for "abnt-year-extra-label=yes"
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Warning--campo title vazio em Cengel
++---------------------------------------------------------+
+| Estilo bibliográfico abntex2-alf.bst versão v-1.9.7           |
+| Em caso de dúvidas ou problemas com este estilo procure |
+| http://www.abntex.net.br/                               |
++---------------------------------------------------------+
+You've used 17 entries,
+            6714 wiz_defined-function locations,
+            1290 strings with 12109 characters,
+and the built_in function-call counts, 15261 in all, are:
+= -- 1554
+> -- 406
+< -- 201
++ -- 391
+- -- 125
+* -- 977
+:= -- 2028
+add.period$ -- 53
+call.type$ -- 17
+change.case$ -- 148
+chr.to.int$ -- 24
+cite$ -- 15
+duplicate$ -- 1123
+empty$ -- 902
+format.name$ -- 583
+if$ -- 3336
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 284
+newline$ -- 74
+num.names$ -- 70
+pop$ -- 393
+preamble$ -- 1
+purify$ -- 62
+quote$ -- 0
+skip$ -- 1251
+stack$ -- 1
+substring$ -- 536
+swap$ -- 390
+text.length$ -- 7
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 92
+width$ -- 0
+write$ -- 214
+(There were 2 warnings)
