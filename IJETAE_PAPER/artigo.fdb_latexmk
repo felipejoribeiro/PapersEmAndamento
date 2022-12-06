@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1668990905 "artigo.tex" "artigo.pdf" "artigo" 1668990907
+["pdflatex"] 1669932753 "artigo.tex" "artigo.pdf" "artigo" 1669932755
   "/Users/fejori/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/sauter/cmr25.723pk" 1668990905 38392 2fb3235b2f68349e485e799dbdc7ba0f ""
   "/Users/fejori/Library/texlive/2022/texmf-var/fonts/tfm/public/sauter/cmr25.tfm" 1668990902 1236 f477d315501ededa4023dd917bcad658 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
@@ -178,8 +178,8 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1668979708 2826445 07f13a00d4f34f3564e3a911f46d032c ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "artigo.aux" 1668990907 7191 4db55372678d395aee47e62637e791bf "pdflatex"
-  "artigo.tex" 1666874407 47774 052b0e80027fd90287bbe349138903c3 ""
+  "artigo.aux" 1669932755 7191 4db55372678d395aee47e62637e791bf "pdflatex"
+  "artigo.tex" 1669932750 47774 052b0e80027fd90287bbe349138903c3 ""
   "fotos_formatacao_final/Convergence.png" 1666874407 15037 415377471e9c0da5106dbf6f6bee50ec ""
   "fotos_formatacao_final/DNS_PRt.png" 1666874407 54279 aa0ffdd3290777b0be91e8fc4e97b4b9 ""
   "fotos_formatacao_final/Genetic_amostra.png" 1666874407 18204 e04cf797bcb6616c546339ef2f677926 ""
