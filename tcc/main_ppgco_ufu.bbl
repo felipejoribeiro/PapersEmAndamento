@@ -7,8 +7,7 @@
 
 \bibitem[A. e N. 2015]{luigi}
 \abntrefinfo{A. e N.}{A.; N.}{2015}
-{A., A.~L.; N., S.~A. Theoretical study of fully develop turbulent flow in a
-  flat channel, using prandtl's mixing length model.
+{A., A.~L.; N., S.~A. Theoretical study of fully develop turbulent flow in a flat channel, using prandtl's mixing length model.
 2015.}
 
 \bibitem[ARAGO 2012]{argo}
@@ -19,121 +18,88 @@
 \bibitem[BERNOULLI 1727]{1570009750104671360}
 \abntrefinfo{BERNOULLI}{BERNOULLI}{1727}
 {BERNOULLI, D. Theoria nova de motu aquarum per canales quoscunque fluentium.
-\textbf{Commentarii Academiae scientiarum Petoropolitanae}, v.~2, p. 111--125,
-  1727.
+\textbf{Commentarii Academiae scientiarum Petoropolitanae}, v.~2, p. 111--125, 1727.
 Dispon{\'\i}vel em: \url{https://cir.nii.ac.jp/crid/1570009750104671360}.}
 
 \bibitem[Cengel e Ghajar 2006]{Cengel}
 \abntrefinfo{Cengel e Ghajar}{CENGEL; GHAJAR}{2006}
-{CENGEL, Y.~A.; GHAJAR, A.~J. First edition. [S.l.]: McGraw-Hill series in
-  mechanical engineering, 2006.}
+{CENGEL, Y.~A.; GHAJAR, A.~J. First edition. [S.l.]: McGraw-Hill series in mechanical engineering, 2006.}
 
 \bibitem[Dijksterhuis 2014]{dijksterhuis2014archimedes}
 \abntrefinfo{Dijksterhuis}{DIJKSTERHUIS}{2014}
-{DIJKSTERHUIS, E. \textbf{Archimedes}. Princeton University Press, 2014.
-  (Princeton Legacy Library).
-ISBN 9781400858613. Dispon{\'\i}vel em:
-  \url{https://books.google.com.br/books?id=Vvj\\_AwAAQBAJ}.}
+{DIJKSTERHUIS, E. \textbf{Archimedes}. Princeton University Press, 2014.  (Princeton Legacy Library).
+ISBN 9781400858613. Dispon{\'\i}vel em: \url{https://books.google.com.br/books?id=Vvj\\_AwAAQBAJ}.}
 
 \bibitem[H. 2007]{dns1020}
 \abntrefinfo{H.}{H.}{2007}
-{H., K. Direct numerical simulation data base for turbulent channel flow with
-  heat transfer.
-<http://www.rs.tus.ac.jp/~t2lab/db/index.html>, Laboratory of Thermo-fluid
-  dynamics, Department of Mechanical Engineering, Faculty of Science and
-  Technology, Tokyo University of Science, Noda-shi, Chiba-ken, Japan, 2007.}
+{H., K. Direct numerical simulation data base for turbulent channel flow with heat transfer.
+<http://www.rs.tus.ac.jp/~t2lab/db/index.html>, Laboratory of Thermo-fluid dynamics, Department of Mechanical Engineering, Faculty of Science and Technology, Tokyo University of Science, Noda-shi, Chiba-ken, Japan, 2007.}
 
 \bibitem[H., H. e M. 1999]{Abe}
 \abntrefinfo{H., H. e M.}{H.; H.; M.}{1999}
-{H., K.; H., A.; M., Y. Dns of turbulent heat transfer in channel flow with
-  respect to reynolds and prandtl number effects.
+{H., K.; H., A.; M., Y. Dns of turbulent heat transfer in channel flow with respect to reynolds and prandtl number effects.
 \textbf{Elsevier}, Tokio, Japan, 1999.}
 
 \bibitem[H. et al. 1992]{dns150}
 \abntrefinfo{H. et al.}{H. et al.}{1992}
-{H., K. et al. Establishment of the direct numerical simulation data bases of
-  turbulent transport phenomena.
-<http://thtlab.jp/DNS/dns\_database.html>, Co-operative Research No. 02302043,
-  Bunkyo-ku, Tokyo 113, 1992.}
+{H., K. et al. Establishment of the direct numerical simulation data bases of turbulent transport phenomena.
+<http://thtlab.jp/DNS/dns\_database.html>, Co-operative Research No. 02302043, Bunkyo-ku, Tokyo 113, 1992.}
 
 \bibitem[Hill 1984]{history_engeneering}
 \abntrefinfo{Hill}{HILL}{1984}
-{HILL, D. \textbf{A History of Engineering in Classical and Medieval Times}.
-  Routledge, 1984. Dispon{\'\i}vel em:
-  \url{https://doi.org/10.4324/9781315800110}.}
+{HILL, D. \textbf{A History of Engineering in Classical and Medieval Times}. Routledge, 1984. Dispon{\'\i}vel em: \url{https://doi.org/10.4324/9781315800110}.}
 
-\bibitem[Incropera Freank 2007]{Incropera}
-\abntrefinfo{Incropera Freank}{INCROPERA FREANK}{2007}
-{INCROPERA FREANK, P. D. D.~P. 3rd edition. ed. [S.l.: s.n.], 2007.}
+\bibitem[Incropera et al. 2007]{Incropera}
+\abntrefinfo{Incropera et al.}{INCROPERA et al.}{2007}
+{INCROPERA et al. 3rd edition. ed. [S.l.: s.n.], 2007.}
 
 \bibitem[Kawamura, Abe e Shingai 2000]{Kawamura}
 \abntrefinfo{Kawamura, Abe e Shingai}{KAWAMURA; ABE; SHINGAI}{2000}
-{KAWAMURA, H.; ABE, H.; SHINGAI, k. Dns of turbulence and heat transport in a
-  channel flow with different reynolds and prandtl numbers and boundary
-  conditions.
-\textbf{Turbulence, Heat and Mass Transfer 3, (Proc. of the 3rd International
-  Symposium on Turbulence, Heat and Mass Transfer)}, 2000.}
+{KAWAMURA, H.; ABE, H.; SHINGAI, k. Dns of turbulence and heat transport in a channel flow with different reynolds and prandtl numbers and boundary conditions.
+\textbf{Turbulence, Heat and Mass Transfer 3, (Proc. of the 3rd International Symposium on Turbulence, Heat and Mass Transfer)}, 2000.}
 
 \bibitem[Neto 2018]{aristeu}
 \abntrefinfo{Neto}{NETO}{2018}
-{NETO, A. da S. \textbf{Turbul\^encia nos fluidos, textbook of the post
-  graduate mechanical engineering course of federal university of
-  Uberl\^andia}. [S.l.]: Uberl\^andia, Brazil, 2018.}
+{NETO, A. da S. \textbf{Turbul\^encia nos fluidos, textbook of the post graduate mechanical engineering course of federal university of Uberl\^andia}. [S.l.]: Uberl\^andia, Brazil, 2018.}
 
 \bibitem[O. e Hasan 2007]{hasan}
 \abntrefinfo{O. e Hasan}{O.; HASAN}{2007}
-{O., B.; HASAN. Turbulent prandtl number and its use in prediction of heat
-  transfer coefficient for liquids.
-\textbf{Nahrain University, College of engineering Journal (NUCEJ) Vol.10,
-  No.1}, 2007.}
+{O., B.; HASAN. Turbulent prandtl number and its use in prediction of heat transfer coefficient for liquids.
+\textbf{Nahrain University, College of engineering Journal (NUCEJ) Vol.10, No.1}, 2007.}
 
 \bibitem[Poiseuille 1846]{Poiseuille}
 \abntrefinfo{Poiseuille}{POISEUILLE}{1846}
-{POISEUILLE, J. L.~M. \textbf{Recherches experimentales sur Ie mouvement des
-  liquides dans les tubes de tres-petits diametres}. 1846. Memoires presentes
-  par divers savants a l'Academie Royale des Sciences de l'Institut de France.}
+{POISEUILLE, J. L.~M. \textbf{Recherches experimentales sur Ie mouvement des liquides dans les tubes de tres-petits diametres}. 1846. Memoires presentes par divers savants a l'Academie Royale des Sciences de l'Institut de France.}
 
 \bibitem[Price 2013]{Price2013}
 \abntrefinfo{Price}{PRICE}{2013}
 {PRICE, K.~V. Differential evolution.
-In:  \underline{\ \ \ \ \ \ \ \ }. \textbf{Handbook of Optimization: From
-  Classical to Modern Approach}. Berlin, Heidelberg: Springer Berlin
-  Heidelberg, 2013. p. 187--214.
+In:  \underline{\ \ \ \ \ \ \ \ }. \textbf{Handbook of Optimization: From Classical to Modern Approach}. Berlin, Heidelberg: Springer Berlin Heidelberg, 2013. p. 187--214.
 ISBN 978-3-642-30504-7.
 Dispon{\'\i}vel em: \url{https://doi.org/10.1007/978-3-642-30504-7\_8}.}
 
 \bibitem[Ray e Bhaskaran 2013]{CFD_in_learing}
 \abntrefinfo{Ray e Bhaskaran}{RAY; BHASKARAN}{2013}
-{RAY, B.; BHASKARAN, R. \textbf{Integrating Simulation into the Engineering
-  Curriculum: A Case Study}. 2013. International Journal of Mechanical
-  Engineering Education, 41(3):269-280.}
+{RAY, B.; BHASKARAN, R. \textbf{Integrating Simulation into the Engineering Curriculum: A Case Study}. 2013. International Journal of Mechanical Engineering Education, 41(3):269-280.}
 
 \bibitem[Ribeiro e Neto 2020]{felipe1}
 \abntrefinfo{Ribeiro e Neto}{RIBEIRO; NETO}{2020}
-{RIBEIRO, F. J.~O.; NETO, A. da S. Thermal analysis of turbulent poiseuille
-  flows.
-\textbf{INTERNATIONAL JOURNAL OF EMERGING TECHNOLOGY AND ADVANCED ENGINEERING},
-  v.~10, 2020.
+{RIBEIRO, F. J.~O.; NETO, A. da S. Thermal analysis of turbulent poiseuille flows.
+\textbf{INTERNATIONAL JOURNAL OF EMERGING TECHNOLOGY AND ADVANCED ENGINEERING}, v.~10, 2020.
 ISSN 22502459.
-Dispon{\'\i}vel em:
-  \url{https://ijetae.com/files/Volume10Issue3/IJETAE\_1003\_01.pdf}.}
+Dispon{\'\i}vel em: \url{https://ijetae.com/files/Volume10Issue3/IJETAE\_1003\_01.pdf}.}
 
 \bibitem[Sert e Nakiboglu 2007]{CFD_in_learing_2}
 \abntrefinfo{Sert e Nakiboglu}{SERT; NAKIBOGLU}{2007}
-{SERT, C.; NAKIBOGLU, G. \textbf{Use Of Computational Fluid Dynamics (Cfd) In
-  Teaching Fluid Mechanics Paper presented}. 2007. Annual Conference \&
-  Exposition, Honolulu, Hawaii. 10.18260/1-2--2351.}
+{SERT, C.; NAKIBOGLU, G. \textbf{Use Of Computational Fluid Dynamics (Cfd) In Teaching Fluid Mechanics Paper presented}. 2007. Annual Conference \& Exposition, Honolulu, Hawaii. 10.18260/1-2--2351.}
 
 \bibitem[Sommerer, Ott e Tél 1997]{John}
 \abntrefinfo{Sommerer, Ott e Tél}{SOMMERER; OTT; TéL}{1997}
-{SOMMERER, J.; OTT, E.; TéL, T. \textbf{Modeling Two-Dimensional Fluid Flows
-  with Chaos Theory}. 1997. Johns Hopkins APL Technical Digest, volume 18,
-  number 2.}
+{SOMMERER, J.; OTT, E.; TéL, T. \textbf{Modeling Two-Dimensional Fluid Flows with Chaos Theory}. 1997. Johns Hopkins APL Technical Digest, volume 18, number 2.}
 
 \bibitem[V., R. e J. 2005]{diferential}
 \abntrefinfo{V., R. e J.}{V.; R.; J.}{2005}
-{V., P.~K.; R., S.~M.; J., L.~A. Differential evolution, a practical approach
-  to global optimization.
+{V., P.~K.; R., S.~M.; J., L.~A. Differential evolution, a practical approach to global optimization.
 2005.}
 
 \end{thebibliography}

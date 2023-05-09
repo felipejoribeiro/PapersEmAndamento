@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2022)
+This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main_ppgco_ufu.aux
 A level-1 auxiliary file: cap_introducao/introducao.aux
@@ -18,58 +18,10 @@ Database file #1: abntex2-options.bib
 Database file #2: bib/abntex2-modelo-references.bib
 Warning--I didn't find a database entry for "abnt-year-extra-label=yes"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2091 of file abntex2-alf.bst
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Warning--campo title vazio em Cengel
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2146 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2146 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2146 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2146 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2146 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2146 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2146 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2146 of file abntex2-alf.bst
-Too many commas in name 1 of "Incropera, Freank, P., Dewitt, David, P." for entry Incropera
-while executing---line 2146 of file abntex2-alf.bst
 Warning--campo title vazio em Incropera
 +---------------------------------------------------------+
 | Estilo bibliográfico abntex2-alf.bst versão v-1.9.7           |
@@ -78,37 +30,37 @@ Warning--campo title vazio em Incropera
 +---------------------------------------------------------+
 You've used 23 entries,
             6714 wiz_defined-function locations,
-            1321 strings with 13312 characters,
-and the built_in function-call counts, 20406 in all, are:
-= -- 1987
-> -- 576
+            1321 strings with 13320 characters,
+and the built_in function-call counts, 20659 in all, are:
+= -- 2006
+> -- 602
 < -- 247
-+ -- 497
-- -- 177
-* -- 1321
-:= -- 2728
++ -- 508
+- -- 184
+* -- 1351
+:= -- 2760
 add.period$ -- 76
 call.type$ -- 23
-change.case$ -- 209
+change.case$ -- 216
 chr.to.int$ -- 33
 cite$ -- 22
-duplicate$ -- 1481
-empty$ -- 1232
-format.name$ -- 830
-if$ -- 4474
+duplicate$ -- 1484
+empty$ -- 1233
+format.name$ -- 868
+if$ -- 4535
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 388
+missing$ -- 389
 newline$ -- 105
 num.names$ -- 100
-pop$ -- 542
+pop$ -- 546
 preamble$ -- 1
-purify$ -- 85
+purify$ -- 87
 quote$ -- 0
-skip$ -- 1598
+skip$ -- 1607
 stack$ -- 1
 substring$ -- 716
-swap$ -- 510
+swap$ -- 512
 text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
@@ -117,4 +69,4 @@ warning$ -- 2
 while$ -- 132
 width$ -- 0
 write$ -- 301
-(There were 24 error messages)
+(There were 3 warnings)
