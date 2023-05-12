@@ -3,7 +3,7 @@
 
 \section{Modelo físico}
 
-Neste trabalho, procura-se analisar térmicamente um escoamento turbulento no canal de Poiseuille. Ele pode ser definido como um escoamento confinado, com apenas uma dimensão finita no eixo $y$. Duas placas infinitas são definidas, perpendiculares ao eixo $y$. Nelas, o escoamento atinge velocidade igual a zero (condição de não deslizamento) e estão em regime de fluxo térmico constante. O eixo $z$ é definido como auto-similar tanto na velocidade quanto na temperatura, resultando em um domínio plano (Fig.\ref{descricaoGeometrica}). O escoamento foi considerado incompressível e o fluido foi considerado newtoniano. Neste sistema físico, o fluido escoa, em média, somente na direção do eixo $x$.
+Neste trabalho, procura-se analisar o perfil térmico sobre um escoamento turbulento no canal de Poiseuille. Ele pode ser definido como um escoamento confinado entre duas placas infinitas. Nelas, o escoamento atinge velocidade igual a zero (condição de não deslizamento) e estão em regime de fluxo térmico constante. Tais placas encontram-se perpendiculares ao eixo $y$. O eixo $z$ é definido como auto-similar tanto na velocidade quanto na temperatura, resultando em um domínio plano (Fig.\ref{descricaoGeometrica}). O escoamento foi considerado incompressível e o fluido foi considerado newtoniano. Neste sistema físico, o fluido escoa, em média, somente na direção do eixo $x$.
 Os números de Reynolds ($Re = \frac{2R \overline{U}}{\nu}$) variam de $4560$ a $41441$, resultando em um regime turbulento.
 
 \begin{figure}[h!]
@@ -666,4 +666,88 @@ Estes foram os melhores resultados obtidos.
 
 \chapter{Simulações no MFsim}
 
-Tendo-se estes novo modelos sido propostos, novas simulações foram feitas no MFsim, com o objetivo de validar se estes modelos tem utilidade em softwares comerciais de simulação fluidodinâmica.
+Tendo-se estes novo modelos sido propostos, novas simulações foram feitas no MFsim, visando validar se estes modelos para a constante de Cebeci e o número de Prandtl turbulento tem utilidade em softwares comerciais de simulação fluidodinâmica.
+
+\section{Sobre a parametrização do sistema}
+Estabeleceu-se o domínio computacional como um paralelepípedo de dimensões $0.25m$ por $0.25m$ por $2m$, onde a dimensão maior seria a no sentido da corrente. A partir disso, calculou-se o gradiente de pressão a partir das seguintes equações:
+
+\begin{equation}
+  Re_\tau = \frac{u_\tau R}{\nu}
+\end{equation}
+
+\begin{equation}
+  u_\tau = \sqrt{\frac{|\tau_w|}{\rho}}
+\end{equation}
+
+\begin{equation}
+  \tau_w = \Delta P \frac{R}{L}
+\end{equation}
+
+Desenvolvimendo as equações acima, tem-se:
+
+\begin{equation}
+  \Delta P = \tau_w \frac{L}{R}
+\end{equation}
+
+\begin{equation}
+  \tau_w = \rho u_\tau^2
+\end{equation}
+
+\begin{equation}
+  u_\tau = \frac{\nu Re_\tau}{R}
+\end{equation}
+
+
+Assim, esbosa-se uma relação entre a diferença de pressão e o número de Reynolds:
+
+\begin{equation}
+  \Delta P = Re_\tau^2 \frac{L \mu^2}{\rho R^3}
+\end{equation}
+
+\begin{equation}
+  \Delta P =3 Re \frac{L \mu^2}{\rho R^2}
+\end{equation}
+
+Adotam-se os seguintes valores:
+\begin{itemize}
+  \item $L = 2m$
+  \item $R = 0.125m$
+  \item $\mu = 0.1 kg/m.s$
+  \item $\rho = 100 kg/m^3$
+\end{itemize}
+
+A partir destas equações é possível se calcular o valor da diferença de pressão entre a entrada e saída do fluxo a partir do número de Raynolds avaliado, segue uma tabela com os valores de diferença de pressão resultantes:
+
+\begin{table}[!h]
+  \centering
+  \caption{Valores de diferença de pressão para cada número de Reynolds turbulento.}
+  \begin{tabular}{ll}
+    \hline
+    $Re_\tau$ & $\Delta P$ \\
+    \hline
+    150  &   2304 &
+    395  &   15976,96 &
+    640  &   41943,04 &
+    1020 &   106536,96 &
+    \hline
+  \end{tabular}
+\end{table}
+
+\section{O domínio computacional}
+Assim, para representar o domínio, uma malha de $200$ volumes por $25$ volumes por $25$ volumes. O que resultou em volumes cúbicos de $0.01cm$ de tamanho. A malha gerada pode ser vista na figura \ref{fig:malha}:
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[angle=0, scale=0.25]{cap_fundamentacao/domain_mesh.jpeg}
+  \caption{Malha gerada para a simulação.}
+  \label{fig:malha}
+\end{figure}
+
+Para a condição de contorno estipulou-se dirichlet para a presão nas paredes perpendiculares ao eixo $x$ (no sentido da corrente), a partir dos valores caluclados anteriormente, assim como nas paredes perpendiculares ao eixo $z$, enquanto as velocidades foram mantidas como newmann, considerando-se auto similaridade no eixo $z$. Já nas paredes perpendiculares ao eixo $y$, configuraram-se as velocidades iqual a zero, uma vez que é onde estão localizadas as paredes em condição de não escorregamento. Os resultados iniciais podem ser vistos adiante (\ref{fig:first_results}):
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[angle=0, scale=0.25]{cap_fundamentacao/first_results.jpeg}
+  \caption{Resultados para $Re_\tau = 150$.}
+  \label{fig:first_results}
+\end{figure}

@@ -1,5 +1,5 @@
 \babel@toc {brazil}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Relógio de água de Ctesibius, visualização criada pelo arquiteto francês Claude Perrault}}{19}{figure.1.1}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Relógio de água de Ctesibius, visualização criada pelo arquiteto francês Claude Perrault}}{18}{figure.1.1}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Definição geométrica e condições de contorno.}}{21}{figure.2.2}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Representação geométrica da separação entre os valores médios e as flutuações.}}{23}{figure.2.3}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Campo de temperatura média no canal de Poiseuille. O perfil de temperatura no canal aumenta linearmente na direção do fluxo.}}{24}{figure.2.4}%
@@ -42,3 +42,5 @@
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_t = 0.049$}}{36}{figure.3.15}%
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_t = 0.061$}}{36}{figure.3.15}%
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_t = 0.076$}}{36}{figure.3.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Malha gerada para a simulação.}}{38}{figure.4.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Resultados para $Re_\tau = 150$.}}{39}{figure.4.17}%

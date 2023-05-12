@@ -2,14 +2,12 @@
 \label{sec:introduction}
 
 \section{Motivação}
-A mecânica dos fluidos é um tópico muito estudado no meio acadêmico. O assunto permeia conceitos abstratos e de formulação matemática complexa \cite{hasan}. A natureza não linear desse tipo de fenômeno \cite{John} dificulta uma solução matemática contínua. Consequentemente, na grande maioria dos casos, métodos numéricos tornam-se necessárias para o entendimento dos fenômenos. Quando Simulações Numéricas Diretas (DNS) não são uma opção, aproximações devem ser feitas para que se viabilize a solução das equações de Navier-Stokes, como modelos de fechamento da turbulência, ajustes e aproximações.
+A fluido-dinâmica tem grande valor acadêmico para estudantes nos cursos de graduação em engenharia, dada a extensa lista de aplicações industriais \cite{CFD_in_learing_2}. Exemplos são numerosos, como o estudo da combustão, aerodinâmica de veículos e aeronaves, climatologia, oceanografia, dentre outros.
+Mas, haja vista a complexidade do tema, não é uma tarefa simples a compreensão dos conceitos mais abstratos que envolvem geometrias arbitrárias e fluxos turbulentos \cite{hasan}. Apesar disso, estas são partes essenciais do assunto, uma vez que se aproximam de casos práticos na indústria.
 
-Não somente em trabalhos científicos, a fluido-dinâmica tem grande valor acadêmico para estudantes nos cursos de graduação em engenharia, dada a extensa lista de aplicações industriais \cite{CFD_in_learing_2}. Exemplos são numerosos, como o estudo da combustão, aerodinâmica de veículos e aeronaves, climatologia, oceanografia, dentre outros.
-Mas, haja vista a complexidade do tema, não é uma tarefa simples a compreensão dos conceitos mais abstratos que envolvem geometrias complexas e turbulência. Apesar disso, estas são partes essenciais do assunto, uma vez que se aproximam de casos práticos na indústria.
+A mecânica dos fluidos permite o aumento na eficiência de processos mecânicos, como, por exemplo, no caso das máquinas térmicas. As transformações energéticas têm como subproduto energia térmica. Tirar essa energia do sistema de forma eficiente resulta em ganho de eficiência e aumento da longevidade dos equipamentos. Por isso, tem-se o estudo da mecânica dos fluidos como um dos grandes pilares da busca da indústria por eficiência energética e sustentabilidade.
 
-O maior motivador de vasta gama de plicações é que a mecânica dos fluidos permite o aumento na eficiência de processos mecânicos, como, por exemplo, no caso das máquinas térmicas. As transformações energéticas tem como subproduto energia térmica. Tirar essa energia do sistema de forma eficiente resulta em ganho energético e aumento da longevidade dos equipamentos. Dessa forma, depender somente da difusão não é uma opção, o estudo da mecânica dos fluidos torna-se essencial na retirada dessa energia via advecção. Por esse motivo e muitos outros, tem-se o estudo da mecânica dos fluidos como um dos grandes pilares da busca atual da indústria por eficiência energética e sustentabilidade.
-
-Como a turbulência resulta em um sistema dinâmico não linear, é impossível determinar uma solução algébrica para a maioria dos casos. Para estes, a abordagem numérica é empregada, discretizando-se o espaço e o tempo. Resolver tais sistemas lineares requer enorme poder computacional, uma vez que o número de elementos necessários para simular adequadamente o fenômeno é muito grande. RANS, URANS e LES são alternativas. Eles consistem em não resolver numericamente a equação de Navier-Stokes em todas as escalas necessárias, mas em vez disso substituir alguns tensores e outros termos não lineares por aproximações conceituais e experimentais.
+A mecânica dos fluidos é um tópico muito estudado no meio acadêmico. A natureza não linear do fenômeno \cite{John} impossibilita soluções gerais analíticas. Consequentemente, na grande maioria dos casos, métodos numéricos tornam-se necessários para o entendimento dos fenômenos. Quando Simulações Numéricas Diretas (DNS) não são uma opção, aproximações devem ser feitas para que se viabilize a solução das equações de Navier-Stokes, como modelos de fechamento da turbulência, ajustes e aproximações. Para estes casos, discretizando-se o espaço e o tempo, resolver tais sistemas lineares requer enorme poder computacional, uma vez que o número de elementos necessários para simular adequadamente o fenômeno é muito grande. RANS, URANS e LES foram desenvolvidos como forma de otimizar a computação. Eles consistem em não resolver numericamente a equação de Navier-Stokes em todas as escalas necessárias, mas em vez disso substituir alguns tensores e outros termos não lineares por aproximações conceituais e experimentais, simplificando o cálculo.
 
 Tais métodos são importantes porque oferecem uma solução de forma bem mais eficiente. A abordagem DNS (Simulação Numérica Direta) exige um alto trabalho computacional, pois considera todas as escalas de complexidade, nem mesmo sendo possível ou viável na maioria dos casos \cite{Kawamura}, como explicado no trabalho de H. Kawamura, H. Abe e Yuichi Matsuo \cite{Abe}. Mas, por outro lado, esses métodos aproximados resultam em imprecisões matemáticas.
 
@@ -19,11 +17,11 @@ Dessa forma, no presente trabalho, os autores, a partir de métodos ativos de en
 
 \section{Perspectiva histórica}
 
-O estudo da mecânica dos fluidos tem origem na relação do homem com a água, que foi sempre um recurso vital e determinante na sobrevivência dos povos. Começou formalmente com Archimedes que desenvolveu as leis da flutuação, que postulam que a força responsável por fazer um objeto flutuar é igual à massa do volume deslocada de dita substância \cite{dijksterhuis2014archimedes}. Em sequência tem-se a escola alexandrina onde se desenvolveram bombas hidráulicas sendo também estudadas diversas aplicações de escoamentos confinados, como o relógio de água de Ctesibius (Fig. \ref{image:ctesibius}).
+O estudo da mecânica dos fluidos tem origem na relação do homem com a água, que sempre foi um recurso vital e determinante na sobrevivência dos povos. Começou formalmente com Archimedes que desenvolveu as leis da flutuação, que postulam que a força responsável por fazer um objeto flutuar é igual à massa do volume deslocada de dita substância \cite{dijksterhuis2014archimedes}. Em sequência tem-se a escola alexandrina onde se desenvolveram bombas hidráulicas sendo também estudadas diversas aplicações de escoamentos confinados, como o relógio de água de Ctesibius (Fig. \ref{image:ctesibius}).
 
 \begin{figure}[htb]
 	\begin{center}
-    \includegraphics[scale=0.2]{ctesibius.jpeg}
+    \includegraphics[scale=0.07]{ctesibius.jpeg}
 	\end{center}
 	\caption{\label{image:ctesibius} Relógio de água de Ctesibius, visualização criada pelo arquiteto francês Claude Perrault}
 	\legend{Fonte: \citeonline[Fig. 16 et 17.]{argo}}
@@ -37,7 +35,7 @@ Houveram, então, os estudos de Isaac Newton, onde ele descreve fluidos incompre
     \tau = \mu \frac{d u}{d x}
 \end{equation}
 
-Além da viscosidade, Newton também estudou ondas e orifícios em reservatórios de água. Suas contribuições para o cálculo, conservação de energia e movimento também foram determinantes para os grandes pensadores que seguiram com o estudo do tema.
+Além da viscosidade, Newton também estudou ondas e orifícios em reservatórios de água. Suas contribuições para o cálculo, conservação de energia e dinâmica de corpos rígidos também foram determinantes para os grandes pensadores que vieram depois.
 
 Outro grande pensador foi Daniel Bernoulli. Ele estudou a transformação de energia da velocidade dos fluidos em pressão \cite{1570009750104671360}, relacionando a energia interna às diferenças de velocidade e energia potencial gravitacional:
 
@@ -61,6 +59,4 @@ Um exemplo de sistema simplificado é o escoamento de Poiseuille \cite{Poiseuill
   u(y) = \frac{G}{2\mu}y (h - y).
 \end{equation}
 
-Onde G é um gradiente de pressão constante no sentido da corrente ($G = -\frac{dp}{dx}$), e $\mu$ é o coeficiente de viscosidade.
-
-Para casos turbulentos também é possível se checar em um resultado, mas não de forma analítica.
+Onde G é um gradiente de pressão constante no sentido da corrente ($G = -\frac{dp}{dx}$), e $\mu$ é o coeficiente de viscosidade. Para casos não laminares, ou seja, em que o fluido se movimenta não só na direção e sentido do fluxo, essa equação já se distancia da realidade.
