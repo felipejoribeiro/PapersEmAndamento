@@ -1523,11 +1523,11 @@ INPUT ./cap_fundamentacao/domain_mesh.jpeg
 INPUT cap_fundamentacao/domain_mesh.jpeg
 INPUT ./cap_fundamentacao/domain_mesh.jpeg
 INPUT ./cap_fundamentacao/domain_mesh.jpeg
-INPUT ./cap_fundamentacao/first_results.jpeg
-INPUT ./cap_fundamentacao/first_results.jpeg
-INPUT cap_fundamentacao/first_results.jpeg
-INPUT ./cap_fundamentacao/first_results.jpeg
-INPUT ./cap_fundamentacao/first_results.jpeg
+INPUT ./cap_fundamentacao/first_results.png
+INPUT ./cap_fundamentacao/first_results.png
+INPUT cap_fundamentacao/first_results.png
+INPUT ./cap_fundamentacao/first_results.png
+INPUT ./cap_fundamentacao/first_results.png
 INPUT ./cap_conclusao/conclusao.tex
 INPUT ./cap_conclusao/conclusao.tex
 INPUT ./cap_conclusao/conclusao.tex
