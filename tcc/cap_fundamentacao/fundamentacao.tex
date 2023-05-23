@@ -697,15 +697,15 @@ Desenvolvimendo as equações acima, tem-se:
   u_\tau = \frac{\nu Re_\tau}{R}
 \end{equation}
 
+\begin{equation}
+  \nu = \frac{\mu}{\rho}
+\end{equation}
+
 
 Assim, esbosa-se uma relação entre a diferença de pressão e o número de Reynolds:
 
 \begin{equation}
   \Delta P = Re_\tau^2 \frac{L \mu^2}{\rho R^3}
-\end{equation}
-
-\begin{equation}
-  \Delta P =3 Re \frac{L \mu^2}{\rho R^2}
 \end{equation}
 
 Adotam-se os seguintes valores:
@@ -752,4 +752,4 @@ Para a condição de contorno estipulou-se dirichlet para a presão nas paredes 
   \label{fig:first_results}
 \end{figure}
 
-Notou-se que a velocidade no meio do canal ficou próximo de $57 m/s$, que ao adimensionalizar ($\tilde{u} = \frac{u}{u_\tau}$ e $u_\tau = \frac{\mu Re_\tau}{\rho R}$) é igual a 47.5, que é bem distante do valor de velocidade calculado para os mesmos valores de constante de cebeci e número de prandtl turbulento, que deveria ser por volta de 18 m/s. Por se distanciar do DNS também, pode ser algo errado com a determinação do Reynolds turbulento.
+Notou-se que a velocidade no meio do canal ficou próximo de $57 m/s$, que ao adimensionalizar ($\tilde{u} = \frac{u}{u_\tau}$ e $u_\tau = \frac{\mu Re_\tau}{\rho R}$) é igual a 47.5, que é bem distante do valor de velocidade calculado para os mesmos valores de constante de cebeci e número de prandtl turbulento, que deveria ser por volta de $18$. Por se distanciar do DNS também, pode ser algo errado com a determinação do Reynolds turbulento.

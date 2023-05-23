@@ -1,23 +1,23 @@
 # Fdb version 4
-["bibtex main_ppgco_ufu"] 1683857886 "main_ppgco_ufu.aux" "main_ppgco_ufu.bbl" "main_ppgco_ufu" 1684032167 0
+["bibtex main_ppgco_ufu"] 1684813096 "main_ppgco_ufu.aux" "main_ppgco_ufu.bbl" "main_ppgco_ufu" 1684813583 0
   "./bib/abntex2-modelo-references.bib" 1683594849 13590 3ab2412ed75c593eba008e1ac157dfe2 ""
   "/usr/share/texmf-dist/bibtex/bib/abntex2/abntex2-options.bib" 1678901238 5396 4eb260dac60f150ae608d45252853090 ""
   "/usr/share/texmf-dist/bibtex/bst/abntex2/abntex2-alf.bst" 1678901238 60064 0819ac8568f9a482510a46e3a8a6f605 ""
-  "cap_conclusao/conclusao.aux" 1684032167 2343 05c9876d94b9d3af97aebfb8505b989d "pdflatex"
-  "cap_fundamentacao/fundamentacao.aux" 1684032167 18090 13d7f783192238408482b84d0fc2956c "pdflatex"
-  "cap_introducao/introducao.aux" 1684032166 3306 a1df4f198ebe5d505a3d7c463c63a2c4 "pdflatex"
-  "main_ppgco_ufu.aux" 1684032167 13127 d2fb99ced18bc9edc7a0dfd3da310e6d "pdflatex"
+  "cap_conclusao/conclusao.aux" 1684813583 2343 05c9876d94b9d3af97aebfb8505b989d "pdflatex"
+  "cap_fundamentacao/fundamentacao.aux" 1684813583 18090 13d7f783192238408482b84d0fc2956c "pdflatex"
+  "cap_introducao/introducao.aux" 1684813582 3306 a1df4f198ebe5d505a3d7c463c63a2c4 "pdflatex"
+  "main_ppgco_ufu.aux" 1684813583 13127 d2fb99ced18bc9edc7a0dfd3da310e6d "pdflatex"
   (generated)
   "main_ppgco_ufu.bbl"
   "main_ppgco_ufu.blg"
   (rewritten before read)
-["makeindex main_ppgco_ufu.idx"] 1683596464 "main_ppgco_ufu.idx" "main_ppgco_ufu.ind" "main_ppgco_ufu" 1684032167 0
-  "main_ppgco_ufu.idx" 1684032166 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main_ppgco_ufu.idx"] 1683596464 "main_ppgco_ufu.idx" "main_ppgco_ufu.ind" "main_ppgco_ufu" 1684813583 0
+  "main_ppgco_ufu.idx" 1684813582 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main_ppgco_ufu.ilg"
   "main_ppgco_ufu.ind"
   (rewritten before read)
-["pdflatex"] 1684032165 "main_ppgco_ufu.tex" "main_ppgco_ufu.pdf" "main_ppgco_ufu" 1684032167 2
+["pdflatex"] 1684813581 "main_ppgco_ufu.tex" "main_ppgco_ufu.pdf" "main_ppgco_ufu" 1684813583 2
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1680514707 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1680514707 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1680514707 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -202,16 +202,16 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1680514707 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1683596416 4491781 539e3b5e308794ddb50e5f94f0e971f4 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1683596402 8204069 5055ed8d7eca35e15cda0f1d0f5327fa ""
-  "cap_conclusao/conclusao.aux" 1684032167 2343 05c9876d94b9d3af97aebfb8505b989d "pdflatex"
+  "cap_conclusao/conclusao.aux" 1684813583 2343 05c9876d94b9d3af97aebfb8505b989d "pdflatex"
   "cap_conclusao/conclusao.tex" 1679013845 807 bfc408421e4bf3edd2233ddf5bd55e32 ""
   "cap_fundamentacao/canal1.pdf" 1679013845 22827 5b39de3ebd9b9cc9cc3f5536008c293d ""
   "cap_fundamentacao/domain_mesh.jpeg" 1683841554 159723 5aa30f4aadf9ec1ea536df6f1e46a105 ""
   "cap_fundamentacao/first_results.png" 1684031831 12372 840f4606a9d2828d0b7538ee8cc1c76b ""
-  "cap_fundamentacao/fundamentacao.aux" 1684032167 18090 13d7f783192238408482b84d0fc2956c "pdflatex"
-  "cap_fundamentacao/fundamentacao.tex" 1684032165 38690 d023f49aeaea1a1204c208cd677ec334 ""
+  "cap_fundamentacao/fundamentacao.aux" 1684813583 18090 13d7f783192238408482b84d0fc2956c "pdflatex"
+  "cap_fundamentacao/fundamentacao.tex" 1684813581 38671 99eda1d27150421229e9144920b5834a ""
   "cap_fundamentacao/temperatura.png" 1679013845 19845 48401dabfdf101d3a13ddb38f9067230 ""
   "cap_fundamentacao/velocidade.png" 1679013845 3759 ae34b130a84d2d73ecb2d39c5b8089f9 ""
-  "cap_introducao/introducao.aux" 1684032166 3306 a1df4f198ebe5d505a3d7c463c63a2c4 "pdflatex"
+  "cap_introducao/introducao.aux" 1684813582 3306 a1df4f198ebe5d505a3d7c463c63a2c4 "pdflatex"
   "cap_introducao/introducao.tex" 1683836432 7853 d501b7b5c4d23ca00b21789385b854f7 ""
   "ctesibius.jpeg" 1679013845 180173 944fa41b876aa58eccc85a4ef7f940d2 ""
   "fichaCatalografica.pdf" 1679013845 83861 a5fac2c4e38f944d950868726b7879f9 ""
@@ -248,13 +248,13 @@
   "fotos_formatacao_final/Temperature_640_071_classico.png" 1679013845 29507 46141b143e522390cb95653d92f3cd3d ""
   "fotos_formatacao_final/Temperature_640_Amodeled.png" 1679013845 26378 1a18a689e3484ae8613fd8ab76b5e43c ""
   "fotos_formatacao_final/Temperature_640_Avelocity.png" 1679013845 27670 fcb9601da6139f23dd28e768973b6f2c ""
-  "main_ppgco_ufu.aux" 1684032167 13127 d2fb99ced18bc9edc7a0dfd3da310e6d "pdflatex"
-  "main_ppgco_ufu.bbl" 1683857886 5693 d5b97802e74d3c996765eed6416a4cd2 "bibtex main_ppgco_ufu"
+  "main_ppgco_ufu.aux" 1684813583 13127 d2fb99ced18bc9edc7a0dfd3da310e6d "pdflatex"
+  "main_ppgco_ufu.bbl" 1684813096 5693 d5b97802e74d3c996765eed6416a4cd2 "bibtex main_ppgco_ufu"
   "main_ppgco_ufu.ind" 1683596464 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main_ppgco_ufu.idx"
-  "main_ppgco_ufu.lof" 1684032167 5765 5c0693d5cd1209ce2a3ccf9e9b219692 "pdflatex"
-  "main_ppgco_ufu.lot" 1684032167 945 20bafa590cd981ed3d05cc83b61f80e9 "pdflatex"
+  "main_ppgco_ufu.lof" 1684813583 5765 5c0693d5cd1209ce2a3ccf9e9b219692 "pdflatex"
+  "main_ppgco_ufu.lot" 1684813583 945 20bafa590cd981ed3d05cc83b61f80e9 "pdflatex"
   "main_ppgco_ufu.tex" 1683835241 10044 c675e2a0f920edaba32287032093deb6 ""
-  "main_ppgco_ufu.toc" 1684032167 2052 e7f041055e726fc0296d1caab6e8780b "pdflatex"
+  "main_ppgco_ufu.toc" 1684813583 2052 e7f041055e726fc0296d1caab6e8780b "pdflatex"
   "medios.png" 1679013846 38240 16b6a9d0a5c660062b9cc2b4b7b1f35a ""
   "ppgco.cls" 1679013846 14894 90f4284794177457ec594b94bc6541ee ""
   (generated)
