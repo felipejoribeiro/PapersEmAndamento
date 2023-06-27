@@ -1,26 +1,26 @@
-This is BibTeX, Version 0.99d (TeX Live 2023/Arch Linux)
+This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main_ppgco_ufu.aux
 A level-1 auxiliary file: cap_introducao/introducao.aux
 A level-1 auxiliary file: cap_fundamentacao/fundamentacao.aux
 A level-1 auxiliary file: cap_conclusao/conclusao.aux
 The style file: abntex2-alf.bst
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: bib/abntex2-modelo-references.bib
 Warning--I didn't find a database entry for "abnt-year-extra-label=yes"
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
-Reallocated glb_str_end (elt_size=8) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Warning--campo title vazio em Cengel
 Warning--campo title vazio em Incropera
 +---------------------------------------------------------+
@@ -28,45 +28,45 @@ Warning--campo title vazio em Incropera
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 23 entries,
+You've used 22 entries,
             6714 wiz_defined-function locations,
-            1321 strings with 13320 characters,
-and the built_in function-call counts, 20659 in all, are:
-= -- 2006
-> -- 602
-< -- 247
-+ -- 508
-- -- 184
-* -- 1351
-:= -- 2760
-add.period$ -- 76
-call.type$ -- 23
-change.case$ -- 216
-chr.to.int$ -- 33
-cite$ -- 22
-duplicate$ -- 1484
-empty$ -- 1233
-format.name$ -- 868
-if$ -- 4535
+            1313 strings with 13077 characters,
+and the built_in function-call counts, 18783 in all, are:
+= -- 1772
+> -- 569
+< -- 186
++ -- 437
+- -- 174
+* -- 1233
+:= -- 2533
+add.period$ -- 71
+call.type$ -- 22
+change.case$ -- 205
+chr.to.int$ -- 29
+cite$ -- 21
+duplicate$ -- 1271
+empty$ -- 1185
+format.name$ -- 821
+if$ -- 4183
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 389
-newline$ -- 105
-num.names$ -- 100
-pop$ -- 546
+missing$ -- 372
+newline$ -- 98
+num.names$ -- 95
+pop$ -- 522
 preamble$ -- 1
-purify$ -- 87
+purify$ -- 83
 quote$ -- 0
-skip$ -- 1607
+skip$ -- 1401
 stack$ -- 1
-substring$ -- 716
-swap$ -- 512
-text.length$ -- 9
+substring$ -- 638
+swap$ -- 439
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 1
 warning$ -- 2
-while$ -- 132
+while$ -- 125
 width$ -- 0
-write$ -- 301
+write$ -- 284
 (There were 3 warnings)

@@ -1,46 +1,44 @@
 \babel@toc {brazil}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Relógio de água de Ctesibius, visualização criada pelo arquiteto francês Claude Perrault}}{18}{figure.1.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Definição geométrica e condições de contorno.}}{21}{figure.2.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Representação geométrica da separação entre os valores médios e as flutuações.}}{23}{figure.2.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Campo de temperatura média no canal de Poiseuille. O perfil de temperatura no canal aumenta linearmente na direção do fluxo.}}{24}{figure.2.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Campo de velocidade média no canal de Poiseuille. O perfil se mantém constante na direção do fluxo.}}{24}{figure.2.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Norma L2 de simulação térmica comparado a dns até 400 células, com $Re_\tau = 1020$.}}{28}{figure.2.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Distribuição de temperatura para $Pr_t = 0.71$, $A = 26$ e $Pr = 0.71$.}}{29}{figure.3.7}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces $Re_\tau = 150$, $L2_t = 1.42$}}{29}{figure.3.7}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_t = 1.55$}}{29}{figure.3.7}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_t = 1.79$}}{29}{figure.3.7}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_t = 2.04$}}{29}{figure.3.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Número de Prandtl turbulento adquirido do DNS em função de $ \tilde {y}/Re_\tau $, a distância até a parede no canal.}}{30}{figure.3.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Iterações de algoritmo genético, com simulações para $Re_\tau = 1020$. Convergência em $Pr_t = 0.9 $.}}{31}{figure.3.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Perfis de temperatura para simulações com $Pr_t = 0.9 $, $A = 26$ e $Pr =0.71$ }}{31}{figure.3.10}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces $Re_\tau = 150$, $L2_t = 0.34$}}{31}{figure.3.10}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_t = 0.23$}}{31}{figure.3.10}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_t = 0.19$}}{31}{figure.3.10}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_t = 0.14$}}{31}{figure.3.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Resultados de temperatura para $Pr_\tau (Re_\tau )$, $A = 26$ e $Pr =0.71$. }}{32}{figure.3.11}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces $Re_\tau = 150$, $L2_t = 0.26$}}{32}{figure.3.11}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_t = 0.22$}}{32}{figure.3.11}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_t = 0.17$}}{32}{figure.3.11}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_t = 0.14$}}{32}{figure.3.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Resultados de perfil de velocidade para $A = 26$.}}{33}{figure.3.12}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces $Re_\tau = 150$, $L2_d = 0.47$}}{33}{figure.3.12}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_d = 0.17$}}{33}{figure.3.12}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_d = 0.23$}}{33}{figure.3.12}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_d = 0.23$}}{33}{figure.3.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Resultados em distribuição de velocidade para o modelo de A \ref {Amodelado}.}}{34}{figure.3.13}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces $Re_\tau = 150$, $L2_d = 0.28$}}{34}{figure.3.13}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_d = 0.16$}}{34}{figure.3.13}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_d = 0.14$}}{34}{figure.3.13}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_d = 0.13$}}{34}{figure.3.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Resultados térmicos para $Pr_\tau (Re\tau )$, $A(Re_\tau )$ e $Pr =0.71$ }}{35}{figure.3.14}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces $Re_\tau = 150$, $L2_t = 0.212$}}{35}{figure.3.14}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_t = 0.233$}}{35}{figure.3.14}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_t = 0.205$}}{35}{figure.3.14}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_t = 0.175$}}{35}{figure.3.14}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Results of temperature simulations for $Pr_\tau (Re_\tau )$, $A_d(Re_\tau )$, $A_t(Re_\tau ) $ and $Pr =0.71$, with multi-objective adjustment.}}{36}{figure.3.15}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces $Re_\tau = 150$, $L2_t = 0.091$}}{36}{figure.3.15}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_t = 0.049$}}{36}{figure.3.15}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_t = 0.061$}}{36}{figure.3.15}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_t = 0.076$}}{36}{figure.3.15}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Malha gerada para a simulação.}}{38}{figure.4.16}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Resultados para $Re_\tau = 150$.}}{39}{figure.4.17}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Relógio de água de Ctesibius, visualização criada pelo arquiteto francês Claude Perrault}}{17}{figure.1.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Definição geométrica e condições de contorno.}}{19}{figure.2.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Representação geométrica da separação entre os valores médios e as flutuações.}}{21}{figure.2.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Campo de temperatura média no canal de Poiseuille. O perfil de temperatura no canal aumenta linearmente na direção do escoamento.}}{22}{figure.2.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Campo de velocidade média no canal de Poiseuille. O perfil se mantém constante na direção do escoamento.}}{22}{figure.2.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Norma L2 de simulação térmica comparado a dns até 400 células, com $Re_\tau = 1020$.}}{26}{figure.2.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Distribuição de temperatura para $Pr_t = 0.71$ e $A = 26$.}}{27}{figure.3.7}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces $Re_\tau = 150$, $L2_t = 1.42$}}{27}{figure.3.7}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_t = 1.55$}}{27}{figure.3.7}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_t = 1.79$}}{27}{figure.3.7}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_t = 2.04$}}{27}{figure.3.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Número de Prandtl turbulento adquirido do DNS em função de $ \tilde {y}/Re_\tau $, a distância até a parede no canal.}}{28}{figure.3.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Iterações de algoritmo genético, com simulações para $Re_\tau = 1020$. Convergência em $Pr_t = 0.9 $.}}{29}{figure.3.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Perfis de temperatura para simulações com $Pr_t = 0.9 $ e $A = 26$.}}{29}{figure.3.10}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces $Re_\tau = 150$, $L2_t = 0.34$}}{29}{figure.3.10}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_t = 0.23$}}{29}{figure.3.10}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_t = 0.19$}}{29}{figure.3.10}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_t = 0.14$}}{29}{figure.3.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Resultados de temperatura para $Pr_\tau (Re_\tau )$, $A = 26$ e $Pr =0.71$. }}{30}{figure.3.11}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces $Re_\tau = 150$, $L2_t = 0.26$}}{30}{figure.3.11}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_t = 0.22$}}{30}{figure.3.11}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_t = 0.17$}}{30}{figure.3.11}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_t = 0.14$}}{30}{figure.3.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Resultados de perfil de velocidade para $A = 26$.}}{31}{figure.3.12}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces $Re_\tau = 150$, $L2_d = 0.47$}}{31}{figure.3.12}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_d = 0.17$}}{31}{figure.3.12}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_d = 0.23$}}{31}{figure.3.12}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_d = 0.23$}}{31}{figure.3.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Resultados em distribuição de velocidade para o modelo de A \ref {Amodelado}.}}{32}{figure.3.13}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces $Re_\tau = 150$, $L2_d = 0.28$}}{32}{figure.3.13}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_d = 0.16$}}{32}{figure.3.13}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_d = 0.14$}}{32}{figure.3.13}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_d = 0.13$}}{32}{figure.3.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Resultados térmicos para $Pr_\tau (Re\tau )$, $A(Re_\tau )$ e $Pr =0.71$ }}{33}{figure.3.14}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces $Re_\tau = 150$, $L2_t = 0.212$}}{33}{figure.3.14}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_t = 0.233$}}{33}{figure.3.14}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_t = 0.205$}}{33}{figure.3.14}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_t = 0.175$}}{33}{figure.3.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Results of temperature simulations for $Pr_\tau (Re_\tau )$, $A_d(Re_\tau )$, $A_t(Re_\tau ) $ and $Pr =0.71$, with multi-objective adjustment.}}{34}{figure.3.15}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces $Re_\tau = 150$, $L2_t = 0.091$}}{34}{figure.3.15}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces $Re_\tau = 395$, $L2_t = 0.049$}}{34}{figure.3.15}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces $Re_\tau = 640$, $L2_t = 0.061$}}{34}{figure.3.15}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces $Re_\tau = 1020$, $L2_t = 0.076$}}{34}{figure.3.15}%

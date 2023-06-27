@@ -17,7 +17,7 @@ Os números de Reynolds ($Re = \frac{2R \overline{U}}{\nu}$) variam de $4560$ a 
 Estas foram as suposições efetuadas para o problema proposto, que serão consideradas no modelo matemático diferencial adiante.
 
 \section{Modelo matemático diferencial}
-A formulação matemática do problema foi baseada nas equações de continuidade, de Navier-Stokes \cite{Cengel}, e na equação de transporte de energia térmica \cite{Incropera}: 
+A formulação matemática do problema foi baseada nas equações de continuidade, de Navier-Stokes \cite{Cengel}, e na equação de balanço de energia térmica \cite{Incropera}: 
 
 \begin{equation}
   \frac{\partial u}{\partial t} + \frac{\partial u^2}{\partial x} + \frac{\partial uv}{\partial y} + \frac{\partial uw}{\partial z} = - \frac{1}{\rho} \frac{\partial {p}}{\partial x} + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}   \right)
@@ -39,7 +39,7 @@ A formulação matemática do problema foi baseada nas equações de continuidad
   q_{conv.} = \dot{m} C_p \Delta T_m.
 \end{equation}
 
-Eq.\ref{resfriamentoDeNewton} é baseada na lêi de resfriamento de newton \cite{Incropera}, onde $\dot{m}$ é a vazão volumétrica, $C_p$ é a capacidade calorífica específica, $\Delta T_m$ é a diferença de temperatura entre a superfície e o fluido, e $q_{conv.}$ é a taxa de transferência de calor por convecção.
+Eq.\ref{resfriamentoDeNewton} é baseada na lei de resfriamento de newton \cite{Incropera}, onde $\dot{m}$ é a vazão volumétrica, $C_p$ é a capacidade calorífica específica, $\Delta T_m$ é a diferença de temperatura entre a superfície da parede para aquela coordenada y e o fluido, e $q_{conv.}$ é a taxa de transferência de energia por convecção.
 
 \subsection{O estudo dos comportamentos médios}
 Para simplificar o sistema, foi realizado um tratamento estatístico nas equações. Cada grandeza foi dividida entre valor médio e flutuações, sendo que a média torna-se independente do tempo:
@@ -64,7 +64,7 @@ também é possível realizar as seguintes operações com as flutuações:
   \end{cases}
 \end{equation}
 
-A partir destas operações foi possível simplificar o sistema de equações. É possível se representar geométricamente também essa separação entre a média e flutuação na Figura \ref{figura.1}:
+A partir destas operações foi possível simplificar o sistema de equações. É possível se representar geometricamente também essa separação entre a média e flutuação na Figura \ref{figura.1}:
 
 \begin{figure}[h!]
 	\centering
@@ -101,20 +101,20 @@ O método, independente da variável do tempo e baseado em comportamentos médio
 
 \subsection{O regime permanente térmico}
 
-O campo de velocidade média atinge regime estatisticamente permanente no canal (Fig. \ref{figure.3}), mas o mesmo não ocorre para o campo de temperatura, pois um fluxo térmico constante é imposto sobre as paredes. A temperatura continua aumentando no domínio, nunca se estabilizando.
-Outra diferença entre os dois domínios é o fato de que o perfil de velocidade mantém-se constante no sentido do fluxo. Isso possibilita que o sistema seja representado unidimensionalmente, simplificando drasticamente as formulações matemáticas. O mesmo não pode ser dito para o campo de temperatura média, as temperaturas aumentam linearmente no sentido do fluxo (Fig. \ref{figure.2}):
+O campo de velocidade média atinge regime estatisticamente permanente no canal (Fig. \ref{figure.3}), mas o mesmo não ocorre para o campo de temperatura, pois um fluxo térmico constante é imposto sobre as paredes. A temperatura continua aumentando no domínio, nunca se estabilizando na direção do escoamento.
+Outra diferença entre os dois domínios é o fato de que o perfil de velocidade mantém-se constante no sentido do escoamento. Isso possibilita que o sistema seja representado unidimensionalmente, simplificando drasticamente as formulações matemáticas. O mesmo não pode ser dito para o campo de temperatura média, as temperaturas aumentam linearmente no sentido do escoamento (Fig. \ref{figure.2}):
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[angle=0, scale=0.4]{cap_fundamentacao/temperatura.png}
-	\caption{Campo de temperatura média no canal de Poiseuille. O perfil de temperatura no canal aumenta linearmente na direção do fluxo.}
+	\caption{Campo de temperatura média no canal de Poiseuille. O perfil de temperatura no canal aumenta linearmente na direção do escoamento.}
   \legend{Fonte: Autor, em simulação realizada no Mfsim.}
 	\label{figure.2}
 \end{figure}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[angle=0, height=1.35cm , width=12.3cm]{cap_fundamentacao/velocidade.png}
-	\caption{Campo de velocidade média no canal de Poiseuille. O perfil se mantém constante na direção do fluxo.}
+	\caption{Campo de velocidade média no canal de Poiseuille. O perfil se mantém constante na direção do escoamento.}
   \legend{Fonte: Autor, em simulação realizada em código próprio.}
 	\label{figure.3}
 \end{figure}
@@ -135,15 +135,15 @@ A partir da equação de balanço de energia térmica, pode-se obter a temperatu
 \Delta T_m = \frac{2q_w b \Delta x}{\dot{m} C_p},
 \end{equation}
 
-Onde $q_w$ é o fluxo de calor nas paredes, $b$ é a largura do canal e $\Delta x$ é a distância entre as paredes.\\
-Então, subistituindo $ \dot{m} = u_m 2R b \rho $ onde $u_m$ é a velocidade média no domínio, $R$ é o raio do canal e $\rho$ é a massa específica, e se assumindo que $ \Delta T_m = \frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} \Delta x $: 
+Onde $q_w$ é o fluxo térmico nas paredes, $b$ é a largura do canal e $\Delta x$ é a distância entre as paredes.\\
+Então, substituindo $ \dot{m} = u_m 2R b \rho $ onde $u_m$ é a velocidade média no domínio, $R$ é o raio do canal e $\rho$ é a massa específica, e se assumindo que $ \Delta T_m = \frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} \Delta x $: 
 
 \begin{equation}\label{c_h_ee}
 \frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} = \frac{q_w}{u_m R \rho C_p}.
 \end{equation}
 
-Como todos os termos à direita da equação são constantes, a temperatura média varia linearmente no sentido da corrente.\\
-Para melhor entender a temperatura nas paredes, uma formulação de convecção termal foi estudada:
+Como todos os termos à direita da equação são constantes, a temperatura média varia linearmente no sentido do escoamento.\\
+Para melhor entender a temperatura nas paredes, uma formulação de convecção térmica foi estudada:
 
 \begin{equation}
 q_w = h A \left( T_w(x) - \overline{T}_m(x)\right).
@@ -155,7 +155,7 @@ Como se tem um fluxo completamente desenvolvido, pode-se afirmar que o valor de 
 \frac{d T_w(x)}{d x} = \frac{d \overline{T}_m(x)}{d x} = Cte.
 \end{equation}	
 
-Dessa forma, considerando que a temperatura nas paredes varia linearmente, assim como a temperatura média, é possível se extender esse gradiente no domínio completo ao se considerar as condições de contorno e a simetria do systema. Assim, nas paredes é imposto um gradiente de temperatura constante, criando-se um regime de condição de contorno de fluxo térmico constante. Consequentemente, todo o campo de temperatura varia linearmente na direção da corrente e com o tempo.
+Dessa forma, considerando que a temperatura nas paredes varia linearmente, assim como a temperatura média, é possível se extender esse gradiente no domínio completo ao se considerar as condições de contorno e a simetria do sistema. Assim, nas paredes é imposto um gradiente de temperatura constante, criando-se um regime de condição de contorno de fluxo térmico constante. Consequentemente, todo o campo de temperatura varia linearmente na direção do escoamento e com o tempo.
 O valor de temperatura foi então decomposto no seguinte modo:
 
 \begin{equation}
@@ -165,7 +165,7 @@ O valor de temperatura foi então decomposto no seguinte modo:
 
  Onde $T^\ast(y)$ é a temperatura relativa, $T(x,y)$ é a temperatura absoluta e $T_w(x)$ é a temperatura na parede.\\
 
- Assim, analisando-se $T^\ast(Y)$, vemos auto-similaridade no sentido da corrente, resultando em um equacionamento unidimentional representativo com solução em $T^\ast(y)$.
+ Assim, analisando-se $T^\ast(y)$, vê-se auto-similaridade no sentido da corrente, resultando em um equacionamento unidimensional representativo com solução em $T^\ast(y)$.
 
  Finalmente Eq. \ref{energy permanent}:
 
@@ -336,7 +336,7 @@ Inicialmente o número de prandtl turbulento, $Pr_t = 0,71$, foi usado como na l
     \includegraphics[angle=0, scale=0.32]{fotos_formatacao_final/Temperature_1000_071_classico}
     \subcaption{$Re_\tau = 1020$, $L2_t = 2.04$}
   \end{minipage}
-  \caption{Distribuição de temperatura para $Pr_t = 0.71$, $A = 26$ e $Pr = 0.71$.} 
+  \caption{Distribuição de temperatura para $Pr_t = 0.71$ e $A = 26$.} 
   \label{figuraresultados1}
 \end{figure}
 
@@ -398,7 +398,7 @@ O número de prandtl turbulento obtido, $Pr_t = 0.9$ que minimiza o erro no camp
 		\includegraphics[angle=0, scale=0.34]{fotos_formatacao_final/Temperature_1000_071_Prt0905_A26}
 		\subcaption{$Re_\tau = 1020$, $L2_t = 0.14$}
 	\end{minipage}	
-	\caption{Perfis de temperatura para simulações com $Pr_t = 0.9 $, $A = 26$ e $Pr =0.71$ }
+	\caption{Perfis de temperatura para simulações com $Pr_t = 0.9 $ e $A = 26$.}
 	\label{primeiros}
 \end{figure*}
 
@@ -662,94 +662,3 @@ Novas simulações foram feitas usando os novos modelos propostos:
 \end{figure*}
 
 Estes foram os melhores resultados obtidos.
-
-
-\chapter{Simulações no MFsim}
-
-Tendo-se estes novo modelos sido propostos, novas simulações foram feitas no MFsim, visando validar se estes modelos para a constante de Cebeci e o número de Prandtl turbulento tem utilidade em softwares comerciais de simulação fluidodinâmica.
-
-\section{Sobre a parametrização do sistema}
-Estabeleceu-se o domínio computacional como um paralelepípedo de dimensões $0.25m$ por $0.25m$ por $2m$, onde a dimensão maior seria a no sentido da corrente. A partir disso, calculou-se o gradiente de pressão a partir das seguintes equações:
-
-\begin{equation}
-  Re_\tau = \frac{u_\tau R}{\nu}
-\end{equation}
-
-\begin{equation}
-  u_\tau = \sqrt{\frac{|\tau_w|}{\rho}}
-\end{equation}
-
-\begin{equation}
-  \tau_w = \Delta P \frac{R}{L}
-\end{equation}
-
-Desenvolvimendo as equações acima, tem-se:
-
-\begin{equation}
-  \Delta P = \tau_w \frac{L}{R}
-\end{equation}
-
-\begin{equation}
-  \tau_w = \rho u_\tau^2
-\end{equation}
-
-\begin{equation}
-  u_\tau = \frac{\nu Re_\tau}{R}
-\end{equation}
-
-\begin{equation}
-  \nu = \frac{\mu}{\rho}
-\end{equation}
-
-
-Assim, esbosa-se uma relação entre a diferença de pressão e o número de Reynolds:
-
-\begin{equation}
-  \Delta P = Re_\tau^2 \frac{L \mu^2}{\rho R^3}
-\end{equation}
-
-Adotam-se os seguintes valores:
-\begin{itemize}
-  \item $L = 2m$
-  \item $R = 0.125m$
-  \item $\mu = 0.1 kg/m.s$
-  \item $\rho = 100 kg/m^3$
-\end{itemize}
-
-A partir destas equações é possível se calcular o valor da diferença de pressão entre a entrada e saída do fluxo a partir do número de Raynolds avaliado, segue uma tabela com os valores de diferença de pressão resultantes:
-
-\begin{table}[!h]
-  \centering
-  \caption{Valores de diferença de pressão para cada número de Reynolds turbulento.}
-  \begin{tabular}{ll}
-    \hline
-    $Re_\tau$ & $\Delta P$ \\
-    \hline
-    150  &   2304 &
-    395  &   15976,96 &
-    640  &   41943,04 &
-    1020 &   106536,96 &
-    \hline
-  \end{tabular}
-\end{table}
-
-\section{O domínio computacional}
-Assim, para representar o domínio, uma malha de $200$ volumes por $25$ volumes por $25$ volumes. O que resultou em volumes cúbicos de $0.01cm$ de tamanho. A malha gerada pode ser vista na figura \ref{fig:malha}:
-
-\begin{figure}[!h]
-  \centering
-  \includegraphics[angle=0, scale=0.25]{cap_fundamentacao/domain_mesh.jpeg}
-  \caption{Malha gerada para a simulação.}
-  \label{fig:malha}
-\end{figure}
-
-Para a condição de contorno estipulou-se dirichlet para a presão nas paredes perpendiculares ao eixo $x$ (no sentido da corrente), a partir dos valores caluclados anteriormente, assim como nas paredes perpendiculares ao eixo $z$, enquanto as velocidades foram mantidas como newmann, considerando-se auto similaridade no eixo $z$. Já nas paredes perpendiculares ao eixo $y$, configuraram-se as velocidades iqual a zero, uma vez que é onde estão localizadas as paredes em condição de não escorregamento. Os resultados iniciais podem ser vistos adiante (\ref{fig:first_results}):
-
-\begin{figure}[!h]
-  \centering
-  \includegraphics[angle=0, scale=0.25]{cap_fundamentacao/first_results.png}
-  \caption{Resultados para $Re_\tau = 150$.}
-  \label{fig:first_results}
-\end{figure}
-
-Notou-se que a velocidade no meio do canal ficou próximo de $57 m/s$, que ao adimensionalizar ($\tilde{u} = \frac{u}{u_\tau}$ e $u_\tau = \frac{\mu Re_\tau}{\rho R}$) é igual a 47.5, que é bem distante do valor de velocidade calculado para os mesmos valores de constante de cebeci e número de prandtl turbulento, que deveria ser por volta de $18$. Por se distanciar do DNS também, pode ser algo errado com a determinação do Reynolds turbulento.

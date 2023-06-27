@@ -20,7 +20,7 @@
 % ------------------------------------------------------------------------
 \documentclass[dissertmst]{ppgco}
 %Não altere o comando seguinte. O título de seu trabalho será especificado mais adiante.
-\title{Análise térmica de canais de Poiseuille: Comparação de abordagem semi analítica com numérica (MFSim) e DNS}
+\title{Análise térmica de escoamentos de Poiseuille plano: comparação de abordagem semi contínua com a abordagem computacional (DNS)}
 
 % ---
 % PACOTES
@@ -57,7 +57,7 @@
 % Título:
 %	1. Título em português
 %	2. Título em inglês
-\titulo{Análise térmica de canais de Poiseuille: Comparação de abordagem semi analítica com numérica (MFSim) e DNS}{Análise térmica de canais de Poiseuille: Comparação de abordagem semi analítica com numérica (MFSim) e DNS}
+\titulo{Análise térmica de escoamentos de Poiseuille plano: comparação de abordagem semi contínua com a abordagem computacional (DNS)}{Análise térmica de escoamentos de Poiseuille plano: comparação de abordagem semi contínua com a abordagem computacional (DNS)}
 %
 % Autor:
 %	1. Nome completo do autor
@@ -97,7 +97,7 @@
 % ---
 %entre em contato com a biblioteca para obter a sua ficha catalográfica em arquivo pdf. Essa %folha só será inserida no documento após a sua defesa.
 
-\inserirfichacatalografica{fichaCatalografica.pdf}
+% \inserirfichacatalografica{fichaCatalografica.pdf}
 % ---
 
 % ---
@@ -111,7 +111,7 @@
 % ---
 % baseie-se no modelo desse documento e gere a sua folha de %rosto em arquivo pdf.
 
-\inserirfolhaaprovacao{folhaAprovacao.pdf}
+% \inserirfolhaaprovacao{folhaAprovacao.pdf}
 % ---
 
 % ----
@@ -137,25 +137,25 @@
 % Agradecimentos
 % ---
 \imprimiragradecimentos{
-Agradeço, a cima de tudo, à minha família, por me apoiar por todos esses anos e nunca medir esforços ao ajudar minha trajetória acadêmica e profissional. Agradeço também aos grandes mestres que tive, em especial, ao professo Aristeu da Silveira Neto, por me guiar por muitos anos em um caminho de aprendizado e evolução. Também é oportuno agradecer a todas as instituições envolvidas nos trabalhos de pesquisa que pavimentaram o caminho até este trabalho. O laboratório de mecânica dos fluidos (MFLab) da Faculdade de Engenharia Mecânica (FEMEC) da Universidade Federal de Uberlândia (UFU). PETROBRAS, CNPq, CAPES e FAPEMIG que contribuíram financeiramente com trabalhos acadêmicos de grande importância na minha trajetória. Finalmente agradeço aos meus colegas, ao amor da minha vida, Paula Thaisa e à todas as pessoas queridas que trazem alegria e conforto para os meus dias.
+Agradeço, a cima de tudo, aos meus pais, por me apoiarem e nunca medirem esforços ao ajudar na minha trajetória acadêmica e profissional. Agradeço também aos grandes mestres que tive, em especial, ao professo Aristeu da Silveira Neto, por me guiar por muitos anos em um caminho de aprendizado e evolução. Também é oportuno agradecer a todas as instituições envolvidas nos projetos de pesquisa que pavimentaram o caminho até este trabalho. O laboratório de mecânica dos fluidos (MFLab) da Faculdade de Engenharia Mecânica (FEMEC) da Universidade Federal de Uberlândia (UFU). PETROBRAS, CNPq, CAPES e FAPEMIG que contribuíram financeiramente com trabalhos acadêmicos de grande importância na minha trajetória. Finalmente agradeço aos meus colegas, ao amor da minha vida, Paula Thaisa e a todas as pessoas queridas que trazem alegria no dia a dia.
 }
 % ---
 % ---
 % RESUMO e ABSTRACT
 % ---
 
-% Resumo em português - as palavras entre chaves são as palavras-chave do trabalho
+% Resumo em portuugês - as palavras entre chaves são as palavras-chave do trabalho
 \begin{resumo}{mecânica dos fluidos, CFD, ensino de engenharia, métodos numéricos, equações de Navier Stokes, turbulência}
 
 
-No presente trabalho o autor desenvolve uma abordagem semi-exata para análise térmica em escoamentos turbulentos de Poiseuille. Parametriza-se o modelo com base nos métodos descritos em \cite{felipe1}, em seguida, compara-se os resultados com os de métodos numéricos advindos do MFSim e DNS. O modelo físico consistiu em um canal entre placas planas infinitas de fluxo térmico constante que variam linearmente de temperatura no sentido da corrente, resultando em um regime estatisticamente permanente para os perfis de temperatura e velocidade. A parametrização do número de Prandtl turbulento e da constante de Cebeci foram modificadas visando a obtenção de melhor acurácia quando comparada com a solução em DNS. Os resultados foram validados com simulações no MFSim e casos simulados via DNS, constatando-se forte concordância.
+No presente trabalho os autores desenvolveram uma abordagem semi-contínua para análise térmica em escoamentos turbulentos de Poiseuille planos. O modelo físico consistiu em um canal entre placas planas infinitas de fluxo térmico constante que variam linearmente de temperatura no sentido do escoamento, resultando em um regime estatisticamente permanente para os perfis de temperatura e velocidade. O número de Reynolds foi variado de $4560$ até $41441$ configurando o escoamento como turbulento. As parametrizações do número de Prandtl Turbulento e da Constante de Cebeci foram modificadas visando a obtenção de melhor acurácia, a partir de algorítmos genéticos que ajustaram estes valores para o melhor resultado quando comparado com simulações computacionais diretas. Os resultados finais mostraram-se mais próximos das simulações computacionais diretas, e mostram de forma clara a influência da constante de Cebeci e do número de Prandtl turbulento sobre o escoamento resultante.
 
 \end{resumo}
 
 % Resumo em inglês
 \begin{abstract}{Turbulent Prandtl number, Cebeci's constant, Turbulent Poiseuille flow, Genetic algorithm, DNS.}
 
-In the present paper the author develops a semi exact approach for thermal analysis in turbulent Poiseuille flows. The model is parameterized based on the methods described in \cite{felipe1}, then the results are compared with the numerical methods derived from MFSim and DNS. The physical model consisted of a channel between two infinite flat plates of constant heat flux that vary linearly in temperature in the streamwise direction, resulting in a statistically steady regime for the temperature and velocity profiles. The parameterization of the turbulent Prandtl number and the Cebeci constant were modified in order to obtain better accuracy when compared to the DNS solution. The results were validated with simulations in MFSim and cases simulated via DNS, showing strong agreement.
+In the present work the author develops a semi-exact approach for thermal analysis in turbulent Poiseuille flows. The physical model consisted of a channel between infinite flat plates of constant thermal flux with temperatures that varied linearly in the stream-wise direction, resulting in a statistically permanent regime for the temperature and velocity profiles. The Reynolds number was varied from $4560$ to $41441$ configuring the flow as turbulent. The parameterization of the turbulent Prandtl number and the Cebeci constant were modified in order to obtain better accuracy, based on genetic algorithms that adjusted these values for the best result when compared to direct numerical simulations. The final results were closer to the DNS, and clearly show the influence of the Cebeci constant and the turbulent Prandtl number on the resulting flow.
 
 \end{abstract}
 % ---
