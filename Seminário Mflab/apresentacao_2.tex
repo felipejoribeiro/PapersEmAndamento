@@ -1,5 +1,5 @@
 \documentclass[xcolor=dvipsnames,10pt,aspectratio=169]{beamer}
-%\documentclass[xcolor=dvipsnames,10pt]{beamer}
+% \documentclass[xcolor=dvipsnames,10pt]{beamer}
 \usepackage{etex}
 \usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
 \usepackage[absolute,overlay]{textpos} 
@@ -62,23 +62,23 @@
 \setbeamerfont{caption}{size=\fontsize{8}{5}}
 
 \setbeamercolor{block title}{	bg=Sepia , fg = White}
-\setbeamercolor{block body}{bg=Brown!15, fg=Sepia }
+\setbeamercolor{block body}{bg=Brown!15, fg=Blue }
 \setbeamercolor{item projected}{bg=Sepia, fg=White}
-\setbeamercolor{number projected}{bg = Black}
+\setbeamercolor{number projected}{bg = Blue}
 
 %declara as imagens usadas no layout do slide
 \pgfdeclareimage[height=0.8cm]{mflab}{figuras/logo_mflab_transparente.png}
 \pgfdeclareimage[height=1.0cm]{logoufu}{figuras/logo_ufu.jpg}
-\pgfdeclareimage[height=1.0cm]{petro}{figuras/petrobras_2.png}
+\pgfdeclareimage[height=1.0cm]{petro}{figuras/logo_ufu.jpg}
 
 %posiciona o logotipo do MFLab
 \setlength{\TPHorizModule}{1mm}
 \setlength{\TPVertModule}{1mm}
 \newcommand{\placelogomflab} 
 { 
-	\begin{textblock}{13}(150.0,0.0)
-		\pgfuseimage{mflab} 
-	\end{textblock} 
+	% \begin{textblock}{13}(150.0,0.0)
+	% 	\pgfuseimage{mflab} 
+	% \end{textblock} 
 	
 % 	\begin{textblock}{13}(128.0,1.0)
 % 		\pgfuseimage{logoufu} 
@@ -132,9 +132,9 @@
 %insere o logotipo da ufu em todos os slides
 % \logo{\includegraphics[height=0.8cm]{figuras/layout_slide/petrobras.png}}
 
-\title{Análise teórica de escoamentos de Poiseuille planos com efeitos térmicos: ajuste do número de Prandtl turbulento e do número de Cebeci}
+\title{Análise térmica de escoamentos de Poiseuille plano: comparação de abordagem semi contínua com a abordagem computacional (DNS)}
 
-\author{ Felipe J. O. Ribeiro \\ \and \\ Orientador: Prof. Dr. Aristeu da Silveira Neto}
+\author{ Felipe J. O. Ribeiro }
 
 %\date{\tiny{02 de dezembro de 2015}}
 \date{\tiny{\today}}
@@ -192,17 +192,56 @@
 	
 	
 		\begin{frame}
-		\frametitle{Análise térmica em escoamentos turbulentos de Poiseuille}
-			\begin{minipage}[h!]{0.49\textwidth}
-			$\bullet$ O estudo do comportamento térmico de escoamentos é de suma importância ao desenvolvimento científico atual. A medida que o maquinário industrial é aperfeiçoado, também cresce o consumo energético no mundo. Grande parte deste custo surge das transformações energéticas dentro do sistema, em sua maioria, resultando em manifestações térmicas. Assim surge uma grande necessidade de mecanismos de gerenciamento térmico. Como a difusão é um processo muito lento, o meio mais utilizado para se resfriar maquinários industriais é o advectivo, onde uma interface fluido-estrutura carrega energia térmica para fora do sistema. Estudar estes fenômenos é essencial para que hajam cada vez máquinas mais eficientes, assim assegurando um desenvolvimento sustentável. 
-		\end{minipage}
-		\begin{minipage}[h!]{0.49\textwidth}
-			\begin{figure}[h!]
-				\centering
-				\includegraphics[trim = {1.7cm 2cm 0 1cm}, clip , angle=0, scale=0.60]{turbulence}
-				\caption{Temperatura e turbulência.}
-			\end{figure}
-		\end{minipage}
+      \frametitle{Motivação}
+      \begin{minipage}[h!]{0.49\textwidth}
+			$\bullet$ A necessidade de se compreender o comportamento de escoamentos turbulentos é cada vez mais presente em um contexto de busca por eficiência energética.\\ 
+      $\bullet$ A turbulência é um fenômeno complexo e não linear, que envolve uma ampla faixa de escalas de comprimento e tempo. Sendo um tema muito rico do ponto de vista acadêmico.\\
+      $\bullet$ A turbulência é um fenômeno presente em muitas aplicações práticas, como por exemplo, em escoamentos de dutos, escoamentos em torno de corpos, escoamentos em turbinas, etc.\\
+      \end{minipage}
+      \begin{minipage}[h!]{0.49\textwidth}
+        \begin{figure}[h!]
+          \includegraphics[scale=0.14]{./photo_plane.png}
+          \caption{\label{image:plane} Avião em voo, movimentando o ar atmosférico.}
+        \end{figure}
+      \end{minipage}
+		\end{frame}
+
+		\begin{frame}
+      \frametitle{Aspectos históricos}
+      \begin{minipage}[h!]{0.49\textwidth}
+			$\bullet$ Archimedes que desenvolveu as leis da flutuação.\\ 
+      $\bullet$ Escola alexandrina onde se desenvolveram bombas hidráulicas sendo também estudadas diversas aplicações de escoamentos confinados.\\
+      $\bullet$ Estudiosos islâmicos que desenvolveram pesquisas no campo da hidro-estática.\\
+      $\bullet$ Benedetto Castelli, Evangelista Torricelli e Blaise Pascal formalizaram conceitos com seus estudos.\\
+      $\bullet$ Isaac Newton, onde ele descreve fluidos incompressíveis e as forças viscosas que afetam seu movimento a baixos números de Reynolds.\\
+      $\bullet$ Daniel Bernoulli. Ele estudou a transformação de energia da velocidade dos fluidos em pressão
+
+      \end{minipage}
+      \begin{minipage}[h!]{0.49\textwidth}
+        \begin{figure}[h!]
+          \includegraphics[scale=0.07]{ctesibius.jpeg}
+          \caption{\label{image:ctesibius} Relógio de água de Ctesibius, visualização criada pelo arquiteto francês Claude Perrault}
+        \end{figure}
+      \end{minipage}
+		\end{frame}
+
+		\begin{frame}
+      \frametitle{Aspectos históricos}
+      Tais estudos acadêmicos culminaram com os estudos de  Claude-Louis Navier e George Gabriel Stokes, que desenvolveram as equações de Navier-Stokes:
+
+      \begin{equation}
+      \rho \vec{g}-\nabla \vec{p}+\eta \cdot \nabla^{2} \vec{u}=\rho \cdot\left(\vec{u} \cdot \nabla \vec{u}+\frac{\partial \vec{u}}{\partial t}\right)
+      \end{equation}
+
+      Sem solução analítica geral, as equações de Navier-Stokes são resolvidas numericamente para casos específicos. É possível, também, a partir de simplificações e ajustes, desconsiderar alguns termos de forma a se conseguir soluções contínuas para casos suficientemente simples.
+
+      Um exemplo de sistema simplificado é o escoamento de Poiseuille. Descrito com a equação que segue:
+
+      \begin{equation}
+        u(y) = \frac{G}{2\mu}y (h - y).
+      \end{equation}
+
+      Onde G é um gradiente de pressão constante no sentido da corrente ($G = -\frac{dp}{dx}$), e $\mu$ é o coeficiente de viscosidade. Para casos não laminares, ou seja, em que o fluido se movimenta não só na direção principal, essa equação já se distancia da realidade.
 		\end{frame}
 
 
@@ -217,31 +256,49 @@
 	
 		\begin{frame}
 			\frametitle{Escoamento de Poiseuille plano}
-			$\bullet$ O problema foi definido como um escoamento de canal, com somente uma dimensão finita no eixo $y$. \\
-			$\bullet$ As condições de contorno foram determinadas como duas placas infinitas em um regime de fluxo térmico constante.\\
-			$\bullet$ Um gradiente de pressão constante foi imposto no eixo $x$.\\
-			$\bullet$ Foi proposta uma auto similaridade dinâmica e térmica no eixo $z$, resultando em uma análise dinâmica unidimensional e térmica bidimensional (Fig.\ref{figure.1}). \\
-			$\bullet$ Foram considerados escoamentos incompressíveis de fluido newtoniano em regime turbulento.\\
+			$\bullet$ Um escoamento de canal, com somente uma dimensão finita no eixo $y$. \\
+			$\bullet$ Condições de contorno de duas placas planas infinitas em um regime de fluxo térmico constante.\\
+			$\bullet$ Gradiente de pressão constante no eixo $x$.\\
+			$\bullet$ Auto similaridade dinâmica e térmica no eixo $z$. \\
+			$\bullet$ Escoamento incompressível, composto por fluido Newtoniano e em regime turbulento.\\
 			\begin{minipage}[h!]{0.3\textwidth}
 				\begin{equation*}
 				 \frac{\partial T }{\partial z} = 0.
 				\end{equation*}
 				\begin{equation*}
-				\frac{\partial u }{\partial z} = 0.
+				\frac{\partial \overline{u} }{\partial z} = 0.
 				\end{equation*}
 				\begin{equation*}
 				\frac{\partial u }{\partial x} = 0.
 				\end{equation*}
-			\end{minipage}
-			\begin{minipage}[h!]{0.5\textwidth}
-			\begin{figure}[h!]
-				\centering
-				\includegraphics[angle=0, scale=0.30]{figure1}
-				\caption{Definições geométricas e condições de contorno do sistema.}
-				\label{figure.1}
-			\end{figure}
+      \end{minipage}
+      \begin{minipage}[h!]{0.5\textwidth}
+        \begin{figure}[h!]
+          \centering
+          \includegraphics[angle=0, trim={0mm 23mm 0mm 35mm}, clip , scale=0.42]{cap_fundamentacao/canal1.pdf}
+          \caption{Definição geométrica e condições de contorno.}
+          \label{descricaoGeometrica}
+        \end{figure}
 			\end{minipage}
 			\\
+		\end{frame}
+
+		\begin{frame}
+			\frametitle{Perfil térmico e dinâmico esperado}
+      $\bullet$ A velocidade média é constante em $x$ e no tempo.\\
+      $\bullet$ A temperatura média aumenta com $x$ e com o tempo.\\
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[angle=0, height=1.35cm , width=12.3cm]{cap_fundamentacao/velocidade.png}
+        \caption{Campo de velocidade média no canal de Poiseuille. O perfil se mantém constante na direção do escoamento.}
+        \label{figure.3}
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[angle=0, scale=0.4]{cap_fundamentacao/temperatura.png}
+        \caption{Campo de temperatura média no canal de Poiseuille. O perfil de temperatura no canal aumenta linearmente na direção do escoamento.}
+        \label{figure.2}
+      \end{figure}
+      \end{figure}
 		\end{frame}
 	
 	
@@ -255,14 +312,14 @@
 		
 		\begin{frame}
 		\frametitle{Equações do movimento}
-		$\bullet$ Para modelar diferencialmente a velocidade do fluido, foram utilizadas a equação da continuidade e a equação de Navier-Stokes para a velocidade no eixo de interesse.
+		A equação da continuidade e a equação de Navier-Stokes para a velocidade no eixo de interesse são importantes nesse estágio.
 		\begin{equation}
 		\frac{\partial u}{\partial t} + \frac{\partial u^2}{\partial x} + \frac{\partial uv}{\partial y} + \frac{\partial uw}{\partial z} = - \frac{1}{\rho} \frac{\partial {p}}{\partial x} + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}   \right)
 		\end{equation}
 		\begin{equation}
 		\frac{\partial \rho}{\partial t} +  \frac{\partial (\rho u)}{\partial x} + \frac{\partial (\rho v)}{\partial y} + \frac{\partial (\rho w)}{\partial z} = 0
 		\end{equation}
-		Para o desenvolvimento da equação da energia em uma instancia convectiva foi necessário o desenvolvimento do perfil cinético do sistema.
+    Uma vez que tem-se um contexto convectivo, o perfil de velocidade é necessário para a resolução das equações.
 		\end{frame}
 
 		
@@ -270,22 +327,21 @@
 
 
 		\begin{frame}
-		\frametitle{Equação do balanço da energia térmica}
-		$\bullet$ Foi utilizada a equação da energia térmica.
-		\begin{equation}
-		\frac{\partial T}{\partial t} + {\frac{\partial{}}{\partial{x}} (uT)} + {\frac{\partial{}}{\partial{y}} (vT)} + {\frac{\partial{}}{\partial{z}} (wT)}
-		=
-		{\frac{\partial{}}{\partial{x}}} \left(\alpha {\frac{\partial{T}}{\partial{x}}} \right) +
-		{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{T}}{\partial{y}}} \right) +
-		{\frac{\partial{}}{\partial{z}}} \left(\alpha {\frac{\partial{T}}{\partial{z}}} \right) .
-		\end{equation}
-		$ $
-		$\bullet$ Sendo necessária esta definição para adimensionalização.
-		\begin{equation}\label{c_h_e}
-		q_{conv.} = \dot{m} C_p \Delta T_m.
-		\end{equation}
-		$ $
-		Com estas construções matemáticas foi possível se iniciar o desenvolvimento diferencial.
+      \frametitle{Equação do balanço da energia térmica}
+      Foi utilizada a equação da energia térmica.
+      \begin{equation}
+      \frac{\partial T}{\partial t} + {\frac{\partial{}}{\partial{x}} (uT)} + {\frac{\partial{}}{\partial{y}} (vT)} + {\frac{\partial{}}{\partial{z}} (wT)}
+      =
+      {\frac{\partial{}}{\partial{x}}} \left(\alpha {\frac{\partial{T}}{\partial{x}}} \right) +
+      {\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{T}}{\partial{y}}} \right) +
+      {\frac{\partial{}}{\partial{z}}} \left(\alpha {\frac{\partial{T}}{\partial{z}}} \right) .
+      \end{equation}
+      $ $
+      Também foi realizado um balanço de energia térmica a título de adimensionalização:
+      \begin{equation}\label{c_h_e}
+      q_{conv.} = \dot{m} C_p \Delta T_m.
+      \end{equation}
+      $ $
 		\end{frame}
 
 
@@ -294,8 +350,8 @@
 		
 		
 		\begin{frame}
-			\frametitle{Princípio dos valores médios}
-			$\bullet$ Para se prosseguir com as simplificações das equações diferenciais foi necessário se utilizar os conceitos de valores médios. Tal consideração implica no uso do modelo RANS. (Reynolds Averaged Navier Stokes)
+			\frametitle{Tratamento estatístico das equações}
+			Para se prosseguir com as simplificações das equações diferenciais foi necessário se utilizar os conceitos de valores médios. Tal consideração implica no uso do modelo RANS. (Reynolds Averaged Navier Stokes)
 			\\
 			\begin{minipage}[h!]{0.45\textwidth}
 				\begin{equation*}
@@ -354,10 +410,10 @@
 		
 		
 		\begin{frame}
-			\frametitle{Modelando a equação da continuidade para valores médios}
-			$\bullet$ Desenvolvendo a equação da Continuidade, é possível se chegar a uma conclusão muito importante, para os valores médios.
+			\frametitle{Simplificando a equação da continuidade para valores médios}
+			Desenvolvendo a equação da Continuidade, tem-se:
 			\begin{equation*}
-			\color{red}\frac{\partial \rho}{\partial t} \color{black}+  \frac{\partial (\color{red}\rho \color{black}u)}{\partial x} + \frac{\partial (\color{red} \rho \color{black}v)}{\partial y} + \frac{\partial (\color{red}\rho \color{black}w)}{\partial z} = 0
+			\frac{\partial \rho}{\partial t} +  \frac{\partial (\rho u)}{\partial x} + \frac{\partial ( \rho v)}{\partial y} + \frac{\partial (\rho w)}{\partial z} = 0
 			\end{equation*}
 			\begin{equation}
 			\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0
@@ -417,14 +473,14 @@
 	
 		\begin{frame}
 		\frametitle{Balanço de energia}
-		$\bullet$ Apesar de já estar em valores médios, a temperatura no domínio não reduz a um problema unidimensional. Estudou-se um balanço térmico a fim de se entender melhor o perfil do sistema.
+		Apesar de já estar em valores médios, a temperatura no domínio não reduz a um problema unidimensional:
 		\begin{equation}\label{c_h_e}
 		q_{conv.} = \dot{m} C_p \Delta T_m.
 		\end{equation}
 		\begin{equation}
 		2q_w b \Delta x = \dot{m} C_p \Delta T_m.
 		\end{equation}
-		Sendo $b$ a profundidade do canal e $T_m$ a temperatura média em uma secção transversal. Então, substituindo $ \dot{m} = u_m 2R b \rho $, e assumindo $ \Delta T_m = \frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} \Delta x $, segundo a linearidade do domínio na coordenada $ x $:
+		Sendo $b$ a profundidade do canal e $T_m$ a temperatura média em uma secção transversal. Então, substituindo $ \dot{m} = u_m 2R b \rho $, e considerando $ \Delta T_m = \frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} \Delta x $:
 		\begin{equation}
 		2q_w b \Delta x = u_m 2R b \rho  C_p \frac{\partial{\left(\overline{T}_m\right)}}{\partial{x}} \Delta x.
 		\end{equation}     
@@ -441,7 +497,7 @@
 	
 		\begin{frame}
 		\frametitle{Análise da temperatura de parede}
-		$\bullet$ Para esta análise empregou-se um estudo do fluxo térmico convectivo, que pode ser expresso matematicamente por:
+		Para esta análise empregou-se um estudo do fluxo térmico convectivo, que pode ser expresso matematicamente por:
 		\begin{equation}
 		q_w = h A \left( T_w(x) - \overline{T}_m(x)\right).
 		\end{equation}
@@ -460,44 +516,10 @@
 	
 	
 	
-		
-		\begin{frame}
-		\frametitle{Generalização para todo o domínio}
-		$\bullet$ Se observando que a temperatura média e a temperatura de parede aumentam linearmente no sentido de $ x $, imaginou-se que tal comportamento pude-se se estender para todo o domínio. Para isso, formulou-se:
-		\begin{equation}
-		T_m(x) = \frac{\int u(y) T(x , y) dy}{\int u(y)  dy} .
-		\end{equation}
-		\begin{equation}
-		T_m(x) \int u(y)dy = \int u(y) T(x , y) dy .
-		\end{equation}
-		\begin{equation}
-		\frac{\partial T_m(x) \int u(y)dy}{\partial x} = \frac{ \partial \int u(y) T(x , y) dy}{
-		\partial x} .
-		\end{equation}
-		\begin{equation}
-		 \int u(y)dy \frac{\partial T_m}{\partial x} = \int u(y)  \frac{\partial T}{
-			\partial x}  dy.
-		\end{equation}
-		\begin{equation}
-		u(y) \frac{\partial T_m}{\partial x} = u(y)  \frac{\partial T(x , y)}{
-			\partial x}.
-		\end{equation}
-		\begin{equation}
-		\frac{\partial T_m}{\partial x} = \frac{\partial T(x , y)}{
-			\partial x}.
-		\end{equation}		
-		
-		\end{frame}
-		
-
-
-
-
 		\begin{frame}
 			\frametitle{Diferença de temperatura}
-			$\bullet$ Para que haja um regime térmico completamente desenvolvido, as condições de contorno devem ser controladas. No caso deste trabalho, estabeleceu-se um regime de fluxo térmico constante, o que implicou em um gradiente linear de temperatura nas paredes no sentido do eixo $x$.  \\
+			Tem-se um gradiente linear de temperatura nas paredes no sentido do eixo $x$. Para que se obtenha um fluxo térmico constante no canal.  \\
 			\begin{minipage}[h!]{0.36\textwidth}
-				Tal gradiente linear se estende para todo o domínio, resultando em:
 				\begin{equation}
 				\frac{\partial \overline{T}}{\partial x} = ctt.
 				\end{equation}
@@ -556,13 +578,13 @@
 		
 		
 		\begin{frame}
-			\frametitle{Simplificações chave na velocidade}
-			$\bullet$ Para a velocidade, devem ser feitas as considerações de que é um sistema em regime permanente e unidimensional.
+			\frametitle{Equação dinâmica simplificada}
+			Para a velocidade, devem ser feitas as considerações de que é um sistema em regime permanente e unidimensional.
 			Assim, na equação da velocidade, teremos as seguintes simplificações:
 			\begin{equation}
 			\begin{split}
-			\color{red}\frac{\partial \overline{u}}{\partial t} \color{black}+\color{red} \frac{\partial \overline{u^2}}{\partial x} \color{black}+\color{red} \frac{\partial \overline{u} \ \color{blue}\overline{v}\color{red}}{\partial y}\color{black} + \color{red} \frac{\partial \overline{u} \ \color{blue}\overline{w}\color{red}}{\partial z} \color{black} =  - \frac{1}{\rho} \frac{\partial \overline{{p}}}{\partial x} + \frac{\partial}{\partial x} \left( \nu \color{red}\frac{\partial \overline{u}}{\partial x} \color{black} - \overline{{u^\prime}^2}\right) + \frac{\partial}{\partial y} \left( \nu \frac{\partial \overline{u}}{\partial y} - \overline{{u^\prime  v^\prime}}\right) \\
-			+ \color{red}\frac{\partial}{\partial z} \left( \nu  \frac{\partial \overline{u}}{\partial z} - \overline{ u ^\prime w ^\prime} \right) \color{black}
+			\frac{\partial \overline{u}}{\partial t} + \frac{\partial \overline{u^2}}{\partial x} + \frac{\partial \overline{u} \ \overline{v}}{\partial y} +  \frac{\partial \overline{u} \ \overline{w}}{\partial z}  =  - \frac{1}{\rho} \frac{\partial \overline{{p}}}{\partial x} + \frac{\partial}{\partial x} \left( \nu \frac{\partial \overline{u}}{\partial x} - \overline{{u^\prime}^2}\right) + \frac{\partial}{\partial y} \left( \nu \frac{\partial \overline{u}}{\partial y} - \overline{{u^\prime  v^\prime}}\right) \\
+			+ \frac{\partial}{\partial z} \left( \nu  \frac{\partial \overline{u}}{\partial z} - \overline{ u ^\prime w ^\prime} \right)
 			\end{split}
 			\end{equation}
 			\begin{equation}
@@ -575,24 +597,24 @@
 		
 		
 		\begin{frame}
-		\frametitle{Simplificações chave na temperatura}
-		$\bullet$ Para a temperatura, foi considerado um regime permanente, derivadas nulas quanto à temperatura e diferença de temperatura, além de que considerou-se a temperatura de parede estável, ou seja, sem flutuações. 
+		\frametitle{Equação térmica simplificada}
+		Para a temperatura, foi considerado um regime permanente, derivadas nulas quanto à temperatura e diferença de temperatura, além de que considerou-se a temperatura de parede estável, ou seja, sem flutuações. 
 	 	\begin{center}
 	 	\begin{equation*}
 	 		\begin{split}
-	 		\color{red}\frac{\partial ( \overline{ T^\ast + T_w } ) }{\partial t} \color{black} +
-	 		\frac{\partial{}}{\partial{x}} \left(\overline{ \color{red}T_w^{\prime} \color{black} u^{\prime}}\right) +
-	 		\color{red}\frac{\partial{}}{\partial{x}} \left(\overline{{T^{\ast}}^{\prime} u^{\prime}}\right)+ \color{black}
-	 		\color{red} \frac{\partial{}}{\partial{x}}\left(\overline{u} \ \overline{T^{\ast}}\right) \color{black}+ 
+	 		\frac{\partial ( \overline{ T^\ast + T_w } ) }{\partial t}  +
+	 		\frac{\partial{}}{\partial{x}} \left(\overline{ T_w^{\prime}  u^{\prime}}\right) +
+	 		\frac{\partial{}}{\partial{x}} \left(\overline{{T^{\ast}}^{\prime} u^{\prime}}\right)+ 
+	 		 \frac{\partial{}}{\partial{x}}\left(\overline{u} \ \overline{T^{\ast}}\right) + 
 	 		\frac{\partial{}}{\partial{x}}\left(\overline{u} \ \overline{T_w}\right)+ 
 	 		\\
 	 		\frac{\partial{}}{\partial{y}} \left(\overline{{T^{\ast}}^{\prime} v^{\prime}}\right)+
-	 		\frac{\partial{}}{\partial{y}} \left(\overline{\color{red}T_w^\prime \color{black} v^\prime}\right) + \frac{\partial{}}{\partial{y}}\left(\color{red}\overline{v} \color{black} \ \overline{T^\ast}\right) +
-	 		\frac{\partial{}}{\partial{y}}\left(\color{red}\overline{v}\color{black} \ \overline{T_w}\right) 
+	 		\frac{\partial{}}{\partial{y}} \left(\overline{T_w^\prime  v^\prime}\right) + \frac{\partial{}}{\partial{y}}\left(\overline{v}  \ \overline{T^\ast}\right) +
+	 		\frac{\partial{}}{\partial{y}}\left(\overline{v} \ \overline{T_w}\right) 
 	 		= 
 	 		\\
-	 		\color{red}{\frac{\partial{}}{\partial{x}}} \left(\alpha {\frac{\partial{\overline{(T^\ast + T_w)}}}{\partial{x}}} \right) \color{black}+
-	 		{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{(T^\ast + \color{red} T_w \color{black})}}}{\partial{y}}} \right) .
+	 		{\frac{\partial{}}{\partial{x}}} \left(\alpha {\frac{\partial{\overline{(T^\ast + T_w)}}}{\partial{x}}} \right) +
+	 		{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{(T^\ast +  T_w )}}}{\partial{y}}} \right) .
 	 		\end{split}
 	 	\end{equation*}
  		\end{center}
@@ -603,15 +625,12 @@
  			\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  .
  		\end{equation}
 		\end{frame}
-	
-		
-		
-		
-		
+
+
 		
 		\begin{frame}
 			\frametitle{Hipótese de Boussinesq}
-			$\bullet$ Dessa forma fica o fluxo turbulento para se modelar. O termo $\overline{T^{\ast\prime}  v^\prime}$ pode ser desenvolvido segundo a hipótese de Boussinesq, que postula:
+			O fluxo turbulento ($\overline{T^{\ast\prime}  v^\prime}$) pode ser desenvolvido segundo a hipótese de Boussinesq, que postula:
 			\begin{equation}\label{bou}
 			-\left(\overline{ u^\prime  v^\prime}\right) = 
 			\nu_t \frac{\partial{\overline{u}}}{\partial{y}}
@@ -619,7 +638,7 @@
 			-\left(\overline{ T^{\ast\prime}  v^\prime}\right) = 
 			\alpha_t \frac{\partial{\overline{T^\ast}}}{\partial{y}}.
 			\end{equation}
-			Assim, desenvolvendo a equação: 
+			Assim, tem-se: 
 			\\
 				\begin{equation}
 				{\frac{\partial{}}{\partial{y}}} \left(\alpha {\frac{\partial{\overline{T^\ast}}}{\partial{y}}}   
@@ -635,12 +654,12 @@
 		
 		\begin{frame}
 			\frametitle{Comprimento de mistura de Prandtl}
-			$\bullet$ Dessa forma, surge o termo da difusidade térmica turbulenta $\alpha_t$ que precisa ser modelado. Uma nova variável deve ser introduzida, o número de Prandtl turbulento, como segue:
+			Para modelar a difusidade térmica turbulenta ($\alpha_t$) uma nova variável deve ser introduzida, o número de Prandtl turbulento, como segue:
 			\begin{equation}
 				Pr_t = \frac{\nu_t}{\alpha_t}.
 			\end{equation} 
-			Assim, temos o valor do $\nu_t$ que precisa ser modelado. O valor do número de Prandtl turbulento de $ Pr_t = 0.71$ tem sido utilizado na literatura.
-			Com o modelo do comprimento de mistura de Prandtl, postula-se que:
+			O valor do número de Prandtl turbulento de $ Pr_t = 0.71$ tem sido utilizado na literatura, como visto em Turbulence in Fluids (M. Lesieur).
+			Para modelar $\nu_\tau$ tem-se o modelo do comprimento de mistura de Prandtl:
 			\begin{equation}
 			\nu_t = {l_m}^2 \left| \frac{\partial \overline{u}}{\partial y} \right|.
 			\end{equation}
@@ -652,7 +671,7 @@
 		
 		\begin{frame}
 			\frametitle{Substituindo o comprimento de mistura na equação principal}	
-			$\bullet$ O comprimento de mistura introduz um módulo no modelo diferencial e o parâmetro do número de Prandtl turbulento.   
+			O comprimento de mistura introduz um módulo no modelo diferencial e o parâmetro do número de Prandtl turbulento.   
 			\\
 				\begin{equation}
 				{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
@@ -667,7 +686,7 @@
 			\overline{u}\frac{\partial{}}{\partial{x}}\left(\overline{T_w}\right)  .
 			\end{equation}
 		\\
-		É possível notar, ao se analisar o domínio dinâmico, que para valores positivos de $ y $, a primeira derivada da velocidade sempre será negativa, visto que pelos princípios de Dirichlet e Neumman, tem-se uma velocidade que diminui com o aumento de $ y $. Assim, temos:\\
+		Para valores positivos de $ y $, a primeira derivada da velocidade sempre será negativa, visto que pelos princípios de Dirichlet e Neumman, tem-se uma velocidade que diminui com o aumento de $ y $. Assim, temos:\\
 			\begin{equation}
 			{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
 			- \frac{{l_m}^2}{Pr_t}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
@@ -702,7 +721,7 @@
 		
 		\begin{frame}
 			\frametitle{Substituindo o comprimento de mistura nas equações}
-			$\bullet$ É importante observar que a função $ L(\frac{y}{R}) $ já está Adimensionalizada.
+			A função $ L(\frac{y}{R}) $ já está Adimensionalizada. Mas ela pode ser introduzida na equação da temperatura como segue:
 				\begin{equation}
 				{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
 				- \frac{{L}^2 R ^2}{Pr_t}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
@@ -717,7 +736,7 @@
 		
 		\begin{frame}
 			\frametitle{Desenvolvendo a equação dinâmica}
-			$\bullet$ Desenvolvendo a equação dinâmica foi possível se explicitar de forma exata a primeira derivada da velocidade.
+			
 			\begin{equation}
 			\int \frac{1}{\rho} \frac{\partial \overline{p}}{\partial x} dy = \int \frac{\partial}{\partial y} \left( \nu  \frac{\partial \overline{u}}{\partial y} - {L}^2 R ^2 \left(\frac{\partial \overline{u}}{\partial y}\right) ^ 2 \right) dy  
 			\end{equation}
@@ -739,23 +758,23 @@
 		
 		
 		
-		\begin{frame}
-		\frametitle{Modelo referente ao gradiente de pressão}
-		$\bullet$ Para este desenvolvimento se utilizou a definição da tenção cisalhante e uma análise segundo a primeira lei de Newton.
-		\begin{equation}
-		u_\tau = \sqrt{\frac{\left| \tau_w \right|}{\rho}}
-		\end{equation}
-		\begin{equation}
-		p_1 2R = 2 \tau_w \Delta x + p_2 2 R
-		\end{equation}
-		Assim, desenvolvendo e substituindo, temos:
-		\begin{equation}
-		\frac{\tau_w}{R} = \frac{(p_1 - p_2)}{\Delta x}
-		\end{equation}
-		\begin{equation}
-		- \frac{\partial \overline{p}}{\partial x} = \frac{\tau_w}{R} = \frac{u_\tau^2 \rho}{R} 
-		\end{equation}
-		\end{frame}
+		% \begin{frame}
+		% \frametitle{Modelo referente ao gradiente de pressão}
+		% Utilizou-se a definição da tenção cisalhante e uma análise segundo a primeira lei de Newton.
+		% \begin{equation}
+		% u_\tau = \sqrt{\frac{\left| \tau_w \right|}{\rho}}
+		% \end{equation}
+		% \begin{equation}
+		% p_1 2R = 2 \tau_w \Delta x + p_2 2 R
+		% \end{equation}
+		% Assim, desenvolvendo e substituindo, temos:
+		% \begin{equation}
+		% \frac{\tau_w}{R} = \frac{(p_1 - p_2)}{\Delta x}
+		% \end{equation}
+		% \begin{equation}
+		% - \frac{\partial \overline{p}}{\partial x} = \frac{\tau_w}{R} = \frac{u_\tau^2 \rho}{R} 
+		% \end{equation}
+		% \end{frame}
 	
 	
 	
@@ -764,33 +783,22 @@
 	
 		\begin{frame}
 			\frametitle{Adimensionalização}
-			$\bullet$ Para se comparar mais facilmente os modelos à literatura, adimensionalizou-se as equações segundo coordenadas de parede. Foi considerado: $ \tilde{y} = \frac{y . Re_\tau}{R} $, $ \tilde{\overline{u}} = \frac{\overline{u}}{u_\tau} $ , $ \tilde{\overline{T}} = \frac{\overline{T}}{T_\tau} $ , $Re_\tau = \frac{u_\tau R}{\nu}$, $Pr_t = \frac{\nu_t}{\alpha_t}$, $Pr = \frac{\nu}{\alpha}$ e $T_\tau = \frac{q_w}{\rho C_p u_\tau}$, $\frac{\partial{\left(T_m\right)}}{\partial{x}} = \frac{q_w}{u_m  R \rho  C_p } $, $\frac{\partial \overline{p}}{\partial x} = - \frac{u_\tau^2 \rho}{R} $.
+			Para se comparar mais facilmente os modelos à literatura, adimensionalizou-se as equações segundo coordenadas de parede. Foi considerado: $ \tilde{y} = \frac{y . Re_\tau}{R} $, $ \tilde{\overline{u}} = \frac{\overline{u}}{u_\tau} $ , $ \tilde{\overline{T}} = \frac{\overline{T}}{T_\tau} $ , $Re_\tau = \frac{u_\tau R}{\nu}$, $Pr_t = \frac{\nu_t}{\alpha_t}$, $Pr = \frac{\nu}{\alpha}$ e $T_\tau = \frac{q_w}{\rho C_p u_\tau}$, $\frac{\partial{\left(T_m\right)}}{\partial{x}} = \frac{q_w}{u_m  R \rho  C_p } $, $\frac{\partial \overline{p}}{\partial x} = - \frac{u_\tau^2 \rho}{R} $.
 			\\
-				\begin{equation}
-				{\frac{\partial{}}{\partial{y}}} \left( \left( \alpha   
-				- \frac{{L}^2 R ^2}{Pr_t}\frac{\partial \overline{u}}{\partial y} \right) \frac{\partial \overline{T^\ast}}{\partial y} \right)
-				= 
-				\overline{u}\frac{\partial{}\left(\overline{T_w}\right)  }{\partial{x}}.
-				\end{equation}
 				\begin{equation}
 				{\frac{\partial{}}{\partial{\tilde{y}}}} \left( \left( \frac{Re_\tau}{Pr}   
 				- \frac{{L}^2 Re_\tau ^3}{Pr_t}\frac{\partial \tilde{\overline{u}}}{\partial \tilde{y}} \right) \frac{\partial \tilde{\overline{T^\ast}}}{\partial \tilde{y}} \right)
 				= 
 				\frac{\tilde{\overline{u}}}{\tilde{u_m}}.
 				\end{equation}
-		\end{frame}
-	
-	
-	
-		\begin{frame}
-			\frametitle{O desenvolvimento dinâmico}
-			$\bullet$ É importante notar como há a velocidade na equação principal, ou seja, para o desenvolvimento do domínio térmico fez-se necessário o desenvolvimento do perfil dinâmico do canal. Para isso utilizou-se uma metodologia RANS previamente estabelecida, como segue: 
+
 				\begin{equation}
 				\frac{\partial \tilde{\overline{u}}}{\partial \tilde{y}} = - \frac{2 \tilde{y} \frac{1}{Re_\tau} }{ 1 + \sqrt{ 1 + 4 L ^2 Re_\tau ^2 \tilde{y}}}.
 				\end{equation}	
 				
 			Dessa forma, tem-se a primeira derivada da velocidade de forma exata.
 		\end{frame}
+	
 	
 	
 
@@ -804,16 +812,21 @@
 		
 		\begin{frame}
 			\frametitle{Discretização do espaço}
-			\begin{minipage}[h!]{0.5\textwidth}
-			$\bullet$ Para discretizar o espaço, foi formulado um domínio Euleriano. Para a velocidade foi aplicado um Runge-kutta de quarta ordem, enquanto a temperatura foi arranjada em um sistema de diferenças centradas que teve de ser resolvido implicitamente. O domínio dinâmico foi resolvido primeiro, e seu resultado numérico fora utilizado no desenvolvimento do perfil térmico. Quanto à localização das células, foi determinado um centro de célula na parede, e um ponto entre células no centro do canal, sendo o restante das unidades de espaço distribuídas uniformemente para todo o canal.
+			\begin{minipage}[h!]{0.39\textwidth}
+      No modelo numérico se utilizou:\\
+        $\bullet$ Domínio Euleriano.\\
+        $\bullet$ Método Runge-Kutta de quarta ordem para o domínio dinâmico.\\
+        $\bullet$ diferenças centradas para o domínio térmico resolvido de forma implicita.\\
+        $\bullet$ Paredes em centro de célula.\\
+      Resultados de convergência podem ser vistos na imagem.
 			\end{minipage}\hfill
-			\begin{minipage}[h!]{0.45\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=90, scale=0.06]{canalvermelho}
-				\caption{Representação gráfica do domínio do sistema.}
-				\label{sistema}
-			\end{figure}
+			\begin{minipage}[h!]{0.60\textwidth}
+      \begin{figure}[!h]
+        \centering
+        \includegraphics[angle=0, trim={10mm 0mm 0mm 0mm}, clip , scale=0.40]{fotos_formatacao_final/Convergence}
+        \caption{Norma L2 de simulação térmica comparado a DNS até 400 células, com $Re_\tau = 1020$.}
+      \end{figure}
+
 			\end{minipage}\\
 		\end{frame}
 	
@@ -821,38 +834,50 @@
 	
 	
 	
-			\begin{frame}
-		\begin{figure}
-			\centering
-			\includegraphics[angle=0, scale=0.42]{convergnciaprimeira}
-			\caption{Convergência e independência de malha.}
-			\label{convergencia}
-		\end{figure}
-	\end{frame}
-		
+  \begin{frame}
+    \begin{figure}
+      \centering
+      \includegraphics[angle=0, scale=0.42]{convergnciaprimeira}
+      \caption{Convergência e independência de malha.}
+      \label{convergencia}
+    \end{figure}
+  \end{frame}
+
+
 	
 	
-	
-		
+
 	\section{Resultados}
-		\begin{frame}
-			\frametitle{Simulações preliminares: $Pr_t= 0.71$ , $A = 26 $}
-				$\bullet$ Inicialmente utilizou-se o Prandtl turbulento como um valor da literatura, de 0.71, onde se obteve os seguintes resultados:\\
-			\begin{minipage}[h!]{0.45\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.28]{150orto}
-				\caption{Resultado para $Re_\tau = 150$. L2 = 1.36 }
-			\end{figure}
-			\end{minipage}\hfill
-				\begin{minipage}[h!]{0.45\textwidth}
-				\begin{figure}
-					\centering
-					\includegraphics[angle=0, scale=0.28]{1020orto}
-					\caption{Resultado para $Re_\tau = 1020$. L2 = 1.77}
-				\end{figure}
-			\end{minipage}		
-		\end{frame}
+  \begin{frame}
+    \frametitle{Resultados para: $Pr_t= 0.71$ , $A = 26 $}
+    \begin{figure}[!h]
+        \centering
+        \begin{minipage}{0.49\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.20]{fotos_formatacao_final/Temperature_150_071_classico}
+          \caption{$Re_\tau = 150$, $L2_t = 1.42$}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.49\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.20]{fotos_formatacao_final/Temperature_395_071_classico}
+          \caption{$Re_\tau = 395$, $L2_t = 1.55$}
+        \end{minipage}
+        \begin{minipage}{0.49\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.20]{fotos_formatacao_final/Temperature_640_071_classico}
+          \caption{$Re_\tau = 640$, $L2_t = 1.79$}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.49\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.20]{fotos_formatacao_final/Temperature_1000_071_classico}
+          \caption{$Re_\tau = 1020$, $L2_t = 2.04$}
+        \end{minipage}
+        \caption{Distribuição de temperatura para $Pr_t = 0.71$ e $A = 26$.} 
+        \label{figuraresultados1}
+    \end{figure}
+  \end{frame}
 	
 	
 	
@@ -860,72 +885,69 @@
 		
 		\begin{frame}
 		\frametitle{Estudo do número de Prandtl turbulento fornecido por DNS}
-		\begin{minipage}[h!]{0.45\textwidth}
-			$\bullet$ Observou-se o resultado para quando o número de Prandtl turbulento do DNS era utilizado, obtendo-se uma norma L2 de $0.19$ para $Re_t = 640$. Assim se identificou que o problema estava na parametrização do Prandtl turbulento que passou a ser o foco da pesquisa. 
+		\begin{minipage}[h!]{0.29\textwidth}
+			$\bullet$ O número de Prandtl turbulento do DNS era diferente do que utilizamos ($0.71$).\\
+      $\bullet$ O valor do número de Prandtl turbulento não só varia com o número de Reynolds e número de Prandtl, mas também com a distância até a parede.\\
+      $\bullet$ Usando-se o valor de Prandtl turbulento fornecido pelo DNS obteve-se uma norma L2 de $0.19$ para $Re_t = 640$;
 		\end{minipage}\hfill
-		\begin{minipage}[h!]{0.45\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.12]{perfisPrandtlturb_Ret_Pt}
-				\caption{Vetor com o número de Prandtl turbulento em função da coordenada $ y $ no canal.}
-			\end{figure}
+		\begin{minipage}[h!]{0.60\textwidth}
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[angle=0, scale=0.39]{fotos_formatacao_final/DNS_PRt}
+        \caption{Número de Prandtl turbulento adquirido do DNS em função de $ \tilde{y}/Re_\tau $, a distância até a parede no canal.}
+        \label{figure5}
+      \end{figure}
 		\end{minipage}	\\
-		Assim iniciou-se o esforço de se propor uma parametrização ajustada para o número de Prandtl turbulento.
-		Nesse sentido procurou-se ajustar um valor para o qual o erro fosse mínimo quando feita a comparação da simulação com DNS.
 		\end{frame}
 	
 	
 		\begin{frame}
-		\frametitle{Ajustando um valor de Prandtl turbulento}
-		\begin{minipage}[h!]{0.45\textwidth}
-			$\bullet$ Escreveu-se um algoritmo que buscava um erro mínimo para a função, considerando o número de Prandtl turbulento como uma variável editável e o erro menor como o padrão de interesse. 
-			
-			Obteve-se um número de Prandtl turbulento ajustado de $ 0.905 $ Para o número de Reynolds turbulento de $1020$.
-			
-			Tal valor foi aplicado a todo o domínio.
+		\frametitle{Ajustando o número de Prandtl turbulento com algoritmo genético}
+		\begin{minipage}[h!]{0.39\textwidth}
+      Foi utilizado um algoritmo de evolução diferencial na procura da melhor parametrização possível do Prandtl turbulento.
+
+      $\bullet$ Arbitrou-se a norma L2 como função objetiva.\\
+      $\bullet$ O número de Prandtl turbulento foi fornecido como única variável mutável.\\
+      $\bullet$ As gerações se sucederam conforme o gráfico.\\
+
 		\end{minipage}
-			\begin{minipage}[h!]{0.2\textwidth}
-			\end{minipage}
-			\begin{minipage}[h!]{0.45\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.32]{oloco}
-				\caption{Resultado para $Re_\tau = 1020$. L2 = 0.151}
-			\end{figure}
-		\end{minipage}	
+    \begin{minipage}[h!]{0.60\textwidth}
+      \begin{figure}[!h]
+        \centering
+        \includegraphics[angle=0, scale=0.41]{fotos_formatacao_final/Genetic_amostra}
+        \caption{Iterações de algoritmo genético, com simulações para $Re_\tau = 1020$. Convergência em $Pr_t = 0.9 $.}
+      \end{figure}
+      \end{minipage}	
 		\end{frame}
 		
-		
-		
-		
-		
+
 		\begin{frame}
-		\frametitle{Ajuste de um valor fixo ideal: $Pr_t = 0.905$ , $A = 26$}
-		$\bullet$Simulações com o número de Prandtl turbulento ajustado fixo em $Re_\tau = 1020$:  \\
-		\begin{minipage}[h!]{0.45\textwidth}
-			 \begin{figure}
-			 	\centering
-			 	\includegraphics[angle=0, scale=0.22]{150segundo}
-			 	\caption{Resultado para $Re_\tau = 150$. L2 = 0.341}
-			 \end{figure}
-			 \begin{figure}
-			 	\centering
-			 	\includegraphics[angle=0, scale=0.22]{395segundo}
-			 	\caption{Resultado para $Re_\tau = 395$. L2 = 0.23}
-			 \end{figure}
-		\end{minipage}\hfill
-		\begin{minipage}[h!]{0.45\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.22]{640segundo}
-				\caption{Resultado para $Re_\tau = 640$. L2 = 0.192}
-			\end{figure}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.22]{1020segundo}
-				\caption{Resultado para $Re_\tau = 1020$. L2 = 0.151}
-			\end{figure}
-		\end{minipage}		
+		\frametitle{Resultados para: $Pr_t = 0.9$ , $A = 26$}
+      \begin{figure}[!h]
+        \centering
+        \begin{minipage}[t]{0.49\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_150_071_Prt0905_A26}
+          \caption{$Re_\tau = 150$, $L2_t = 0.34$}
+        \end{minipage}
+        \begin{minipage}[t]{0.49\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_395_071_Prt0905_A26}
+          \caption{$Re_\tau = 395$, $L2_t = 0.23$}
+        \end{minipage}
+        \begin{minipage}[t]{0.49\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_640_071_Prt0905_A26}
+          \caption{$Re_\tau = 640$, $L2_t = 0.19$}
+        \end{minipage}
+        \begin{minipage}[t]{0.49\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_1000_071_Prt0905_A26}
+          \caption{$Re_\tau = 1020$, $L2_t = 0.14$}
+        \end{minipage}	
+        \caption{Perfis de temperatura para simulações com $Pr_t = 0.9 $ e $A = 26$.}
+        \label{primeiros}
+      \end{figure}
 		\end{frame}	
 	
 	
@@ -934,22 +956,25 @@
 		
 		\begin{frame}
 		\frametitle{Algoritmo de otimização}
-		$\bullet$ Para se obter uma curva que contemplasse os números de Reynolds em todo o domínio, se desenvolveu-se um algoritmo que otimizava a um Prandtl turbulento ideal para cada número de Reynolds turbulento disponível em DNS.\\
-		\begin{minipage}[h!]{0.45\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.22]{convergnciacima}
-				\caption{Algoritmo para valores ótimos. Com início abaixo do valor estimado.}
-			\end{figure}
-		\end{minipage}\hfill
-		\begin{minipage}[h!]{0.45\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.22]{convergnciabaixo}
-				\caption{Algoritmo para valores ótimos. Com início acima do valor estimado.}
-			\end{figure}
-		\end{minipage}\\
-		Como forma de se ter certeza de ter se chegado a um mínimo global, executou-se o algorítimo a partir de um ponto acima e de um ponto abaixo do inferido. 		
+    Foi observado que o número de Prandtl turbulento varia com o número de Reynolds, logo, o mesmo processo foi feito para cada valor de Reynolds.\\
+
+      Os valores obtidos podem ser conferidos na tabela \ref{tabela1}:
+
+      \begin{table}[!h]
+        \centering
+        \caption{Números de prandtl turbulentos ideais ajustados para cada número de Reynolds turbulento, com a constante de cebeci $A = 26$.}
+        \begin{tabular}{ll}
+            \hline
+            $Re_\tau$ & $Pr_t$\\
+            \hline
+            150  &   0.94531\\
+            395  &   0.89531\\
+            640  &   0.89531\\
+            1020 &   0.90000\\ 
+            \hline
+        \end{tabular}
+        \label{tabela1}
+      \end{table}
 		\end{frame}	
 	
 	
@@ -957,24 +982,76 @@
 	
 		\begin{frame}
 		\frametitle{Ajuste dos valores obtidos}
-		\begin{minipage}[h!]{0.45\textwidth}
 			$\bullet$ Executando um ajuste de curva polinomial, obteve-se a seguinte relação:
-			\begin{equation}
-			\begin{split}
-			Pr_t = 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 \\ + 0,0001 Re_\tau + 0,87 
-			\end{split}
-			\end{equation}
+      \begin{equation}
+        \begin{split}
+          Pr_t = -4.5604 * 10^{-10} Re_\tau^3 + 9.5690 * 10^{-7} Re_\tau^2\\
+          - 6.1715 *10 ^{-4} Re_\tau + 1.0178 .
+        \end{split}
+      \end{equation}
 			Assim, desenvolveu-se um modelo ajustado para o número de Prandtl turbulento em função do número de Reynolds turbulento.
-		\end{minipage}\hfill
-		\begin{minipage}[h!]{0.45\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[angle=0, scale=0.41]{ajustePrandtl}
-				\caption{Ajuste de um modelo para $Pr_t$ variável.}
-			\end{figure}
-		\end{minipage}\\
 		\end{frame}	
-		
+
+
+    \begin{frame}
+		\frametitle{Resultados para: $Pr_t(Re_\tau)$, $A = 26$}
+    \begin{figure}[!h]
+        \centering
+        \begin{minipage}[t]{0.5\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_150_071_Prt(Ret)_A26}
+          \caption{$Re_\tau = 150$, $L2_t = 0.26$}
+        \end{minipage}
+        \begin{minipage}[t]{0.45\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_395_071_Prt(Ret)_A26}
+          \caption{$Re_\tau = 395$, $L2_t = 0.22$}
+        \end{minipage}
+        \begin{minipage}[t]{0.5\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_640_071_Prt(Ret)_A26}
+          \caption{$Re_\tau = 640$, $L2_t = 0.17$}
+        \end{minipage}
+        \begin{minipage}[t]{0.45\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_1000_071_Prt(Ret)_A26}
+          \caption{$Re_\tau = 1020$, $L2_t = 0.14$}
+        \end{minipage}	
+        \caption{Resultados de temperatura para $Pr_\tau(Re_\tau)$, $A = 26$ e $Pr =0.71$. }
+        \label{figura_9}
+      \end{figure}
+
+		\end{frame}	
+
+
+    \begin{frame}
+		\frametitle{Análise sobre o perfil dinâmico}
+      \begin{figure}[!h]
+        \centering
+        \begin{minipage}[t]{0.5\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_150_Avelocity}
+          \caption{$Re_\tau = 150$, $L2_d = 0.47$}
+        \end{minipage}
+        \begin{minipage}[t]{0.45\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_395_Avelocity}
+          \caption{$Re_\tau = 395$, $L2_d = 0.17$}
+        \end{minipage}
+        \begin{minipage}[t]{0.5\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_640_Avelocity}
+          \caption{$Re_\tau = 640$, $L2_d = 0.23$}
+        \end{minipage}
+        \begin{minipage}[t]{0.45\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_1000_Avelocity}
+          \caption{$Re_\tau = 1020$, $L2_d = 0.23$}
+        \end{minipage}	
+        \caption{Resultados de perfil de velocidade para $A = 26$.}
+        \label{figura_10}
+      \end{figure}
+		\end{frame}	
 		
 		
 	
@@ -982,114 +1059,200 @@
 		\begin{frame}
 		\frametitle{Ajuste do valor de Cebeci}
 		\begin{minipage}[h!]{0.45\textwidth}
-			$\bullet$ A partir dos pontos resultantes do algoritmo de otimização, se desenvolveu o modelo ajustado para o valor de Cebeci. Como segue:
+      O valor da constate de Cebeci foi ajustada da mesma forma como foi feito com o Prandtl turbulento.
+			A partir dos pontos resultantes do algoritmo de otimização, se desenvolveu o modelo ajustado para o valor de Cebeci. Como segue:
 			\begin{equation}
 			A = \frac{Re_\tau ^{0.0451 * \ln(Re_\tau)} *e ^ {5.2753} }{Re_\tau ^{0.6094}}
 			\end{equation}
 		\end{minipage}\hfill
 		\begin{minipage}[h!]{0.45\textwidth}
-		\begin{figure}
-			\centering
-			\includegraphics[angle=0, scale=0.42]{ajustecebeci}
-			\caption{Ajuste de um modelo para um número de Cebeci variável.}
-		\end{figure}
+    \begin{table}[!h]
+	\centering
+	\caption{Constante de Cebeci ideal ajustada para cada número de Reynolds turbulento.}
+	\begin{tabular}{ll}
+		\hline
+		$Re_\tau$ & $A$\\
+		\hline
+		150  &   28.616180\\
+		395  &   25.673782\\
+		640  &   25.001266\\
+		1020 &   25.002136\\ 
+		\hline
+	\end{tabular}
+	\label{tablea}
+\end{table}
+
+
 		\end{minipage}
+		\end{frame}	
+
+
+    \begin{frame}
+		\frametitle{Resultados para: $A(Re_\tau)$}
+\begin{figure}[!h]
+	\centering
+	\begin{minipage}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_150_Amodeled}
+		\caption{$Re_\tau = 150$, $L2_d = 0.28$}
+	\end{minipage}
+	\begin{minipage}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_395_Amodeled}
+		\caption{$Re_\tau = 395$, $L2_d = 0.16$}
+	\end{minipage}
+	\begin{minipage}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_640_Amodeled}
+		\caption{$Re_\tau = 640$, $L2_d = 0.14$}
+	\end{minipage}
+	\begin{minipage}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_1000_Amodeled}
+		\caption{$Re_\tau = 1020$, $L2_d = 0.13$}
+	\end{minipage}	
+	\caption{Resultados em distribuição de velocidade para o modelo de A.}
+\end{figure}
 		\end{frame}	
 
 	
 	
-	
-	
-		\begin{frame}
-		\frametitle{Análise quanto à influencia do número de Prandtl}
+    \begin{frame}
+		\frametitle{Análise sobre o perfil dinâmico}
 		\begin{minipage}[h!]{0.45\textwidth}
-		$\bullet$ Estudou-se a influencia do número de Prandtl molecular e observou-se que ele também era uma variável com influencias no erro do método, assim iniciou-se um estudo com o objetivo de se adicionar a influência do valor do número de Prandtl à parametrização do número de Prandtl turbulento. Para isso propôs-se o seguinte modelo:
+      $\bullet$ Com o modelo de Cebeci ajustado novos valores de Prandtl turbulento foram calculados com o algoritmo genético.\\
+      $\bullet$ A partir dos novos valores numéricos, um novo modelo foi desenvolvido:\\
+
+      \begin{equation}
+        \begin{split}
+          Pr_t = 4.5290 * 10^{-12} Re_\tau^3 \\
+          - 5.7395 * 10^{-8} Re_\tau^2 + 9.397 * 10^{-5} Re_\tau + 0.8731.
+        \end{split}
+      \end{equation}
+
 		\end{minipage}\hfill
 		\begin{minipage}[h!]{0.45\textwidth}
-		\begin{figure}
-			\centering
-			\includegraphics[angle=0, scale=0.38]{analisepr}
-			\caption{Observação quanto à influência do número de Prandtl.}
-		\end{figure}
-		\end{minipage}\\
-		\begin{equation}
-	\begin{split}
-	Pr_t = \left( 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 + 0,0001 Re_\tau + 0,87 \right) \left(  \frac{Pr}{0,71}\right) ^{v}
-	\end{split}
-	\end{equation}
-		\end{frame}
-	
-	
-	
-	
-			\begin{frame}
-	\frametitle{Algoritmo genético de otimização}
-	$\bullet$ No ajuste do expoente na expansão da parametrização do número de Prandtl turbulento, utilizou-se um algoritmo evolutivo, que a partir de uma população inicial de casos convergiu para o valor mínimo.\\ 
-	\begin{minipage}[h!]{0.24\textwidth}
-		\begin{figure}
-			\centering
-			\includegraphics[angle=0, scale=0.20]{A100}
-			\caption{Algoritmo para valores ótimos, com malha de 100 unidades.}
-		\end{figure}
-	\end{minipage}\hfill
-	\begin{minipage}[h!]{0.24\textwidth}
-		\begin{figure}
-			\centering
-			\includegraphics[angle=0, scale=0.20]{A400}
-			\caption{Algoritmo para valores ótimos, com malha de 400 unidades.}
-		\end{figure}
-	\end{minipage}\hfill
-\begin{minipage}[h!]{0.24\textwidth}
-	\begin{figure}
-		\centering
-		\includegraphics[angle=0, scale=0.20]{A400zoon}
-		\caption{Algoritmo para valores ótimos, com malha de 400 unidades, segunda geração.}
-	\end{figure}
-\end{minipage}	
-	\begin{equation}
-\begin{split}
-Pr_t = \left( 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 + 0,0001 Re_\tau + 0,87 \right) \left(  \frac{Pr}{0,71}\right) ^{-0.008}
-\end{split}
-\end{equation}	
-\end{frame}	
-	
-	
-	
-	
-	
-	
-	% 
-	% 	\begin{frame}
-	% 	\frametitle{Resultados gerais}
-	% 	\begin{minipage}[h!]{0.45\textwidth}
-	% 	\animategraphics[trim = {1.7cm 2cm 0 1cm} , scale=2 , loop,controls = true,width=\linewidth]{10}{plot/plot_}{001}{180}
-	% 	\end{minipage}\hfill
-	% 	\end{frame}
-	
-	
-	
-	
-	
-		\begin{frame}
-		\frametitle{Comparação entre os métodos}
-		$\bullet$ Seguem alguns recortes do gráfico anterior, explicitando os erros obtidos para um Ret fixo de 395, e um Pr fixo de 0.71.\\
-		\begin{minipage}[h!]{0.47\textwidth}
-			\begin{figure}
-	\centering
-	\includegraphics[angle=0, scale=0.39]{finaispr}
-	\caption{Resultados gerais para $Re_\tau = 395$}
-\end{figure}
+      \begin{table}[!h]
+        \centering
+        \caption{Números de prandtl turbulentos ideais ajustados para cada número de Reynolds turbulento, com a função de Cebeci ajustada.}
+        \begin{tabular}{ll}
+          \hline
+          $Re_\tau$ & $Pr_t$\\
+          \hline
+          150  &   0.88594\\
+          395  &   0.90156\\
+          640  &   0.91094\\
+          1020 &   0.91406\\ 
+          \hline
+        \end{tabular}
+      \end{table}
+
 		\end{minipage}
-		\begin{minipage}[h!]{0.47\textwidth}
-		\begin{figure}
-			\centering
-			\includegraphics[angle=0, scale=0.39]{finaisRey}
-			\caption{Resultados gerais para $Pr = 0.71$}
-		\end{figure}
-		\end{minipage}\\
+		\end{frame}	
+
+
+    \begin{frame}
+		\frametitle{Resultados para: $Pr_\tau(Re_\tau)$, $A(Re_\tau)$}
+      \begin{figure}[!h]
+        \centering
+        \begin{minipage}[t]{0.5\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_150_071_Prt(Ret)_Avelocity}
+          \caption{$Re_\tau = 150$, $L2_t = 0.212$}
+        \end{minipage}
+        \begin{minipage}[t]{0.45\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_395_071_Prt(Ret)_Avelocity}
+          \caption{$Re_\tau = 395$, $L2_t = 0.233$}
+        \end{minipage}
+        \begin{minipage}[t]{0.5\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_640_071_Prt(Ret)_Avelocity}
+          \caption{$Re_\tau = 640$, $L2_t = 0.205$}
+        \end{minipage}
+        \begin{minipage}[t]{0.45\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_1000_071_Prt(Ret)_Avelocity}
+          \caption{$Re_\tau = 1020$, $L2_t = 0.175$}
+        \end{minipage}	
+        \caption{Resultados térmicos para $Pr_\tau(Re\tau)$, $A(Re_\tau)$ e $Pr =0.71$ }
+      \end{figure}
 		\end{frame}
-		
+
+    \begin{frame}
+		\frametitle{Ajuste multiobjetivo}
+		\begin{minipage}[h!]{0.45\textwidth}
+      $\bullet$ Um novo modelo foi criado considerando o Prandtl turbulento, e a constante de cebeci para os casos térmico e dinâmico como variáveis editáveis.
+      \begin{equation}
+        A_t = \frac{Re_\tau ^{0.0395 \ln(Re_\tau)^2 - 0.7588 \ln(Re_\tau) +  4.6637  } }{e ^{5.6703}},
+      \end{equation}
+
+      \begin{equation}
+        \begin{split}
+          Pr_t = -2.4892 * 10^{-10} Re_\tau^3 +  3.6036 * 10^{-7} Re_\tau^2\\
+          + 3.7921 *10 ^{-5} Re_\tau + 0.7123 .
+        \end{split}
+      \end{equation}
+
+		\end{minipage}\hfill
+		\begin{minipage}[h!]{0.45\textwidth}
+      \begin{table}[!h]
+        \centering
+        \caption{Números de prandtl turbulentos ideais e função de cebeci térmica ($A_t$) ajustados para cada número de Reynolds turbulento, com a abordagem multiobjetiva.}
+        \begin{tabular}{llll}
+          \hline
+          $Re_\tau$ & $Pr_t$ & $A_t$ & $A_d$\\
+          \hline
+          150  &   0.72530 & 37.25510 & 28.616180\\
+          395  &   0.76821 & 34.24176 & 25.673782\\
+          640  &   0.81896 & 31.27627 & 25.001266\\
+          1020 &   0.86179 & 28.73726 & 25.002136\\ 
+          \hline
+        \end{tabular}
+      \end{table}
+		\end{minipage}
+		\end{frame}
 	
+	
+    \begin{frame}
+		\frametitle{Resultados para: $Pr_\tau(Re_\tau)$, $A_t(Re_\tau)$, $A_d(Re_\tau)$}
+    \begin{figure}[!h]
+        \centering
+        \begin{minipage}[t]{0.5\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_150_071_Genetic2temperature}
+          \caption{$Re_\tau = 150$, $L2_t = 0.091$}
+        \end{minipage}
+        \begin{minipage}[t]{0.45\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_395_071_Genetic2temperature}
+          \caption{$Re_\tau = 395$, $L2_t = 0.049$}
+        \end{minipage}
+        \begin{minipage}[t]{0.5\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_640_071_Genetic2temperature}
+          \caption{$Re_\tau = 640$, $L2_t = 0.061$}
+        \end{minipage}
+        \begin{minipage}[t]{0.45\textwidth}
+          \centering
+          \includegraphics[angle=0, scale=0.2]{fotos_formatacao_final/Temperature_1000_071_Genetic2temperature}
+          \caption{$Re_\tau = 1020$, $L2_t = 0.076$}
+        \end{minipage}	
+        \caption{Resultados de simulação térmica para $Pr_\tau(Re_\tau)$, $A_d(Re_\tau)$, $A_t(Re_\tau) $ e $Pr =0.71$,\\ com ajuste multiobjetivo.}
+      \end{figure}
+		\end{frame}	
+	
+	\section{Conclusão}
+
+  \begin{frame}
+    \frametitle{Conclusão}
+    \begin{itemize}
+      \item O método semi analítico para o campo de temperatura foi implementado com sucesso e validado com os dados de DNS. Os resultados foram satisfatórios.
+      \item A investigação sobre o número de Prandtl turbulento e a constante de Cebeci se mostrou muito instrutiva ao descrever como estas constantes ajustadas podem influenciar no resultado do método semi-analítico.
+      \item Ajustando-se o valor do número de Prandtl turbulento e da constante de Cebeci com algoritmos genéticos resultou em erros cada vez menores, mas com sobre encaixe, o que torna tais valores úteis somente para o modelo físico explorado no presente trabalho.
+      \item Apesar disso, encontrou-se valores muito melhores que os inicialmente usados, com resultados muito mais acurados.
+    \end{itemize}
+  \end{frame}
 	
 	
 	
@@ -1124,7 +1287,9 @@ Pr_t = \left( 1,3 * 10^{-11} Re_\tau^3 - 7,1 * 10^{-8} Re_\tau^2 + 0,0001 Re_\ta
 				\frametitle{Agradecimentos}
 				\fontsize{44pt}{7.2}\selectfont
 				\begin{center}
-					Obrigado.
+					Obrigado.\\
+				\fontsize{20pt}{7.2}\selectfont
+          Perguntas?
 				\end{center}
 			\end{frame}
 		
